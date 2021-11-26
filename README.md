@@ -5,7 +5,7 @@ Gruppenmitglieder im Schwerpunkt "Weaving the Web" :
 - Jan Koll
 - Aljosha Cedric Merz
 - Melvin Weiershäuser
-- Daniel Hauser
+- Daniel Heuser
 - Denise-Adriana Büning
 
 Project Owner : Jan Kus (Railslove)<br>
