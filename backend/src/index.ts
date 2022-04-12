@@ -1,3 +1,5 @@
 import {dotenv,serve} from './deps.ts';
-console.log(`http://localhost:${dotenv.PORT}/`);
-serve((req) => new Response("Hello World\n"), {port:parseInt(dotenv.PORT)}).then(r => console.log(r));
+
+const url=`http://localhost:${dotenv.PORT}`
+console.log(url);
+serve((_req) => new Response("Hello World\n"), {port:parseInt(dotenv.PORT)}).then(r => console.log(r));
