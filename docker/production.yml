@@ -1,0 +1,62 @@
+version: "3.9"
+services:
+  traefik:
+    image: traefik:2.6
+    restart: unless-stopped
+    ports:
+      - "1030:443"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./traefik:/etc/traefik
+      - /var/lib/traefik/letsencrypt:/letsencrypt
+      - /var/logs:/var/logs
+    environment:
+      - DOMAIN=web102.in-p.de
+    networks:
+      - traefik
+
+  backend:
+    hostname: backend
+    stdin_open: true
+    tty: true
+    build: ../backend
+    restart: always
+    volumes:
+      - ../backend:/wtw
+    networks:
+      - internal
+      - traefik
+
+  frontend:
+    hostname: webfrontend
+    build:
+      context: ../frontend
+      dockerfile: production.Dockerfile
+    tty: true
+    restart: always
+    volumes:
+      - /wtw/node_modules
+    healthcheck:
+      disable: true
+    networks:
+      - internal
+      - traefik
+
+  arangodb:
+    hostname: arangodb
+    build: arangodb
+    env_file: .env
+    restart: always
+    depends_on:
+      - traefik
+    volumes:
+      - /var/lib/arangodb3:/var/lib/arangodb3
+    networks:
+      - internal
+      - traefik
+
+networks:
+  traefik:
+    driver: bridge
+  internal:
+    driver: bridge

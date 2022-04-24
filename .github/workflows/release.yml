@@ -1,6 +1,8 @@
 name: Publish Release
 on:
   push:
+    branches:
+      - 'main'
     tags:
       - 'v*'
 jobs:
@@ -13,4 +15,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
       with:
-        args: ReleaseComplete 
+        args: ReleaseComplete
