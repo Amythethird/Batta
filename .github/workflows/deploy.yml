@@ -11,32 +11,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
-  check:
-    runs-on: self-hosted
-    needs:
-      - init
-    outputs:
-      build_frontend: ${{ steps.check.outputs.build_frontend }}
-      build_backend: ${{ steps.check.outputs.build_backend }}
-    steps:
-      - name: Check Frontend
-        run: |
-          if git diff --exit-code HEAD HEAD^ -- frontend
-            then echo "::set-output name=build_frontend::true"
-            else echo "::set-output name=build_frontend::false"
-          fi
-      - name: Check Backend
-        run: |
-          if git diff --exit-code HEAD HEAD^ -- backend
-            then echo "::set-output name=build_backend::true"
-            else echo "::set-output name=build_backend::false"
-          fi
 
   frontend:
     runs-on: self-hosted
     needs:
       - check
-    if: needs.check.outputs.build_frontend
     steps:
       - name: Build Frontend
         run: |
@@ -51,9 +30,16 @@ jobs:
     runs-on: self-hosted
     needs:
       - check
-    if: needs.check.outputs.build_backend
     steps:
       - name: Build Backend
         run: |
           cd docker
           docker-compose up -d --build backend
+
+  start-containers:
+    runs-on: self-hosted
+    steps:
+      - name: start
+      - run: |
+          cd docker
+          docker-compose up -d
