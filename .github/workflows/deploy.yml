@@ -14,8 +14,6 @@ jobs:
 
   frontend:
     runs-on: self-hosted
-    needs:
-      - check
     steps:
       - name: Build Frontend
         run: |
@@ -28,8 +26,6 @@ jobs:
 
   backend:
     runs-on: self-hosted
-    needs:
-      - check
     steps:
       - name: Build Backend
         run: |
@@ -40,6 +36,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: start
-      - run: |
+        run: |
           cd docker
           docker-compose up -d
