@@ -20,14 +20,12 @@ jobs:
       build_backend: ${{ steps.check.outputs.build_backend }}
     steps:
       - name: Check Frontend
-        uses: actions/checkout@automatic-release-tag
         run: |
           if ! git diff --exit-code HEAD HEAD^ -- frontend
             then echo "::set-output name=build_frontend::true"
             else echo "::set-output name=build_frontend::false"
           fi
       - name: Check Backend
-        uses: actions/checkout@automatic-release-tag
         run: |
           if ! git diff --exit-code HEAD HEAD^ -- backend
             then echo "::set-output name=build_backend::true"
@@ -41,7 +39,6 @@ jobs:
     if: needs.check.outputs.build_frontend
     steps:
       - name: Build Frontend
-        uses: actions/checkout@automatic-release-tag
         run: |
           cd frontend
           npm i --unsafe-perm -g npm@latest expo-cli@latest
@@ -57,7 +54,6 @@ jobs:
     if: needs.check.outputs.build_backend
     steps:
       - name: Build Backend
-        uses: actions/checkout@automatic-release-tag
         run: |
           cd docker
           docker-compose up -d --build backend
