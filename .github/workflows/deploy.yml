@@ -12,25 +12,6 @@ jobs:
         with:
           fetch-depth: 2
 
-  frontend:
-    runs-on: self-hosted
-    steps:
-      - name: Build Frontend
-        run: |
-          cd frontend
-          npm ci
-          npm run build
-          cd ../docker
-          docker-compose -f production.yml up -d --build frontend
-
-  backend:
-    runs-on: self-hosted
-    steps:
-      - name: Build Backend
-        run: |
-          cd docker
-          docker-compose -f production.yml up -d --build backend
-
   start-containers:
     runs-on: self-hosted
     steps:
