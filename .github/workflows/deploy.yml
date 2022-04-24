@@ -21,13 +21,13 @@ jobs:
     steps:
       - name: Check Frontend
         run: |
-          if ! git diff --exit-code HEAD HEAD^ -- frontend
+          if git diff --exit-code HEAD HEAD^ -- frontend
             then echo "::set-output name=build_frontend::true"
             else echo "::set-output name=build_frontend::false"
           fi
       - name: Check Backend
         run: |
-          if ! git diff --exit-code HEAD HEAD^ -- backend
+          if git diff --exit-code HEAD HEAD^ -- backend
             then echo "::set-output name=build_backend::true"
             else echo "::set-output name=build_backend::false"
           fi
