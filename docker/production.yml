@@ -45,7 +45,7 @@ services:
   arangodb:
     hostname: arangodb
     build: arangodb
-    env_file: .env
+    env_file: /home/wtw/.env
     restart: always
     depends_on:
       - traefik

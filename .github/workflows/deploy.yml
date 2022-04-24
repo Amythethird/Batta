@@ -18,11 +18,10 @@ jobs:
       - name: Build Frontend
         run: |
           cd frontend
-          npm i --unsafe-perm -g npm@latest expo-cli@latest
           npm ci
           npm run build
           cd ../docker
-          docker-compose up -d --build frontend
+          docker-compose -f production.yml up -d --build frontend
 
   backend:
     runs-on: self-hosted
@@ -30,7 +29,7 @@ jobs:
       - name: Build Backend
         run: |
           cd docker
-          docker-compose up -d --build backend
+          docker-compose -f production.yml up -d --build backend
 
   start-containers:
     runs-on: self-hosted
@@ -38,4 +37,4 @@ jobs:
       - name: start
         run: |
           cd docker
-          docker-compose up -d
+          docker-compose -f production.yml up -d
