@@ -40,6 +40,6 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: start
-      - run: |
+        run: |
           cd docker
           docker-compose up -d
