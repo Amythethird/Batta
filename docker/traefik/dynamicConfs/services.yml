@@ -1,0 +1,14 @@
+http:
+  services:
+    arangodb-service:
+      loadBalancer:
+        servers:
+          - url: http://arangodb:8529
+    frontend-service:
+      loadBalancer:
+        servers:
+          - url: http://webfrontend:3000
+    backend-service:
+      loadBalancer:
+        servers:
+          - url: http://backend:5000

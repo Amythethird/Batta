@@ -1,0 +1,30 @@
+http:
+  routers:
+    dashboard:
+      entryPoints: [ "web","websecure" ]
+      middlewares: ["redirectHTTPS"]
+      service: api@internal
+      rule: Host(`dashboard.{{env "DOMAIN"}}`)
+      tls:
+        certResolver: letsencrypt
+    arangodb:
+      entryPoints: [ "web","websecure" ]
+      middlewares: ["redirectHTTPS"]
+      service: arangodb-service
+      rule: Host(`arangodb.{{ env "DOMAIN" }}`)
+      tls:
+        certResolver: letsencrypt
+    frontend:
+      entryPoints: [ "web","websecure" ]
+      middlewares: [ "redirectHTTPS" ]
+      service: frontend-service
+      rule: Host(`{{ env "DOMAIN" }}`)
+      tls:
+        certResolver: letsencrypt
+    backend:
+      entryPoints: [ "web","websecure" ]
+      middlewares: []
+      service: backend-service
+      rule: Host(`backend.{{ env "DOMAIN" }}`)
+      tls:
+        certResolver: letsencrypt
