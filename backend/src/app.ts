@@ -1,9 +1,14 @@
-import {Server} from '../deps.ts';
-import router from './routes.ts'
+import {Router, Server} from '../deps.ts';
+import shopRoutes from './routes/shop.ts'
 
 const port=5000
 const url=`http://localhost:${port}`
+const router=new Router()
 console.log(url);
+
+//register all Routes
+shopRoutes(router)
+
 Server.use(router.routes())
 Server.use(router.allowedMethods())
 Server.use(ctx=>{

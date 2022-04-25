@@ -1,6 +1,6 @@
 import {Arango} from '../deps.ts'
 import {getEnv} from "./commonFunctions.ts";
-let db=await connect()
+const db=await connect()
 
 async function connect(){
     return await Arango.basicAuth({
@@ -10,19 +10,22 @@ async function connect(){
     });
 }
 
-async function getCollection(name:string){
-    return await db.collection(name)
+async function executeQuery(query:string):Promise<any[]>{
+    const result=await db.query(query)
+    return await result.collect()
 }
 
-async function executeQuery(query:string){
-    return await db.query(query)
+async function getCollection(name:string){
+    return await db.collection(name)
 }
 
 export async function getDocument(collection:string,key?:string){
     const col=await getCollection(collection)
     if(key) return await col.get(key)
-    else {
-        const cursor:any = await executeQuery(`FOR d IN ${collection} RETURN d`)
-        return await cursor.collect()
-    }
+    else return await executeQuery(`FOR d IN ${collection} RETURN d`)
+}
+
+async function isValidDocument(col:string,doc:any):Promise<boolean>{
+    const schema=await executeQuery(`RETURN SCHEMA_GET('${col}')`)
+    return (await executeQuery(`RETURN SCHEMA_VALIDATE(${JSON.stringify(doc)},${JSON.stringify(schema[0])})`))[0].valid
 }
