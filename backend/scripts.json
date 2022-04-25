@@ -2,11 +2,9 @@
   "$schema": "https://deno.land/x/denon@2.5.0/schema.json",
   "scripts": {
     "start": {
-      "cmd": "app.ts",
-      "allow": [
-        "net"
-      ],
-      "desc": "run my app.ts file"
+      "cmd": "src/app.ts",
+      "allow": ["net","env","read"],
+      "desc": "run my src/app.ts file"
     }
   },
   "watcher": {

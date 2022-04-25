@@ -4,7 +4,7 @@ WORKDIR /wtw
 COPY deps.ts .
 RUN deno cache deps.ts
 ADD . .
-RUN deno cache app.ts
+RUN deno cache src/app.ts
 ENTRYPOINT ["/usr/local/bin/denon"]
 CMD ["denon","start"]
 EXPOSE 5000
