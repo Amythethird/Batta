@@ -1,3 +1,6 @@
-import { serve as Server } from "https://deno.land/std@0.134.0/http/server.ts";
+import { Application,Router } from "https://deno.land/x/oak/mod.ts";
+import { Arango as ArangoDb } from "https://deno.land/x/darango/mod.ts";
 
-export const serve=Server
+export const Server=new Application()
+export const router=new Router
+export const Arango=ArangoDb

@@ -21,6 +21,7 @@ services:
     tty: true
     build: ../backend
     restart: always
+    env_file: /home/wtw/.env
     volumes:
       - ../backend:/wtw
     networks:
