@@ -18,4 +18,4 @@ jobs:
       - name: start
         run: |
           cd docker
-          docker-compose -f production.yml up -d
+          docker-compose -f production.yml up -d --verbose
