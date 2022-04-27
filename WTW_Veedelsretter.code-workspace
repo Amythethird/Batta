@@ -23,7 +23,6 @@
 
     // Deno settings must be configured here, because Deno has thought out folder-specific enabling (in contrast to VS Code)
     "deno.enablePaths": ["./backend"],
-    "deno.config": "./backend/deno.json",
     "deno.lint": true,
     "deno.unstable": false
   }
