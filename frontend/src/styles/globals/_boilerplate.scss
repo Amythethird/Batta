@@ -1,0 +1,16 @@
+.body{
+    padding: 0;
+    margin: 0;
+    background: $background;
+}
+
+html{
+    box-sizing: border-box;
+    font: 100%;
+    
+}
+
+
+*, *::after, *::before{
+    box-sizing: inherit;
+}
