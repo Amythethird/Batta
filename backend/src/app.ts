@@ -2,7 +2,7 @@ import {Router, Server} from '../deps.ts';
 import shopRoutes from './routes/shop.ts'
 
 const port=5000
-const url=`http://localhost:${port}`
+const url=`https://backend.localhost`
 const router=new Router()
 console.log(url);
 
