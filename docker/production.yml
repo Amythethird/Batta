@@ -43,15 +43,19 @@ services:
       - internal
       - traefik
 
-  arangodb:
-    hostname: arangodb
-    build: arangodb
-    env_file: /home/wtw/.env
+  strapi:
+    hostname: strapi
+    build: strapi
+    env_file: .env
     restart: always
     depends_on:
       - traefik
     volumes:
-      - /var/lib/arangodb3:/var/lib/arangodb3
+      - strapi/veedelsretter/config:/opt/app/config
+      - strapi/veedelsretter/src:/opt/app/src
+      - strapi/veedelsretter/package.json:/opt/package.json
+      - strapi/veedelsretter/yarn.lock:/opt/yarn.lock
+      - strapi/veedelsretter/.env:/opt/app/.env
     networks:
       - internal
       - traefik

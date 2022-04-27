@@ -48,15 +48,16 @@ services:
       - internal
       - traefik
 
-  arangodb:
-    hostname: arangodb
-    build: arangodb
+  strapi:
+    hostname: strapi
+    build: strapi
     env_file: .env
     restart: always
     depends_on:
       - traefik
     volumes:
-      - /var/lib/arangodb3:/var/lib/arangodb3
+      - ./strapi/veedelsretter:/opt/app
+      - /opt/app/node_modules
     networks:
       - internal
       - traefik

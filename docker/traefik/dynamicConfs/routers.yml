@@ -7,13 +7,14 @@ http:
       rule: Host(`dashboard.{{env "DOMAIN"}}`)
       tls:
         certResolver: letsencrypt
-    arangodb:
+    strapi:
       entryPoints: [ "web","websecure" ]
       middlewares: ["redirectHTTPS"]
-      service: arangodb-service
-      rule: Host(`arangodb.{{ env "DOMAIN" }}`)
+      service: strapi-service
+      rule: Host(`strapi.{{ env "DOMAIN" }}`)
       tls:
         certResolver: letsencrypt
+
     frontend:
       entryPoints: [ "web","websecure" ]
       middlewares: [ "redirectHTTPS" ]

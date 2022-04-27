@@ -1,9 +1,9 @@
 http:
   services:
-    arangodb-service:
+    strapi-service:
       loadBalancer:
         servers:
-          - url: http://arangodb:8529
+          - url: http://strapi:2500
     frontend-service:
       loadBalancer:
         servers:
