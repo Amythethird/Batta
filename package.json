@@ -1,0 +1,28 @@
+{
+  "name": "wtw_veedelsretter",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "name": "Denise-Adriana Büning"
+    },
+    {
+      "name": "Daniel Heuser"
+    },
+    {
+      "name": "Jan Koll"
+    },
+    {
+      "name": "Aljosha Cedric Merz"
+    },
+    {
+      "name": "Melvin Weiershäuser"
+    }
+  ],
+  "scripts": {
+    "format:check": "prettier --check \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,html}\"",
+    "format:write": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,html}\""
+  },
+  "devDependencies": {
+    "prettier": "^2.6.2"
+  }
+}
