@@ -1,7 +1,9 @@
-.body{
+@use 'colors';
+
+body{
     padding: 0;
     margin: 0;
-    background: $background;
+    background-color: var(--background);
 }
 
 html{
