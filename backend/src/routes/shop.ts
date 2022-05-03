@@ -1,7 +1,9 @@
-import {fetchData} from "../commonFunctions.ts";
+import { fetchData } from "../commonFunctions.ts";
 
-export default function register(router:any){
-    router.get(`/`,async (ctx:any)=>{
-        ctx.response.body=await fetchData('get','shops')
-    })
+// deno-lint-ignore no-explicit-any
+export default function register(router: any) {
+  // deno-lint-ignore no-explicit-any
+  router.get(`/`, async (ctx: any) => {
+    ctx.response.body = await fetchData("get", "shops");
+  });
 }

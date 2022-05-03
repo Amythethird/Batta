@@ -19,10 +19,14 @@
     }
   ],
   "scripts": {
-    "format:check": "prettier --check \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,html}\"",
-    "format:write": "prettier --write \"./**/*.{js,ts,jsx,tsx,json,css,scss,sass,html}\""
+    "prepare": "husky install",
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:write": "prettier --write --ignore-unknown .",
+    "hooks:pre-commit": "lint-staged --verbose"
   },
   "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
     "prettier": "^2.6.2"
   }
 }
