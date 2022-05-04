@@ -24,10 +24,16 @@ Steinmüllerallee 1<br />
 Im Rahmen des Moduls "Projekt I: Vision und Konzept" im Wintersemester 2021/2022 wurde ein Design Sprint durchgeführt und auf dessen Grundlage ein Konzept entwickelt. Sowohl Design Sprint als auch Konzept wurden im [Wiki](https://github.com/Amythethird/WTW_Veedelsretter/wiki) dokumentiert und sind dort abrufbar. Das Modul "Projekt I: Vision und Konzept" wird im März 2022 mit einer Abschlusspräsentation abgeschlossen und soll anschließend im darauffolgenden Semester im Modul "Projekt II: Entwicklung" fortgeführt werden.
 
 ## Entwicklungsumgebung
-.env in docker und strapi/veedelsretter anlegen. <br>Diese sind im Discord angepinnt.<br>
-cd docker/strapi/veedelsretter <br>
-npm i <br>
-npm run strapi build <br>
-docker-compose -f dev.yml up -d
+
+- .env in docker und strapi/veedelsretter anlegen. <br>Diese sind im Discord angepinnt.<br>
+    cd docker/strapi/veedelsretter <br>
+    npm i <br>
+    npm run strapi build <br>
+    
+- Docker muss installiert sein : docker-compose -f dev.yml up -d <br>
+      #Windows#
+      Installieren des WSL mit admin Powershell -   wsl --install<br>
+      Herunterladen einer Linux Distribution
+
 # Frontend
 # Backend
