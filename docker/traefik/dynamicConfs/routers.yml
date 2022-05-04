@@ -1,14 +1,14 @@
 http:
   routers:
     dashboard:
-      entryPoints: [ "web","websecure" ]
+      entryPoints: ["web", "websecure"]
       middlewares: ["redirectHTTPS"]
       service: api@internal
       rule: Host(`dashboard.{{env "DOMAIN"}}`)
       tls:
         certResolver: letsencrypt
     strapi:
-      entryPoints: [ "web","websecure" ]
+      entryPoints: ["web", "websecure"]
       middlewares: ["redirectHTTPS"]
       service: strapi-service
       rule: Host(`strapi.{{ env "DOMAIN" }}`)
@@ -16,14 +16,14 @@ http:
         certResolver: letsencrypt
 
     frontend:
-      entryPoints: [ "web","websecure" ]
-      middlewares: [ "redirectHTTPS" ]
+      entryPoints: ["web", "websecure"]
+      middlewares: ["redirectHTTPS"]
       service: frontend-service
       rule: Host(`{{ env "DOMAIN" }}`)
       tls:
         certResolver: letsencrypt
     backend:
-      entryPoints: [ "web","websecure" ]
+      entryPoints: ["web", "websecure"]
       middlewares: []
       service: backend-service
       rule: Host(`backend.{{ env "DOMAIN" }}`)
