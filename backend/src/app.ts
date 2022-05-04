@@ -1,7 +1,6 @@
 import { Router, Server } from "../deps.ts";
 import shopRoutes from "./routes/shop.ts";
 
-const port = 5000;
 const url = `https://backend.localhost`;
 const router = new Router();
 console.log(url);
@@ -14,4 +13,4 @@ Server.use(router.allowedMethods());
 Server.use((ctx) => {
   ctx.response.body = "Connected!";
 });
-await Server.listen({ port });
+await Server.listen({ port: 5000 });
