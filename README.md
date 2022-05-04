@@ -26,8 +26,9 @@ Im Rahmen des Moduls "Projekt I: Vision und Konzept" im Wintersemester 2021/2022
 
 ## Entwicklungsumgebung
 
+.env in docker und strapi/veedelsretter anlegen. <br>Diese sind im Discord angepinnt.<br>
+docker-compose -f dev.yml up -d
+
 # Frontend
 
 # Backend
-
-Start: ./start.sh
