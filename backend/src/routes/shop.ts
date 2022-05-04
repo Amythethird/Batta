@@ -1,11 +1,15 @@
-import { fetchData } from "../commonFunctions.ts";
-const prefix = "shop";
+import { fetchData } from '../commonFunctions.ts';
+const prefix = 'shop';
 
+// deno-lint-ignore no-explicit-any
 export default function register(router: any) {
-  router.get(`/${prefix}s`, async (ctx: any) => {
-    ctx.response.body = await fetchData("get", "shops");
-  });
-  router.get(`/${prefix}/:id`, async (ctx: any) => {
-    ctx.response.body = await fetchData("get", `shops/${ctx.params.id}`);
-  });
+	// deno-lint-ignore no-explicit-any
+	router.get(`/${prefix}s`, async (ctx: any) => {
+		ctx.response.body = await fetchData('get', 'shops');
+	});
+
+	// deno-lint-ignore no-explicit-any
+	router.get(`/${prefix}/:id`, async (ctx: any) => {
+		ctx.response.body = await fetchData('get', `shops/${ctx.params.id}`);
+	});
 }

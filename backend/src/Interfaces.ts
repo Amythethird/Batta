@@ -1,4 +1,4 @@
 export interface Shop {
-  name: string;
-  owner: string;
+	name: string;
+	owner: string;
 }
