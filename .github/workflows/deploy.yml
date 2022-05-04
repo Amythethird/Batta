@@ -2,7 +2,7 @@ name: Deploy Release
 on:
   push:
     branches:
-      - "automatic-release-tag"
+      - 'automatic-release-tag'
 jobs:
   init:
     runs-on: self-hosted
