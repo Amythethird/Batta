@@ -1,4 +1,5 @@
 # WTW_Veedelsretter
+
 Willkommen beim Projekt des Wintersemesters 2021/2022 im Kontext des Studienschwerpunkts Weaving the Web des Medieninformatik Masters an der Technischen Hochschule Köln.
 
 Das Projekt baut auf dem [Veedelsretter](https://www.veedelsretter.koeln) auf und soll die Idee der Plattform unter der Thematik der Nachhaltigkeit neu aufgreifen. Weitere Informationen zur Ausgangssituation können dem [Wiki](https://github.com/Amythethird/WTW_Veedelsretter/wiki) sowie der [Webseite des Studienschwerpunkts](https://th-koeln.github.io/mi-master-wtw/projektthemen/2021-ws-project-1/index) entnommen werden.
@@ -26,14 +27,14 @@ Im Rahmen des Moduls "Projekt I: Vision und Konzept" im Wintersemester 2021/2022
 ## Entwicklungsumgebung
 
 - .env in docker und strapi/veedelsretter anlegen. <br>Diese sind im Discord angepinnt.<br>
-    cd docker/strapi/veedelsretter <br>
-    npm i <br>
-    npm run strapi build <br>
-    
+  cd docker/strapi/veedelsretter <br>
+  npm i <br>
+  npm run strapi build <br>
 - Docker muss installiert sein : docker-compose -f dev.yml up -d <br>
-      #Windows#
-      Installieren des WSL mit admin Powershell -   wsl --install<br>
-      Herunterladen einer Linux Distribution
+  #Windows#
+  Installieren des WSL mit admin Powershell - wsl --install<br>
+  Herunterladen einer Linux Distribution
 
 # Frontend
+
 # Backend

@@ -1,0 +1,11 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+npm run hooks:pre-commit
+
+cd frontend
+npm run lint:write
+
+cd ../backend
+deno lint
+deno fmt

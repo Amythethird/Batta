@@ -2,8 +2,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 :root {
-  --highlight-lightgreen: #95C11F;
-  --highlight-darkgreen:#257708;
+  --highlight-lightgreen: #95c11f;
+  --highlight-darkgreen: #257708;
   --background: white;
 }
 
@@ -18,11 +18,15 @@ html {
   font: 100%;
 }
 
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: inherit;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: black;
 }
 
@@ -58,7 +62,9 @@ li {
   text-decoration: none;
 }
 
-a, a:visited, a:active {
+a,
+a:visited,
+a:active {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -67,6 +73,7 @@ a, a:visited, a:active {
   text-align: left;
   color: var(--highlight-darkgreen);
   text-decoration: none;
+} /*# sourceMappingURL=style.css.map */
 }
 
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */

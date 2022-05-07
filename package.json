@@ -1,0 +1,32 @@
+{
+  "name": "wtw_veedelsretter",
+  "version": "1.0.0",
+  "contributors": [
+    {
+      "name": "Denise-Adriana Büning"
+    },
+    {
+      "name": "Daniel Heuser"
+    },
+    {
+      "name": "Jan Koll"
+    },
+    {
+      "name": "Aljosha Cedric Merz"
+    },
+    {
+      "name": "Melvin Weiershäuser"
+    }
+  ],
+  "scripts": {
+    "prepare": "husky install",
+    "format:check": "prettier --check --ignore-unknown .",
+    "format:write": "prettier --write --ignore-unknown .",
+    "hooks:pre-commit": "lint-staged --verbose"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2"
+  }
+}
