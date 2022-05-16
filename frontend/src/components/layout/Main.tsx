@@ -1,19 +1,16 @@
+import { Routes, Route } from 'react-router-dom';
 import React from 'react';
-import "../../styles/style.css"
-import Artikel from "../article"
+import Home from '../landing';
+import Login from '../login';
 
 
-function Main() {
-  return (
-  <main>
-       <div className='container landing_info'>
-           <h1>Unterstütze nachhaltige AnbieterInnen in deiner Nähe</h1>
-       </div>
-       <Artikel/>
-
-      
-  </main>
-  );
+const Main = () => {
+return (  
+//Routing for Elements       
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/login' element={<Login/>}></Route>
+    </Routes>
+);
 }
-
 export default Main;

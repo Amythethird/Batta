@@ -8,28 +8,22 @@ import "../styles/style.css"
 
 function Artikel() {
   return (
-     
- <div className="tile is-ancestor">
-    <div className="tile is-parent">
-    <div className="card">
-  <div className="card-content">
-    <p className="title has-text-left">
-    <span>
-       <a href="#"> Lorem ipsum dolor sit amet, <br></br>
-       consectetur adipisicing elit. Sint ut laborum</a>
-    </span>
-     
-    </p>
-  </div>
-  <footer className="card-footer">
-    <p className="card-footer-item has-text-left">
-        Lorem ipsum dolor, sit amet consectetur 
-    </p>
-  </footer>
-    </div>
-    
-    </div>
- </div>
+     <div className='article mb-space-large mt-5'>
+       <div className='columns'>
+          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
+            <a className='text'>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
+            <p>sit amet consectetur adipisicing</p>
+          </div>
+          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
+            <a>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
+            <p>sit amet consectetur adipisicing</p>
+          </div>
+          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
+            <a>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
+            <p>sit amet consectetur adipisicing</p>
+          </div>
+       </div>   
+     </div>
   );
 }
 
