@@ -8,4 +8,3 @@ npm run lint:write
 
 cd ../backend
 deno lint
-deno fmt
