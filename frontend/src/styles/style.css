@@ -43,8 +43,8 @@ h1 {
 
 h2 {
   font-family: "Roboto Slab", serif;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 24px !important;
+  font-weight: 500 !important;
   line-height: 36px;
   letter-spacing: 0.05em;
   text-align: left;
@@ -53,8 +53,8 @@ h2 {
 p {
   margin-top: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 16px !important;
+  font-weight: 400 !important;
   line-height: 19px;
   letter-spacing: 0em;
   width: auto;
@@ -68,14 +68,14 @@ li, ul {
 a,
 a:visited,
 a:active {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
   text-align: left;
   text-decoration: none;
-  color: #257708;
+  color: #257708 !important;
 }
 
 ul {
@@ -13071,15 +13071,15 @@ a.navbar-item,
   height: 100%;
 }
 
-header, main {
-  padding: 50px;
-}
-
 header button, main button {
   background-color: #257708 !important;
   color: white !important;
   width: 120px !important;
   height: 46px !important;
+}
+
+.background_light {
+  background-color: rgba(149, 193, 31, 0.2);
 }
 
 .mb-space-large {
@@ -13097,10 +13097,6 @@ main .hero-body {
   background-image: url(../assets/Frame-1.svg), url(../assets/Frame-2.svg), url(../assets/Frame-3.svg), url(../assets/Frame.svg);
   background-position: 10%, 80%, 80%, 100%;
   background-repeat: no-repeat;
-}
-
-main .hero-body .container {
-  max-width: 500px !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -13142,28 +13138,19 @@ main .Partner a, main .Partner a:visited, main .Partner a:active {
   font-weight: 700;
 }
 
-main section.section {
-  margin-top: 120px !important;
-  background-color: rgba(37, 119, 8, 0.2) !important;
-}
-
-main section.section.is-medium {
-  padding: 6rem 0rem 0rem 0rem !important;
-}
-
-main section.section .footer_partner {
+main .section .footer_partner {
   height: 80px;
   background-color: #257708;
   color: white;
 }
 
-main section.section .footer_partner a {
+main .section .footer_partner a {
   color: white !important;
   font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
-  main section.section .title {
+  main .section .title {
     font-size: 24px !important;
   }
 }
@@ -13197,7 +13184,7 @@ main section.section .footer_partner a {
   background-color: #257708;
   line-height: 36px;
   padding: 6px;
-  color: white;
+  color: white !important;
   font-weight: 400;
 }
 
@@ -13243,6 +13230,10 @@ footer p a, footer li a {
 
 .login {
   height: 100vh;
+  background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+  background-repeat: no-repeat;
+  background-position: 10% 5%,  100% 10%;
+  background-size: 450px, 250px;
 }
 
 .login .column {
@@ -13251,5 +13242,23 @@ footer p a, footer li a {
 
 .login .column input {
   width: 400px;
+}
+
+.login .column .is-grouped .control {
+  margin-right: 1.2rem !important;
+}
+
+.login .column .is-grouped .control input {
+  width: 190px;
+}
+
+.shop.container {
+  background-color: #257708 !important;
+  height: 350px !important;
+  padding: 10px;
+}
+
+.shop.container h2 {
+  color: #e2e2e2 !important;
 }
 /*# sourceMappingURL=style.css.map */

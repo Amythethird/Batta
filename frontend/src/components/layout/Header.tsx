@@ -26,13 +26,13 @@ function Header() {
 
         <div className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item" href="/article">Gutscheine</a>
+            <a className="navbar-item" href="/shop">Shops</a>
             <a className="navbar-item" href="#foo">Blog</a>
             <a className="navbar-item" href="#bar">Über uns</a>
             <a className="navbar-item" href="#bar">Kontakt</a>
           </div>
           <div className="navbar-end">
-            <a className="navbar-item" href="#about">Login</a>
+            <a className="navbar-item" href="\login">Login</a>
           </div>
         </div>
       </div>

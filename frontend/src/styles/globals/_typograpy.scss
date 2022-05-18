@@ -18,8 +18,8 @@ h1 {
 
 h2 {
   font-family: "Roboto Slab", serif;
-  font-size: 24px;
-  font-weight: 500;
+  font-size: 24px !important;
+  font-weight: 500 !important;
   line-height: 36px;
   letter-spacing: 0.05em;
   text-align: left;
@@ -29,8 +29,8 @@ h2 {
 p {
   margin-top: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 16px !important;
+  font-weight: 400 !important;
   line-height: 19px;
   letter-spacing: 0em;
   width: auto;
@@ -45,14 +45,14 @@ li, ul {
 a,
 a:visited,
 a:active {
-  font-family: "Roboto Slab", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
-  font-weight: 200;
+  font-weight: 400;
   line-height: 19px;
   letter-spacing: 0em;
   text-align: left;
   text-decoration: none;
-  color: $highlight-darkgreen;
+  color: $highlight-darkgreen !important;
 }
 
 ul{

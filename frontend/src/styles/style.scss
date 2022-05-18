@@ -25,15 +25,19 @@ a.navbar-item, .navbar-link{
     }
 }
 
-header, main {
-    padding: 50px;
 
+header, main {
     button{
       background-color: #257708 !important;
       color: white !important;
       width: 120px !important;
       height: 46px !important;
     }
+}
+
+
+.background_light{
+  background-color: rgba($color:  $highlight-lightgreen, $alpha: 0.2);
 }
 
 
@@ -54,10 +58,7 @@ main{
   background-image: url(../assets/Frame-1.svg), url(../assets/Frame-2.svg), url(../assets/Frame-3.svg), url(../assets/Frame.svg) ;
   background-position: 10%, 80%, 80%, 100%;
   background-repeat: no-repeat;
- 
-  .container{
-    max-width: 500px !important;
-  }
+
 
   @include mobile {
     background-image: url(../assets/Frame-1.svg) ;
@@ -103,14 +104,7 @@ iframe{
 
 
 
-section.section{
-  margin-top: 120px !important;
-  background-color: rgba($color: $highlight-darkgreen, $alpha: 0.2) !important;
-
-  &.is-medium{
-    padding: 6rem 0rem 0rem 0rem !important;
-  }
- 
+.section{
 
   .footer_partner{
     height: 80px;
@@ -140,6 +134,7 @@ section.section{
   .column{
     height: 345px;
     border-radius: 0;
+  
 
     &:first-child{
       border-radius: 8px 0px 0px 8px;
@@ -164,7 +159,7 @@ section.section{
         background-color: #257708;
         line-height: 36px;
         padding:6px;
-        color: white;
+        color: white !important;
         font-weight: 400;
       }
 
@@ -180,26 +175,15 @@ section.section{
 
         &:first-child{
           border-radius: 8px 8px 0px 0px;
-         
         }
-    
         &:nth-child(2){
-          
           border-radius: 0px 0px 0px 0px;
         }
         &:last-child{
           border-radius: 0px 0px 8px 8px;
-      
         }
-    
       }
-
   }
-  
-
-  
-   
-
 }
 
 footer{
@@ -229,11 +213,43 @@ footer{
 
 .login{
   height: 100vh;
+
+  background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+  background-repeat: no-repeat;
+  background-position: 10% 5%,  100% 10%;
+  background-size: 450px, 250px;
   .column{
     margin: 50px !important;
-
+    
     input{
       width: 400px;
     }
+
+    .is-grouped{
+        .control{
+          margin-right: 1.2rem !important;
+          input{
+            width: 190px;
+          }
+        }
+       
+    }
   }
+}
+
+.shop{
+
+    &.container{
+      background-color: $highlight-darkgreen !important;
+      height: 350px !important; 
+      padding: 10px;
+
+      h2{
+        color: #e2e2e2 !important;
+      }
+  
+    }
+  
+
+  
 }

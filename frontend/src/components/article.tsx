@@ -3,26 +3,28 @@
 import React from 'react';
 import "../styles/style.css"
 
+interface BlogBeitrag {
+  autor: string;
+  title: string;
+  image: string;
+  text: string;
+  //date: Date;
+}
 
 
-
-function Artikel() {
+function Artikel(props: BlogBeitrag) {
   return (
      <div className='article mb-space-large mt-5'>
-       <div className='columns'>
-          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
-            <a className='text'>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
-            <p>sit amet consectetur adipisicing</p>
-          </div>
-          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
-            <a>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
-            <p>sit amet consectetur adipisicing</p>
-          </div>
-          <div className='column is-flex is-flex-direction-column is-justify-content-end'>
-            <a>Lorem ipsum dolor, sit amet consectetur adipisicing elit recusandae </a>
-            <p>sit amet consectetur adipisicing</p>
-          </div>
-       </div>   
+         <div className='artikel_header'>
+           <p>{props.title}</p>
+         </div>
+         <div className='text'>
+           <p>{props.text}</p>
+         </div>
+         <div className='author'>
+           <img src={props.image}></img>
+           <p>{props.autor}</p>
+         </div>
      </div>
   );
 }
