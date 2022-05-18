@@ -1,1 +1,255 @@
-@forward "globals";
+@import './globals/boilerplate';
+@import './globals/colors';
+@import './globals/typograpy';
+@import './globals/mixins';
+@import "../../node_modules/bulma/bulma.sass";
+//fonts
+
+
+a.navbar-item, .navbar-link{
+    color: $highlight-darkgreen;
+}
+
+.navbar-brand .a{
+  font-weight: 700;
+}
+
+.navbar-end > a.navbar-item {
+    &:nth-child(2) {
+        content:""; 
+        border:1px solid #e2e2e2;
+        border-width: 1px 1px 0 0;
+        right:-3px; 
+        top:0; 
+        height:100%;
+    }
+}
+
+
+header, main {
+    button{
+      background-color: #257708 !important;
+      color: white !important;
+      width: 120px !important;
+      height: 46px !important;
+    }
+}
+
+
+.background_light{
+  background-color: rgba($color:  $highlight-lightgreen, $alpha: 0.2);
+}
+
+
+
+.mb-space-large{
+  margin-bottom: 120px;
+}
+
+
+/**Components**/
+main{
+
+  @include mobile{
+    padding: 10px !important;
+  }
+  
+.hero-body {
+  background-image: url(../assets/Frame-1.svg), url(../assets/Frame-2.svg), url(../assets/Frame-3.svg), url(../assets/Frame.svg) ;
+  background-position: 10%, 80%, 80%, 100%;
+  background-repeat: no-repeat;
+
+
+  @include mobile {
+    background-image: url(../assets/Frame-1.svg) ;
+    background-position: 5% 5%;
+    background-repeat: no-repeat;
+
+    .hero-body{
+      padding: 5px !important;
+    }
+
+    h1{
+      font-size: 28px !important;
+    }
+  }
+ 
+  
+}
+
+
+iframe{
+  border-radius: 8px !important;
+}
+
+
+.Partner{
+
+  .partner {
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  
+  
+  }
+  
+  a, a:visited, a:active{
+    color: $highlight-darkgreen !important;
+    font-weight: 700;
+  }
+
+}
+
+
+
+.section{
+
+  .footer_partner{
+    height: 80px;
+    background-color: $highlight-darkgreen;
+    color: white;
+
+    a{
+      color: white !important;
+      font-weight: 700;
+    }
+  
+    
+  }
+
+  @include mobile{
+    .title{
+      font-size: 24px !important;
+    }
+  }
+  }
+}
+
+
+/* Komponenten*/
+.article{
+
+  .column{
+    height: 345px;
+    border-radius: 0;
+  
+
+    &:first-child{
+      border-radius: 8px 0px 0px 8px;
+      background-image: url(https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900);
+      background-position: 50%;
+    }
+
+    &:nth-child(2){
+      background-image: url(https://images.unsplash.com/photo-1652054447785-eaa74ea9dcbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=854&q=80/600x900);
+      background-position: 50% 20%;
+      border-radius: px 0px 0px 0px;
+    }
+    &:last-child{
+      border-radius: 0px 8px 8px 0px;
+      background-image: url(https://images.unsplash.com/photo-1652011609738-74e036599c03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80/600x900);
+      background-position: 50% 20%;
+    }
+
+      
+      a{
+        font-size: 24px;
+        background-color: #257708;
+        line-height: 36px;
+        padding:6px;
+        color: white !important;
+        font-weight: 400;
+      }
+
+      p{
+        background-color: #95C11F;
+        line-height: 36px;
+        padding:0px 6px 0px 6px;
+        color: white;
+        font-weight: 400;
+      }
+    
+      @include mobile{
+
+        &:first-child{
+          border-radius: 8px 8px 0px 0px;
+        }
+        &:nth-child(2){
+          border-radius: 0px 0px 0px 0px;
+        }
+        &:last-child{
+          border-radius: 0px 0px 8px 8px;
+        }
+      }
+  }
+}
+
+footer{
+
+  &.footer{
+    background-color: $highlight-darkgreen !important;    
+}
+  .links{
+    line-height: 5px;
+  }
+
+    .has-border{
+      
+      border-bottom: white 2px solid;
+  }
+
+
+  p,li{
+    color: white !important;
+    a{
+      color: white !important;
+    }
+
+  }
+
+}
+
+.login{
+  height: 100vh;
+
+  background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+  background-repeat: no-repeat;
+  background-position: 10% 5%,  100% 10%;
+  background-size: 450px, 250px;
+  .column{
+    margin: 50px !important;
+    
+    input{
+      width: 400px;
+    }
+
+    .is-grouped{
+        .control{
+          margin-right: 1.2rem !important;
+          input{
+            width: 190px;
+          }
+        }
+       
+    }
+  }
+}
+
+.shop{
+
+    &.container{
+      background-color: $highlight-darkgreen !important;
+      height: 350px !important; 
+      padding: 10px;
+
+      h2{
+        color: #e2e2e2 !important;
+      }
+  
+    }
+  
+
+  
+}
