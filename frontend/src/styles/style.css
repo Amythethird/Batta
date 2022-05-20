@@ -13074,7 +13074,7 @@ a.navbar-item,
 }
 
 .field.is-grouped {
-  width: 370px;
+  max-width: 370px;
 }
 
 .card {
