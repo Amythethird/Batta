@@ -20,9 +20,8 @@ const bestProdukt = ["Nachhaltig", "Vegan", "Unverpackt"]
 function ShopAnsicht(props: Shop) {
   return (
     <main className='mt-space-large'>
-            <section className="section shop mx-3 mb-space-large">
-                  <div className='container '>
-                    <div className='columns'>
+            <section className="section shop mx-3 pr-4 pl-4">
+            <div className='columns'>
                       <div className='column'>
                         <h1 className='has-text-left is-size-4'>{props.name}</h1>
                         <p>{props.text}</p>
@@ -50,23 +49,23 @@ function ShopAnsicht(props: Shop) {
                           )}
                       
                       </div>
-                      <div className='column'>
+                      <div className='column is-flex is-justify-content-center'>
                           <img src={Map} alt='map'></img>
                       </div>
                       
                     </div>
-                  </div>
             </section>
-            <div className='container mb-space-large'>
+            <section className='section mx-3 pr-4 pl-4 is-medium'>
+            <div className='container'>
             <div className='columns'>
-                <div className='column is-one-quarter'>
+                <div className='column is-one-third'>
                     <h2 className='is-size-4 mb-3'>Beliebteste Produkte</h2>
                     <p className='mb-4'>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
                       Nulla vitae elit libero, a pharetra augue.
                     </p>
                     <button className="button is-primary is-outlined">Gutscheine</button>
                 </div>
-                <div className='column is-justify-content-center is-flex'>
+                <div className='column is-justify-content-end is-flex'>
                 {bestProdukt.map((i,produktItem) =>
                           <div className="card mr-2" key={produktItem}>
                           <div className="card-image">
@@ -79,25 +78,28 @@ function ShopAnsicht(props: Shop) {
                 </div>
               </div>
             </div>
-            <section className="section  mx-3 mb-space-large">
-            <div className="columns is-centered is-vcentered">
-                  <div className="column">
-                  <figure className="image is-16by9">
-                    <iframe className="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen></iframe>
-                  </figure>
+            </section>
+            <section className="section pl-0 pr-0 mx-3 mb-space-large">
+                  <div className='container'>
+                  <div className="columns is-centered is-vcentered">
+                    <div className="column">
+                    <figure className="image is-16by9">
+                      <iframe className="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/YE7VzlLtp-4" frameBorder="0" allowFullScreen></iframe>
+                    </figure>
 
-                  </div>
-                  <div className="column ">
-                  <h2 className='is-size-4 has-text-weight-medium'>Wie funktioniert das Konzept?</h2>
-                  <p className='has-text-left mt-5 pb-6'>
-                  Morbi leo risus, porta ac consectetur ac, vestibulum at eros. 
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue. 
-                  Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. 
-                  Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna ultricies 
-                  vehicula ut mollis.</p>
-                  <button className="button is-primary is-outlined">Gutscheine</button>
-                  </div>
                     </div>
+                    <div className="column ">
+                    <h2 className='is-size-4 has-text-weight-medium'>Wie funktioniert das Konzept?</h2>
+                    <p className='has-text-left mt-5 pb-6'>
+                    Morbi leo risus, porta ac consectetur ac, vestibulum at eros. 
+                    Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue. 
+                    Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue. 
+                    Maecenas sed diam eget risus varius blandit sit amet non magna. Etiam porta sem malesuada magna ultricies 
+                    vehicula ut mollis.</p>
+                    <button className="button is-primary is-outlined">Gutscheine</button>
+                    </div>
+              </div>
+                  </div>
             </section>
             <section className='section background_light is-medium  px-0 pb-5' >
      <section className="container has-text-centered">
@@ -128,9 +130,10 @@ function ShopAnsicht(props: Shop) {
         </div>
       </section>
             </section>
-            <section className='section is-medium mb-is-large'>
-              <div className='columns'>
-                <div className='column is-7'>
+            <section className='section is-medium pr-4 pl-4 mb-is-large'>
+            <div className='container'>
+            <div className='columns'>
+                <div className='column is-8 p-6'>
                   <h2 className='is-size-4 pb-2'>Gutschein</h2>
                   <p className='pb-4'>
                     Morbi leo risus, porta ac consectetur ac, vestibulum at eros. 
@@ -148,13 +151,14 @@ function ShopAnsicht(props: Shop) {
                     </p>
                   </div>
                 </div>
-                <div className='column'>
+                <div className='column p-6'>
                   <h2 className='is-size-4'>Kontakt</h2>
                   <p>E-Mail: <a href={"mailto:" + props.mail }>{props.mail}</a></p>
                   <p>Telefon: {props.tel}</p>
                   
                 </div>
               </div>
+            </div>
             </section>
     </main>
     
