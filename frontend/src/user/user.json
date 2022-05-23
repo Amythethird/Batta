@@ -1,0 +1,28 @@
+
+
+    
+    {
+        "id": 12,
+        "name": "John",
+        "vorname": "Henry",
+        "accountname": "HenryFirst",
+        "age": 22,
+        "gender": "male",
+        "mail": "johnhenry1986@hotmail.com",
+        "passwort": "1234",
+        "socialMedia":
+        
+            {
+                "facebook": true,
+                "twitter": false,
+                "youtube": true,
+                "instagram":true
+            }
+        ,
+        "shops":{
+            "id": 5,
+            "name": "Test"
+        }
+    
+    }
+

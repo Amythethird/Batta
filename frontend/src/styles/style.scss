@@ -276,3 +276,51 @@ footer{
     color: $white;
   }
 }
+
+.user{
+  background: linear-gradient(90deg, #5DA65D 0%, #98EA98 100%);
+
+  &.section{
+    border-radius: 8px;
+  }
+
+  p{
+    color: $grey;
+  }
+
+  .profil{
+    background-color: $white;
+
+    &.container{
+      border-radius: 12px 12px 0 0;
+      width: 800px;
+    }
+
+    figure{
+      margin: auto;
+    }
+
+    .icon{
+      height: 30px;
+      width: 30px;
+      border-radius: 100px;
+      border: 1px solid rgba($color: $grey, $alpha: 0.3);
+      margin: 2px;
+
+    }
+
+    .tag{
+      background-color: $green;
+      color: white;
+    }
+
+    .badge{
+      p,h2{
+        line-height: 20px;
+      }
+    }
+  }
+
+
+  
+}
