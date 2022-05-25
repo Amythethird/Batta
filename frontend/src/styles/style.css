@@ -13326,14 +13326,6 @@ footer p a, footer li a {
   margin: auto;
 }
 
-.user .profil .icon {
-  height: 30px;
-  width: 30px;
-  border-radius: 100px;
-  border: 1px solid rgba(51, 51, 51, 0.3);
-  margin: 2px;
-}
-
 .user .profil .tag {
   background-color: #257708;
   color: white;
@@ -13341,5 +13333,55 @@ footer p a, footer li a {
 
 .user .profil .badge p, .user .profil .badge h2 {
   line-height: 20px;
+}
+
+.social .icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 100px;
+  border: 1px solid rgba(51, 51, 51, 0.3);
+  margin: 2px;
+}
+
+.shopSearch .column:last-child {
+  background-image: url("../assets/map.svg");
+  background-repeat: no-repeat;
+}
+
+.cardShop {
+  max-width: 300px;
+  border-radius: 8px;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+}
+
+.cardShop .cardHeader {
+  height: auto;
+  border-radius: 8px 8px 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cardShop .cardHeader .hasBackground {
+  color: white;
+  background-color: #257708;
+  line-height: 30px;
+}
+
+.cardShop .cardHeader .column {
+  min-height: 210px;
+}
+
+.cardShop .cardHeader .column .iconFon {
+  color: #e2e2e2;
+}
+
+.cardShop .tag {
+  background-color: #257708;
+  color: white;
+}
+
+.cardShop .tag p {
+  font-size: 12px;
 }
 /*# sourceMappingURL=style.css.map */

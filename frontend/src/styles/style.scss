@@ -26,7 +26,6 @@ a.navbar-item, .navbar-link{
     }
 }
 
-
 .field.is-grouped{
   max-width: 370px; 
 }
@@ -75,7 +74,6 @@ header, main {
   height: 280px;
   width: 280px;
 }
-
 
 /**Components**/
 main{
@@ -155,7 +153,6 @@ iframe{
   }
   }
 }
-
 
 /* Komponenten*/
 .article{
@@ -300,14 +297,7 @@ footer{
       margin: auto;
     }
 
-    .icon{
-      height: 30px;
-      width: 30px;
-      border-radius: 100px;
-      border: 1px solid rgba($color: $grey, $alpha: 0.3);
-      margin: 2px;
-
-    }
+  
 
     .tag{
       background-color: $green;
@@ -323,4 +313,61 @@ footer{
 
 
   
+}
+
+.social {
+  .icon{
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    border: 1px solid rgba($color: $grey, $alpha: 0.3);
+    margin: 2px;
+
+  }
+}
+
+.shopSearch{
+
+  .column:last-child{
+    background-image: url('../assets/map.svg');
+    background-repeat: no-repeat;
+
+    
+  }
+
+
+}
+
+.cardShop{
+  max-width: 300px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  .cardHeader{
+    height: auto;
+    border-radius: 8px 8px 0 0;
+  //  background-image: url(https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900);
+    background-repeat: no-repeat;
+    background-size: cover;
+    .hasBackground{
+      color: $white;
+      background-color: $green;
+      line-height: 30px;
+    }
+
+    .column{
+      min-height: 210px;
+      .iconFon{
+        color: #e2e2e2;
+      }
+    }
+  }
+
+  .tag{ 
+    background-color: $green;
+    color: $white;
+
+    p{
+      font-size: 12px;
+    }
+  }
 }

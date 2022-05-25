@@ -1,8 +1,9 @@
 import React from 'react';
 import "../../styles/style.css"
-import user from '../../user/user.json'
+import user from '../../testdata/user.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLeaf, faBoxOpen } from '@fortawesome/free-solid-svg-icons'
+import SocialMedia from './socialMedia';
 
 
 
@@ -12,19 +13,7 @@ interface UserProps{
 
 function User(props: UserProps) { 
   const mail = user.mail
-  const social = [];
 
-// Filter Social Media
- for (const [key, value] of Object.entries(user.socialMedia)) {
-    if(value){
-        social.push(key)
-    }
-  }
-
-
-
-
-  
   
   return (
   <main>
@@ -35,18 +24,7 @@ function User(props: UserProps) {
             <figure className="image is-128x128 mb-2">
                 <img className="is-rounded" src="https://bulma.io/images/placeholders/128x128.png"/>
             </figure>
-           
-          
-         
-            {
-              social.map((i,socialMediaTag) =>
-              <div className='icon' key={socialMediaTag}>
-              <span>
-                  <FontAwesomeIcon icon={['fab', 'youtube']} />
-              </span>
-            </div>
-              )
-            }
+           <SocialMedia/>
             </div>
             <div className='column'>
                 <h1 className='is-size-4  has-text-left has-text-weight-bold'>{user.name +" "+ user.vorname}</h1>
