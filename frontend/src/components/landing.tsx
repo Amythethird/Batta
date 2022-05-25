@@ -17,7 +17,7 @@ function LandingPage() {
           <p className='pb-6'>Aber wie? Ganz einfach! Suche und kaufe von Anbietern in deiner Nähe, 
            die zu 100% nachhaltige Produkte anbieten und unterstütze diese und den Planeten!
            </p>
-          <button className="button is-half">Go green!</button>
+          <button className="button is-half is-primary is-medium">Go green!</button>
            </div>
          </div>
         </div>
@@ -42,7 +42,7 @@ function LandingPage() {
       <div className=' container concept '>
        <div className="columns is-centered is-vcentered">
           <div className="column ">
-          <h2>Wie funktioniert das Konzept?</h2>
+          <h2 className='is-size-4 has-text-weight-medium'>Wie funktioniert das Konzept?</h2>
           <p className='has-text-left mt-5 pb-6'>
           Morbi leo risus, porta ac consectetur ac, vestibulum at eros. 
           Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit libero, a pharetra augue. 
@@ -114,7 +114,7 @@ function LandingPage() {
 
         <div className='columns is-centered is-vcentered '>
           <div className='column has-text-left'>
-            <h2 className='has-text-left mb-2'>Unsere Lokalen LadenbetreiberInnen</h2>
+            <h2 className='has-text-left mb-2 is-size-4 has-text-weight-medium'>Unsere Lokalen LadenbetreiberInnen</h2>
             <p className='has-text-left mb-2'>
               Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies 
               vehicula ut id elit. 
@@ -137,7 +137,7 @@ function LandingPage() {
           </figure>
           </div>
           <div className='column has-text-left'>
-            <h2 className='has-text-left mb-2'>Unsere Nachhaltigen Organisationen</h2>
+            <h2 className='has-text-left mb-2 is-size-4 has-text-weight-medium'>Unsere Nachhaltigen Organisationen</h2>
             <p className='has-text-left mb-2'>
               Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam id dolor id nibh ultricies 
               vehicula ut id elit. 

@@ -5,9 +5,10 @@
 @import "../../node_modules/bulma/bulma.sass";
 //fonts
 
+$radius-large: 8px !important;
 
 a.navbar-item, .navbar-link{
-    color: $highlight-darkgreen;
+    color: $green;
 }
 
 .navbar-brand .a{
@@ -26,24 +27,53 @@ a.navbar-item, .navbar-link{
 }
 
 
+.field.is-grouped{
+  max-width: 370px; 
+}
+
+.card{
+box-shadow: none !important;
+filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
+}
+
 header, main {
     button{
-      background-color: #257708 !important;
-      color: white !important;
-      width: 120px !important;
-      height: 46px !important;
+      background-color: $green;
+      color: $white ;
+      width: 120px ;
+      height: 46px ;
+      border-radius: $radius-large;
+      
     }
 }
 
-
 .background_light{
-  background-color: rgba($color:  $highlight-lightgreen, $alpha: 0.2);
+  background-color: rgba($color:  $green, $alpha: 0.2);
 }
-
-
 
 .mb-space-large{
   margin-bottom: 120px;
+}
+
+.mb-space-medium{
+  margin-bottom: 60px;
+}
+
+.mt-space-medium{
+  margin-top: 60px;
+}
+
+.mt-space-large{
+  margin-top: 120px;
+}
+
+.pt-space-large{
+  padding-top: 120px;
+}
+
+.is-280x280{
+  height: 280px;
+  width: 280px;
 }
 
 
@@ -59,30 +89,29 @@ main{
   background-position: 10%, 80%, 80%, 100%;
   background-repeat: no-repeat;
 
+  p{
+    color: $grey;
+  }
+
 
   @include mobile {
     background-image: url(../assets/Frame-1.svg) ;
     background-position: 5% 5%;
     background-repeat: no-repeat;
-
-    .hero-body{
-      padding: 5px !important;
-    }
-
-    h1{
-      font-size: 28px !important;
-    }
   }
  
   
 }
 
-
-iframe{
-  border-radius: 8px !important;
+.concept{
+  a{
+    color: $green;
+  }
 }
 
-
+iframe{
+  border-radius: 8px ;
+}
 .Partner{
 
   .partner {
@@ -96,23 +125,21 @@ iframe{
   }
   
   a, a:visited, a:active{
-    color: $highlight-darkgreen !important;
+    color: $green;
     font-weight: 700;
   }
 
 }
 
-
-
 .section{
 
   .footer_partner{
     height: 80px;
-    background-color: $highlight-darkgreen;
-    color: white;
+    background-color: $green;
+    color: $white;
 
     a{
-      color: white !important;
+      color: $white ;
       font-weight: 700;
     }
   
@@ -121,8 +148,10 @@ iframe{
 
   @include mobile{
     .title{
-      font-size: 24px !important;
+      font-size: 24px;
     }
+
+  
   }
   }
 }
@@ -156,10 +185,10 @@ iframe{
       
       a{
         font-size: 24px;
-        background-color: #257708;
+        background-color: $green;
         line-height: 36px;
         padding:6px;
-        color: white !important;
+        color: $white;
         font-weight: 400;
       }
 
@@ -167,7 +196,7 @@ iframe{
         background-color: #95C11F;
         line-height: 36px;
         padding:0px 6px 0px 6px;
-        color: white;
+        color: $white;
         font-weight: 400;
       }
     
@@ -189,7 +218,7 @@ iframe{
 footer{
 
   &.footer{
-    background-color: $highlight-darkgreen !important;    
+    background-color: $green;    
 }
   .links{
     line-height: 5px;
@@ -197,14 +226,14 @@ footer{
 
     .has-border{
       
-      border-bottom: white 2px solid;
+      border-bottom: $white 2px solid;
   }
 
 
   p,li{
-    color: white !important;
+    color: $white ;
     a{
-      color: white !important;
+      color: $white ;
     }
 
   }
@@ -212,22 +241,22 @@ footer{
 }
 
 .login{
-  height: 100vh;
 
   background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
   background-repeat: no-repeat;
-  background-position: 10% 5%,  100% 10%;
+  background-position: 10% 20%,  100% 10%;
   background-size: 450px, 250px;
   .column{
-    margin: 50px !important;
+    margin: 50px;
     
+
     input{
       width: 400px;
     }
 
     .is-grouped{
         .control{
-          margin-right: 1.2rem !important;
+          margin-right: 1.2rem;
           input{
             width: 190px;
           }
@@ -238,18 +267,12 @@ footer{
 }
 
 .shop{
+  background-color: $green;
 
-    &.container{
-      background-color: $highlight-darkgreen !important;
-      height: 350px !important; 
-      padding: 10px;
-
-      h2{
-        color: #e2e2e2 !important;
-      }
-  
-    }
-  
-
-  
+  h1{
+    color: $white;
+  }
+  p{
+    color: $white;
+  }
 }

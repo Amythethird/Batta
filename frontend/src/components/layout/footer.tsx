@@ -76,7 +76,7 @@ function Footer() {
               <input className="input is-normal mr-2" type="text" placeholder="Large input"></input>
               <button className="button is-half">Go green!</button>
               </div>
-              <a>*Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</a>
+              <p className='pt-2'>*Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec sed odio dui. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
           </div>
       </div>
     </div>
