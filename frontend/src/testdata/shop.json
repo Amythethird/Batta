@@ -1,5 +1,5 @@
 [
- {
+  {
     "id": 12,
     "shopname": "Lisas Klamotten",
     "inhaber": "Lisa Hoch",
@@ -9,24 +9,18 @@
     "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis inventore consequuntur eos, quaerat est qui saepe ducimus pariatur alias, ipsum ea impedit. Et iste veniam debitis porro alias nobis officiis.",
     "oeffnungszeiten": "Mo-Fr: 09:00 Uhr - 18:00 Uhr -- Sa 10:00 Uhr - 16:00 Uhr",
     "adresse": "Musterstr. 1",
-    "plz":"50667",
+    "plz": "50667",
     "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
     "tag": ["Nachhaltig", "Made in Germany"],
-    "socialMedia": 
-    
-        {
-            "facebook": true,
-            "twitter": false,
-            "youtube": true,
-            "instagram":true
-        },
-    "produkte": {
-        
-    }
-    
-
-},
-{
+    "socialMedia": {
+      "facebook": true,
+      "twitter": false,
+      "youtube": true,
+      "instagram": true
+    },
+    "produkte": {}
+  },
+  {
     "id": 14,
     "shopname": "Verpacknix",
     "inhaber": "Justin Dresen",
@@ -39,18 +33,12 @@
     "plz": "50467",
     "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
     "tag": ["Unverpackt", "Nachhaltig", "Made in Germany"],
-    "socialMedia": 
-    
-        {
-            "facebook": true,
-            "twitter": false,
-            "youtube": true,
-            "instagram":true
-        },
-    "produkte": {
-        
-    }
-    
-
-}
+    "socialMedia": {
+      "facebook": true,
+      "twitter": false,
+      "youtube": true,
+      "instagram": true
+    },
+    "produkte": {}
+  }
 ]
