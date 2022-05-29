@@ -23,8 +23,10 @@
     "store_video": {
       "type": "media",
       "multiple": false,
-      "required": false,
-      "allowedTypes": ["videos"]
+      "required": true,
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "postal_code": {
       "type": "integer",
@@ -50,8 +52,10 @@
     "highlights": {
       "type": "media",
       "multiple": true,
-      "required": false,
-      "allowedTypes": ["images"]
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "short_description": {
       "type": "string",
@@ -61,41 +65,20 @@
       "type": "string",
       "required": false
     },
-    "categories": {
+    "labels": {
       "type": "enumeration",
-      "enum": ["clothing", "groceries"],
+      "enum": [
+        "clothing",
+        "groceries"
+      ],
       "required": true
     },
-    "tag_icons": {
+    "labels_icons": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
-    },
-    "rating": {
-      "type": "decimal"
-    },
-    "tags": {
-      "type": "enumeration",
-      "enum": [
-        "Nachhaltig",
-        "Unverpackt",
-        "Mad in Germany",
-        "Vegan",
-        "Vegetarisch",
-        "Regional",
-        "Ohne Zusatzstoffe"
-      ]
-    },
-    "social_media": {
-      "type": "enumeration",
-      "enum": [
-        "Facebook",
-        "LinkedIn",
-        "Instagram",
-        "YouTube",
-        "Twitter",
-        "Xing"
+      "allowedTypes": [
+        "images"
       ]
     }
   }
