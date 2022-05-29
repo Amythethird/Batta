@@ -1,10 +1,12 @@
 import React from "react";
 import "../../styles/style.css";
-//import Shop from './shop'
 import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 
 function Shops() {
+  // const shops = useAppSelector(selectShops);
+  // const dispatch = useAppDispatch();
+
   let ergebniss = [];
   const [input, setCriteria] = React.useState("");
 
