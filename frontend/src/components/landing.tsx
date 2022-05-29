@@ -67,7 +67,6 @@ function LandingPage() {
               </p>
               <a>Mehr erfahren</a>
             </div>
-
             <div className="column">
               <figure className="image is-16by9">
                 <iframe
@@ -135,7 +134,6 @@ function LandingPage() {
               </p>
             </div>
           </div>
-
           <div className="columns is-centered is-vcentered ">
             <div className="column has-text-left">
               <h2 className="has-text-left mb-2 is-size-4 has-text-weight-medium">

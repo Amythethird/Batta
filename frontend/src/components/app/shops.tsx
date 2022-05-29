@@ -122,5 +122,4 @@ function Shops() {
     </div>
   );
 }
-
 export default Shops;

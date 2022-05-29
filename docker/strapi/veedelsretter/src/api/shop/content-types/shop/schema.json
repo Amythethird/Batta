@@ -4,7 +4,8 @@
   "info": {
     "singularName": "shop",
     "pluralName": "shops",
-    "displayName": "shop"
+    "displayName": "shop",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,73 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "store_video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "postal_code": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "area_code": {
+      "type": "integer",
+      "required": true
+    },
+    "phone": {
+      "type": "biginteger",
+      "required": true
+    },
+    "highlights": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "short_description": {
+      "type": "string",
+      "required": true
+    },
+    "website": {
+      "type": "string",
+      "required": false
+    },
+    "labels": {
+      "type": "enumeration",
+      "enum": [
+        "clothing",
+        "groceries"
+      ],
+      "required": true
+    },
+    "labels_icons": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
