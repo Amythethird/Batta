@@ -29,7 +29,7 @@ function User() {
               <h1 className="is-size-4  has-text-left has-text-weight-bold">
                 {userNorm?.name + " " + userNorm?.vorname}
               </h1>
-              <p className="is-size-6">Fashionliebhaber und koole Sau</p>
+              <p className="is-size-6">Fashionliebhabe und koole Sau</p>
               {userNorm?.tag.map((i, tagItem) => (
                 <span className="tag mr-2 mt-5 mb-2" key={tagItem}>
                   {i}
