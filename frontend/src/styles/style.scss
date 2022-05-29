@@ -28,7 +28,7 @@ a.navbar-item,
 }
 
 .field.is-grouped {
-  max-width: 370px;
+  min-width: 370px;
 }
 
 .card {
@@ -307,13 +307,6 @@ footer {
   }
 }
 
-.shopSearch {
-  .column:last-child {
-    background-image: url("../assets/map.svg");
-    background-repeat: no-repeat;
-  }
-}
-
 .cardShop {
   max-width: 300px;
   border-radius: 8px;
@@ -345,5 +338,42 @@ footer {
     p {
       font-size: 12px;
     }
+  }
+}
+
+.slider {
+  .horizontal-slider {
+    width: 100%;
+    max-width: 500px;
+    height: 100vh;
+  }
+  .example-thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: rgba($color: $green, $alpha: 1);
+    border: 5px solid $green;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+  }
+  .example-thumb.active {
+    background-color: $green;
+  }
+  .example-track {
+    position: relative;
+    background: $green;
+  }
+  .example-track.example-track-0 {
+    background: $green;
+  }
+  .horizontal-slider .example-track {
+    top: 20px;
+    height: 4px;
+  }
+  .horizontal-slider .example-thumb {
+    top: 5px;
+    color: white;
+    border-radius: 8px;
+    min-width: 20px;
   }
 }

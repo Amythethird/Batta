@@ -5,6 +5,7 @@ import Login from "../login";
 import Shops from "../app/shops";
 import User from "../app/user";
 import Shop from "../app/shop";
+import Rating from "../globals/rating";
 
 //
 // async function loginUser(credentials) {
@@ -27,6 +28,7 @@ const Main = () => {
       <Route path="/shops" element={<Shops />}></Route>
       <Route path="/user/:id" element={<User />}></Route>
       <Route path="/shop/:id" element={<Shop />}></Route>
+      <Route path="/ratings" element={<Rating einStar={1} />}></Route>
     </Routes>
   );
 };
