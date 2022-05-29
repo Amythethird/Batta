@@ -11,8 +11,8 @@ h3 {
 
 h1 {
   font-family: "Roboto Slab", serif;
-  font-size: 32px ;
-  font-weight: 700 ;
+  font-size: 32px;
+  font-weight: 700;
   line-height: 42px;
   letter-spacing: 0em;
   text-align: center;
@@ -20,13 +20,12 @@ h1 {
 
 h2 {
   font-family: "Roboto Slab", serif;
-  font-size: 24px ;
-  font-weight: 500 ;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 36px;
   letter-spacing: 0.05em;
   text-align: left;
 }
-
 
 p {
   margin-top: 0;
@@ -36,10 +35,10 @@ p {
   line-height: 18.75px;
   letter-spacing: 0em;
   width: auto;
-
 }
 
-li, ul {
+li,
+ul {
   text-decoration: none;
   list-style: none;
 }
@@ -58,11 +57,8 @@ a:active {
 }
 
 /* ul reset*/
-ul{
+ul {
   margin: 0 0 0 0 !important;
   padding: 0 !important;
   list-style: none;
- 
 }
-
-
