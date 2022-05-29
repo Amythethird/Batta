@@ -8,9 +8,9 @@ h3 {
 }
 
 h1 {
-  font-family: "Roboto Slab", serif !important;
-  font-size: 32px !important;
-  font-weight: 700 !important;
+  font-family: "Roboto Slab", serif;
+  font-size: 32px;
+  font-weight: 700;
   line-height: 42px;
   letter-spacing: 0em;
   text-align: center;
@@ -18,26 +18,25 @@ h1 {
 
 h2 {
   font-family: "Roboto Slab", serif;
-  font-size: 24px !important;
-  font-weight: 500 !important;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 36px;
   letter-spacing: 0.05em;
   text-align: left;
 }
 
-
 p {
   margin-top: 0;
   font-family: "Roboto", sans-serif;
-  font-size: 16px !important;
-  font-weight: 400 !important;
-  line-height: 19px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.75px;
   letter-spacing: 0em;
   width: auto;
-
 }
 
-li, ul {
+li,
+ul {
   text-decoration: none;
   list-style: none;
 }
@@ -52,15 +51,12 @@ a:active {
   letter-spacing: 0em;
   text-align: left;
   text-decoration: none;
-  color: $highlight-darkgreen !important;
+  color: $green;
 }
 
-ul{
+/* ul reset*/
+ul {
   margin: 0 0 0 0 !important;
   padding: 0 !important;
   list-style: none;
- 
 }
-
-
-$highlight-darkgreen: #257708;
