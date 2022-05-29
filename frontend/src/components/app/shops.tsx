@@ -5,6 +5,7 @@ import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 
 function Shops() {
+  /* Ergebniss speichert die Shops zum Input */
   let ergebniss = [];
   const [input, setCriteria] = React.useState("");
 
