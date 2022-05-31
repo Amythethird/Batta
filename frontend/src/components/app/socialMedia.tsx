@@ -1,28 +1,20 @@
 import React from "react";
 import "../../styles/style.css";
-//import User from '../../testdata/user.json'
+import Shop from '../../testdata/shop.json'
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const SocialMedia = () => {
-  //const social = [];
-  // Filter Social Media
-  //  for (const [key, value] of Array.entries(User.socialMedia)) {
-  //     if(value){
-  //         social.push(key)
-  //     }
-  //   }
 
+interface Social{
+    id: number
+}
+const SocialMedia = (props: Social) => {
+   /*Filter Social Media*/
+   const  id  = props.id
+   const shop = Shop.find((e) => e.id === id);
+   console.log(shop)
   return (
     <div className="social">
-      {/* {
-              social.map((i,socialMediaTag) =>
-              <div className='icon' key={socialMediaTag}>
-              <span>
-                  <a><FontAwesomeIcon icon={['fab', 'youtube']} /></a>
-              </span>
-            </div>
-              )
-            } */}
+      
     </div>
   );
 };

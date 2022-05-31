@@ -7,6 +7,9 @@ import "../../styles/style.css";
 //import Shop from './shop'
 import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
+import Rating from "../globals/rating";
+import Sorted from "../globals/sorted";
+import Categories from "../globals/categories";
 
 function Shops() {
   let ergebniss = [];
@@ -17,99 +20,82 @@ function Shops() {
     setCriteria(e.currentTarget.value);
   };
 
-  /*Slider*/
+  /*Filter*/
+  const [filter, setFilter] = React.useState(false);
+  const onClick = (event: any) => {
+    event.preventDefault();
+    setFilter(!filter)
+    console.log(event)
+  }
+
+  let allStatements
+  if (filter) {
+      allStatements = 
+      <div className="container mb-space-medium">
+        <div className="columns is-align-items-flex-start">
+           
+           <div className="column is-two-fifths">
+             <Categories categorie={["Unverpackt", "Made in Germany", "Kleidung", "Vegan", "Vegetarisch", "Spielzeug"]}/>
+             <div className="slider mt-5">
+
+               <ReactSlider
+                 className="horizontal-slider"
+                 thumbClassName="example-thumb"
+                 trackClassName="example-track"
+                 marks
+                 markClassName="example-mark"
+                 min={0}
+                 max={100}
+                 renderThumb={(props, state) => (
+                   
+                   <div {...props} >{state.valueNow}</div>
+                   
+              
+                 )}
+               />
+     
+             </div>
+           </div>
+           <div className="column">
+             <Rating einStar={1} />
+           </div>
+           <div className="column">
+             <Sorted sortierung={["Beste Treffer", "Entfernung", "A-Z", "Z-A"]}/>
+           </div>
+         </div>
+         
+      </div>
+  }
+
+
 
   return (
     <div>
-      <section className="section is-medium mt-space-medium">
-        <form>
-          <div className="field">
-            <p className="control has-icons-left has-icons-right">
-              <input
-                className="input"
-                type="text"
-                placeholder="PLZ oder Adresse"
-                name="email"
-                value={input}
-                onChange={handleChange}
-              />
-              <span className="icon is-small is-left">
-                <FontAwesomeIcon icon={faSearch} color="#257708" />
-              </span>
-              <span className="icon is-small is-right">
-                <FontAwesomeIcon icon={faFilter} color="#257708" />
-              </span>
-            </p>
-          </div>
-          <div className="categories">
-            <p className="has-text-weight-medium mb-2">Kategorien</p>
-            <div className="is-flex">
-              <div className="field mr-4">
-                <div className="control">
-                  <label className="checkbox">
-                    <input
-                      type="checkbox"
-                      id="unverpackt"
-                      name="category"
-                      className="mr-1"
-                    />
-                    Unverpackt
-                  </label>
-                </div>
-                <div className="control">
-                  <label className="checkbox">
-                    <input
-                      type="checkbox"
-                      id="made_in_Germany"
-                      name="category"
-                      className="mr-1"
-                    />
-                    Made in Germany
-                  </label>
-                </div>
-                <div className="control">
-                  <label className="checkbox">
-                    <input
-                      type="checkbox"
-                      id="vegan"
-                      name="category"
-                      value="Vegan"
-                      className="mr-1"
-                    />
-                    Vegan
-                  </label>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control">
-                  <label className="checkbox">
-                    <input type="checkbox" name="category" className="mr-1" />
-                    Vegetarisch
-                  </label>
-                </div>
-                <div className="control">
-                  <label className="checkbox">
-                    <input type="checkbox" name="category" className="mr-1" />
-                    Fair Trade
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="slider">
-            <ReactSlider
-              className="horizontal-slider"
-              thumbClassName="example-thumb"
-              trackClassName="example-track"
-              renderThumb={(props, state) => (
-                <div {...props}>{state.valueNow}</div>
-              )}
-            />
-          </div>
-        </form>
-      </section>
+      <div className=" container mb-space-large mt-space-large">
+      <div className="field shops">
+        <p className="control has-icons-left is-flex has-button-right">
+          <input className="input" type="text"
+          placeholder="PLZ oder Adresse"
+          name="email"
+          value={input}
+          onChange={handleChange}
+          />
+          <span className="icon is-small is-left">
+            <FontAwesomeIcon icon={faSearch} color="#257708" />
+          </span>
+          <a className="button" onClick={onClick}>
+              <FontAwesomeIcon icon={faFilter} color="#257708" />
+          </a>
 
-      <section className="section is-medium is-flex">
+         
+         
+         
+        </p>
+      </div>
+        {allStatements}
+      </div>
+
+      <div className="container is-medium is-flex">
         {ergebniss.map((e, shops) => (
           <ShopCard
             key={shops}
@@ -123,7 +109,7 @@ function Shops() {
             id={e.id}
           />
         ))}
-      </section>
+      </div>
     </div>
   );
 }

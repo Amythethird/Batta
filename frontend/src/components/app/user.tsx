@@ -4,7 +4,7 @@ import "../../styles/style.css";
 import user from "../../testdata/user.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeaf, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
-import SocialMedia from "./socialMedia";
+
 
 function User() {
   //Routing for User
@@ -23,7 +23,7 @@ function User() {
                   src="https://bulma.io/images/placeholders/128x128.png"
                 />
               </figure>
-              <SocialMedia />
+         
             </div>
             <div className="column">
               <h1 className="is-size-4  has-text-left has-text-weight-bold">

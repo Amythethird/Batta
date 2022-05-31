@@ -76,6 +76,23 @@ main {
   width: 280px;
 }
 
+/*Radio_Buttons*/
+.radio-list {
+  .radio {
+    display: block;
+
+    & + .radio {
+      margin-left: 0;
+      margin-top: .5em;
+      
+    }
+  }
+  input[type='radio'] {
+    accent-color: $green;
+  }
+  
+}
+
 /**Components**/
 main {
   @include mobile {
@@ -244,20 +261,28 @@ footer {
 }
 
 .shop {
-  background-color: $green;
+ .information{
 
-  .column {
-    img {
-      width: 600px;
+  width: 380px;
+  height: 250px;
+  background-color: $white;
+  border-radius: 8px;
+
+  .imageInhaber{
+    position: absolute;
+    left: 420px;
+    top: 360px;
+    width: 110px;
+    max-height: 110px;
+ 
+    img{
+      border-radius: 12px;
+      max-width: 110px;
+      max-height: 100%;
+      background-size: contain;
     }
   }
-
-  h1 {
-    color: $white;
-  }
-  p {
-    color: $white;
-  }
+ }
 }
 
 .user {
@@ -345,7 +370,7 @@ footer {
   .horizontal-slider {
     width: 100%;
     max-width: 500px;
-    height: 100vh;
+    height: 40px;
   }
   .example-thumb {
     cursor: pointer;
@@ -354,7 +379,7 @@ footer {
     background: rgba($color: $green, $alpha: 1);
     border: 5px solid $green;
     display: block;
-    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+
   }
   .example-thumb.active {
     background-color: $green;
@@ -375,5 +400,17 @@ footer {
     color: white;
     border-radius: 8px;
     min-width: 20px;
+  }
+}
+
+.shops{
+
+  .button{
+    border: none;
+    position: absolute;
+    right: 50px;
+    height: 30px;
+    width: 30px;
+    top: 10%;
   }
 }
