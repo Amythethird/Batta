@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Points on a map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
+    <link
+      href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+      .marker {
+        background-image: url("mapbox-icon.png");
+        background-size: cover;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const url =
+        "https://api.mapbox.com/geocoding/v5/mapbox.places/Steinm%C3%BCll.json?proximity=ip&types=place%2Cpostcode%2Caddress&access_token=pk.eyJ1IjoiYWN2bTAwNyIsImEiOiJjbDN2azF0ZTExczh5M2lsdHRtYmttcWsyIn0.7UCO3a_muVVS-hxFq8RrJQ";
+      async function fetchGeo() {
+        let geojson = null;
+        const response = await fetch(url)
+          .then((response) => response.json())
+          .then((data) => (geojson = data));
+
+        // The value for 'accessToken' begins with 'pk...'
+        mapboxgl.accessToken =
+          "pk.eyJ1IjoiYWN2bTAwNyIsImEiOiJjbDN2azF0ZTExczh5M2lsdHRtYmttcWsyIn0.7UCO3a_muVVS-hxFq8RrJQ";
+        const map = new mapboxgl.Map({
+          container: "map",
+          // Replace YOUR_STYLE_URL with your style URL.
+          style: "mapbox://styles/mapbox/light-v10",
+          center: [7.56281615, 51.0240689],
+          zoom: 3,
+        });
+
+        // add markers to map
+        for (const feature of geojson.features) {
+          // make a marker for each feature and add to the map
+          new mapboxgl.Marker()
+            .setLngLat(feature.geometry.coordinates)
+            .addTo(map);
+        }
+      }
+      fetchGeo();
+      // Code from the next step will go here.
+    </script>
+  </body>
+</html>
