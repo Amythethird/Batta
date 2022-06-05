@@ -5,172 +5,161 @@ import { useParams } from "react-router-dom";
 import "../../styles/style.css";
 import Shop from "../../testdata/shop.json";
 import SocialMedia from "./socialMedia";
+import Rating from "../globals/rating";
+import Kommentar from "../globals/comment";
 
 function ShopAnsicht() {
   const { id } = useParams();
   const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
- // const bestProdukt = ["Test", "Test", "test"];
+  const [filter, setFilter] = React.useState(false);
+  const bewertung = (event: any) => {
+    event.preventDefault();
+    setFilter(!filter);
+  };
 
-  return (
-    <main className="mt-space-large shop">
-      <section className="section is-flex is-large pb-0 is-align-content-end" style={{ backgroundImage: `url(${shop?.image})` }}>
-        <div className="information p-3">
-          <figure className="imageInhaber">
-            <img src={shop?.imageInhaber} alt={shop?.shopname} />
-          </figure>
-          <h2 className="is-size-4">{shop?.shopname}
-          <span>
-            <FontAwesomeIcon icon={faHeart} size='1x'/>
-          </span>
-          </h2>
-          {
-            shop?.tag.map((e,i) => (
-              <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
-                {e}
-              </span>
-            ))
-          }
-          <p>{shop?.text}</p>
-          <SocialMedia id={shop?.id ?? 0}/>
+  const [title, setTitle] = React.useState("");
+  const [user, setUser] = React.useState("");
+  const [text, setText] = React.useState("");
+
+  const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    // Preventing the page from reloading
+    event.preventDefault();
+  };
+
+  let modal;
+  if (filter) {
+    modal = (
+      <section className="section is-large">
+        <div className="modal is-active">
+          <div className="modal-background"></div>
+          <div className="modal-card">
+            <header className="modal-card-head">
+              <p className="modal-card-title">Bewertung</p>
+              <button
+                className="delete"
+                aria-label="close"
+                onClick={bewertung}
+              ></button>
+            </header>
+            <form onSubmit={submitForm}>
+              <section className="modal-card-body">
+                <div className="field is-grouped">
+                  <p className="control is-expanded">
+                    <input
+                      className="input"
+                      name="choreDesc"
+                      type="text"
+                      placeholder="Titel"
+                      value={title}
+                      onChange={(e) => setTitle(e.target.value)}
+                    />
+                  </p>
+                  <p className="control is-expanded">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Nutzer"
+                      value={user}
+                      onChange={(e) => setUser(e.target.value)}
+                    />
+                  </p>
+                </div>
+                <textarea
+                  className="textarea"
+                  placeholder="e.g. Hello world"
+                  value={text}
+                  onChange={(e) => setText(e.target.value)}
+                ></textarea>
+              </section>
+              <footer className="modal-card-foot">
+                <button className="button" type="submit">
+                  Save changes
+                </button>
+                <button className="button" onClick={bewertung}>
+                  Cancel
+                </button>
+              </footer>
+            </form>
+          </div>
         </div>
       </section>
-     
+    );
+  }
+  return (
+    <main className="mt-space-large  shop">
+      <section
+        className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
+        style={{ backgroundImage: `url(${shop?.image})` }}
+      >
+        <div className="columns mb-0">
+          <div className="column is-align-self-flex-end  pb-0">
+            <div className="information p-3">
+              <figure className="imageInhaber">
+                <img src={shop?.imageInhaber} alt={shop?.shopname} />
+              </figure>
+              <h2 className="is-size-4">
+                {shop?.shopname}
+                <span>
+                  <FontAwesomeIcon icon={faHeart} size="1x" />
+                </span>
+              </h2>
+              {shop?.tag.map((e, i) => (
+                <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
+                  {e}
+                </span>
+              ))}
+              <p>{shop?.text}</p>
+              <SocialMedia id={shop?.id ?? 0} />
+            </div>
+          </div>
+          <div className="column is-align-self-flex-start">
+            <div className="test p-4">
+              <p className="has-text-weight-medium">Öffnungszeiten</p>
+              {shop?.oeffnungszeiten}
+              <p className="has-text-weight-medium mt-1 ">Adresse</p>
+              <p className="is_green">
+                {shop?.adresse} <br />
+                {shop?.plz}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section is-medium p-2">
+        <div className="columns is-align-items-center  ">
+          <div className="column  is-9">
+            <h2 className="is-size-4">Bewertungen & Kommentare</h2>
+          </div>
+          <div className="column is-flex kommentare ">
+            <li>
+              <a onClick={bewertung}>Bewertung schreiben</a>
+            </li>
+            <li>
+              <a>Alle anzeigen</a>
+            </li>
+          </div>
+        </div>
+        {modal}
+        <div className="columns">
+          <div className="column is-4">
+            <Rating einStar={5} title={false}></Rating>
+          </div>
+          <div className="column kommentare">
+            <Kommentar
+              title={title}
+              date="2022.1.20"
+              autor={user}
+              bewertung={4}
+              text={text}
+            />
+          </div>
+        </div>
+      </section>
+      <section className="section background_light is-medium">
+        Bewertung
+      </section>
     </main>
   );
 }
 
 export default ShopAnsicht;
-/* 
-<section className="section mx-3 pr-4 pl-4 is-medium">
-<div className="container">
-  <div className="columns">
-    <div className="column is-one-third">
-      <h2 className="is-size-4 mb-3">Beliebteste Produkte</h2>
-      <p className="mb-4">
-        Cum sociis natoque penatibus et magnis dis parturient montes,
-        nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
-        augue.
-      </p>
-      <button className="button is-primary is-outlined">
-        Gutscheine
-      </button>
-    </div>
-    <div className="column is-justify-content-end is-flex">
-      {bestProdukt.map((i, produktItem) => (
-        <div className="card mr-2" key={produktItem}>
-          <div className="card-image">
-            <figure className="image">
-              <img src={shop?.image} alt="Placeholder image"></img>
-            </figure>
-          </div>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-</section>
-<section className="section pl-0 pr-0 mx-3 mb-space-large">
-<div className="container">
-  <div className="columns is-centered is-vcentered">
-    <div className="column">
-      <figure className="image is-16by9">
-        <iframe
-          className="has-ratio"
-          width="640"
-          height="360"
-          src="https://www.youtube.com/embed/YE7VzlLtp-4"
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-      </figure>
-    </div>
-    <div className="column ">
-      <h2 className="is-size-4 has-text-weight-medium">
-        Wie funktioniert das Konzept?
-      </h2>
-      <p className="has-text-left mt-5 pb-6">
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
-        vitae elit libero, a pharetra augue. Maecenas faucibus mollis
-        interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
-        sed diam eget risus varius blandit sit amet non magna. Etiam
-        porta sem malesuada magna ultricies vehicula ut mollis.
-      </p>
-      <button className="button is-primary is-outlined">
-        Gutscheine
-      </button>
-    </div>
-  </div>
-</div>
-</section>
-<section className="section background_light is-medium  px-0 pb-5">
-<section className="container has-text-centered">
-  <h1 className="title">
-    Diese Parter:Innen unterstützt du mit einem Gutschein
-  </h1>
-  <h2 className="subtitle has-text-centered p-6">
-    Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt, bieten
-    unsere Parther verschiedene Möglichkeiten wie z.B. die Unterstützung
-    nachhaltiger Projekte.
-  </h2>
-
-  <div className="Partner">
-    <div className="partner mb-4">
-      <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-      </figure>
-      <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-      </figure>
-      <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-      </figure>
-      <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-      </figure>
-      <figure className="image is-128x128">
-        <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-      </figure>
-    </div>
-    <button className="button is-primary is-outlined">
-      Gutscheine
-    </button>
-  </div>
-</section>
-</section>
-<section className="section is-medium pr-4 pl-4 mb-is-large">
-<div className="container">
-  <div className="columns">
-    <div className="column is-8 p-6">
-      <h2 className="is-size-4 pb-2">Gutschein</h2>
-      <p className="pb-4">
-        Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-        Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
-        vitae elit libero, a pharetra augue. Maecenas faucibus mollis
-        interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
-        sed diam eget risus varius blandit sit amet non magna. Etiam
-        porta sem malesuada magna ultricies vehicula ut mollis.
-      </p>
-      <div className="field is-grouped">
-        <p className="control is-expanded">
-          <input
-            className="input is-normal"
-            type="text"
-            placeholder="Gutschein höhe"
-          ></input>
-        </p>
-        <p className="control">
-          <a className="button is-primary">Gutschein kaufen</a>
-        </p>
-      </div>
-    </div>
-    <div className="column p-6">
-      <h2 className="is-size-4">Kontakt</h2>
-      <p>
-        E-Mail: <a href={"mailto:" + shop?.mail}>{shop?.mail}</a>
-      </p>
-      <p>Telefon: {shop?.tel}</p>
-    </div>
-  </div>
-</div>
-</section> */
