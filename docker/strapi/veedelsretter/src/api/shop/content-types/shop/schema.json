@@ -71,32 +71,6 @@
       "multiple": true,
       "required": false,
       "allowedTypes": ["images"]
-    },
-    "rating": {
-      "type": "decimal"
-    },
-    "tags": {
-      "type": "enumeration",
-      "enum": [
-        "Nachhaltig",
-        "Unverpackt",
-        "Mad in Germany",
-        "Vegan",
-        "Vegetarisch",
-        "Regional",
-        "Ohne Zusatzstoffe"
-      ]
-    },
-    "social_media": {
-      "type": "enumeration",
-      "enum": [
-        "Facebook",
-        "LinkedIn",
-        "Instagram",
-        "YouTube",
-        "Twitter",
-        "Xing"
-      ]
     }
   }
 }

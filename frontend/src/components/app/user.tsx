@@ -5,7 +5,6 @@ import user from "../../testdata/user.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLeaf, faBoxOpen } from "@fortawesome/free-solid-svg-icons";
 
-
 function User() {
   //Routing for User
   const { id } = useParams();
@@ -23,7 +22,6 @@ function User() {
                   src="https://bulma.io/images/placeholders/128x128.png"
                 />
               </figure>
-         
             </div>
             <div className="column">
               <h1 className="is-size-4  has-text-left has-text-weight-bold">

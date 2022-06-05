@@ -36,6 +36,7 @@ Im Rahmen des Moduls "Projekt I: Vision und Konzept" im Wintersemester 2021/2022
   Herunterladen einer Linux Distribution
 
 # Strapi admin user:
+
 email: chef@strapi.io
 passwort: Gourmet1234
 
