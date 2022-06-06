@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
 import Kommentar from "../globals/comment";
-import { save } from "../../hooks/useApi";
+import { getData, save } from "../../hooks/useApi";
 import HeaderUser from "../globals/HeaderUser";
 
 function ShopAnsicht() {
+  const comments: any = [];
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
   const bewertung = (event: any) => {
@@ -19,11 +20,20 @@ function ShopAnsicht() {
   const [user, setUser] = React.useState("");
   const [text, setText] = React.useState("");
 
-  const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
     event.preventDefault();
 
-    save({ title, user, text, date: new Date().toISOString(), bewertung: 4 });
+    await save(
+      {
+        title,
+        user,
+        text,
+        date: new Date().toISOString(),
+        bewertung: 4,
+      },
+      "Rating"
+    );
   };
 
   let modal;
@@ -86,6 +96,10 @@ function ShopAnsicht() {
     );
   }
 
+  useEffect(() => {
+    getData("Rating").then((res) => comments.push(...res));
+  });
+
   return (
     <main className="mt-space-large">
       <HeaderUser UserId={id} />
@@ -109,13 +123,7 @@ function ShopAnsicht() {
             <Rating einStar={5} title={false}></Rating>
           </div>
           <div className="column kommentare">
-            <Kommentar
-              title={title}
-              date="2022.1.20"
-              autor={user}
-              bewertung={4}
-              text={text}
-            />
+            <Kommentar comments={comments} />
           </div>
         </div>
       </section>

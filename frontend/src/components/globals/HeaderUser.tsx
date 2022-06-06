@@ -19,7 +19,6 @@ function HeaderUser(props: params) {
 
   if (isUser) data = User.find((e) => e.id === parseInt(props.UserId ?? "0"));
   else data = Shop.find((e) => e.id === parseInt(props.UserId ?? "0"));
-  console.log(data, isUser);
 
   let oeffnungszeiten;
   if (!isUser) {

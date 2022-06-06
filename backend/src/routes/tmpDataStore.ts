@@ -9,7 +9,7 @@ const rootTmpData = PATH.join(
 
 export default function register(router: Router) {
   router.post(`/${prefix}`, async (ctx) => {
-    const data: JSON[] = [await ctx.request.body().value];
+    const data: JSON[] = [JSON.parse(await ctx.request.body().value)];
     const type = ctx.request.url.searchParams.get("type") ?? "data";
     const path = PATH.join(rootTmpData, `${type}.json`);
     if (await fs.exists(path))
@@ -22,6 +22,7 @@ export default function register(router: Router) {
   router.get(`/${prefix}/:type`, async (ctx) => {
     const type = ctx.params.type;
     const path = PATH.join(rootTmpData, `${type}.json`);
+    ctx.response.type = "application/json";
     if (await fs.exists(path))
       ctx.response.body = await Deno.readTextFile(path);
     else {

@@ -1,9 +1,10 @@
-import { Router, Server } from "../deps.ts";
+import { Router, Server, cors } from "../deps.ts";
 import tmpDataRoutes from "./routes/tmpDataStore.ts";
 
 const url = `https://backend.localhost`;
 const router = new Router();
 console.log(url);
+Server.use(cors({ origin: true }));
 
 //register all Routes
 tmpDataRoutes(router);

@@ -15,6 +15,24 @@ export default function useApi(query: string) {
   return result;
 }
 
-export function save(saveData: any) {
-  console.log(saveData);
+export async function save(saveData: any, type: string) {
+  const url = `https://backend.localhost/data?type=${type}`;
+
+  await fetch(url, {
+    method: "POST",
+    body: JSON.stringify(saveData),
+    mode: "cors",
+  });
+}
+
+export async function getData(type: string) {
+  const url = `https://backend.localhost/data/${type}`;
+
+  const res = await fetch(url, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return await res.json();
 }
