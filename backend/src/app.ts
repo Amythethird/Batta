@@ -1,12 +1,12 @@
 import { Router, Server } from "../deps.ts";
-import shopRoutes from "./routes/shop.ts";
+import tmpDataRoutes from "./routes/tmpDataStore.ts";
 
 const url = `https://backend.localhost`;
 const router = new Router();
 console.log(url);
 
 //register all Routes
-shopRoutes(router);
+tmpDataRoutes(router);
 
 Server.use(router.routes());
 Server.use(router.allowedMethods());
