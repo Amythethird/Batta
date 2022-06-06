@@ -1,11 +1,33 @@
 import React from "react";
+import { collection, query } from "../../api-utils/query-utils";
+import useApi from "../../hooks/useApi";
+import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
+import {
+  selectShopsFilter,
+  set as setShopsFilter,
+} from "../../state/slices/shops-filter.state";
+import { selectShops } from "../../state/slices/shops.state";
 import "../../styles/style.css";
 import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 
 function Shops() {
-  // const shops = useAppSelector(selectShops);
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
+
+  const shops = useAppSelector(selectShops);
+  const filter = useAppSelector(selectShopsFilter);
+
+  useApi(
+    query(
+      collection("shops", ["name"], {
+        postal_code: { eq: parseInt(filter, 10) },
+      })
+    ),
+    (response) => {
+      console.log(response);
+    },
+    [filter]
+  );
 
   let ergebniss = [];
   const [input, setCriteria] = React.useState("");
@@ -13,6 +35,7 @@ function Shops() {
   ergebniss = shopData.filter((e) => e.plz === input);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
+    dispatch(setShopsFilter(e.currentTarget.value));
   };
 
   return (
@@ -119,6 +142,13 @@ function Shops() {
             img={e.image}
             id={e.id}
           />
+        ))}
+      </section>
+
+      {/* shops with redux demo section */}
+      <section className="section is-medium is-flex">
+        {shops.map((shop, index) => (
+          <div key={index}>Hello {shop.name}</div>
         ))}
       </section>
     </div>

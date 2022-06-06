@@ -1,16 +1,33 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
-export default function useApi(query: string) {
-  const [result, setResult] = useState({} as Response);
-
+export default function useApi(
+  query: string,
+  // eslint-disable-next-line no-unused-vars
+  responseHandler: (response: any) => any,
+  useApiWhenChanged: any[]
+) {
   useEffect(() => {
     async function fetchApi() {
-      const response = await fetch(`http://localhost:2500/graphql`);
-      setResult(response);
+      const accessToken = sessionStorage.getItem("accessToken");
+      if (!accessToken) {
+        throw new Error("Login required!");
+      }
+      const response = await fetch(
+        // eslint-disable-next-line no-undef
+        `${process.env.REACT_APP_STRAPI}/graphql`,
+        {
+          method: "POST",
+          body: JSON.stringify({ query }),
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+
+      responseHandler(await response.json());
     }
 
     fetchApi();
-  }, [query]);
-
-  return result;
+  }, [...useApiWhenChanged]);
 }

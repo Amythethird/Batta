@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import shopsReducer from "./slices/shops.state";
+import shopsFilterReducer from "./slices/shops-filter.state";
 
 export const store = configureStore({
   reducer: {
     shops: shopsReducer,
+    shopsFilter: shopsFilterReducer,
   },
 });
 
