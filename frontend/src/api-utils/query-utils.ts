@@ -39,7 +39,7 @@ export function collection(
 }
 
 function entryName(entityName: string, id: number): string {
-  return `${entityName}(${id})`;
+  return `${entityName}(id: ${id})`;
 }
 
 function collectionName(
