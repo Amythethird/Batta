@@ -14,3 +14,7 @@ export default function useApi(query: string) {
 
   return result;
 }
+
+export function save(saveData: any) {
+  console.log(saveData);
+}

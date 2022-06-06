@@ -1,22 +1,20 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import React from "react";
-import { useParams } from "react-router-dom";
 import "../../styles/style.css";
-import Shop from "../../testdata/shop.json";
-import SocialMedia from "./socialMedia";
+import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
 import Kommentar from "../globals/comment";
+import { save } from "../../hooks/useApi";
+import HeaderUser from "../globals/HeaderUser";
 
 function ShopAnsicht() {
   const { id } = useParams();
-  const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
   const [filter, setFilter] = React.useState(false);
   const bewertung = (event: any) => {
     event.preventDefault();
     setFilter(!filter);
   };
 
+  // Kommentare
   const [title, setTitle] = React.useState("");
   const [user, setUser] = React.useState("");
   const [text, setText] = React.useState("");
@@ -24,6 +22,8 @@ function ShopAnsicht() {
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
     event.preventDefault();
+
+    save({ title, user, text, date: new Date().toISOString(), bewertung: 4 });
   };
 
   let modal;
@@ -85,47 +85,11 @@ function ShopAnsicht() {
       </section>
     );
   }
+
   return (
-    <main className="mt-space-large  shop">
-      <section
-        className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
-        style={{ backgroundImage: `url(${shop?.image})` }}
-      >
-        <div className="columns mb-0">
-          <div className="column is-align-self-flex-end  pb-0">
-            <div className="information p-3">
-              <figure className="imageInhaber">
-                <img src={shop?.imageInhaber} alt={shop?.shopname} />
-              </figure>
-              <h2 className="is-size-4">
-                {shop?.shopname}
-                <span>
-                  <FontAwesomeIcon icon={faHeart} size="1x" />
-                </span>
-              </h2>
-              {shop?.tag.map((e, i) => (
-                <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
-                  {e}
-                </span>
-              ))}
-              <p>{shop?.text}</p>
-              <SocialMedia id={shop?.id ?? 0} />
-            </div>
-          </div>
-          <div className="column is-align-self-flex-start">
-            <div className="test p-4">
-              <p className="has-text-weight-medium">Öffnungszeiten</p>
-              {shop?.oeffnungszeiten}
-              <p className="has-text-weight-medium mt-1 ">Adresse</p>
-              <p className="is_green">
-                {shop?.adresse} <br />
-                {shop?.plz}
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="section is-medium p-2">
+    <main className="mt-space-large">
+      <HeaderUser UserId={id} />
+      <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
           <div className="column  is-9">
             <h2 className="is-size-4">Bewertungen & Kommentare</h2>
@@ -158,6 +122,72 @@ function ShopAnsicht() {
       <section className="section background_light is-medium">
         Bewertung
       </section>
+      <section className="section mb-space-large">
+        <div className=" container concept ">
+          <div className="columns is-centered is-vcentered">
+            <div className="column">
+              <figure className="image is-16by9">
+                <iframe
+                  className="has-ratio"
+                  width="640"
+                  height="360"
+                  src="https://www.youtube.com/embed/YE7VzlLtp-4"
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+              </figure>
+            </div>
+            <div className="column ">
+              <h2 className="is-size-4 has-text-weight-medium">
+                Wie funktioniert das Konzept?
+              </h2>
+              <p className="has-text-left mt-5 pb-6">
+                Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+                Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
+                vitae elit libero, a pharetra augue. Maecenas faucibus mollis
+                interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
+                sed diam eget risus varius blandit sit amet non magna. Etiam
+                porta sem malesuada magna ultricies vehicula ut mollis.
+              </p>
+              <button className="button is-success">Gutschein</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section background_light is-medium mb-space-large">
+        <div className="container has-text-centered mb-4">
+          <h1 className="title">Das sind unsere NachhaltigkeitspartnerInnen</h1>
+          <h2 className="subtitle has-text-centered p-6">
+            Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt, bieten
+            unsere Parther verschiedene Möglichkeiten wie z.B. die Unterstützung
+            nachhaltiger Projekte.
+          </h2>
+
+          <div className="Partner">
+            <div className="partner mb-4">
+              <figure className="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+              </figure>
+              <figure className="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+              </figure>
+              <figure className="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+              </figure>
+              <figure className="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+              </figure>
+              <figure className="image is-128x128">
+                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+              </figure>
+            </div>
+            <button className="button is-success hast-text-align-center mt-4">
+              Gutschein
+            </button>
+          </div>
+        </div>
+      </section>
+      <section className="section"></section>
     </main>
   );
 }

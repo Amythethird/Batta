@@ -263,32 +263,30 @@ footer {
   }
 }
 
-.shop {
-  .section {
-    height: 500px;
+/*Header User*/
 
-    .information {
-      h2 {
-        color: $green;
-      }
-      width: 380px;
-      height: 250px;
-      background-color: $white;
-      border-radius: 8px 8px 0 0;
+.userHeader {
+  .information {
+    h2 {
+      color: $green;
+    }
+    width: 380px;
+    height: 250px;
+    background-color: $white;
+    border-radius: 8px 8px 0 0;
 
-      .imageInhaber {
-        position: absolute;
-        left: 420px;
-        top: 310px;
+    .imageInhaber {
+      position: absolute;
+      left: 420px;
+      top: 310px;
+      width: 110px;
+      max-height: 110px;
+
+      img {
+        border-radius: 8px;
         width: 110px;
-        max-height: 110px;
-
-        img {
-          border-radius: 8px;
-          width: 110px;
-          height: 110px;
-          object-fit: cover;
-        }
+        height: 110px;
+        object-fit: cover;
       }
     }
 
@@ -315,43 +313,6 @@ footer {
 
     p.is_green {
       color: $green;
-    }
-  }
-}
-
-.user {
-  background: linear-gradient(90deg, #5da65d 0%, #98ea98 100%);
-
-  &.section {
-    border-radius: 8px;
-  }
-
-  p {
-    color: $grey;
-  }
-
-  .profil {
-    background-color: $white;
-
-    &.container {
-      border-radius: 12px 12px 0 0;
-      width: 800px;
-    }
-
-    figure {
-      margin: auto;
-    }
-
-    .tag {
-      background-color: $green;
-      color: white;
-    }
-
-    .badge {
-      p,
-      h2 {
-        line-height: 20px;
-      }
     }
   }
 }

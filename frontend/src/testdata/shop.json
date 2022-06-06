@@ -1,7 +1,7 @@
 [
   {
     "id": 12,
-    "shopname": "Lisas Klamotten",
+    "name": "Lisas Klamotten",
     "inhaber": "Lisa Hoch",
     "mail": "lisas_klamotten@hotmail.com",
     "tel": "015155255663",
@@ -10,7 +10,7 @@
     "oeffnungszeiten": "Mo-Fr: 09:00 Uhr - 18:00 Uhr \n Sa 10:00 Uhr - 16:00 Uhr",
     "adresse": "Musterstr. 1",
     "plz": "50667",
-    "imageInhaber": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+    "profileImage": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
     "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
     "tag": ["Nachhaltig", "Made in Germany"],
     "socialMedia": {

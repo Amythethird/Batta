@@ -2,7 +2,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import ReactSlider from "react-slider";
-import "rc-slider/assets/index.css";
 import "../../styles/style.css";
 //import Shop from './shop'
 import shopData from "../../testdata/shop.json";
@@ -107,7 +106,7 @@ function Shops() {
         {ergebniss.map((e, shops) => (
           <ShopCard
             key={shops}
-            name={e.shopname}
+            shopName={e.name}
             tag={e.tag}
             oeffnungszeiten={e.oeffnungszeiten}
             text={e.text}
