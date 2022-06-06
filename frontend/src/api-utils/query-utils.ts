@@ -23,10 +23,15 @@ export function collection(
   pagination?: Pagination,
   paginationResponse?: PaginationResponse
 ): string {
-  const paginationResponseString = JSON.stringify(paginationResponse);
+  let paginationResponseString;
+  if (paginationResponse) {
+    paginationResponseString = Object.keys(paginationResponse)
+      .filter((key) => (paginationResponse as { [key: string]: boolean })[key])
+      .join(" ");
+  }
   return `${collectionName(entityName, filter, pagination, sort)} { ${data(
     fields
-  )}${
+  )} ${
     paginationResponse
       ? `meta { pagination { ${paginationResponseString} } }`
       : ""
@@ -45,18 +50,22 @@ function collectionName(
   pagination?: Pagination,
   sort?: string | string[]
 ): string {
-  const filterString = JSON.stringify(filter);
-  const paginationString = JSON.stringify(pagination);
-  const sortString = JSON.stringify(sort);
+  const filterString = JSON.stringify(filter)?.replace(/"([^"]+)":/g, "$1:");
+  const paginationString = JSON.stringify(pagination)?.replace(
+    /"([^"]+)":/g,
+    "$1:"
+  );
+  const sortString = JSON.stringify(sort)?.replace(/"([^"]+)":/g, "$1:");
 
   const needsBraces = filter || pagination || sort;
+
   return `${entityName}${needsBraces ? "(" : ""}${
-    filter ? `filter: ${filterString}, ` : ""
+    filter ? `filters: ${filterString}, ` : ""
   }${pagination ? `pagination: ${paginationString}, ` : ""}${
     sort ? `sort: ${sortString}, ` : ""
   }${needsBraces ? ")" : ""}`;
 }
 
 function data(fields: string[]): string {
-  return `data { id attributes { ${fields.join()} } }`;
+  return `data { id attributes { ${fields.join(" ")} } }`;
 }
