@@ -2,11 +2,7 @@ import { Filter } from "./models/filter-models";
 import { Pagination, PaginationResponse } from "./models/pagination-models";
 
 export function query(queryContent: string): string {
-  return `
-        query {
-            ${queryContent}
-        }
-    `;
+  return `query { ${queryContent} }`;
 }
 
 export function entry(
@@ -14,9 +10,7 @@ export function entry(
   id: number,
   fields: string[]
 ): string {
-  return `${entryName(entityName, id)} {
-        ${data(fields)}
-    }`;
+  return `${entryName(entityName, id)} { ${data(fields)} }`;
 }
 
 export function collection(
@@ -30,20 +24,13 @@ export function collection(
   paginationResponse?: PaginationResponse
 ): string {
   const paginationResponseString = JSON.stringify(paginationResponse);
-  return `
-    ${collectionName(entityName, filter, pagination, sort)} {
-        ${data(fields)}
-        ${
-          paginationResponse
-            ? `meta {
-                pagination {
-                    ${paginationResponseString}
-                }
-            }`
-            : ""
-        }
-    }
-  `;
+  return `${collectionName(entityName, filter, pagination, sort)} { ${data(
+    fields
+  )}${
+    paginationResponse
+      ? `meta { pagination { ${paginationResponseString} } }`
+      : ""
+  } }`;
 }
 
 function entryName(entityName: string, id: number): string {
@@ -61,20 +48,15 @@ function collectionName(
   const filterString = JSON.stringify(filter);
   const paginationString = JSON.stringify(pagination);
   const sortString = JSON.stringify(sort);
-  return `${entityName}(
-      ${filter ? `filter: ${filterString}, ` : ""}
-      ${pagination ? `pagination: ${paginationString}, ` : ""}
-      ${sort ? `sort: ${sortString}, ` : ""}
-    )`;
+
+  const needsBraces = filter || pagination || sort;
+  return `${entityName}${needsBraces ? "(" : ""}${
+    filter ? `filter: ${filterString}, ` : ""
+  }${pagination ? `pagination: ${paginationString}, ` : ""}${
+    sort ? `sort: ${sortString}, ` : ""
+  }${needsBraces ? ")" : ""}`;
 }
 
 function data(fields: string[]): string {
-  return `
-        data {
-            id
-            attributes {
-                ${fields.join()}
-            }
-        }
-    `;
+  return `data { id attributes { ${fields.join()} } }`;
 }
