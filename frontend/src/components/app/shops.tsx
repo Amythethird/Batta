@@ -10,7 +10,7 @@ import {
 } from "../../state/slices/shops-filter.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import "../../styles/style.css";
-import shopData from "../../testdata/shop.json";
+// import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 
 function Shops() {
@@ -18,7 +18,6 @@ function Shops() {
 
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
-
   useApi(
     query(
       collection("shops", ["name"], {
@@ -30,11 +29,10 @@ function Shops() {
     },
     [filter]
   );
-
-  let ergebniss = [];
   const [input, setCriteria] = React.useState("");
-
-  ergebniss = shopData.filter((e) => e.plz === input);
+  /*let ergebniss = [];
+  ergebniss = shopData.filter((e) => e.plz === input);*/
+  console.log(shops);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
     dispatch(setShopsFilter(e.currentTarget.value));
@@ -130,26 +128,18 @@ function Shops() {
           </div>
         </form>
       </section>
-
-      {/* shops with redux demo section */}
       <section className="section is-medium is-flex">
-        {shops.map((shop, index) => (
-          <div key={index}>Hello {shop.name}</div>
-        ))}
-      </section>
-
-      <section className="section is-medium is-flex">
-        {ergebniss.map((e, shops) => (
+        {shops.map((shop: Shop) => (
           <ShopCard
-            key={shops}
-            name={e.shopname}
-            tag={e.tag}
-            oeffnungszeiten={e.oeffnungszeiten}
-            text={e.text}
-            adresse={e.adresse}
-            plz={e.plz}
-            img={e.image}
-            id={e.id}
+            key={shop.id}
+            name={shop.name ?? "SHOP"}
+            tag={shop.labels ?? []}
+            oeffnungszeiten={"--"}
+            text={shop.short_description ?? ""}
+            adresse={""}
+            plz={shop.postal_code?.toString() ?? input}
+            img={""}
+            id={shop.id}
           />
         ))}
       </section>
