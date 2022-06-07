@@ -1,19 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
+import Shop from "../../testdata/shop.json"
+import RatingData from "../../testdata/Rating.json"
 import Kommentar from "../globals/comment";
-import { getData, save } from "../../hooks/useApi";
+import { save } from "../../hooks/useApi";
 import HeaderUser from "../globals/HeaderUser";
-
+//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
+//import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 function ShopAnsicht() {
-  const comments: any = [];
+  
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
   const bewertung = (event: any) => {
     event.preventDefault();
     setFilter(!filter);
   };
+
+ const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
+ 
+ 
 
   // Kommentare
   const [title, setTitle] = React.useState("");
@@ -23,19 +31,20 @@ function ShopAnsicht() {
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
     event.preventDefault();
-
     await save(
       {
         title,
         user,
         text,
         date: new Date().toISOString(),
-        bewertung: 4,
+        bewertung: hover,
       },
       "Rating"
     );
   };
 
+  const [rating, setRating] = React.useState(0);
+  const [hover, setHover] = React.useState(0);
   let modal;
   if (filter) {
     modal = (
@@ -74,6 +83,24 @@ function ShopAnsicht() {
                     />
                   </p>
                 </div>
+               
+                <div className="is-flex rating">
+                {[...Array(5)].map((star, index) => {
+                      index += 1;
+                      return (
+                        <button
+                          type="button"
+                          key={index}
+                          className={index <= (hover || rating) ? "on" : "off"}
+                          onClick={() => setRating(index)}
+                          onMouseEnter={() => setHover(index)}
+                          onMouseLeave={() => setHover(rating)}
+                        >
+                          <span className="star">&#9733;</span>
+                        </button>
+                      );
+                    })}
+                </div>
                 <textarea
                   className="textarea"
                   placeholder="e.g. Hello world"
@@ -96,19 +123,25 @@ function ShopAnsicht() {
     );
   }
 
-  useEffect(() => {
-    getData("Rating").then((res) => comments.push(...res));
-  });
-
+  /*Berechnung Rating für Durchnitt*/
+  const ratings = RatingData.map((e)=> e.bewertung)
+  let sum = 0
+  for (let i = 0; i < ratings.length; i++) {
+    sum += ratings[i];
+  }
+  let durchnitt : number = 0.0
+  durchnitt = sum/ratings.length
+  
+  console.log(shop?.produkte)
   return (
-    <main className="mt-space-large">
+    <main className="mt-space-large shop">
       <HeaderUser UserId={id} />
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
           <div className="column  is-9">
             <h2 className="is-size-4">Bewertungen & Kommentare</h2>
           </div>
-          <div className="column is-flex kommentare ">
+          <div className="column links is-flex kommentare ">
             <li>
               <a onClick={bewertung}>Bewertung schreiben</a>
             </li>
@@ -120,15 +153,26 @@ function ShopAnsicht() {
         {modal}
         <div className="columns">
           <div className="column is-4">
-            <Rating einStar={5} title={false}></Rating>
+            <Rating durchschnitt={Math.round(durchnitt)} title={false} full={true}></Rating>
           </div>
-          <div className="column kommentare">
-            <Kommentar comments={comments} />
+          <div className="column kommentare is-flex">
+            {RatingData.map((e, key) =>
+            <Kommentar key={key} title={e.title} autor={e.user} text={e.text} date= {e.date} bewertung={e.bewertung} />
+            )}
           </div>
         </div>
       </section>
       <section className="section background_light is-medium">
-        Bewertung
+       <div className="columns">
+         <div className="column">
+            {
+              
+            }
+         </div>
+         <div className="column">
+
+         </div>
+       </div>
       </section>
       <section className="section mb-space-large">
         <div className=" container concept ">

@@ -13,7 +13,7 @@ export default function register(router: Router) {
     const type = ctx.request.url.searchParams.get("type") ?? "data";
     const path = PATH.join(rootTmpData, `${type}.json`);
     if (await fs.exists(path))
-      data.push(...JSON.parse(await Deno.readTextFile(path)));
+      data.unshift(...JSON.parse(await Deno.readTextFile(path)));
     else await fs.ensureFile(path);
     await Deno.writeTextFile(path, JSON.stringify(data));
     ctx.response.body = `${PATH.basename(path)} saved`;

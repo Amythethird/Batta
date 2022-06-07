@@ -66,7 +66,7 @@ function Shops() {
             </div>
           </div>
           <div className="column">
-            <Rating einStar={1} title={true} />
+            <Rating durchschnitt={1} title={true} full={true} />
           </div>
           <div className="column">
             <Sorted

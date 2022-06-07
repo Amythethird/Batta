@@ -34,5 +34,6 @@ export async function getData(type: string) {
       "Content-Type": "application/json",
     },
   });
+ 
   return await res.json();
 }
