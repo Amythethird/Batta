@@ -8,67 +8,59 @@ export const collectionResponse: any = JSON.parse(
   `{"data":{"shops":{"data":[{"id":"1","attributes":{"name":"Lisas Klamotten","shop_owner":{"data":{"id":"2","attributes":{"firstname":"Laura"}}},"social_medias":{"data":[{"id":"1","attributes":{"platform":"facebook"}}]}}},{"id":"3","attributes":{"name":"Verpacknix","shop_owner":{"data":null},"social_medias":{"data":[]}}},{"id":"2","attributes":{"name":"Cuisine végane!","shop_owner":{"data":null},"social_medias":{"data":[]}}}],"meta":{"pagination":{"page":1,"pageSize":10,"pageCount":1}}}}}`
 );
 
-export type EntryOrCollectionData =
-  | { id: number; attributes: {} }
-  | Array<{ id: number; attributes: {} }>;
+type EntryData = {
+  id: string;
+  attributes: { [key: string]: any };
+};
 
 export function parseResponse(
   entityName: string,
   response: {
-    data: { [key: string]: { data: EntryOrCollectionData } };
-    meta?: { pagination: PaginationResponse };
+    data: {
+      [key: string]: {
+        data: EntryData | EntryData[];
+        meta?: { pagination: PaginationResponse };
+      };
+    };
   }
-): any {
-  const paginationResponse = response.meta?.pagination;
-  const data = response.data[entityName].data;
+): { data: any; paginationResponse: PaginationResponse | undefined } {
+  const paginationResponse = response.data[entityName].meta?.pagination;
+  const dataContent = response.data[entityName].data;
   let result;
 
-  if (data instanceof Array) {
-    result = parseCollectionResponse(data);
+  if (dataContent instanceof Array) {
+    result = parseCollectionResponse({ data: dataContent });
   } else {
-    result = parseEntryResponse(data);
+    result = parseEntryResponse({ data: dataContent });
   }
 
   return { data: result, paginationResponse };
 }
 
-function parseEntryResponse(entryResponse: { id: number; attributes: {} }) {
+function parseEntryResponse(entryResponse: { data: EntryData }) {
   let result: any = {};
 
-  result.id = entryResponse.id;
+  result.id = parseInt(entryResponse.data.id, 10);
 
-  const attributes = entryResponse.attributes;
+  const attributes = entryResponse.data.attributes;
 
   for (const attribute in attributes) {
-    if (
-      // @ts-ignore
-      attributes[attribute] instanceof Array
-    ) {
-      result[attribute] = parseCollectionResponse(
-        attribute,
-        // @ts-ignore
-        attributes[attribute]
-      );
-    } else if (
-      // @ts-ignore
-      attributes[attribute] instanceof Object
-    ) {
-      result[attribute] = parseEntryResponse(
-        attribute,
-        // @ts-ignore
-        attributes[attribute]
-      );
-    } else {
-      // @ts-ignore
-      result[attribute] = attributes[attribute];
+    if (attributes[attribute].data !== null) {
+      if (attributes[attribute].data instanceof Array) {
+        result[attribute] = parseCollectionResponse(attributes[attribute]);
+      } else if (attributes[attribute].data instanceof Object) {
+        result[attribute] = parseEntryResponse(attributes[attribute]);
+      } else {
+        result[attribute] = attributes[attribute];
+      }
     }
   }
 
   return result;
 }
 
-function parseCollectionResponse(
-  collectionResponse: Array<{ id: number; attributes: {} }>
-) {
-  return collectionResponse.map((entry) => parseEntryResponse(entry));
+function parseCollectionResponse(collectionResponse: { data: EntryData[] }) {
+  return collectionResponse.data.map((entry) =>
+    parseEntryResponse({ data: entry })
+  );
 }

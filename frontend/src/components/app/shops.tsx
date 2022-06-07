@@ -1,12 +1,14 @@
 import React from "react";
 import { collection, query } from "../../api-utils/query-utils";
+import { parseResponse } from "../../api-utils/response-utils";
 import useApi from "../../hooks/useApi";
+import Shop from "../../models/shop";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import {
   selectShopsFilter,
-  set as setShopsFilter,
+  setShopsFilter,
 } from "../../state/slices/shops-filter.state";
-import { selectShops } from "../../state/slices/shops.state";
+import { selectShops, setShops } from "../../state/slices/shops.state";
 import "../../styles/style.css";
 import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
@@ -24,7 +26,7 @@ function Shops() {
       })
     ),
     (response) => {
-      console.log(response);
+      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
     },
     [filter]
   );
@@ -129,6 +131,13 @@ function Shops() {
         </form>
       </section>
 
+      {/* shops with redux demo section */}
+      <section className="section is-medium is-flex">
+        {shops.map((shop, index) => (
+          <div key={index}>Hello {shop.name}</div>
+        ))}
+      </section>
+
       <section className="section is-medium is-flex">
         {ergebniss.map((e, shops) => (
           <ShopCard
@@ -142,13 +151,6 @@ function Shops() {
             img={e.image}
             id={e.id}
           />
-        ))}
-      </section>
-
-      {/* shops with redux demo section */}
-      <section className="section is-medium is-flex">
-        {shops.map((shop, index) => (
-          <div key={index}>Hello {shop.name}</div>
         ))}
       </section>
     </div>

@@ -7,13 +7,13 @@ export const shopsFilterSlice = createSlice({
   name: "shopsFilter",
   initialState,
   reducers: {
-    set: (state, action: PayloadAction<string>) => {
+    setShopsFilter: (state, action: PayloadAction<string>) => {
       return action.payload;
     },
   },
 });
 
-export const { set } = shopsFilterSlice.actions;
+export const { setShopsFilter } = shopsFilterSlice.actions;
 export const selectShopsFilter = (state: RootState) => state.shopsFilter;
 
 export default shopsFilterSlice.reducer;

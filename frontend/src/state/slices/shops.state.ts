@@ -8,19 +8,19 @@ export const shopsSlice = createSlice({
   name: "shops",
   initialState,
   reducers: {
-    add: (state, action: PayloadAction<Shop>) => {
+    addShop: (state, action: PayloadAction<Shop>) => {
       state.push(action.payload);
     },
-    remove: (state, action: PayloadAction<Shop>) => {
-      state.filter((shop) => shop.name !== action.payload.name);
+    removeShop: (state, action: PayloadAction<Shop>) => {
+      state.filter((shop) => shop.id !== action.payload.id);
     },
-    set: (state, action: PayloadAction<Shop[]>) => {
-      state = action.payload;
+    setShops: (state, action: PayloadAction<Shop[]>) => {
+      return action.payload;
     },
   },
 });
 
-export const { add, remove, set } = shopsSlice.actions;
+export const { addShop, removeShop, setShops } = shopsSlice.actions;
 export const selectShops = (state: RootState) => state.shops;
 
 export default shopsSlice.reducer;
