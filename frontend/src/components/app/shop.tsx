@@ -2,16 +2,16 @@ import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
-import Shop from "../../testdata/shop.json"
-import RatingData from "../../testdata/Rating.json"
+import Shop from "../../testdata/shop.json";
+import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/comment";
 import { save } from "../../hooks/useApi";
 import HeaderUser from "../globals/HeaderUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
-//import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
+import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 function ShopAnsicht() {
-  
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
   const bewertung = (event: any) => {
@@ -19,9 +19,8 @@ function ShopAnsicht() {
     setFilter(!filter);
   };
 
- const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
- 
- 
+  const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
+  console.log(shop?.produkte);
 
   // Kommentare
   const [title, setTitle] = React.useState("");
@@ -83,23 +82,23 @@ function ShopAnsicht() {
                     />
                   </p>
                 </div>
-               
+
                 <div className="is-flex rating">
-                {[...Array(5)].map((star, index) => {
-                      index += 1;
-                      return (
-                        <button
-                          type="button"
-                          key={index}
-                          className={index <= (hover || rating) ? "on" : "off"}
-                          onClick={() => setRating(index)}
-                          onMouseEnter={() => setHover(index)}
-                          onMouseLeave={() => setHover(rating)}
-                        >
-                          <span className="star">&#9733;</span>
-                        </button>
-                      );
-                    })}
+                  {[...Array(5)].map((star, index) => {
+                    index += 1;
+                    return (
+                      <button
+                        type="button"
+                        key={index}
+                        className={index <= (hover || rating) ? "on" : "off"}
+                        onClick={() => setRating(index)}
+                        onMouseEnter={() => setHover(index)}
+                        onMouseLeave={() => setHover(rating)}
+                      >
+                        <FontAwesomeIcon icon={StarSolid} className="star" />
+                      </button>
+                    );
+                  })}
                 </div>
                 <textarea
                   className="textarea"
@@ -109,11 +108,11 @@ function ShopAnsicht() {
                 ></textarea>
               </section>
               <footer className="modal-card-foot">
-                <button className="button" type="submit">
-                  Save changes
-                </button>
-                <button className="button" onClick={bewertung}>
+                <button className="button is-danger" onClick={bewertung}>
                   Cancel
+                </button>
+                <button className="button is-success" type="submit">
+                  Save changes
                 </button>
               </footer>
             </form>
@@ -124,15 +123,14 @@ function ShopAnsicht() {
   }
 
   /*Berechnung Rating für Durchnitt*/
-  const ratings = RatingData.map((e)=> e.bewertung)
-  let sum = 0
+  const ratings = RatingData.map((e) => e.bewertung);
+  let sum = 0;
   for (let i = 0; i < ratings.length; i++) {
     sum += ratings[i];
   }
-  let durchnitt : number = 0.0
-  durchnitt = sum/ratings.length
-  
-  console.log(shop?.produkte)
+  let durchnitt: number = 0.0;
+  durchnitt = sum / ratings.length;
+
   return (
     <main className="mt-space-large shop">
       <HeaderUser UserId={id} />
@@ -153,26 +151,31 @@ function ShopAnsicht() {
         {modal}
         <div className="columns">
           <div className="column is-4">
-            <Rating durchschnitt={Math.round(durchnitt)} title={false} full={true}></Rating>
+            <Rating
+              durchschnitt={Math.round(durchnitt)}
+              title={false}
+              full={true}
+            ></Rating>
           </div>
           <div className="column kommentare is-flex">
-            {RatingData.map((e, key) =>
-            <Kommentar key={key} title={e.title} autor={e.user} text={e.text} date= {e.date} bewertung={e.bewertung} />
-            )}
+            {RatingData.map((e, key) => (
+              <Kommentar
+                key={key}
+                title={e.title}
+                autor={e.user}
+                text={e.text}
+                date={e.date}
+                bewertung={e.bewertung}
+              />
+            ))}
           </div>
         </div>
       </section>
       <section className="section background_light is-medium">
-       <div className="columns">
-         <div className="column">
-            {
-              
-            }
-         </div>
-         <div className="column">
-
-         </div>
-       </div>
+        <div className="columns">
+          <div className="column">{}</div>
+          <div className="column"></div>
+        </div>
       </section>
       <section className="section mb-space-large">
         <div className=" container concept ">

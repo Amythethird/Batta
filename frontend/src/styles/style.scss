@@ -284,8 +284,6 @@ footer {
         object-fit: cover;
       }
     }
-
-    
   }
 
   .test {
@@ -394,8 +392,7 @@ footer {
   }
 }
 
-.shop{
- 
+.shop {
   button {
     background-color: transparent;
     border: none;
@@ -403,32 +400,30 @@ footer {
     cursor: pointer;
   }
   .on {
-    color: #000;
+    color: $green;
   }
   .off {
     color: #ccc;
   }
-  .kommentare{
-   
-      li:first-child {
-        border-right: 1px solid $green;
-        padding-right: 10px;
-        margin-right: 5px;
-      }
-      a {
-        color: $green;
-      }
-    
-    overflow-x: scroll;
-    
-      .box {
-        width: 300px;
-        background-color: rgba($color: $grey, $alpha: 0.1);
-      }
+  .kommentare {
+    li:first-child {
+      border-right: 1px solid $green;
+      padding-right: 10px;
+      margin-right: 5px;
+    }
+    a {
+      color: $green;
+    }
 
+    overflow-x: scroll;
+
+    .box {
+      width: 300px;
+      background-color: rgba($color: $grey, $alpha: 0.1);
+    }
   }
 }
 
-.rating{
+.rating {
   display: block;
 }
