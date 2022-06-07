@@ -8,9 +8,27 @@ export default function useApi(
 ) {
   useEffect(() => {
     async function fetchApi() {
-      const accessToken = sessionStorage.getItem("accessToken");
+      let accessToken = sessionStorage.getItem("accessToken") ?? "";
       if (!accessToken) {
-        throw new Error("Login required!");
+        //TODO: REMOVE WORKAROUND
+        const tokenRes = await fetch(
+          // eslint-disable-next-line no-undef
+          "https://strapi.localhost/api/auth/local",
+          {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              identifier: "frontend",
+              password: "Gourmet1234",
+            }),
+          }
+        );
+        accessToken = (await tokenRes.json()).jwt;
+        sessionStorage.setItem("accessToken", accessToken);
+        //throw new Error("Login required!");
       }
       const response = await fetch(
         // eslint-disable-next-line no-undef
