@@ -2,15 +2,16 @@ import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
-import Shop from "../../testdata/shop.json";
+
 import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/comment";
-import { save } from "../../hooks/useApi";
 import HeaderUser from "../globals/HeaderUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
+import { useAppSelector } from "../../state/hooks.state";
+import { selectShops } from "../../state/slices/shops.state";
+
 function ShopAnsicht() {
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
@@ -19,8 +20,10 @@ function ShopAnsicht() {
     setFilter(!filter);
   };
 
-  const shop = Shop.find((e) => e.id === parseInt(id ?? "0"));
-  console.log(shop?.produkte);
+  const Shops = useAppSelector(selectShops);
+
+  const shop = Shops.find((e) => e.id === parseInt(id ?? "0"));
+  console.log(id)
 
   // Kommentare
   const [title, setTitle] = React.useState("");
@@ -30,16 +33,7 @@ function ShopAnsicht() {
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
     event.preventDefault();
-    await save(
-      {
-        title,
-        user,
-        text,
-        date: new Date().toISOString(),
-        bewertung: hover,
-      },
-      "Rating"
-    );
+   
   };
 
   const [rating, setRating] = React.useState(0);
@@ -133,7 +127,7 @@ function ShopAnsicht() {
 
   return (
     <main className="mt-space-large shop">
-      <HeaderUser UserId={id} />
+      <HeaderUser UserId={shop?.id} />
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
           <div className="column  is-9">

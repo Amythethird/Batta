@@ -1,5 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
+import {
+  selectShopsFilter,
+  setShopsFilter,
+} from "../../state/slices/shops-filter.state";
+import { selectShops, setShops } from "../../state/slices/shops.state";
+import useApi from "../../hooks/useApi";
+import { collection, query } from "../../api-utils/query-utils";
+import { parseResponse } from "../../api-utils/response-utils";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
@@ -8,11 +17,11 @@ import ShopCard from "./shopCard";
 import Rating from "../globals/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
+import Shop from "../../models/shop";
 
-/*e.tag.some((tag) => categorie.includes(tag))*/
+
 function Shops() {
   const dispatch = useAppDispatch();
-
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
   useApi(
@@ -26,10 +35,11 @@ function Shops() {
     },
     [filter]
   );
+
+  //Input Form
   const [input, setCriteria] = React.useState("");
   const categorie: string[] = [];
 
-  ergebniss = shopData.filter((e) => e.plz === input);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
@@ -37,12 +47,6 @@ function Shops() {
   };
 
   /*Filter*/
-  const [filter, setFilter] = React.useState(false);
-  const onClick = (event: any) => {
-    event.preventDefault();
-    setFilter(!filter);
-  };
-
   function get(childvalue: string[]) {
     categorie.push(...childvalue);
   }
@@ -80,7 +84,7 @@ function Shops() {
             </div>
           </div>
           <div className="column">
-            <Rating durchschnitt={1} title={true} full={true} />
+            <Rating durchschnitt={1} title={true} full={false} />
           </div>
           <div className="column">
             <Sorted
@@ -108,7 +112,7 @@ function Shops() {
             <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faSearch} color="#257708" />
             </span>
-            <a className="button" onClick={onClick}>
+            <a className="button" >
               <FontAwesomeIcon icon={faFilter} color="#257708" />
             </a>
           </p>
@@ -116,21 +120,21 @@ function Shops() {
         {allStatements}
       </div>
 
-      <div className="container is-medium is-flex">
-        {ergebniss.map((e, shops) => (
+      <section className="section is-medium is-flex">
+        {shops.map((shop: Shop) => (
           <ShopCard
-            key={shops}
-            shopName={e.name}
-            tag={e.tag}
-            oeffnungszeiten={e.oeffnungszeiten}
-            text={e.text}
-            adresse={e.adresse}
-            plz={e.plz}
-            img={e.image}
-            id={e.id}
+            key={shop.id}
+            name={shop.name ?? "SHOP"}
+            tag={shop.labels ?? []}
+            oeffnungszeiten={"--"}
+            text={shop.short_description ?? ""}
+            adresse={""}
+            plz={shop.postal_code?.toString() ?? input}
+            img={""}
+            id={shop.id}
           />
         ))}
-      </div>
+      </section>
     </div>
   );
 }

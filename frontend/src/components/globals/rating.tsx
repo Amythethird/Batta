@@ -28,6 +28,27 @@ function Rating(props: rating) {
     );
   }
 
+  
+  var rateCheck = [];
+  for (let i = 0; i < total; i++) {
+    rateCheck.push(
+      <div>
+         <label className="checkbox mr-2">
+                <input type="checkbox" />
+         </label>
+        {[...new Array(total)].map((arr, index) => {
+          return (
+            <FontAwesomeIcon
+              key={arr}
+              icon={index <= total - i - 1 ? StarSolid : StarRegular}
+              color={index < total ? "#257708" : " "}
+            />
+          );
+        })}
+      </div>
+    );
+  }
+
   let rating;
   if (props.full) {
     rating = (
@@ -44,76 +65,7 @@ function Rating(props: rating) {
   } else {
     rating = (
       <div>
-        {/*  <div className="is-flex">
-          <p className="has-text-weight-medium mb-2 is-size-3 mr-1">
-            {props.durchschnitt}
-          </p>
-          <p>von 5</p>
-        </div>
-        <div className="is-flex has-align-items-center mt-4">
-          <div className="rating">
-            <div className=" is-flex is-align-items-center">
-              <label className="checkbox mr-2">
-                <input type="checkbox" />
-              </label>
-              {[...new Array(total)].map((arr, index) => (
-                <FontAwesomeIcon
-                  key={arr}
-                  icon={index < total ? StarSolid : StarRegular}
-                  color={index < total ? "#257708" : " "}
-                />
-              ))}
-            </div>
-            <div className=" is-flex is-align-items-center">
-              <label className="checkbox mr-2">
-                <input type="checkbox" />
-              </label>
-              {[...new Array(total)].map((arr, index) => (
-                <FontAwesomeIcon
-                  key={arr}
-                  icon={index < vierSt ? StarSolid : StarRegular}
-                  color={index < vierSt ? "#257708" : " "}
-                />
-              ))}
-            </div>
-            <div className=" is-flex is-align-items-center">
-              <label className="checkbox mr-2">
-                <input type="checkbox" />
-              </label>
-              {[...new Array(total)].map((arr, index) => (
-                <FontAwesomeIcon
-                  key={arr}
-                  icon={index < dreiSt ? StarSolid : StarRegular}
-                  color={index < dreiSt ? "#257708" : " "}
-                />
-              ))}
-            </div>
-            <div className=" is-flex is-align-items-center">
-              <label className="checkbox mr-2">
-                <input type="checkbox" />
-              </label>
-              {[...new Array(total)].map((arr, index) => (
-                <FontAwesomeIcon
-                  key={arr}
-                  icon={index < zweiSt ? StarSolid : StarRegular}
-                  color={index < zweiSt ? "#257708" : " "}
-                />
-              ))}
-            </div>
-            <div className=" is-flex is-align-items-center">
-              <label className="checkbox mr-2">
-                <input type="checkbox" />
-              </label>
-              {[...new Array(total)].map((arr, index) => (
-                <FontAwesomeIcon
-                  key={arr}
-                  icon={index < einSt ? StarSolid : StarRegular}
-                  color={index < einSt ? "#257708" : " "}
-                />
-              ))}
-            </div>
-          </div>
-        </div> */}
+        <div className="rating">{rateCheck}</div>
       </div>
     );
   }

@@ -6,7 +6,7 @@ import "../../styles/style.css";
 
 interface Shop {
   id: number;
-  shopName: any;
+  name: string;
   tag: string[];
   adresse?: string;
   oeffnungszeiten: string;
@@ -16,6 +16,7 @@ interface Shop {
 }
 
 function ShopCard(props: Shop) {
+
   return (
     <main className="mr-6">
       <div className="cardShop background_light">
@@ -29,7 +30,7 @@ function ShopCard(props: Shop) {
                 className="is-size-4 hasBackground pr-1"
                 href={"/shop/" + props.id}
               >
-                {props.shopName}
+                {props.name}
                 <FontAwesomeIcon icon={faAngleRight} />
               </a>
             </div>
