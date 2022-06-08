@@ -3,8 +3,7 @@ import { faFilter, faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
-//import Shop from './shop'
-import shopData from "../../testdata/shop.json";
+// import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 import Rating from "../globals/rating";
 import Sorted from "../globals/sorted";
@@ -12,7 +11,21 @@ import Categories from "../globals/categories";
 
 /*e.tag.some((tag) => categorie.includes(tag))*/
 function Shops() {
-  let ergebniss = [];
+  const dispatch = useAppDispatch();
+
+  const shops = useAppSelector(selectShops);
+  const filter = useAppSelector(selectShopsFilter);
+  useApi(
+    query(
+      collection("shops", ["name"], {
+        postal_code: { eq: parseInt(filter, 10) },
+      })
+    ),
+    (response) => {
+      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
+    },
+    [filter]
+  );
   const [input, setCriteria] = React.useState("");
   const categorie: string[] = [];
 
@@ -20,6 +33,7 @@ function Shops() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
+    dispatch(setShopsFilter(e.currentTarget.value));
   };
 
   /*Filter*/

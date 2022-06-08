@@ -15,13 +15,13 @@ export type PaginationResponse =
   | PaginationByOffsetResponse;
 
 export interface PaginationByPageResponse {
-  page?: number;
-  pageSize?: number;
-  pageCount?: number;
-  total?: number;
+  page?: boolean;
+  pageSize?: boolean;
+  pageCount?: boolean;
+  total?: boolean;
 }
 
 export interface PaginationByOffsetResponse {
-  start?: number;
-  limit?: number;
+  start?: boolean;
+  limit?: boolean;
 }
