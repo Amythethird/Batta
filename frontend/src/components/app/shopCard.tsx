@@ -3,6 +3,7 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import "../../styles/style.css";
+import { Link } from "react-router-dom";
 
 interface Shop {
   id: number;
@@ -16,7 +17,6 @@ interface Shop {
 }
 
 function ShopCard(props: Shop) {
-
   return (
     <main className="mr-6">
       <div className="cardShop background_light">
@@ -26,13 +26,13 @@ function ShopCard(props: Shop) {
         >
           <div className="columns m-1">
             <div className="column is-9 is-flex is-align-items-flex-end">
-              <a
+              <Link
                 className="is-size-4 hasBackground pr-1"
-                href={"/shop/" + props.id}
+                to={`/shop/${props.id}`}
               >
                 {props.name}
                 <FontAwesomeIcon icon={faAngleRight} />
-              </a>
+              </Link>
             </div>
             <div className="column is-flex is-justify-content-flex-end">
               <a>
