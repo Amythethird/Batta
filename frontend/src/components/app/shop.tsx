@@ -9,8 +9,12 @@ import HeaderUser from "../globals/HeaderUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
-import { useAppSelector } from "../../state/hooks.state";
-import { selectShops } from "../../state/slices/shops.state";
+import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
+import { selectShops, setShops } from "../../state/slices/shops.state";
+import useApi from "../../hooks/useApi";
+import { collection, query } from "../../api-utils/query-utils";
+import { parseResponse } from "../../api-utils/response-utils";
+import Shop from "../../models/shop";
 
 function ShopAnsicht() {
   const { id } = useParams();
@@ -20,10 +24,22 @@ function ShopAnsicht() {
     setFilter(!filter);
   };
 
-  const Shops = useAppSelector(selectShops);
+  const machtNix = "nix"
+  const shops = useAppSelector(selectShops);
+  const dispatch = useAppDispatch();
 
-  const shop = Shops.find((e) => e.id === parseInt(id ?? "0"));
-  console.log(id)
+  useApi(
+    query(
+      collection("shops", ["name", "postal_code", "short_description","description", "user_photo", "address", "opening"], {
+        id: { eq: id },
+      })
+    ),
+    (response) => {
+      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
+    },
+    [machtNix]
+  );
+
 
   // Kommentare
   const [title, setTitle] = React.useState("");
@@ -126,8 +142,10 @@ function ShopAnsicht() {
   durchnitt = sum / ratings.length;
 
   return (
-    <main className="mt-space-large shop">
-      <HeaderUser UserId={shop?.id} />
+    <main className="mt-space-large Shops">
+     {
+       shops.map((shop: Shop) => (
+       <HeaderUser key={shop.id} UserId={shop.id} />))}
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
           <div className="column  is-9">
@@ -149,6 +167,7 @@ function ShopAnsicht() {
               durchschnitt={Math.round(durchnitt)}
               title={false}
               full={true}
+              ratings = {ratings.length}
             ></Rating>
           </div>
           <div className="column kommentare is-flex">

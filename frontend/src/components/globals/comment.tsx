@@ -18,9 +18,9 @@ function Kommentar(props: comment) {
   return (
     <div className="box m-2">
       <div className="columns">
-        <div className="column">
+        <div className="column stars">
           <p>{props.title}</p>
-          <div className="is-flex mt-1">
+          <div className="is-flex mt-1 stars">
             {[...new Array(wertungMax)].map((arr, index) => (
               <FontAwesomeIcon
                 key={arr}

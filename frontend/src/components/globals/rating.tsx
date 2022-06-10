@@ -7,6 +7,7 @@ interface rating {
   title: boolean;
   durchschnitt: number;
   full: boolean;
+  ratings: number;
 }
 function Rating(props: rating) {
   const total = 5;
@@ -57,7 +58,8 @@ function Rating(props: rating) {
           <p className="has-text-weight-medium mb-2 is-size-3 mr-1">
             {props.durchschnitt}
           </p>
-          <p>von 5</p>
+          <p className="mr-5">von 5</p>
+          <p>({props.ratings}) Bewertungen</p>
         </div>
         <div className="rating">{rate}</div>
       </div>

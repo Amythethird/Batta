@@ -13,4 +13,7 @@ export default interface Shop {
   website?: string;
   labels?: string[]; //ToDo: check type
   labels_icons?: string; //ToDo: check type
+  user_photo?:string;
+  address?: string;
+  opening?: Record<string, string>;
 }

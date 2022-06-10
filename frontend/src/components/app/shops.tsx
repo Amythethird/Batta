@@ -24,9 +24,10 @@ function Shops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
+  
   useApi(
     query(
-      collection("shops", ["name"], {
+      collection("shops", ["name", "postal_code", "short_description", "user_photo", "address", "opening"], {
         postal_code: { eq: parseInt(filter, 10) },
       })
     ),
@@ -51,6 +52,7 @@ function Shops() {
     categorie.push(...childvalue);
   }
 
+  //Filter inklusive aller Komponenten
   let allStatements;
   if (filter) {
     allStatements = (
@@ -84,7 +86,7 @@ function Shops() {
             </div>
           </div>
           <div className="column">
-            <Rating durchschnitt={1} title={true} full={false} />
+            <Rating durchschnitt={1} title={true} full={false} ratings={0} />
           </div>
           <div className="column">
             <Sorted
@@ -96,10 +98,12 @@ function Shops() {
     );
   }
 
+  console.log(shops)
+
   return (
     <div>
       <div className=" container mb-space-large mt-space-large">
-        <div className="field shops">
+        <div className="field Shops">
           <p className="control has-icons-left is-flex has-button-right">
             <input
               className="input"
@@ -126,11 +130,11 @@ function Shops() {
             key={shop.id}
             name={shop.name ?? "SHOP"}
             tag={shop.labels ?? []}
-            oeffnungszeiten={"--"}
+            oeffnungszeiten={shop.opening}
             text={shop.short_description ?? ""}
-            adresse={""}
+            address={shop.address}
             plz={shop.postal_code?.toString() ?? input}
-            img={""}
+            img={shop.user_photo}
             id={shop.id}
           />
         ))}

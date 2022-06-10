@@ -5,12 +5,13 @@ import React from "react";
 import "../../styles/style.css";
 import { Link } from "react-router-dom";
 
+
 interface Shop {
   id: number;
   name: string;
   tag: string[];
-  adresse?: string;
-  oeffnungszeiten: string;
+  address?: string;
+  oeffnungszeiten?: Record<string,string>;
   text: string;
   plz: string;
   img?: string;
@@ -19,7 +20,7 @@ interface Shop {
 function ShopCard(props: Shop) {
   return (
     <main className="mr-6">
-      <div className="cardShop background_light">
+      <div className="shopCard background_light">
         <div
           className="cardHeader"
           style={{ backgroundImage: `url(${props.img})` }}
@@ -54,12 +55,10 @@ function ShopCard(props: Shop) {
 
           <p className="mb-2">{props.text}</p>
           <p className="has-text-weight-medium">Adresse</p>
-          <p className="mb-2">{props.adresse + " " + props.plz}</p>
+          <p className="mb-2">{props.address}</p>
           <p className="has-text-weight-medium">Öffnungszeiten</p>
           <p className="mb-2">
-            {props.oeffnungszeiten.split("--").map((i, key) => {
-              return <p key={key}>{i}</p>;
-            })}
+            {JSON.stringify(props.oeffnungszeiten)}
           </p>
         </div>
       </div>

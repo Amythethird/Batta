@@ -4,6 +4,15 @@ import "../styles/style.css";
 //120px abstand zwischen den components
 
 function LandingPage() {
+
+  /*Partner*/
+  const partner = ["Partner_1", "Partner_2","Partner_3","Partner_4","Partner_5"]
+  let image = (
+  <figure className="image is-128x128">
+      <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+  </figure>
+
+  )
   return (
     <main>
       <section className="hero-body section is-medium">
@@ -25,7 +34,7 @@ function LandingPage() {
           </div>
         </div>
       </section>
-      <section className="article container mb-space-large">
+      <section className="Blog_Beitrag container mb-space-large">
         <div className="columns">
           <div className="column is-flex is-flex-direction-column is-justify-content-end">
             <a className="text">
@@ -51,7 +60,7 @@ function LandingPage() {
         </div>
       </section>
       <section className="section mb-space-large">
-        <div className=" container concept ">
+        <div className=" container ">
           <div className="columns is-centered is-vcentered">
             <div className="column ">
               <h2 className="is-size-4 has-text-weight-medium">
@@ -91,23 +100,13 @@ function LandingPage() {
             nachhaltiger Projekte.
           </h2>
 
-          <div className="Partner">
+          <div>
             <div className="partner mb-4">
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
+              {
+                partner.map((e)=>
+                <div key={e}>{image}</div>
+                )
+              }
             </div>
             <a>Alle Partner</a>
           </div>
@@ -122,7 +121,7 @@ function LandingPage() {
           <a>Melde dich bei Uns</a>
         </div>
       </section>
-      <section className="section Partner mb-space-large has-text-centered pt-0">
+      <section className="section mb-space-large has-text-centered pt-0">
         <div className="container">
           <div className="columns pb-6">
             <div className="column is-half is-offset-one-quarter">

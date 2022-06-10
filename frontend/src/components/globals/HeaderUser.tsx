@@ -30,7 +30,7 @@ function HeaderUser(props: params) {
       <div className="column is-align-self-flex-start">
         <div className="test p-4">
           <p className="has-text-weight-medium">Öffnungszeiten</p>
-          {data?.name} <br />
+          {""}
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
           <p className="is_green">
             {data?.postal_code} <br />
@@ -46,7 +46,7 @@ function HeaderUser(props: params) {
       <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          backgroundImage: `url(${data?.labels})`,
+          backgroundImage: `url(${data?.user_photo})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -55,10 +55,10 @@ function HeaderUser(props: params) {
           <div className="column is-align-self-flex-end  pb-0">
             <div className="information p-3">
               <figure className="imageInhaber">
-                <img src={""} />
+                <img src={data.user_photo} />
               </figure>
               <h2 className="is-size-4">
-                {data?.name}
+                {data.name}
                 <span>
                   <FontAwesomeIcon icon={faHeart} size="1x" />
                 </span>

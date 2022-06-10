@@ -7,6 +7,7 @@
 
 $radius-large: 8px !important;
 
+// Bulma Elements
 a.navbar-item,
 .navbar-link {
   color: $green;
@@ -36,6 +37,25 @@ a.navbar-item,
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
 }
 
+.radio-list {
+  .radio {
+    display: block;
+
+    & + .radio {
+      margin-left: 0;
+      margin-top: 0.5em;
+    }
+  }
+  input[type="radio"] {
+    accent-color: $green;
+  }
+}
+
+a{
+  color: $green;
+}
+
+// Coustom classes
 header,
 main {
   button {
@@ -76,20 +96,7 @@ main {
   width: 280px;
 }
 
-/*Radio_Buttons*/
-.radio-list {
-  .radio {
-    display: block;
 
-    & + .radio {
-      margin-left: 0;
-      margin-top: 0.5em;
-    }
-  }
-  input[type="radio"] {
-    accent-color: $green;
-  }
-}
 
 /**Components**/
 main {
@@ -114,31 +121,28 @@ main {
     }
   }
 
-  .concept {
-    a {
-      color: $green;
-    }
-  }
+
 
   iframe {
     border-radius: 8px;
   }
-  .Partner {
-    .partner {
+
+.partner {
       display: flex;
       column-gap: 50px;
       justify-content: center;
       flex-wrap: wrap;
       flex-grow: 1;
-    }
-
-    a,
-    a:visited,
-    a:active {
-      color: $green;
-      font-weight: 700;
-    }
+    
+      a,
+      a:visited,
+      a:active {
+        color: $green;
+        font-weight: 700;
+      }
+   
   }
+  
 
   .section {
     .footer_partner {
@@ -161,7 +165,7 @@ main {
 }
 
 /* Komponenten*/
-.article {
+.Blog_Beitrag {
   .column {
     height: 345px;
     border-radius: 0;
@@ -311,16 +315,17 @@ footer {
   }
 }
 
-.cardShop {
+.shopCard {
   max-width: 300px;
   border-radius: 8px;
   backdrop-filter: blur(4px);
+
   .cardHeader {
     height: auto;
     border-radius: 8px 8px 0 0;
-    //  background-image: url(https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900);
     background-repeat: no-repeat;
     background-size: cover;
+
     .hasBackground {
       color: $white;
       background-color: $green;
@@ -381,31 +386,9 @@ footer {
   }
 }
 
-.shops {
-  .button {
-    border: none;
-    position: absolute;
-    right: 50px;
-    height: 30px;
-    width: 30px;
-    top: 10%;
-  }
-}
-
-.shop {
-  button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-  }
-  .on {
-    color: $green;
-  }
-  .off {
-    color: #ccc;
-  }
+.Shops {
   .kommentare {
+    overflow-x: scroll;
     li:first-child {
       border-right: 1px solid $green;
       padding-right: 10px;
@@ -414,16 +397,29 @@ footer {
     a {
       color: $green;
     }
-
-    overflow-x: scroll;
-
     .box {
       width: 300px;
       background-color: rgba($color: $grey, $alpha: 0.1);
     }
   }
-}
+} 
+
+
 
 .rating {
   display: block;
+  
+    button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .on {
+      color: $green;
+    }
+    .off {
+      color: #ccc;
+    }
+  
 }
