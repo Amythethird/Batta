@@ -5,7 +5,7 @@ import Rating from "../globals/rating";
 
 import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/comment";
-import HeaderUser from "../globals/HeaderUser";
+import HeaderUser from "../globals/headerUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
@@ -14,9 +14,9 @@ import { selectShops, setShops } from "../../state/slices/shops.state";
 import useApi from "../../hooks/useApi";
 import { collection, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
-import Shop from "../../models/shop";
+import ShopModel from "../../models/shop";
 
-function ShopAnsicht() {
+function Shop() {
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
   const bewertung = (event: any) => {
@@ -35,7 +35,7 @@ function ShopAnsicht() {
       })
     ),
     (response) => {
-      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
+      dispatch(setShops(parseResponse("shops", response).data as ShopModel[]));
     },
     [machtNix]
   );
@@ -51,6 +51,8 @@ function ShopAnsicht() {
     event.preventDefault();
    
   };
+
+  console.log(shops)
 
   const [rating, setRating] = React.useState(0);
   const [hover, setHover] = React.useState(0);
@@ -144,7 +146,7 @@ function ShopAnsicht() {
   return (
     <main className="mt-space-large Shops">
      {
-       shops.map((shop: Shop) => (
+       shops.map((shop: ShopModel) => (
        <HeaderUser key={shop.id} UserId={shop.id} />))}
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
@@ -185,10 +187,13 @@ function ShopAnsicht() {
         </div>
       </section>
       <section className="section background_light is-medium">
-        <div className="columns">
-          <div className="column">{}</div>
+     
+          <div className="columns">
           <div className="column"></div>
+          <div className="column">{"product.highlights"}</div>
         </div>
+      
+      
       </section>
       <section className="section mb-space-large">
         <div className=" container concept ">
@@ -260,4 +265,4 @@ function ShopAnsicht() {
   );
 }
 
-export default ShopAnsicht;
+export default Shop;

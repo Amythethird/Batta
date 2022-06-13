@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "../../styles/style.css";
-import HeaderUser from "../globals/HeaderUser";
+import HeaderUser from "../globals/headerUser";
 
 function User() {
   //Routing for User

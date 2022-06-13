@@ -20,7 +20,7 @@ import Categories from "../globals/categories";
 import Shop from "../../models/shop";
 
 
-function Shops() {
+function FilterShops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
@@ -142,4 +142,4 @@ function Shops() {
     </div>
   );
 }
-export default Shops;
+export default FilterShops;
