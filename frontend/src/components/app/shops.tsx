@@ -13,7 +13,7 @@ import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-import ShopCard from "./shopCard";
+import ShopCard from "./card";
 import Rating from "../globals/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
@@ -40,7 +40,6 @@ function FilterShops() {
   //Input Form
   const [input, setCriteria] = React.useState("");
   const categorie: string[] = [];
-
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
@@ -97,8 +96,6 @@ function FilterShops() {
       </div>
     );
   }
-
-  console.log(shops)
 
   return (
     <div>

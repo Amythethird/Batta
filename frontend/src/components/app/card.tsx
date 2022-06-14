@@ -17,7 +17,7 @@ interface Shop {
   img?: string;
 }
 
-function ShopCard(props: Shop) {
+function Card(props: Shop) {
   return (
     <main className="mr-6">
       <div className="shopCard background_light">
@@ -66,4 +66,4 @@ function ShopCard(props: Shop) {
   );
 }
 
-export default ShopCard;
+export default Card;

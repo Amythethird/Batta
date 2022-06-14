@@ -13471,4 +13471,17 @@ footer li a {
 .rating .off {
   color: #ccc;
 }
+
+.productHighlights .products {
+  overflow-x: scroll;
+}
+
+.productHighlights .card {
+  width: 280px;
+  height: 280px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 30px;
+}
 /*# sourceMappingURL=style.css.map */

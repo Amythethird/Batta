@@ -8,7 +8,7 @@ export default interface Shop {
   email?: string;
   area_code?: number;
   phone?: number;
-  highlights?: string; //ToDo: check type
+  highlights?: Highlights[]; //ToDo: check type
   short_description?: string;
   website?: string;
   labels?: string[]; //ToDo: check type
@@ -16,4 +16,9 @@ export default interface Shop {
   user_photo?:string;
   address?: string;
   opening?: Record<string, string>;
+}
+
+export interface Highlights{
+    id: string;
+    url: string;
 }
