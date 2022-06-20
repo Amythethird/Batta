@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
-
 import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/comment";
 import HeaderUser from "../globals/headerUser";
@@ -15,14 +14,16 @@ import useApi from "../../hooks/useApi";
 import { collection, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel, { Highlights } from "../../models/shop";
+import Masonry from "../globals/masonry";
+import Artikel from "../article";
 
 
 
 
 
 /** ToDo
- * Produkt_Highlights overflow, auslagern
- * Galerie
+ * Produkt_Highlights overflow [X], auslagern
+ * Galerie [X]
  * Verlinkte Artikel falls vorhanden
  * Kommentare pushen/abrufen
  * Bewertungen pushen/ abrufen
@@ -54,7 +55,7 @@ function Shop() {
 
   useApi(
     query(
-      collection("shops", ["name", "postal_code", "short_description","description", "user_photo", "address", "opening", collection("highlights", ["url"])], {
+      collection("shops", ["name", "postal_code", "short_description","description", "user_photo", "address", "opening", collection("highlights", ["url"]),  collection("gallery", ["url"])], {
         id: { eq: id },
       })
     ),
@@ -155,7 +156,87 @@ function Shop() {
     );
   }
 
-  console.log(shops)
+  const photos = [
+    {
+      src: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Bowl_Vegan"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1532768641073-503a250f9754?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Sandwich"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Green-Salad"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1572357176061-7c96fd2af22f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1572357176061-7c96fd2af22f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1572357176061-7c96fd2af22f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1572357176061-7c96fd2af22f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dmVnYW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60",
+      alt: "Healthy Breakfast"
+    },
+  ]
+
+  const article = [
+    {
+      autor: "T. Danke",
+      title: "Frischer geht immer",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      image: "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+
+    },
+    {
+      autor: "Julia Teebeutel",
+      title: "Bowls, Bowls, Bowls",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      image: "https://images.unsplash.com/photo-1567575990843-105a1c70d76e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHZlZ2FufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
+
+    },
+    {
+      autor: "Hannes Gutenbach",
+      title: "Vegan Forever?",
+      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      image: "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+
+    },
+    
+]
+
+  const [isActive, setIsActive] = React.useState(false);
+
+  const handleClick = () => {
+    // 👇️ toggle
+    setIsActive(current => !current);
+    console.log(isActive)
+
+    // 👇️ or set to true
+    // setIsActive(true);
+  };
+
+ 
+
 
   return (
     <main className="mt-space-large Shops">
@@ -178,7 +259,7 @@ function Shop() {
           </div>
           {modal}
           <div className="columns">
-            <div className="column is-4">
+            <div className="column is-3">
               <Rating
                 durchschnitt={Math.round(durchnitt)}
                 title={false}
@@ -200,10 +281,10 @@ function Shop() {
             </div>
           </div>
         </section>
-        <section className=" section background_light productHighlights">
+        
            {
             shops.map((product: ShopModel)=>(
-              <div className="columns" key={product.id}>
+              <div className="columns background_light" key={product.id}>
                <div className="column products is-flex ">
                {
                   product.highlights!.map((e: Highlights) => (
@@ -211,20 +292,20 @@ function Shop() {
                   ))
                 }
                </div>
-                      <div className="column is-4">
+                      <div className="column is-4 mt-4">
                         <h2>Beliebteste Produkte</h2>
                         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
                           Nulla vitae elit libero, a pharetra augue.
                         </p>
-                        <button className="is-success">Gutschein</button>
+                        <button className="is-success mt-2">Gutschein</button>
                       </div>
                 
             </div>
             ))
            }
-        </section>
+   
         <section className="section mb-space-large mt-space-large">
-          <div className=" container concept ">
+          <div className="  concept ">
             <div className="columns is-centered is-vcentered">
               <div className="column">
                 <figure className="image is-16by9">
@@ -238,7 +319,7 @@ function Shop() {
                   ></iframe>
                 </figure>
               </div>
-              <div className="column is-flex">
+              <div className="column ">
                 <h2 className="is-size-4 has-text-weight-medium">
                   Wie funktioniert das Konzept?
                 </h2>
@@ -255,7 +336,7 @@ function Shop() {
             </div>
           </div>
         </section>
-        <section className="section background_light is-medium mb-space-large">
+        <section className="section background_light mb-space-medium">
           <div className="container has-text-centered mb-4">
             <h1 className="title">Das sind unsere NachhaltigkeitspartnerInnen</h1>
             <h2 className="subtitle has-text-centered p-6">
@@ -288,7 +369,31 @@ function Shop() {
             </div>
           </div>
         </section>
-        <section className="section"></section>
+        <section className="section gallery mb-space-large" style={{
+          overflow: isActive ? 'auto' : 'hidden',
+         
+        }}>
+         <div className="columns">
+          <div className="column is-7 is-flex">
+          <h1 className="is-size-4">Gallerie/ Eindrücke</h1>
+          </div>
+          <div className="column is-flex">
+            <a  onClick={handleClick}>Mehr Anzeigen</a>
+          </div>
+         </div >
+          <Masonry images={photos}/>
+        </section>
+        <section className="section artikel">
+        <div className="columns">
+          <div className="column is-7 is-flex">
+          <h1 className="is-size-4">Artikel</h1>
+          </div>
+          <div className="column is-flex">
+            <a  onClick={handleClick}>Mehr Anzeigen</a>
+          </div>
+         </div >
+          <Artikel article={article}/>
+        </section>
     </main>
   );
 }

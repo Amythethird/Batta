@@ -16,9 +16,14 @@ export default interface Shop {
   user_photo?:string;
   address?: string;
   opening?: Record<string, string>;
+  gallery?: Gallery[]
 }
 
 export interface Highlights{
     id: string;
     url: string;
+}
+export interface Gallery{
+  id: string;
+  url: string;
 }

@@ -9,20 +9,34 @@ interface BlogBeitrag {
   //date: Date;
 }
 
-function Artikel(props: BlogBeitrag) {
+interface Beitrag{
+  article: BlogBeitrag[]
+}
+
+function Artikel(props: Beitrag) {
+
+
   return (
-    <div className="article mb-space-large mt-5">
-      <div className="artikel_header">
-        <p>{props.title}</p>
+   <div className="Blogbeitrag container is-flex">
+     {
+      props.article.map((articles) => (
+        <div className="article mb-space-large mt-5" key={articles.text}>
+        <div className="artikel_header" style={{backgroundImage : `url(${articles.image})`}}>
+        </div>
+        <div className="main">
+        <div className="autor">
+          <h2>{articles.title}</h2>
+          <p>{articles.autor}</p>
+        </div>
+        <div className="text">
+          <p>{articles.text}</p>
+        </div>
+        <a >Weiterlesen</a>
+        </div>
       </div>
-      <div className="text">
-        <p>{props.text}</p>
-      </div>
-      <div className="author">
-        <img src={props.image}></img>
-        <p>{props.autor}</p>
-      </div>
-    </div>
+      ))
+    }
+   </div>
   );
 }
 
