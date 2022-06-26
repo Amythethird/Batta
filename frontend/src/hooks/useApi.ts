@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import { useAppSelector } from "../state/hooks.state";
+import { selectLogin } from "../state/slices/login.state";
 
 export default function useApi(
   query: string,
@@ -6,30 +8,12 @@ export default function useApi(
   responseHandler: (response: any) => any,
   useApiWhenChanged: any[]
 ) {
+  const loginData = useAppSelector(selectLogin);
+
   useEffect(() => {
     async function fetchApi() {
-      let accessToken = sessionStorage.getItem("accessToken") ?? "";
-      if (!accessToken) {
-        //TODO: REMOVE WORKAROUND
-        const tokenRes = await fetch(
-          // eslint-disable-next-line no-undef
-          "https://strapi.localhost/api/auth/local",
-          {
-            method: "POST",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              identifier: "frontend",
-              password: "Gourmet1234",
-            }),
-          }
-        );
-        accessToken = (await tokenRes.json()).jwt;
-        sessionStorage.setItem("accessToken", accessToken);
-        //throw new Error("Login required!");
-      }
+      const accessToken = loginData.jwt;
+
       const response = await fetch(
         // eslint-disable-next-line no-undef
         `${process.env.REACT_APP_STRAPI}/graphql`,

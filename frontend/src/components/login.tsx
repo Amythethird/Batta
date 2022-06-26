@@ -1,27 +1,23 @@
-import React, { useState, MouseEvent } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { login } from "../api-utils/login-utils";
+import { useAppDispatch } from "../state/hooks.state";
+import { setLogin } from "../state/slices/login.state";
 //import { useNavigate } from 'react-router-dom';
 import "../styles/style.css";
-import user from "../testdata/user.json";
 
+function Login() {
+  const dispatch = useAppDispatch();
 
-function Login() { 
-
-  //Input 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const navigate = useNavigate();
 
-  function handleSubmit(event: MouseEvent) {
-    event.preventDefault();
+  function handleSubmit() {
+    login(email, password).then((loginData) => {
+      dispatch(setLogin(loginData));
+    });
   }
-
-  const userMail: any = user.filter((e) => e.mail === email);
-  const userPasswort = user.filter((e) => e.passwort === password);
-
- 
-  console.log(userMail + userPasswort);
-
-
 
   return (
     <section className="section is-medium">
@@ -66,6 +62,7 @@ function Login() {
             >
               Login
             </button>
+            <Link to={"/user/2"}>To User</Link>
           </div>
           <div className="column"></div>
           <div className="column">

@@ -20,19 +20,23 @@
       "type": "string",
       "required": true
     },
-    "email": {
-      "type": "email",
-      "required": true
-    },
-    "password": {
-      "type": "password",
-      "required": true
-    },
     "profile_picture": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "person"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "person"
     }
   }
 }

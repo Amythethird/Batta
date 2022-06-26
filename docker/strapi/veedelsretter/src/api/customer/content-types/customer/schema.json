@@ -4,7 +4,8 @@
   "info": {
     "singularName": "customer",
     "pluralName": "customers",
-    "displayName": "customer"
+    "displayName": "customer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -22,6 +23,12 @@
     "city": {
       "type": "string",
       "required": true
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person",
+      "inversedBy": "customer"
     }
   }
 }
