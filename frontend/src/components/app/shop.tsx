@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import Rating from "../globals/rating";
 import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/comment";
-import HeaderUser from "../globals/headerUser";
+import HeaderUser from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
@@ -236,7 +236,9 @@ function Shop() {
   };
 
  
+  const highlights = shops.map((products: ShopModel)=> products.highlights?.map((e: Highlights)=> e.url))
 
+  console.log(highlights)
 
   return (
     <main className="mt-space-large Shops">
@@ -282,14 +284,15 @@ function Shop() {
           </div>
         </section>
         
+           <section>
            {
             shops.map((product: ShopModel)=>(
-              <div className="columns background_light" key={product.id}>
+              <div className="columns background_light" key={product.id} >
                <div className="column products is-flex ">
                {
-                  product.highlights!.map((e: Highlights) => (
-                      <div className="card" key={e.id} style={{backgroundImage:`url(https://strapi.localhost${e.url})`}}></div>
-                  ))
+                  product.highlights?.map((e: Highlights) => (
+                    <div className="card" key={e.id} style={{backgroundImage:`url(https://strapi.localhost${e.url})`}}></div>
+                ))
                 }
                </div>
                       <div className="column is-4 mt-4">
@@ -303,6 +306,7 @@ function Shop() {
             </div>
             ))
            }
+           </section>
    
         <section className="section mb-space-large mt-space-large">
           <div className="  concept ">

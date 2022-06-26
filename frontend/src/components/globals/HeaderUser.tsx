@@ -1,52 +1,36 @@
-import React from "react";
-import "../../styles/style.css";
-import SocialMedia from "../app/socialMedia";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import Shop from "../../models/shop"
-import { useLocation } from "react-router-dom";
-import { useAppSelector } from "../../state/hooks.state";
-import { selectShops } from "../../state/slices/shops.state";
+import { faHeart as reg } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
+//import { useParams } from "react-router-dom";
+import "../../styles/style.css";
 
-interface params {
-  UserId: any;
+interface UserData{
+  username: string
+  name: string
+  vorname: string
+  email: string
+  image: string
+  text: string
+  isPrivate: boolean
 }
-
-function HeaderUser(props: params) {
-
-  const url = useLocation();
-  const isUser: boolean = url.pathname.includes("user");
-  const Shops = useAppSelector(selectShops);
-/* if (isUser) data = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"));
-  else */
+function headerUser(props: UserData) {
+  //Routing for User
+  //const { id } = useParams();
   
-  let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
-  console.log(props.UserId)
+  let fullHeart = false
 
-  
-  let oeffnungszeiten;
-  if (!isUser) {
-    oeffnungszeiten = (
-      <div className="column is-align-self-flex-start">
-        <div className="test p-4">
-          <p className="has-text-weight-medium">Öffnungszeiten</p>
-          {""}
-          <p className="has-text-weight-medium mt-1 ">Adresse</p>
-          <p className="is_green">
-            {data?.postal_code} <br />
-            {data?.area_code}
-          </p>
-        </div>
-      </div>
-    );
-  }
+  const like = (event: any) => {
+    event.preventDefault();
+    fullHeart= true;
+  };
 
   return (
-    <main>
-      <section
+    <main className="mt-space-large">
+        <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          backgroundImage: `url(${data?.user_photo})`,
+          backgroundColor: "green",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -55,28 +39,28 @@ function HeaderUser(props: params) {
           <div className="column is-align-self-flex-end  pb-0">
             <div className="information p-3">
               <figure className="imageInhaber">
-                <img src={data.user_photo} />
+                <img src={props.image} alt="user" />
               </figure>
-              <h2 className="is-size-4">
-                {data.name}
+              <div className="is-flex">
+              <h2 className="is-size-4 ">
+                {props.name + " " +props.vorname}
+               <a className="ml-5" onClick={like}> 
                 <span>
-                  <FontAwesomeIcon icon={faHeart} size="1x" />
+                  <FontAwesomeIcon icon={fullHeart ? faHeart : reg} />
                 </span>
+              </a>
               </h2>
-              {data?.labels?.map((e, i) => (
-                <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
-                  {e}
-                </span>
-              ))}
-              <p>{data?.description}</p>
-              <SocialMedia id={data?.id ?? 0} />
+              </div>
+              <a>Als Freund hinzufügen</a>
+
+              <p className="mt-5">{props.text}</p>
             </div>
           </div>
-          {oeffnungszeiten}
+          
         </div>
       </section>
     </main>
   );
 }
 
-export default HeaderUser;
+export default headerUser;
