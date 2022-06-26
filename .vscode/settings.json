@@ -2,7 +2,6 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
 
-  "deno.enable": true,
   "deno.enablePaths": ["./backend"],
   "deno.lint": true,
   "deno.unstable": false
