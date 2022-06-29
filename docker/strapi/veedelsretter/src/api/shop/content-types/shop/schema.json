@@ -24,7 +24,9 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["videos"]
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "postal_code": {
       "type": "integer",
@@ -51,7 +53,9 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
     },
     "short_description": {
       "type": "string",
@@ -63,14 +67,28 @@
     },
     "labels": {
       "type": "enumeration",
-      "enum": ["clothing", "groceries"],
+      "enum": [
+        "clothing",
+        "groceries"
+      ],
       "required": true
     },
     "labels_icons": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": ["images"]
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "opening_hours": {
+      "type": "json"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person",
+      "inversedBy": "shop"
     }
   }
 }
