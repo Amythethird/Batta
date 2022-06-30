@@ -20,11 +20,30 @@
       "type": "string",
       "required": true
     },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "password",
+      "required": true
+    },
     "profile_picture": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": ["images"]
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "person"
+    },
+    "short_description": {
+      "type": "text",
+      "required": false
     },
     "user": {
       "type": "relation",
@@ -32,10 +51,10 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "person"
     },
-    "customer": {
+    "shop": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::customer.customer",
+      "target": "api::shop.shop",
       "inversedBy": "person"
     }
   }
