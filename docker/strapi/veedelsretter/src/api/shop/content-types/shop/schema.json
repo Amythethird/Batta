@@ -71,6 +71,15 @@
       "multiple": true,
       "required": false,
       "allowedTypes": ["images"]
+    },
+    "opening_hours": {
+      "type": "json"
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person",
+      "inversedBy": "shop"
     }
   }
 }
