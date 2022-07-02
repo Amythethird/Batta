@@ -3,17 +3,14 @@ import { useParams } from "react-router-dom";
 import "../../styles/style.css";
 import HeaderUser from "../globals/HeaderUser";
 import testUser from "../../testdata/user.json";
-import { selectLogin } from "../../state/slices/login.state";
-import { useAppSelector } from "../../state/hooks.state";
 import useApi from "../../hooks/useApi";
 import { entry, query } from "../../api-utils/query-utils";
+import { getAccessTokenPayload } from "../../api-utils/login-utils";
+import { parseResponse } from "../../api-utils/response-utils";
+import { UserResponse } from "../../api-utils/models/user-response-models";
+import { parseUserResponseToCustomer } from "../../api-utils/user-utils";
 
 function User() {
-  //Routing for User
-
-  // const dispatch = useAppDispatch();
-  const loginData = useAppSelector(selectLogin);
-
   useApi(
     query(
       entry(
@@ -24,14 +21,19 @@ function User() {
           entry("person", [
             "firstname",
             "lastname",
-            entry("customer", ["postal_code", "street", "city"]),
+            entry("customer", ["postal_code", "street_name", "city"]),
           ]),
         ],
-        loginData.user.id
+        getAccessTokenPayload().id
       )
     ),
     (response) => {
-      console.log(response);
+      let userResponse: UserResponse = parseResponse(
+        "usersPermissionsUser",
+        response
+      ).data;
+
+      console.log(parseUserResponseToCustomer(userResponse));
     },
     []
   );

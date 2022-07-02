@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import Customer from "../../models/customer";
 import { RootState } from "../store.state";
 
-const initialState: Customer = { id: 0 };
+const initialState: Customer = {};
 
 export const customerSlice = createSlice({
   name: "customer",

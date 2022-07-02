@@ -1,21 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../api-utils/login-utils";
-import { useAppDispatch } from "../state/hooks.state";
-import { setLogin } from "../state/slices/login.state";
-//import { useNavigate } from 'react-router-dom';
 import "../styles/style.css";
 
 function Login() {
-  const dispatch = useAppDispatch();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   function handleSubmit() {
-    login(email, password).then((loginData) => {
-      dispatch(setLogin(loginData));
+    login(email, password).then(() => {
+      navigate("/");
     });
   }
 

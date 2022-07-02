@@ -1,5 +1,4 @@
 export default interface User {
-  id: number;
-  username?: string;
+  id?: number | string;
   email?: string;
 }

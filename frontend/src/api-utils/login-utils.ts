@@ -1,10 +1,12 @@
-import LoginData from "./models/login-data";
+import jwtDecode from "jwt-decode";
+
+const accessTokenKey = "accessToken";
 
 export async function login(
   identifier: string,
   password: string
-): Promise<LoginData> {
-  return new Promise<LoginData>((resolve, reject) => {
+): Promise<void> {
+  return new Promise<void>((resolve, reject) => {
     // eslint-disable-next-line no-undef
     fetch(`${process.env.REACT_APP_STRAPI}/api/auth/local`, {
       method: "POST",
@@ -21,18 +23,29 @@ export async function login(
         return response.json();
       })
       .then((loginData) => {
-        if (loginData.jwt && loginData.user) {
-          resolve({
-            jwt: loginData.jwt,
-            user: {
-              id: loginData.user.id,
-              username: loginData.user.username,
-              email: loginData.user.email,
-            },
-          } as LoginData);
+        if (loginData.jwt) {
+          sessionStorage.setItem(accessTokenKey, loginData.jwt);
+          resolve();
         } else {
           reject();
         }
       });
   });
+}
+
+export function isLoggedIn(): boolean {
+  return sessionStorage.getItem(accessTokenKey) ? true : false;
+}
+
+export function getAccessToken(): string | null {
+  return sessionStorage.getItem(accessTokenKey);
+}
+
+export function getAccessTokenPayload(): any {
+  const accessToken = getAccessToken();
+  if (accessToken) {
+    return jwtDecode(accessToken);
+  } else {
+    throw new Error("No accessToken available!");
+  }
 }

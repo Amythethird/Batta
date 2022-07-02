@@ -1,6 +1,5 @@
 import { useEffect } from "react";
-import { useAppSelector } from "../state/hooks.state";
-import { selectLogin } from "../state/slices/login.state";
+import { getAccessToken } from "../api-utils/login-utils";
 
 export default function useApi(
   query: string,
@@ -8,11 +7,12 @@ export default function useApi(
   responseHandler: (response: any) => any,
   useApiWhenChanged: any[]
 ) {
-  const loginData = useAppSelector(selectLogin);
-
   useEffect(() => {
     async function fetchApi() {
-      const accessToken = loginData.jwt;
+      const accessToken = getAccessToken();
+      if (!accessToken) {
+        throw new Error("Login required!");
+      }
 
       const response = await fetch(
         // eslint-disable-next-line no-undef
