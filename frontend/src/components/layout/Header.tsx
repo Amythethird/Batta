@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../../styles/style.css";
 
 function Header() {
@@ -10,9 +11,9 @@ function Header() {
       >
         <div className="container">
           <div className="navbar-brand">
-            <a className="navbar-item" href="/">
+            <Link className="navbar-item" to="/">
               <img src="/assets/logo.svg" alt="Back home" height={28} />
-            </a>
+            </Link>
 
             <button
               role="button"
@@ -28,23 +29,23 @@ function Header() {
 
           <div className="navbar-menu">
             <div className="navbar-start">
-              <a className="navbar-item" href="/shops">
+              <Link className="navbar-item" to="/shops">
                 Shops
-              </a>
-              <a className="navbar-item" href="#foo">
+              </Link>
+              <Link className="navbar-item" to="#foo">
                 Blog
-              </a>
-              <a className="navbar-item" href="#bar">
+              </Link>
+              <Link className="navbar-item" to="#bar">
                 Über uns
-              </a>
-              <a className="navbar-item" href="#bar">
+              </Link>
+              <Link className="navbar-item" to="#bar">
                 Kontakt
-              </a>
+              </Link>
             </div>
             <div className="navbar-end">
-              <a className="navbar-item" href="\login">
+              <Link className="navbar-item" to="\login">
                 Login
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 interface ProtectedElementProps {
-  isAuthenticated: boolean;
+  isAuthenticated: () => boolean;
   redirectPath: string;
   // eslint-disable-next-line no-undef
   protectedElement: JSX.Element;
@@ -13,7 +13,7 @@ function ProtectedElement({
   redirectPath = "/login",
   protectedElement,
 }: ProtectedElementProps) {
-  if (isAuthenticated) {
+  if (isAuthenticated()) {
     return protectedElement;
   } else {
     return <Navigate to={redirectPath} replace={true} />;

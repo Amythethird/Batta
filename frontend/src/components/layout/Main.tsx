@@ -18,9 +18,9 @@ const Main = () => {
         path="/user"
         element={
           <ProtectedElement
-            isAuthenticated={isLoggedIn()}
+            isAuthenticated={isLoggedIn}
             protectedElement={<User />}
-            redirectPath={"/login"}
+            redirectPath={"/login?postLoginRedirect=user"}
           />
         }
       ></Route>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { login } from "../api-utils/login-utils";
 import "../styles/style.css";
 
@@ -7,10 +7,16 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   function handleSubmit() {
     login(email, password).then(() => {
-      navigate("/");
+      const postLoginRedirect = searchParams.get("postLoginRedirect");
+      if (postLoginRedirect) {
+        navigate(`/${postLoginRedirect}`);
+      } else {
+        navigate("/");
+      }
     });
   }
 
@@ -57,7 +63,6 @@ function Login() {
             >
               Login
             </button>
-            <Link to={"/user/2"}>To User</Link>
           </div>
           <div className="column"></div>
           <div className="column">
