@@ -17,7 +17,7 @@ function Artikel(props: Beitrag) {
 
 
   return (
-   <div className="Blogbeitrag container is-flex">
+   <div className="Blogbeitrag is-flex">
      {
       props.article.map((articles) => (
         <div className="article mb-space-large mt-5" key={articles.text}>

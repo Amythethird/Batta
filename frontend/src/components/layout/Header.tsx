@@ -43,7 +43,7 @@ function Header() {
               </Link>
             </div>
             <div className="navbar-end">
-              <Link className="navbar-item" to="\login">
+              <Link className="navbar-item" to="/login">
                 Login
               </Link>
             </div>

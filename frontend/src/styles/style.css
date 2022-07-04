@@ -13306,6 +13306,7 @@ footer li a {
   width: 190px;
 }
 
+/*User*/
 .userHeader .information {
   width: 380px;
   height: 250px;
@@ -13345,6 +13346,54 @@ footer li a {
 
 .userHeader .test p.is_green {
   color: #257708;
+}
+
+.user .badge {
+  position: relative;
+  width: 350px;
+  max-height: 110px;
+  background-color: rgba(37, 119, 8, 0.1);
+  border-radius: 8px;
+}
+
+.user .badge img {
+  width: 74px;
+  height: 74px;
+}
+
+.user .badge h3 {
+  color: #257708;
+}
+
+.user .badge .anzahl {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.user .favorite {
+  width: 280px;
+  height: 210px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.user .favorite h3 {
+  background-color: #257708;
+  color: white;
+  width: 200px;
+  padding: 5px;
+}
+
+.user .favorite .icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  color: #e2e2e2;
+  stroke: #257708;
+  stroke-width: 20px;
+  stroke-linecap: butt;
 }
 
 .social .icon {
@@ -13537,7 +13586,7 @@ footer li a {
           align-items: center;
 }
 
-.artikel .Blogbeitrag {
+.Blogbeitrag {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -13545,7 +13594,7 @@ footer li a {
   overflow: hidden;
 }
 
-.artikel .Blogbeitrag .article {
+.Blogbeitrag .article {
   width: 400px;
   height: 450px;
   -webkit-filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
@@ -13554,7 +13603,7 @@ footer li a {
   border-radius: 8px;
 }
 
-.artikel .Blogbeitrag .article .artikel_header {
+.Blogbeitrag .article .artikel_header {
   height: 250px;
   background-size: cover;
   background-repeat: no-repeat;
@@ -13563,7 +13612,7 @@ footer li a {
   background-position: 50% 50%;
 }
 
-.artikel .Blogbeitrag .article .main {
+.Blogbeitrag .article .main {
   padding: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13577,7 +13626,7 @@ footer li a {
           justify-content: space-between;
 }
 
-.artikel .Blogbeitrag .article .main .autor {
+.Blogbeitrag .article .main .autor {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13593,11 +13642,46 @@ footer li a {
           justify-content: space-between;
 }
 
-.artikel .Blogbeitrag .article .main .autor h2 {
+.Blogbeitrag .article .main .autor h2 {
   color: #257708;
 }
 
-.artikel .Blogbeitrag .article .main .autor p {
+.Blogbeitrag .article .main .autor p {
   color: rgba(51, 51, 51, 0.3);
+}
+
+.voucher .box {
+  width: 280px;
+  height: 420px;
+  padding: 0;
+  border-radius: 8px;
+}
+
+.voucher .box .box_header {
+  width: 280px;
+  height: 210px;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.voucher .box .box_header h1 {
+  position: absolute;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  top: 70px;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.voucher .box .box_header h3 {
+  background-color: #257708;
+  color: white;
+  width: 200px;
+}
+
+.voucher .box .box_content {
+  height: 210px;
 }
 /*# sourceMappingURL=style.css.map */

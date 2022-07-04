@@ -24,7 +24,7 @@ function headerUser(props: UserData) {
   return (
     <main className="mt-space-large">
       <section
-        className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
+        className="section is-flex is-medium pb-0 is-align-content-end mb-space-large"
         style={{
           backgroundColor: "green",
           backgroundRepeat: "no-repeat",
@@ -49,7 +49,7 @@ function headerUser(props: UserData) {
               </div>
               <a>Als Freund hinzufügen</a>
 
-              <p className="mt-5">{props.text}</p>
+              <p className="mt-5">Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla Cras justo odio. </p>
             </div>
           </div>
         </div>

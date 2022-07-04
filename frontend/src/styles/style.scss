@@ -261,6 +261,7 @@ footer {
   }
 }
 
+/*User*/
 .userHeader {
   .information {
     h2 {
@@ -301,6 +302,59 @@ footer {
     }
   }
 }
+
+.user{
+
+  .badge{
+    position: relative;
+    width: 350px;
+    max-height: 110px;
+    background-color: rgba($color: #257708, $alpha: 0.1);
+    border-radius: 8px;
+
+    img{
+      width: 74px;
+      height: 74px;
+    }
+
+    h3{
+      color: $green;
+    }
+
+    .anzahl{
+      position: absolute;
+      right: 10px;
+      top: 5px;
+    }
+    
+  }
+
+  .favorite{
+    width: 280px;
+    height: 210px;
+    border-radius: 8px;
+    position: relative;
+
+    h3{
+      background-color: #257708;
+      color: white;
+      width: 200px;
+      padding: 5px;
+    }
+
+    .icon{
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 30px;
+      color: #e2e2e2;
+      stroke: $green ;
+      stroke-width: 20px ;
+      stroke-linecap: butt;
+    }
+  }
+}
+
 
 .social {
   .icon {
@@ -473,58 +527,93 @@ footer {
       justify-content: end;
       align-items: center;
     }
-
   
+} 
 
-  .Blogbeitrag{
+.Blogbeitrag{
 
-    justify-content: space-between;
-    height: 520px;
-    overflow: hidden;
-    
-    .article{
-      width: 400px;
-      height: 450px;
-      filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
-      background-color: white;
-      border-radius: 8px;
+  justify-content: space-between;
+  height: 520px;
+  overflow: hidden;
   
-      .artikel_header{
-        height: 250px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 8px 8px 0 0;
-        padding: 20px;
-        background-position: 50% 50%;
-    
+  .article{
+    width: 400px;
+    height: 450px;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
+    background-color: white;
+    border-radius: 8px;
+
+    .artikel_header{
+      height: 250px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 8px 8px 0 0;
+      padding: 20px;
+      background-position: 50% 50%;
+  
+    }
+    .main{
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    .autor{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+  
+      h2{
+        color: rgba($color: $green, $alpha: 1);
       }
-      .main{
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      .autor{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    
-        h2{
-          color: rgba($color: $green, $alpha: 1);
-        }
-        p{
-          color: rgba($color: $grey, $alpha: 0.3);
-        }
-      }
-  
+      p{
+        color: rgba($color: $grey, $alpha: 0.3);
       }
     }
-    
+
+    }
   }
   
 }
 
+.voucher{
 
+  .box{
+    width: 280px;
+    height: 420px;
+    padding: 0;
+    border-radius: 8px;
+
+    .box_header{
+      width: 280px;
+      height: 210px;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+  
+      
+      h1{
+        position: absolute;
+        color:white;
+        margin-left: auto;
+        margin-right: auto;
+        top: 70px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      h3{
+        background-color: #257708;
+        color: white;
+        width: 200px;
+        
+      }
+    }
+
+    .box_content{
+      height: 210px;
+    }
+  }
+}
 
 
 
