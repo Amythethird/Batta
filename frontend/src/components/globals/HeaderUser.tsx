@@ -24,7 +24,7 @@ function headerUser(props: UserData) {
   return (
     <main className="mt-space-large">
       <section
-        className="section is-flex is-medium pb-0 is-align-content-end mb-space-large"
+        className="section is-flex is-medium pb-0 is-align-content-end"
         style={{
           backgroundColor: "green",
           backgroundRepeat: "no-repeat",
@@ -38,7 +38,7 @@ function headerUser(props: UserData) {
                 <img src={props.image} alt="user" />
               </figure>
               <div className="is-flex">
-                <h2 className="is-size-4 ">
+                <h2 className="is-size-4 is-size-5-mobile ">
                   {props.name + " " + props.vorname}
                   <a className="ml-5" onClick={like}>
                     <span>

@@ -29,7 +29,7 @@ function Artikel(props: Beitrag) {
           <p>{articles.autor}</p>
         </div>
         <div className="text">
-          <p>{articles.text}</p>
+          <p className="is-size-7-mobile">{articles.text}</p>
         </div>
         <a >Weiterlesen</a>
         </div>

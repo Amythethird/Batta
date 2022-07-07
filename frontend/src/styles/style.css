@@ -13131,6 +13131,12 @@ main button {
   margin-top: 120px;
 }
 
+@media screen and (max-width: 767px) {
+  .mt-space-large {
+    margin-top: 0;
+  }
+}
+
 .pt-space-large {
   padding-top: 120px;
 }
@@ -13306,6 +13312,63 @@ footer li a {
   width: 190px;
 }
 
+@media screen and (max-width: 767px) {
+  .login .column input {
+    width: 300px;
+  }
+  .login .column .is-grouped {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .login .column .is-grouped .control {
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login {
+    background-image: url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+    background-size: 450px, 250px;
+  }
+  .login .columns {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .login .columns input {
+    max-width: 400px;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .login {
+    background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 10% 20%, 100% 10%;
+    background-size: 450px, 250px;
+  }
+  .login .columns {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
 /*User*/
 .userHeader .information {
   width: 380px;
@@ -13321,7 +13384,7 @@ footer li a {
 .userHeader .information .imageInhaber {
   position: absolute;
   left: 420px;
-  top: 310px;
+  top: 200px;
   width: 110px;
   max-height: 110px;
 }
@@ -13348,7 +13411,131 @@ footer li a {
   color: #257708;
 }
 
-.user .badge {
+@media screen and (max-width: 767px) {
+  .userHeader .information {
+    width: 285px;
+    height: 230px;
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  .userHeader .information h2 {
+    color: #257708;
+  }
+  .userHeader .information .imageInhaber {
+    position: absolute;
+    left: 285px;
+    top: 100px;
+    width: 50px;
+    max-height: 50px;
+  }
+  .userHeader .information .imageInhaber img {
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .userHeader .test {
+    position: absolute;
+    right: 50px;
+    width: 280px;
+    height: 170px;
+    background-color: white;
+    border-radius: 8px;
+    top: 150px;
+  }
+  .userHeader .test p.is_green {
+    color: #257708;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .userHeader .information {
+    width: 380px;
+    height: 250px;
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  .userHeader .information h2 {
+    color: #257708;
+  }
+  .userHeader .information .imageInhaber {
+    position: absolute;
+    left: 350px;
+    top: 130px;
+    width: 110px;
+    max-height: 110px;
+  }
+  .userHeader .information .imageInhaber img {
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .userHeader .test {
+    position: absolute;
+    right: 50px;
+    width: 280px;
+    height: 170px;
+    background-color: white;
+    border-radius: 8px;
+    top: 150px;
+  }
+  .userHeader .test p.is_green {
+    color: #257708;
+  }
+}
+
+@media screen and (min-width: 1023px) {
+  .userHeader .information {
+    width: 380px;
+    height: 250px;
+    background-color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  .userHeader .information h2 {
+    color: #257708;
+  }
+  .userHeader .information .imageInhaber {
+    position: absolute;
+    left: 400px;
+    top: 230px;
+    width: 110px;
+    max-height: 110px;
+  }
+  .userHeader .information .imageInhaber img {
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .user .badges {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .user .badges {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.user .badges .badge {
   position: relative;
   width: 350px;
   max-height: 110px;
@@ -13356,36 +13543,71 @@ footer li a {
   border-radius: 8px;
 }
 
-.user .badge img {
+.user .badges .badge img {
   width: 74px;
   height: 74px;
 }
 
-.user .badge h3 {
+.user .badges .badge h3 {
   color: #257708;
 }
 
-.user .badge .anzahl {
+.user .badges .badge .anzahl {
   position: absolute;
   right: 10px;
   top: 5px;
 }
 
-.user .favorite {
+@media screen and (max-width: 767px) {
+  .user .badges .badge {
+    max-width: 310px;
+  }
+}
+
+.user .favorites {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .user .favorites {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .user .favorites {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.user .favorites .favorite {
   width: 280px;
   height: 210px;
   border-radius: 8px;
   position: relative;
 }
 
-.user .favorite h3 {
+.user .favorites .favorite h3 {
   background-color: #257708;
   color: white;
   width: 200px;
   padding: 5px;
 }
 
-.user .favorite .icon {
+.user .favorites .favorite .icon {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -13594,6 +13816,26 @@ footer li a {
   overflow: hidden;
 }
 
+@media screen and (max-width: 767px) {
+  .Blogbeitrag {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    overflow-y: scroll;
+  }
+  .Blogbeitrag .article {
+    width: 300px !important;
+    height: 500px !important;
+    margin: 20px;
+  }
+}
+
 .Blogbeitrag .article {
   width: 400px;
   height: 450px;
@@ -13601,6 +13843,12 @@ footer li a {
           filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
   background-color: white;
   border-radius: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .Blogbeitrag .article {
+    margin: 10px;
+  }
 }
 
 .Blogbeitrag .article .artikel_header {

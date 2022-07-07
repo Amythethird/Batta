@@ -17,7 +17,7 @@ function Favorites(props: Favorite) {
 let favorites;
     if(props.isShop){
         favorites =(
-            <div className="box favorite is-flex is-align-items-end"
+            <div className="box favorite is-flex  is-align-items-end"
             style={
                 {  
                     backgroundImage: `url(${props.url})`,

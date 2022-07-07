@@ -12,7 +12,8 @@ import { parseResponse } from "../../api-utils/response-utils";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
-// import shopData from "../../testdata/shop.json";
+
+//Imported Components
 import ShopCard from "./card";
 import Rating from "../globals/rating";
 import Sorted from "../globals/sorted";
@@ -24,6 +25,18 @@ function FilterShops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
+  
+  //Input Form
+  const [input, setCriteria] = React.useState("");
+  const categorie: string[] = [];
+  
+  //Filter inklusive aller Komponenten
+  let allStatements;
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCriteria(e.currentTarget.value);
+    dispatch(setShopsFilter(e.currentTarget.value));
+  };
   
   useApi(
     query(
@@ -37,22 +50,13 @@ function FilterShops() {
     [filter]
   );
 
-  //Input Form
-  const [input, setCriteria] = React.useState("");
-  const categorie: string[] = [];
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCriteria(e.currentTarget.value);
-    dispatch(setShopsFilter(e.currentTarget.value));
-  };
 
   /*Filter*/
   function get(childvalue: string[]) {
     categorie.push(...childvalue);
   }
 
-  //Filter inklusive aller Komponenten
-  let allStatements;
+
   if (filter) {
     allStatements = (
       <div className="container mb-space-medium">

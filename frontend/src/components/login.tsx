@@ -64,9 +64,10 @@ function Login() {
               Login
             </button>
           </div>
-          <div className="column"></div>
-          <div className="column">
-            <div className="field is-grouped">
+         
+        <div className="columns">
+        <div className="column">
+            <div className="field is-grouped mobile">
               <div className="control">
                 <input className="input" type="text" placeholder="Name"></input>
               </div>
@@ -121,6 +122,7 @@ function Login() {
               Registrieren
             </button>
           </div>
+        </div>
         </div>
       </div>
     </section>

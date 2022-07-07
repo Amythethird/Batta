@@ -73,6 +73,8 @@ main {
 
 .mb-space-large {
   margin-bottom: 120px;
+
+  
 }
 
 .mb-space-medium {
@@ -85,6 +87,9 @@ main {
 
 .mt-space-large {
   margin-top: 120px;
+  @include until(768px){
+    margin-top: 0;
+  }
 }
 
 .pt-space-large {
@@ -259,6 +264,55 @@ footer {
       }
     }
   }
+
+  @include until(768px){
+   
+    .column{
+    
+      input {
+        width: 300px;
+      }
+      .is-grouped{
+        flex-direction: column;
+
+        .control{
+          margin-bottom: 0.8rem;
+        }
+        
+      }
+    }
+  }
+
+  @include from(768px){
+
+  background-image: url(../assets/Frame-3.svg);
+  background-repeat: no-repeat;
+  background-position:100% 10%;
+  background-size: 450px, 250px;
+   .columns{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    
+    input{
+      max-width: 400px;
+     
+    }
+   }
+  }
+
+  @include from(1023px){
+    background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 10% 20%, 100% 10%;
+    background-size: 450px, 250px;
+    .columns{
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+
 }
 
 /*User*/
@@ -275,7 +329,7 @@ footer {
     .imageInhaber {
       position: absolute;
       left: 420px;
-      top: 310px;
+      top: 200px;
       width: 110px;
       max-height: 110px;
 
@@ -301,10 +355,132 @@ footer {
       color: $green;
     }
   }
+
+  @include until(768px){
+ 
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 285px;
+      height: 230px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+  
+      .imageInhaber {
+        position: absolute;
+        left: 285px;
+        top: 100px;
+        width: 50px;
+        max-height: 50px;
+  
+        img {
+          border-radius: 8px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+      }
+    }
+  
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+  
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(768px){
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+  
+      .imageInhaber {
+        position: absolute;
+        left: 350px;
+        top: 130px;
+        width: 110px;
+        max-height: 110px;
+  
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+  
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+  
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(1023px){
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+  
+      .imageInhaber {
+        position: absolute;
+        left: 400px;
+        top: 230px;
+        width: 110px;
+        max-height: 110px;
+  
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+
 }
 
 .user{
 
+  .badges{
+    @include until(768px){
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include from(768px){
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  
   .badge{
     position: relative;
     width: 350px;
@@ -326,14 +502,36 @@ footer {
       right: 10px;
       top: 5px;
     }
+
+    @include until(768px){
+      max-width: 310px;
+
+    }
+
+
     
   }
-
+  }
+  .favorites{
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+    
+  @include until(768px){
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @include from(768px){
+    flex-wrap: wrap;
+  }
+  
   .favorite{
     width: 280px;
     height: 210px;
     border-radius: 8px;
     position: relative;
+
+  
 
     h3{
       background-color: #257708;
@@ -353,8 +551,9 @@ footer {
       stroke-linecap: butt;
     }
   }
-}
 
+ }
+}
 
 .social {
   .icon {
@@ -532,6 +731,21 @@ footer {
 
 .Blogbeitrag{
 
+  @include until(768px){
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+   
+
+    .article{
+      width: 300px !important;
+      height: 500px !important;
+      margin: 20px;
+    }
+  }
+
+
   justify-content: space-between;
   height: 520px;
   overflow: hidden;
@@ -542,6 +756,10 @@ footer {
     filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
     background-color: white;
     border-radius: 8px;
+
+    @include from(768px){
+      margin: 10px;
+    }
 
     .artikel_header{
       height: 250px;
