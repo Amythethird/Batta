@@ -3,7 +3,7 @@ import "../../styles/style.css";
 import SocialMedia from "../app/socialMedia";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import Shop from "../../models/shop"
+import Shop from "../../models/shop";
 import { useLocation } from "react-router-dom";
 import { useAppSelector } from "../../state/hooks.state";
 import { selectShops } from "../../state/slices/shops.state";
@@ -13,17 +13,15 @@ interface params {
 }
 
 function HeaderUser(props: params) {
-
   const url = useLocation();
   const isUser: boolean = url.pathname.includes("user");
   const Shops = useAppSelector(selectShops);
-/* if (isUser) data = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"));
+  /* if (isUser) data = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"));
   else */
-  
-  let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
-  console.log(props.UserId)
 
-  
+  let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
+  console.log(props.UserId);
+
   let oeffnungszeiten;
   if (!isUser) {
     oeffnungszeiten = (
@@ -46,7 +44,7 @@ function HeaderUser(props: params) {
       <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          backgroundImage: `url(${data?.user_photo})`,
+          //backgroundImage: `url(${data?.user_photo})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -54,9 +52,7 @@ function HeaderUser(props: params) {
         <div className="columns userHeader mb-0">
           <div className="column is-align-self-flex-end  pb-0">
             <div className="information p-3">
-              <figure className="imageInhaber">
-                <img src={data.user_photo} />
-              </figure>
+              <figure className="imageInhaber"></figure>
               <h2 className="is-size-4">
                 {data.name}
                 <span>
