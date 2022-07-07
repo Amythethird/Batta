@@ -33,6 +33,10 @@ export async function login(
   });
 }
 
+export function logout(): void {
+  sessionStorage.removeItem(accessTokenKey);
+}
+
 export function isLoggedIn(): boolean {
   return sessionStorage.getItem(accessTokenKey) ? true : false;
 }
