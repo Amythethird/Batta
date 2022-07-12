@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import "../../styles/style.css";
+import "../../../styles/style.css";
 import { Link } from "react-router-dom";
 
 

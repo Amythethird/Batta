@@ -12,7 +12,7 @@ import { selectCustomer, setCustomer } from "../../state/slices/customer.state";
 import Badges from "../globals/elements/badges";
 import badge from "../../assets/badge.png";
 import Favorites from "../globals/elements/favorites";
-import Artikel from "../article";
+import Artikel from "../globals/elements/article";
 import Voucher from "../globals/elements/voucher";
 
 function User() {

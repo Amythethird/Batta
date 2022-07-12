@@ -8,3 +8,8 @@ export interface PersonProps {
   short_description?: string;
   profile_picture?: string; // ToDo: check type
 }
+
+export interface Image{
+  url?: string;
+  id?: number
+}

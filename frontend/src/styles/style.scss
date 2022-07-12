@@ -68,7 +68,7 @@ main {
 }
 
 .background_light {
-  background-color: rgba($color: $green, $alpha: 0.2);
+  background-color: $rgba;
 }
 
 .mb-space-large {
@@ -161,6 +161,8 @@ main {
   }
 }
 
+/* Elements */
+
 .Blog_Beitrag {
   .column {
     height: 345px;
@@ -193,7 +195,7 @@ main {
     }
 
     p {
-      background-color: #95c11f;
+      background-color: $light_green;
       line-height: 36px;
       padding: 0px 6px 0px 6px;
       color: $white;
@@ -466,7 +468,7 @@ footer {
       position: relative;
       width: 350px;
       max-height: 110px;
-      background-color: rgba($color: #257708, $alpha: 0.1);
+      background-color: $rgba;
       border-radius: 8px;
 
       img {
@@ -509,7 +511,7 @@ footer {
       position: relative;
 
       h3 {
-        background-color: #257708;
+        background-color: $green;
         color: white;
         width: 200px;
         padding: 5px;
@@ -778,7 +780,7 @@ footer {
         text-align: center;
       }
       h3 {
-        background-color: #257708;
+        background-color: $green;
         color: white;
         width: 200px;
       }

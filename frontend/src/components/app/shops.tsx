@@ -13,8 +13,8 @@ import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-import ShopCard from "./card";
-import Rating from "../globals/rating";
+import ShopCard from "../globals/elements/card";
+import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
@@ -106,6 +106,8 @@ function FilterShops() {
     );
   }
 
+  console.log(shops)
+
   return (
     <div>
       <div className=" container mb-space-large mt-space-large">
@@ -140,10 +142,12 @@ function FilterShops() {
             text={shop.short_description ?? ""}
             //address={shop.address}
             plz={shop.postal_code?.toString() ?? input}
-            img={shop.person.profile_picture}
+            img={"shop.person.profile_picture"}
             id={shop.id}
           />
+       
         ))}
+       
       </section>
     </div>
   );

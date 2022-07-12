@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/style.css";
-import SocialMedia from "../app/socialMedia";
+import SocialMedia from "./elements/socialMedia";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import Shop from "../../models/shop";

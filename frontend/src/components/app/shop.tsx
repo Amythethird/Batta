@@ -1,9 +1,9 @@
 import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
-import Rating from "../globals/rating";
+import Rating from "../globals/elements/rating";
 import RatingData from "../../testdata/Rating.json";
-import Kommentar from "../globals/comment";
+import Kommentar from "../globals/elements/comment";
 import HeaderUser from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 //import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
@@ -14,8 +14,8 @@ import useApi from "../../hooks/useApi";
 import { collection, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel, { Highlights } from "../../models/shop";
-import Masonry from "../globals/masonry";
-import Artikel from "../article";
+import Masonry from "../globals/elements/masonry";
+import Artikel from "../globals/elements/article";
 
 /** ToDo
  * Produkt_Highlights overflow [X], auslagern
@@ -240,12 +240,7 @@ function Shop() {
     // setIsActive(true);
   };
 
-  const highlights = shops.map((products: ShopModel) =>
-    products.highlights?.map((e: Highlights) => e.url)
-  );
-
-  console.log(highlights);
-
+  console.log(shops)
   return (
     <main className="mt-space-large Shops">
       {shops.map((shop: ShopModel) => (
@@ -300,7 +295,9 @@ function Shop() {
                   key={e.id}
                   style={{
                     backgroundImage: `url(https://strapi.localhost${e.url})`,
-                  }}
+                    
+                  }}  
+             
                 ></div>
               ))}
             </div>
