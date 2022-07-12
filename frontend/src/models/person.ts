@@ -6,7 +6,7 @@ export interface PersonProps {
   firstname?: string;
   lastname?: string;
   short_description?: string;
-  profile_picture?: string; // ToDo: check type
+  profile_picture?: Image; // ToDo: check type
 }
 
 export interface Image {

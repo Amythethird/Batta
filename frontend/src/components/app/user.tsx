@@ -46,7 +46,7 @@ function User() {
         "usersPermissionsUser",
         response
       ).data;
-
+      console.log(userResponse);
       dispatch(setCustomer(parseUserResponseToCustomer(userResponse)));
     },
     []
@@ -75,6 +75,7 @@ function User() {
         "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
   ];
+
   return (
     <main className="mt-space-medium user">
       <HeaderUser
@@ -83,7 +84,7 @@ function User() {
         name={customer.lastname!}
         vorname={customer.firstname!}
         email={customer.email!}
-        image={"customer.profile_picture?.url"}
+        image={customer.profile_picture?.url!}
         isPrivate={false}
       />
       <section className="section badges is-flex is-justify-content-space-between">

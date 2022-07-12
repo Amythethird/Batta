@@ -285,7 +285,6 @@ function Shop() {
           </div>
         </div>
       </section>
-
       <section>
         {shops.map((product: ShopModel) => (
           <div className="columns background_light" key={product.id}>
@@ -312,7 +311,6 @@ function Shop() {
           </div>
         ))}
       </section>
-
       <section className="section mb-space-large mt-space-large">
         <div className="  concept ">
           <div className="columns is-centered is-vcentered">
