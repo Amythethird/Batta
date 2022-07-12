@@ -7,6 +7,7 @@ import User from "../app/user";
 import Shop from "../app/shop";
 import { isLoggedIn } from "../../api-utils/login-utils";
 import ProtectedElement from "./protected-route";
+import Payment from "../app/payment";
 
 const Main = () => {
   return (
@@ -25,6 +26,7 @@ const Main = () => {
         }
       ></Route>
       <Route path="/shop/:id" element={<Shop />}></Route>
+      <Route path="/payment" element={<Payment />}></Route>
     </Routes>
   );
 };

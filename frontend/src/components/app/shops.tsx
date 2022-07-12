@@ -105,8 +105,7 @@ function FilterShops() {
       </div>
     );
   }
-
-  console.log(shops)
+  console.log(shops);
 
   return (
     <div>
@@ -142,12 +141,10 @@ function FilterShops() {
             text={shop.short_description ?? ""}
             //address={shop.address}
             plz={shop.postal_code?.toString() ?? input}
-            img={"shop.person.profile_picture"}
+            img={shop.person.profile_picture}
             id={shop.id}
           />
-       
         ))}
-       
       </section>
     </div>
   );

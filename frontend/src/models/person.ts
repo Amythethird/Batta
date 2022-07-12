@@ -9,7 +9,7 @@ export interface PersonProps {
   profile_picture?: string; // ToDo: check type
 }
 
-export interface Image{
+export interface Image {
   url?: string;
-  id?: number
+  id?: number;
 }

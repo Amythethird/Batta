@@ -16,6 +16,7 @@ import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel, { Highlights } from "../../models/shop";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
+import { Link } from "react-router-dom";
 
 /** ToDo
  * Produkt_Highlights overflow [X], auslagern
@@ -240,7 +241,7 @@ function Shop() {
     // setIsActive(true);
   };
 
-  console.log(shops)
+  console.log(shops);
   return (
     <main className="mt-space-large Shops">
       {shops.map((shop: ShopModel) => (
@@ -295,9 +296,7 @@ function Shop() {
                   key={e.id}
                   style={{
                     backgroundImage: `url(https://strapi.localhost${e.url})`,
-                    
-                  }}  
-             
+                  }}
                 ></div>
               ))}
             </div>
@@ -373,9 +372,9 @@ function Shop() {
                 <img src="https://bulma.io/images/placeholders/128x128.png"></img>
               </figure>
             </div>
-            <button className="button is-success hast-text-align-center mt-4">
+            <Link className="button" to="/payment">
               Gutschein
-            </button>
+            </Link>
           </div>
         </div>
       </section>

@@ -42,6 +42,7 @@ function parsePersonResponseToPersonProps(
   personProps.profile_picture = `${process.env.REACT_APP_STRAPI}${
     (personResponse.profile_picture as any).url
   }`;
+
   delete personProps.customer;
   return personProps;
 }

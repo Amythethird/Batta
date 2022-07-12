@@ -83,7 +83,7 @@ function User() {
         name={customer.lastname!}
         vorname={customer.firstname!}
         email={customer.email!}
-        image={customer.profile_picture!}
+        image={"customer.profile_picture?.url"}
         isPrivate={false}
       />
       <section className="section badges is-flex is-justify-content-space-between">
