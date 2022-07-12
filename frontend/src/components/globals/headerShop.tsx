@@ -44,7 +44,7 @@ function HeaderUser(props: params) {
       <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          //backgroundImage: `url(${data?.user_photo})`,
+          backgroundImage: `url(${data?.person?.profile_picture})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}

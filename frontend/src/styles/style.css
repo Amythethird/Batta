@@ -401,8 +401,7 @@ fieldset[disabled] .button {
   padding: 0;
 }
 
-/* Bulma Base */
-/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+/* Bulma Base */ /*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
 html,
 body,
 p,
@@ -2024,16 +2023,13 @@ fieldset[disabled] .button {
   .button.is-responsive.is-small {
     font-size: 0.5625rem;
   }
-
   .button.is-responsive,
   .button.is-responsive.is-normal {
     font-size: 0.65625rem;
   }
-
   .button.is-responsive.is-medium {
     font-size: 0.75rem;
   }
-
   .button.is-responsive.is-large {
     font-size: 1rem;
   }
@@ -2042,16 +2038,13 @@ fieldset[disabled] .button {
   .button.is-responsive.is-small {
     font-size: 0.65625rem;
   }
-
   .button.is-responsive,
   .button.is-responsive.is-normal {
     font-size: 0.75rem;
   }
-
   .button.is-responsive.is-medium {
     font-size: 1rem;
   }
-
   .button.is-responsive.is-large {
     font-size: 1.25rem;
   }
@@ -6048,17 +6041,14 @@ a.navbar-item.is-active,
   .navbar > .container {
     display: block;
   }
-
   .navbar-brand .navbar-item,
   .navbar-tabs .navbar-item {
     align-items: center;
     display: flex;
   }
-
   .navbar-link::after {
     display: none;
   }
-
   .navbar-menu {
     background-color: hsl(0deg, 0%, 100%);
     box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
@@ -6067,7 +6057,6 @@ a.navbar-item.is-active,
   .navbar-menu.is-active {
     display: block;
   }
-
   .navbar.is-fixed-bottom-touch,
   .navbar.is-fixed-top-touch {
     left: 0;
@@ -6090,7 +6079,6 @@ a.navbar-item.is-active,
     max-height: calc(100vh - 3.25rem);
     overflow: auto;
   }
-
   html.has-navbar-fixed-top-touch,
   body.has-navbar-fixed-top-touch {
     padding-top: 3.25rem;
@@ -6108,7 +6096,6 @@ a.navbar-item.is-active,
     align-items: stretch;
     display: flex;
   }
-
   .navbar {
     min-height: 3.25rem;
   }
@@ -6152,17 +6139,14 @@ a.navbar-item.is-active,
     background-color: hsl(0deg, 0%, 96%);
     color: hsl(229deg, 53%, 53%);
   }
-
   .navbar-burger {
     display: none;
   }
-
   .navbar-item,
   .navbar-link {
     align-items: center;
     display: flex;
   }
-
   .navbar-item.has-dropdown {
     align-items: stretch;
   }
@@ -6195,22 +6179,18 @@ a.navbar-item.is-active,
     pointer-events: auto;
     transform: translateY(0);
   }
-
   .navbar-menu {
     flex-grow: 1;
     flex-shrink: 0;
   }
-
   .navbar-start {
     justify-content: flex-start;
     margin-right: auto;
   }
-
   .navbar-end {
     justify-content: flex-end;
     margin-left: auto;
   }
-
   .navbar-dropdown {
     background-color: hsl(0deg, 0%, 100%);
     border-bottom-left-radius: 6px;
@@ -6258,11 +6238,9 @@ a.navbar-item.is-active,
     left: auto;
     right: 0;
   }
-
   .navbar-divider {
     display: block;
   }
-
   .navbar > .container .navbar-brand,
   .container > .navbar .navbar-brand {
     margin-left: -0.75rem;
@@ -6271,7 +6249,6 @@ a.navbar-item.is-active,
   .container > .navbar .navbar-menu {
     margin-right: -0.75rem;
   }
-
   .navbar.is-fixed-bottom-desktop,
   .navbar.is-fixed-top-desktop {
     left: 0;
@@ -6288,7 +6265,6 @@ a.navbar-item.is-active,
   .navbar.is-fixed-top-desktop {
     top: 0;
   }
-
   html.has-navbar-fixed-top-desktop,
   body.has-navbar-fixed-top-desktop {
     padding-top: 3.25rem;
@@ -6305,7 +6281,6 @@ a.navbar-item.is-active,
   body.has-spaced-navbar-fixed-bottom {
     padding-bottom: 5.25rem;
   }
-
   a.navbar-item.is-active,
   .navbar-link.is-active {
     color: hsl(0deg, 0%, 4%);
@@ -6314,7 +6289,6 @@ a.navbar-item.is-active,
   .navbar-link.is-active:not(:focus):not(:hover) {
     background-color: transparent;
   }
-
   .navbar-item.has-dropdown:focus .navbar-link,
   .navbar-item.has-dropdown:hover .navbar-link,
   .navbar-item.has-dropdown.is-active .navbar-link {
@@ -6433,13 +6407,11 @@ a.navbar-item.is-active,
   .pagination {
     flex-wrap: wrap;
   }
-
   .pagination-previous,
   .pagination-next {
     flex-grow: 1;
     flex-shrink: 1;
   }
-
   .pagination-list li {
     flex-grow: 1;
     flex-shrink: 1;
@@ -6452,7 +6424,6 @@ a.navbar-item.is-active,
     justify-content: flex-start;
     order: 1;
   }
-
   .pagination-previous,
   .pagination-next,
   .pagination-link,
@@ -6460,15 +6431,12 @@ a.navbar-item.is-active,
     margin-bottom: 0;
     margin-top: 0;
   }
-
   .pagination-previous {
     order: 2;
   }
-
   .pagination-next {
     order: 3;
   }
-
   .pagination {
     justify-content: space-between;
     margin-bottom: 0;
@@ -9744,27 +9712,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-mobile {
     font-size: 3rem !important;
   }
-
   .is-size-2-mobile {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-mobile {
     font-size: 2rem !important;
   }
-
   .is-size-4-mobile {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-mobile {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-mobile {
     font-size: 1rem !important;
   }
-
   .is-size-7-mobile {
     font-size: 0.75rem !important;
   }
@@ -9773,27 +9735,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-tablet {
     font-size: 3rem !important;
   }
-
   .is-size-2-tablet {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-tablet {
     font-size: 2rem !important;
   }
-
   .is-size-4-tablet {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-tablet {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-tablet {
     font-size: 1rem !important;
   }
-
   .is-size-7-tablet {
     font-size: 0.75rem !important;
   }
@@ -9802,27 +9758,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-touch {
     font-size: 3rem !important;
   }
-
   .is-size-2-touch {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-touch {
     font-size: 2rem !important;
   }
-
   .is-size-4-touch {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-touch {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-touch {
     font-size: 1rem !important;
   }
-
   .is-size-7-touch {
     font-size: 0.75rem !important;
   }
@@ -9831,27 +9781,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-desktop {
     font-size: 3rem !important;
   }
-
   .is-size-2-desktop {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-desktop {
     font-size: 2rem !important;
   }
-
   .is-size-4-desktop {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-desktop {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-desktop {
     font-size: 1rem !important;
   }
-
   .is-size-7-desktop {
     font-size: 0.75rem !important;
   }
@@ -9860,27 +9804,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-widescreen {
     font-size: 3rem !important;
   }
-
   .is-size-2-widescreen {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-widescreen {
     font-size: 2rem !important;
   }
-
   .is-size-4-widescreen {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-widescreen {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-widescreen {
     font-size: 1rem !important;
   }
-
   .is-size-7-widescreen {
     font-size: 0.75rem !important;
   }
@@ -9889,27 +9827,21 @@ a.has-text-danger-dark:focus {
   .is-size-1-fullhd {
     font-size: 3rem !important;
   }
-
   .is-size-2-fullhd {
     font-size: 2.5rem !important;
   }
-
   .is-size-3-fullhd {
     font-size: 2rem !important;
   }
-
   .is-size-4-fullhd {
     font-size: 1.5rem !important;
   }
-
   .is-size-5-fullhd {
     font-size: 1.25rem !important;
   }
-
   .is-size-6-fullhd {
     font-size: 1rem !important;
   }
-
   .is-size-7-fullhd {
     font-size: 0.75rem !important;
   }
