@@ -245,7 +245,7 @@ function Shop() {
   return (
     <main className="mt-space-large Shops">
       {shops.map((shop: ShopModel) => (
-        <HeaderUser key={shop.id} UserId={shop.id} />
+        <HeaderUser key={shop.id} UserId={shop.id} imag={shop.person?.profile_picture?.url!} />
       ))}
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
