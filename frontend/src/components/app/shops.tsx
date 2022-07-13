@@ -7,29 +7,38 @@ import {
 } from "../../state/slices/shops-filter.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import useApi from "../../hooks/useApi";
-import { collection, query } from "../../api-utils/query-utils";
+import { collection, entry, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-import ShopCard from "./card";
-import Rating from "../globals/rating";
+import ShopCard from "../globals/elements/shopCard";
+import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
-
 
 function FilterShops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
-  
+
   useApi(
     query(
-      collection("shops", ["name", "postal_code", "short_description", "user_photo", "address", "opening"], {
-        postal_code: { eq: parseInt(filter, 10) },
-      })
+      collection(
+        "shops",
+        [
+          "name",
+          "postal_code",
+          "short_description",
+          "opening_hours",
+          entry("person", [entry("profile_picture", ["url"])]),
+        ],
+        {
+          postal_code: { eq: parseInt(filter, 10) },
+        }
+      )
     ),
     (response) => {
       dispatch(setShops(parseResponse("shops", response).data as Shop[]));
@@ -96,6 +105,7 @@ function FilterShops() {
       </div>
     );
   }
+  console.log(shops);
 
   return (
     <div>
@@ -113,7 +123,7 @@ function FilterShops() {
             <span className="icon is-small is-left">
               <FontAwesomeIcon icon={faSearch} color="#257708" />
             </span>
-            <a className="button" >
+            <a className="button">
               <FontAwesomeIcon icon={faFilter} color="#257708" />
             </a>
           </p>
@@ -127,11 +137,11 @@ function FilterShops() {
             key={shop.id}
             name={shop.name ?? "SHOP"}
             tag={shop.labels ?? []}
-            oeffnungszeiten={shop.opening}
+            oeffnungszeiten={shop.opening_hours}
             text={shop.short_description ?? ""}
-            address={shop.address}
+            //address={shop.address}
             plz={shop.postal_code?.toString() ?? input}
-            img={shop.user_photo}
+            img={shop.person?.profile_picture?.url}
             id={shop.id}
           />
         ))}

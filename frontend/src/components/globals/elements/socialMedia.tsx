@@ -1,6 +1,6 @@
 import React from "react";
-import "../../styles/style.css";
-import Shop from "../../testdata/shop.json";
+import "../../../styles/style.css";
+import Shop from "../../../testdata/shop.json";
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Social {

@@ -51,10 +51,14 @@ a.navbar-item,
   }
 }
 
-a{
+a {
   color: $green;
 }
 
+.bg_light{
+  background-color: $rgba !important;
+  color: darkgray !important;
+}
 // Coustom classes
 header,
 main {
@@ -68,7 +72,7 @@ main {
 }
 
 .background_light {
-  background-color: rgba($color: $green, $alpha: 0.2);
+  background-color: $rgba;
 }
 
 .mb-space-large {
@@ -85,6 +89,9 @@ main {
 
 .mt-space-large {
   margin-top: 120px;
+  @include until(768px) {
+    margin-top: 0;
+  }
 }
 
 .pt-space-large {
@@ -95,8 +102,6 @@ main {
   height: 280px;
   width: 280px;
 }
-
-
 
 /**Components**/
 main {
@@ -121,28 +126,24 @@ main {
     }
   }
 
-
-
   iframe {
     border-radius: 8px;
   }
 
-.partner {
-      display: flex;
-      column-gap: 50px;
-      justify-content: center;
-      flex-wrap: wrap;
-      flex-grow: 1;
-    
-      a,
-      a:visited,
-      a:active {
-        color: $green;
-        font-weight: 700;
-      }
-   
+  .partner {
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+
+    a,
+    a:visited,
+    a:active {
+      color: $green;
+      font-weight: 700;
+    }
   }
-  
 
   .section {
     .footer_partner {
@@ -163,6 +164,8 @@ main {
     }
   }
 }
+
+/* Elements */
 
 .Blog_Beitrag {
   .column {
@@ -196,7 +199,7 @@ main {
     }
 
     p {
-      background-color: #95c11f;
+      background-color: $light_green;
       line-height: 36px;
       padding: 0px 6px 0px 6px;
       color: $white;
@@ -259,8 +262,51 @@ footer {
       }
     }
   }
+
+  @include until(768px) {
+    .column {
+      input {
+        width: 300px;
+      }
+      .is-grouped {
+        flex-direction: column;
+
+        .control {
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+  }
+
+  @include from(768px) {
+    background-image: url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+    background-size: 450px, 250px;
+    .columns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        max-width: 400px;
+      }
+    }
+  }
+
+  @include from(1023px) {
+    background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 10% 20%, 100% 10%;
+    background-size: 450px, 250px;
+    .columns {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
 }
 
+/*User*/
 .userHeader {
   .information {
     h2 {
@@ -274,7 +320,7 @@ footer {
     .imageInhaber {
       position: absolute;
       left: 420px;
-      top: 310px;
+      top: 200px;
       width: 110px;
       max-height: 110px;
 
@@ -298,6 +344,193 @@ footer {
 
     p.is_green {
       color: $green;
+    }
+  }
+
+  @include until(768px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 285px;
+      height: 230px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 285px;
+        top: 100px;
+        width: 50px;
+        max-height: 50px;
+
+        img {
+          border-radius: 8px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(768px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 350px;
+        top: 130px;
+        width: 110px;
+        max-height: 110px;
+
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(1023px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 400px;
+        top: 230px;
+        width: 110px;
+        max-height: 110px;
+
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.user {
+  .badges {
+    @include until(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include from(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      position: relative;
+      width: 350px;
+      max-height: 110px;
+      background-color: $rgba;
+      border-radius: 8px;
+
+      img {
+        width: 74px;
+        height: 74px;
+      }
+
+      h3 {
+        color: $green;
+      }
+
+      .anzahl {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+
+      @include until(768px) {
+        max-width: 310px;
+      }
+    }
+  }
+  .favorites {
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+
+    @include until(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include from(768px) {
+      flex-wrap: wrap;
+    }
+
+    .favorite {
+      width: 280px;
+      height: 210px;
+      border-radius: 8px;
+      position: relative;
+
+      h3 {
+        background-color: $green;
+        color: white;
+        width: 200px;
+        padding: 5px;
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+        color: #e2e2e2;
+        stroke: $green;
+        stroke-width: 20px;
+        stroke-linecap: butt;
+      }
     }
   }
 }
@@ -400,141 +633,191 @@ footer {
     }
   }
 
-  .products{
+  .products {
     overflow-x: scroll;
 
-    .card{
+    .card {
       min-width: 280px;
       min-height: 280px;
-      background-position: 50% ;
+      background-position: 50%;
       background-repeat: no-repeat;
       background-size: cover;
       margin: 30px;
     }
   }
 
-  .gallery{
-
-    .column:first-child{
+  .gallery {
+    .column:first-child {
       justify-content: start;
       align-items: center;
     }
-    .column:last-child{
+    .column:last-child {
       justify-content: end;
       align-items: center;
     }
-
   }
-} 
+}
 
 .rating {
   display: block;
-  
-    button {
-      background-color: transparent;
-      border: none;
-      outline: none;
-      cursor: pointer;
-    }
-    .on {
-      color: $green;
-    }
-    .off {
-      color: #ccc;
-    }
-  
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .on {
+    color: $green;
+  }
+  .off {
+    color: #ccc;
+  }
 }
 
-.gallery{
+.gallery {
   max-height: 600px;
   overflow: hidden;
-  .masonry{
+  .masonry {
     column-count: 4;
     column-gap: 1em;
-  
-  
-    .item{
+
+    .item {
       display: inline-block;
       margin: 0 0 1em;
       width: 100%;
     }
   }
-  
 }
 
-.artikel{
+.artikel {
+  .column:first-child {
+    justify-content: start;
+    align-items: center;
+  }
+  .column:last-child {
+    justify-content: end;
+    align-items: center;
+  }
+}
 
+.Blogbeitrag {
+  @include until(768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
 
-    .column:first-child{
-      justify-content: start;
-      align-items: center;
+    .article {
+      width: 300px !important;
+      height: 500px !important;
+      margin: 20px;
     }
-    .column:last-child{
-      justify-content: end;
-      align-items: center;
+  }
+
+  justify-content: space-between;
+  height: 520px;
+  overflow: hidden;
+
+  .article {
+    width: 400px;
+    height: 450px;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
+    background-color: white;
+    border-radius: 8px;
+
+    @include from(768px) {
+      margin: 10px;
     }
 
-  
-
-  .Blogbeitrag{
-
-    justify-content: space-between;
-    height: 520px;
-    overflow: hidden;
-    
-    .article{
-      width: 400px;
-      height: 450px;
-      filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
-      background-color: white;
-      border-radius: 8px;
-  
-      .artikel_header{
-        height: 250px;
-        background-size: cover;
-        background-repeat: no-repeat;
-        border-radius: 8px 8px 0 0;
-        padding: 20px;
-        background-position: 50% 50%;
-    
-      }
-      .main{
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      .autor{
+    .artikel_header {
+      height: 250px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 8px 8px 0 0;
+      padding: 20px;
+      background-position: 50% 50%;
+    }
+    .main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .autor {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-    
-        h2{
+
+        h2 {
           color: rgba($color: $green, $alpha: 1);
         }
-        p{
+        p {
           color: rgba($color: $grey, $alpha: 0.3);
         }
       }
-  
-      }
     }
-    
   }
-  
 }
 
+.voucher {
+  .box {
+    width: 280px;
+    height: 420px;
+    padding: 0;
+    border-radius: 8px;
 
+    .box_header {
+      width: 280px;
+      height: 210px;
+      border-radius: 8px 8px 0 0;
+      position: relative;
 
+      h1 {
+        position: absolute;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        top: 70px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      h3 {
+        background-color: $green;
+        color: white;
+        width: 200px;
+      }
+    }
 
+    .box_content {
+      height: 210px;
+    }
+  }
+}
 
+.payment{ 
+ .benefits{
+  justify-content: center;
+  .tag{
+    color: white;
+    min-width: 70px;
+    max-width: 90px;
+  }
 
-
- 
- 
-
-
-
-  
-
- 
+  .line{
+    width: 25px;
+    height: 0px;
+    border: 1px solid #257708;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 4.6%;
+    bottom: -15%;
+  }
+ }
+ .buy_voucher{
+  button{
+    min-width: 180px !important;
+  }
+ }
+}

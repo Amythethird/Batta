@@ -27,7 +27,7 @@ export function query(queryContent: string): string {
 export function entry(
   entityName: string,
   fields: string[],
-  id?: number
+  id?: number | string
 ): string {
   return `${entryName(entityName, id)} { ${data(fields)} }`;
 }
@@ -71,8 +71,8 @@ export function collection(
   } }`;
 }
 
-function entryName(entityName: string, id?: number): string {
-  return `${entityName}${id ? `(id: ${id})` : ""}`;
+function entryName(entityName: string, id?: number | string): string {
+  return `${entityName}${id ? `(id: "${id}")` : ""}`;
 }
 
 function collectionName(

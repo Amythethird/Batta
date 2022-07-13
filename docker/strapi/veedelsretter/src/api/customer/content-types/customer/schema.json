@@ -4,24 +4,40 @@
   "info": {
     "singularName": "customer",
     "pluralName": "customers",
-    "displayName": "customer"
+    "displayName": "customer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "postal_code": {
-      "type": "integer",
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "street_name": {
+      "type": "string",
       "required": true
     },
-    "street": {
-      "type": "string",
+    "house_number": {
+      "type": "integer",
       "required": true
     },
     "city": {
       "type": "string",
       "required": true
+    },
+    "postal_code": {
+      "type": "integer",
+      "required": true
+    },
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person",
+      "mappedBy": "customer"
     }
   }
 }

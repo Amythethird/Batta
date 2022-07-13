@@ -1,3 +1,5 @@
+import Person from "./person";
+
 export default interface Shop {
   id: number;
   name?: string;
@@ -13,17 +15,11 @@ export default interface Shop {
   website?: string;
   labels?: string[]; //ToDo: check type
   labels_icons?: string; //ToDo: check type
-  user_photo?:string;
-  address?: string;
-  opening?: Record<string, string>;
-  gallery?: Gallery[]
+  opening_hours?: Record<string, string>;
+  person: Person;
 }
 
-export interface Highlights{
-    id: string;
-    url: string;
-}
-export interface Gallery{
+export interface Highlights {
   id: string;
   url: string;
 }

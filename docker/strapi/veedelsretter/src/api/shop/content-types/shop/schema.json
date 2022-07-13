@@ -24,9 +24,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "videos"
-      ]
+      "allowedTypes": ["videos"]
     },
     "postal_code": {
       "type": "integer",
@@ -53,9 +51,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "short_description": {
       "type": "string",
@@ -65,40 +61,25 @@
       "type": "string",
       "required": false
     },
-    "categories": {
+    "labels": {
       "type": "enumeration",
-      "enum": [
-        "clothing",
-        "groceries"
-      ],
+      "enum": ["clothing", "groceries"],
       "required": true
     },
-    "tag_icons": {
+    "labels_icons": {
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
-    "user_photo": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string"
-    },
-    "opening": {
+    "opening_hours": {
       "type": "json"
     },
-    "gallery": {
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "type": "media",
-      "multiple": true
+    "person": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::person.person",
+      "inversedBy": "shop"
     }
   }
 }
