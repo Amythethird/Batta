@@ -1,11 +1,14 @@
 import React from "react";
 import "../styles/style.css";
+import MapView from "./app/map";
 
 //120px abstand zwischen den components
 
 function LandingPage() {
   return (
     <main>
+      <MapView coords={[{ lat: 50.947914, lng: 6.921642 }]} />
+
       <section className="hero-body section is-medium">
         <div className="container has-text-centered">
           <div className="columns">

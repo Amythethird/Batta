@@ -7,6 +7,11 @@
 
 $radius-large: 8px !important;
 
+#map-container {
+  width: 100%;
+  height: 500px;
+}
+
 a.navbar-item,
 .navbar-link {
   color: $green;
