@@ -17,17 +17,17 @@
       "required": true,
       "unique": true
     },
-    "customer": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::customer.customer",
-      "mappedBy": "shop_owner"
-    },
     "shops": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::shop.shop",
       "mappedBy": "shopOwner"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "shopOwner"
     }
   }
 }

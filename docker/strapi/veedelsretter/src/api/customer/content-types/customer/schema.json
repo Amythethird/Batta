@@ -50,11 +50,11 @@
       "target": "plugin::users-permissions.user",
       "inversedBy": "customer"
     },
-    "shop_owner": {
+    "shopOwner": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::shop-owner.shop-owner",
-      "inversedBy": "customer"
+      "mappedBy": "customer"
     },
     "address": {
       "type": "relation",

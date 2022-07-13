@@ -4,7 +4,8 @@
   "info": {
     "singularName": "achievement",
     "pluralName": "achievements",
-    "displayName": "Achievement"
+    "displayName": "Achievement",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,11 +17,12 @@
       "required": true
     },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "shortDescription": {
       "type": "text",
