@@ -105,6 +105,17 @@
     "coordinateLng": {
       "type": "float",
       "required": true
+    },
+    "openingHours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opening-hour.opening-hour"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "shop"
     }
   }
 }

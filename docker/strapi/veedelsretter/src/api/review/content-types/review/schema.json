@@ -31,6 +31,12 @@
       "relation": "manyToOne",
       "target": "api::customer.customer",
       "inversedBy": "reviews"
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shop.shop",
+      "inversedBy": "reviews"
     }
   }
 }
