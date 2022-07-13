@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coupons",
+  "info": {
+    "singularName": "coupon",
+    "pluralName": "coupons",
+    "displayName": "Coupon",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "currentValue": {
+      "type": "decimal",
+      "required": true
+    },
+    "value": {
+      "type": "decimal",
+      "required": true
+    },
+    "boughtAt": {
+      "type": "datetime",
+      "required": true
+    },
+    "expiringDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "coupons"
+    },
+    "achievement": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::achievement.achievement"
+    },
+    "shop": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shop.shop",
+      "inversedBy": "coupons"
+    }
+  }
+}

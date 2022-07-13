@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "opening_hours",
+  "info": {
+    "singularName": "opening-hour",
+    "pluralName": "opening-hours",
+    "displayName": "OpeningHours",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "dayOfWeek": {
+      "type": "integer",
+      "required": true
+    },
+    "openTime": {
+      "type": "time",
+      "required": true
+    },
+    "closeTime": {
+      "type": "time",
+      "required": true
+    },
+    "breakTimeStart": {
+      "type": "time",
+      "required": false
+    },
+    "breakTimeEnd": {
+      "type": "time"
+    }
+  }
+}

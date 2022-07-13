@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * shop router.
+ * achievement router.
  */
 
 const { createCoreRouter } = require('@strapi/strapi').factories;
 
-module.exports = createCoreRouter('api::shop.shop');
+module.exports = createCoreRouter('api::achievement.achievement');

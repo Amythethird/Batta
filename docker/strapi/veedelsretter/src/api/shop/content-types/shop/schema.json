@@ -4,7 +4,7 @@
   "info": {
     "singularName": "shop",
     "pluralName": "shops",
-    "displayName": "shop",
+    "displayName": "Shop",
     "description": ""
   },
   "options": {
@@ -12,74 +12,91 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "shopName": {
       "type": "string",
       "required": true
     },
-    "description": {
+    "shopHeaderImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "shortDescription": {
       "type": "text",
       "required": true
     },
-    "store_video": {
+    "longDescription": {
+      "type": "text",
+      "required": true
+    },
+    "shopOwner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shop-owner.shop-owner",
+      "inversedBy": "shops"
+    },
+    "sustainabilityVision": {
+      "type": "text"
+    },
+    "sustainabilityVisionTitle": {
+      "type": "string"
+    },
+    "productHighlights": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "productHighlightsDescription": {
+      "type": "text"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "storeVideo": {
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": ["videos"]
-    },
-    "postal_code": {
-      "type": "integer",
-      "required": true,
-      "min": 1
-    },
-    "city": {
-      "type": "string",
-      "required": true
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "email": {
-      "type": "email",
-      "required": true
-    },
-    "area_code": {
-      "type": "integer",
-      "required": true
+      "type": "email"
     },
     "phone": {
-      "type": "biginteger",
-      "required": true
+      "type": "string"
     },
-    "highlights": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": ["images"]
-    },
-    "short_description": {
-      "type": "string",
-      "required": true
-    },
-    "website": {
-      "type": "string",
-      "required": false
-    },
-    "labels": {
-      "type": "enumeration",
-      "enum": ["clothing", "groceries"],
-      "required": true
-    },
-    "labels_icons": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": ["images"]
-    },
-    "opening_hours": {
-      "type": "json"
-    },
-    "person": {
+    "address": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::person.person",
-      "inversedBy": "shop"
+      "target": "api::address.address"
+    },
+    "label": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::label.label"
+    },
+    "socialMedia": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coupon.coupon",
+      "mappedBy": "shop"
     }
   }
 }

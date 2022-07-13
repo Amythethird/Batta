@@ -4,28 +4,25 @@
   "info": {
     "singularName": "social-media",
     "pluralName": "social-medias",
-    "displayName": "Social-Media"
+    "displayName": "SocialMedia"
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "platform": {
-      "type": "enumeration",
-      "enum": [
-        "facebook",
-        "twitter",
-        "linkedin",
-        "youtube",
-        "instagram"
-      ],
-      "required": false
-    },
     "url": {
-      "type": "string",
-      "required": false,
-      "unique": true
+      "type": "string"
+    },
+    "platform": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

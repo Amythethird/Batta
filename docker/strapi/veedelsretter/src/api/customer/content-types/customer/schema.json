@@ -4,7 +4,7 @@
   "info": {
     "singularName": "customer",
     "pluralName": "customers",
-    "displayName": "customer",
+    "displayName": "Customer",
     "description": ""
   },
   "options": {
@@ -17,27 +17,71 @@
       "required": true,
       "unique": true
     },
-    "street_name": {
+    "firstname": {
       "type": "string",
       "required": true
     },
-    "house_number": {
-      "type": "integer",
-      "required": true
-    },
-    "city": {
+    "lastname": {
       "type": "string",
       "required": true
     },
-    "postal_code": {
-      "type": "integer",
-      "required": true
+    "shortDescription": {
+      "type": "text"
     },
-    "person": {
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "profileHeaderImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "user": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::person.person",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "customer"
+    },
+    "shop_owner": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::shop-owner.shop-owner",
+      "inversedBy": "customer"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "favouriteShops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "author"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coupon.coupon",
       "mappedBy": "customer"
+    },
+    "achievements": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::achievement.achievement"
     }
   }
 }
