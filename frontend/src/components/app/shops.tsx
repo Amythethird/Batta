@@ -105,7 +105,7 @@ function FilterShops() {
       </div>
     );
   }
-  console.log(shops);
+ 
 
   return (
     <div>

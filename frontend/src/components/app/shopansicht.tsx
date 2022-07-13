@@ -6,7 +6,6 @@ import RatingData from "../../testdata/Rating.json";
 import Kommentar from "../globals/elements/comment";
 import HeaderUser from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-//import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
@@ -21,9 +20,10 @@ import { Link } from "react-router-dom";
 /** ToDo
  * Produkt_Highlights overflow [X], auslagern
  * Galerie [X]
- * Verlinkte Artikel falls vorhanden
- * Kommentare pushen/abrufen
- * Bewertungen pushen/ abrufen
+ * Verlinkte Artikel falls vorhanden[X]
+ * Kommentare pushen/abrufen / Serverside
+ * Bewertungen pushen/ abrufen / Serverside
+ * Font-Awesome Icons klickbar machen []
  *
  */
 function Shopansicht() {

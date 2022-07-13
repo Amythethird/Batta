@@ -15,13 +15,13 @@ function Rating(props: rating) {
   var rate = [];
   for (let i = 0; i < total; i++) {
     rate.push(
-      <div>
-        {[...new Array(total)].map((arr, index) => {
+      <div key={i}>
+        {[...new Array(total)].map((arr, icon) => {
           return (
             <FontAwesomeIcon
-              key={arr}
-              icon={index <= total - i - 1 ? StarSolid : StarRegular}
-              color={index < total ? "#257708" : " "}
+              key={icon}
+              icon={icon <= total - i - 1 ? StarSolid : StarRegular}
+              color={icon < total ? "#257708" : " "}
             />
           );
         })}
