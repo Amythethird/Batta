@@ -97,6 +97,14 @@
       "relation": "oneToMany",
       "target": "api::coupon.coupon",
       "mappedBy": "shop"
+    },
+    "coordinateLat": {
+      "type": "float",
+      "required": true
+    },
+    "coordinateLng": {
+      "type": "float",
+      "required": true
     }
   }
 }
