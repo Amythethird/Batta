@@ -26,7 +26,7 @@ import { Link } from "react-router-dom";
  * Bewertungen pushen/ abrufen
  *
  */
-function Shop() {
+function Shopansicht() {
   //Abfragen
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
@@ -247,6 +247,10 @@ function Shop() {
       {shops.map((shop: ShopModel) => (
         <HeaderUser key={shop.id} UserId={shop.id} imag={shop.person?.profile_picture?.url!} />
       ))}
+
+        {/* Auslagern:
+          Shopansicht rendert payment und Shop
+        */}
       <section className="section is-medium p-2 mb-space-large">
         <div className="columns is-align-items-center  ">
           <div className="column  is-9">
@@ -407,4 +411,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default Shopansicht;

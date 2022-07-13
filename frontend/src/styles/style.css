@@ -3223,7 +3223,7 @@ div.icon-text {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: whitesmoke;
+  background-color: #257708;
   border-radius: 4px;
   color: #4a4a4a;
   display: -webkit-inline-box;
@@ -3383,11 +3383,11 @@ div.icon-text {
 }
 
 .tag:not(body).is-delete:hover, .tag:not(body).is-delete:focus {
-  background-color: #e8e8e8;
+  background-color: #1e5f06;
 }
 
 .tag:not(body).is-delete:active {
-  background-color: #dbdbdb;
+  background-color: #164705;
 }
 
 .tag:not(body).is-rounded {
@@ -13102,6 +13102,11 @@ a {
   color: #257708;
 }
 
+.bg_light {
+  background-color: rgba(37, 119, 8, 0.1) !important;
+  color: darkgray !important;
+}
+
 header button,
 main button {
   background-color: #257708;
@@ -13932,5 +13937,32 @@ footer li a {
 
 .voucher .box .box_content {
   height: 210px;
+}
+
+.payment .benefits {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.payment .benefits .tag {
+  color: white;
+  min-width: 70px;
+  max-width: 90px;
+}
+
+.payment .benefits .line {
+  width: 25px;
+  height: 0px;
+  border: 1px solid #257708;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  position: absolute;
+  left: 4.6%;
+  bottom: -15%;
+}
+
+.payment .buy_voucher button {
+  min-width: 180px !important;
 }
 /*# sourceMappingURL=style.css.map */

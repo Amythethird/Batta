@@ -55,6 +55,10 @@ a {
   color: $green;
 }
 
+.bg_light{
+  background-color: $rgba !important;
+  color: darkgray !important;
+}
 // Coustom classes
 header,
 main {
@@ -790,4 +794,30 @@ footer {
       height: 210px;
     }
   }
+}
+
+.payment{ 
+ .benefits{
+  justify-content: center;
+  .tag{
+    color: white;
+    min-width: 70px;
+    max-width: 90px;
+  }
+
+  .line{
+    width: 25px;
+    height: 0px;
+    border: 1px solid #257708;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 4.6%;
+    bottom: -15%;
+  }
+ }
+ .buy_voucher{
+  button{
+    min-width: 180px !important;
+  }
+ }
 }

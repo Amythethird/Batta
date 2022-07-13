@@ -13,7 +13,7 @@ import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-import ShopCard from "../globals/elements/card";
+import ShopCard from "../globals/elements/shopCard";
 import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
