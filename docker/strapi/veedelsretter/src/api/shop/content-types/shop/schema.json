@@ -98,14 +98,6 @@
       "target": "api::coupon.coupon",
       "mappedBy": "shop"
     },
-    "coordinateLat": {
-      "type": "float",
-      "required": true
-    },
-    "coordinateLng": {
-      "type": "float",
-      "required": true
-    },
     "openingHours": {
       "type": "relation",
       "relation": "oneToMany",
@@ -116,6 +108,14 @@
       "relation": "oneToMany",
       "target": "api::review.review",
       "mappedBy": "shop"
+    },
+    "coordinateLat": {
+      "type": "string",
+      "required": true
+    },
+    "coordinateLng": {
+      "type": "string",
+      "required": true
     }
   }
 }

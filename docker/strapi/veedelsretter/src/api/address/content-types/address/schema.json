@@ -4,7 +4,8 @@
   "info": {
     "singularName": "address",
     "pluralName": "addresses",
-    "displayName": "Address"
+    "displayName": "Address",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -28,7 +29,10 @@
       "required": true
     },
     "country": {
-      "type": "string",
+      "type": "enumeration",
+      "enum": [
+        "Deutschland"
+      ],
       "required": true
     }
   }
