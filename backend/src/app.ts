@@ -1,12 +1,13 @@
-import { Router, Server } from "../deps.ts";
-import shopRoutes from "./routes/shop.ts";
+import { Router, Server, cors } from "../deps.ts";
+import tmpDataRoutes from "./routes/tmpDataStore.ts";
 
 const url = `https://backend.localhost`;
 const router = new Router();
 console.log(url);
+Server.use(cors({ origin: true }));
 
 //register all Routes
-shopRoutes(router);
+tmpDataRoutes(router);
 
 Server.use(router.routes());
 Server.use(router.allowedMethods());

@@ -2,14 +2,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import "../../styles/style.css";
+import "../../../styles/style.css";
+import { Link } from "react-router-dom";
 
 interface Shop {
   id: number;
   name: string;
   tag: string[];
-  adresse?: string;
-  oeffnungszeiten: string;
+  address?: string;
+  oeffnungszeiten?: Record<string, string>;
   text: string;
   plz: string;
   img?: string;
@@ -18,20 +19,23 @@ interface Shop {
 function ShopCard(props: Shop) {
   return (
     <main className="mr-6">
-      <div className="cardShop background_light">
+      <div className="shopCard background_light">
         <div
           className="cardHeader"
-          style={{ backgroundImage: `url(${props.img})` }}
+          style={{
+            // eslint-disable-next-line no-undef
+            backgroundImage: `url(${process.env.REACT_APP_STRAPI}${props.img})`,
+          }}
         >
           <div className="columns m-1">
             <div className="column is-9 is-flex is-align-items-flex-end">
-              <a
+              <Link
                 className="is-size-4 hasBackground pr-1"
-                href={"/shop/" + props.id}
+                to={`/shop/${props.id}`}
               >
                 {props.name}
                 <FontAwesomeIcon icon={faAngleRight} />
-              </a>
+              </Link>
             </div>
             <div className="column is-flex is-justify-content-flex-end">
               <a>
@@ -53,13 +57,9 @@ function ShopCard(props: Shop) {
 
           <p className="mb-2">{props.text}</p>
           <p className="has-text-weight-medium">Adresse</p>
-          <p className="mb-2">{props.adresse + " " + props.plz}</p>
+          <p className="mb-2">{props.address}</p>
           <p className="has-text-weight-medium">Öffnungszeiten</p>
-          <p className="mb-2">
-            {props.oeffnungszeiten.split("--").map((i, key) => {
-              return <p key={key}>{i}</p>;
-            })}
-          </p>
+          <p className="mb-2">{JSON.stringify(props.oeffnungszeiten)}</p>
         </div>
       </div>
     </main>

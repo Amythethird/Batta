@@ -1,13 +1,5 @@
 import { PaginationResponse } from "./models/pagination-models";
 
-/* Test Data, ToDo: remove */
-export const entryResponse: any = JSON.parse(
-  `{"data":{"shop":{"data":{"id":"1","attributes":{"name":"Lisas Klamotten","shop_owner":{"data":{"id":"2","attributes":{"firstname":"Laura"}}},"social_medias":{"data":[{"id":"1","attributes":{"platform":"facebook"}}]}}}}}}`
-);
-export const collectionResponse: any = JSON.parse(
-  `{"data":{"shops":{"data":[{"id":"1","attributes":{"name":"Lisas Klamotten","shop_owner":{"data":{"id":"2","attributes":{"firstname":"Laura"}}},"social_medias":{"data":[{"id":"1","attributes":{"platform":"facebook"}}]}}},{"id":"3","attributes":{"name":"Verpacknix","shop_owner":{"data":null},"social_medias":{"data":[]}}},{"id":"2","attributes":{"name":"Cuisine végane!","shop_owner":{"data":null},"social_medias":{"data":[]}}}],"meta":{"pagination":{"page":1,"pageSize":10,"pageCount":1}}}}}`
-);
-
 type EntryData = {
   id: string;
   attributes: { [key: string]: any };
@@ -45,7 +37,7 @@ function parseEntryResponse(entryResponse: { data: EntryData }) {
   const attributes = entryResponse.data.attributes;
 
   for (const attribute in attributes) {
-    if (attributes[attribute].data !== null) {
+    if (attributes[attribute] !== null && attributes[attribute].data !== null) {
       if (attributes[attribute].data instanceof Array) {
         result[attribute] = parseCollectionResponse(attributes[attribute]);
       } else if (attributes[attribute].data instanceof Object) {

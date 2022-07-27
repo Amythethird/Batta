@@ -7,6 +7,7 @@
 
 $radius-large: 8px !important;
 
+// Bulma Elements
 a.navbar-item,
 .navbar-link {
   color: $green;
@@ -28,7 +29,7 @@ a.navbar-item,
 }
 
 .field.is-grouped {
-  max-width: 370px;
+  min-width: 370px;
 }
 
 .card {
@@ -36,6 +37,29 @@ a.navbar-item,
   filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
 }
 
+.radio-list {
+  .radio {
+    display: block;
+
+    & + .radio {
+      margin-left: 0;
+      margin-top: 0.5em;
+    }
+  }
+  input[type="radio"] {
+    accent-color: $green;
+  }
+}
+
+a {
+  color: $green;
+}
+
+.bg_light{
+  background-color: $rgba !important;
+  color: darkgray !important;
+}
+// Coustom classes
 header,
 main {
   button {
@@ -48,7 +72,7 @@ main {
 }
 
 .background_light {
-  background-color: rgba($color: $green, $alpha: 0.2);
+  background-color: $rgba;
 }
 
 .mb-space-large {
@@ -65,6 +89,9 @@ main {
 
 .mt-space-large {
   margin-top: 120px;
+  @include until(768px) {
+    margin-top: 0;
+  }
 }
 
 .pt-space-large {
@@ -99,23 +126,16 @@ main {
     }
   }
 
-  .concept {
-    a {
-      color: $green;
-    }
-  }
-
   iframe {
     border-radius: 8px;
   }
-  .Partner {
-    .partner {
-      display: flex;
-      column-gap: 50px;
-      justify-content: center;
-      flex-wrap: wrap;
-      flex-grow: 1;
-    }
+
+  .partner {
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
 
     a,
     a:visited,
@@ -145,8 +165,9 @@ main {
   }
 }
 
-/* Komponenten*/
-.article {
+/* Elements */
+
+.Blog_Beitrag {
   .column {
     height: 345px;
     border-radius: 0;
@@ -178,7 +199,7 @@ main {
     }
 
     p {
-      background-color: #95c11f;
+      background-color: $light_green;
       line-height: 36px;
       padding: 0px 6px 0px 6px;
       color: $white;
@@ -241,57 +262,274 @@ footer {
       }
     }
   }
-}
 
-.shop {
-  background-color: $green;
+  @include until(768px) {
+    .column {
+      input {
+        width: 300px;
+      }
+      .is-grouped {
+        flex-direction: column;
 
-  .column {
-    img {
-      width: 600px;
+        .control {
+          margin-bottom: 0.8rem;
+        }
+      }
     }
   }
 
-  h1 {
-    color: $white;
+  @include from(768px) {
+    background-image: url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 100% 10%;
+    background-size: 450px, 250px;
+    .columns {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        max-width: 400px;
+      }
+    }
   }
-  p {
-    color: $white;
+
+  @include from(1023px) {
+    background-image: url(../assets/Frame-1.svg), url(../assets/Frame-3.svg);
+    background-repeat: no-repeat;
+    background-position: 10% 20%, 100% 10%;
+    background-size: 450px, 250px;
+    .columns {
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+}
+
+/*User*/
+.userHeader {
+  .information {
+    h2 {
+      color: $green;
+    }
+    width: 380px;
+    height: 250px;
+    background-color: $white;
+    border-radius: 8px 8px 0 0;
+
+    .imageInhaber {
+      position: absolute;
+      left: 420px;
+      top: 200px;
+      width: 110px;
+      max-height: 110px;
+
+      img {
+        border-radius: 8px;
+        width: 110px;
+        height: 110px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .test {
+    position: absolute;
+    right: 50px;
+    width: 280px;
+    height: 170px;
+    background-color: $white;
+    border-radius: 8px;
+    top: 150px;
+
+    p.is_green {
+      color: $green;
+    }
+  }
+
+  @include until(768px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 285px;
+      height: 230px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 285px;
+        top: 100px;
+        width: 50px;
+        max-height: 50px;
+
+        img {
+          border-radius: 8px;
+          width: 50px;
+          height: 50px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(768px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 350px;
+        top: 130px;
+        width: 110px;
+        max-height: 110px;
+
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
+
+    .test {
+      position: absolute;
+      right: 50px;
+      width: 280px;
+      height: 170px;
+      background-color: $white;
+      border-radius: 8px;
+      top: 150px;
+
+      p.is_green {
+        color: $green;
+      }
+    }
+  }
+
+  @include from(1023px) {
+    .information {
+      h2 {
+        color: $green;
+      }
+      width: 380px;
+      height: 250px;
+      background-color: $white;
+      border-radius: 8px 8px 0 0;
+
+      .imageInhaber {
+        position: absolute;
+        left: 400px;
+        top: 230px;
+        width: 110px;
+        max-height: 110px;
+
+        img {
+          border-radius: 8px;
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+        }
+      }
+    }
   }
 }
 
 .user {
-  background: linear-gradient(90deg, #5da65d 0%, #98ea98 100%);
-
-  &.section {
-    border-radius: 8px;
-  }
-
-  p {
-    color: $grey;
-  }
-
-  .profil {
-    background-color: $white;
-
-    &.container {
-      border-radius: 12px 12px 0 0;
-      width: 800px;
+  .badges {
+    @include until(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
     }
-
-    figure {
-      margin: auto;
-    }
-
-    .tag {
-      background-color: $green;
-      color: white;
+    @include from(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
     }
 
     .badge {
-      p,
-      h2 {
-        line-height: 20px;
+      position: relative;
+      width: 350px;
+      max-height: 110px;
+      background-color: $rgba;
+      border-radius: 8px;
+
+      img {
+        width: 74px;
+        height: 74px;
+      }
+
+      h3 {
+        color: $green;
+      }
+
+      .anzahl {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+
+      @include until(768px) {
+        max-width: 310px;
+      }
+    }
+  }
+  .favorites {
+    flex-direction: row;
+    align-items: center;
+    justify-items: center;
+
+    @include until(768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    @include from(768px) {
+      flex-wrap: wrap;
+    }
+
+    .favorite {
+      width: 280px;
+      height: 210px;
+      border-radius: 8px;
+      position: relative;
+
+      h3 {
+        background-color: $green;
+        color: white;
+        width: 200px;
+        padding: 5px;
+      }
+
+      .icon {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 30px;
+        color: #e2e2e2;
+        stroke: $green;
+        stroke-width: 20px;
+        stroke-linecap: butt;
       }
     }
   }
@@ -307,23 +545,17 @@ footer {
   }
 }
 
-.shopSearch {
-  .column:last-child {
-    background-image: url("../assets/map.svg");
-    background-repeat: no-repeat;
-  }
-}
-
-.cardShop {
+.shopCard {
   max-width: 300px;
   border-radius: 8px;
   backdrop-filter: blur(4px);
+
   .cardHeader {
     height: auto;
     border-radius: 8px 8px 0 0;
-    //  background-image: url(https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900);
     background-repeat: no-repeat;
     background-size: cover;
+
     .hasBackground {
       color: $white;
       background-color: $green;
@@ -346,4 +578,246 @@ footer {
       font-size: 12px;
     }
   }
+}
+
+.slider {
+  .horizontal-slider {
+    width: 100%;
+    max-width: 500px;
+    height: 40px;
+  }
+  .example-thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: rgba($color: $green, $alpha: 1);
+    border: 5px solid $green;
+    display: block;
+  }
+  .example-thumb.active {
+    background-color: $green;
+  }
+  .example-track {
+    position: relative;
+    background: $green;
+  }
+  .example-track.example-track-0 {
+    background: $green;
+  }
+  .horizontal-slider .example-track {
+    top: 20px;
+    height: 4px;
+  }
+  .horizontal-slider .example-thumb {
+    top: 5px;
+    color: white;
+    border-radius: 8px;
+    min-width: 20px;
+  }
+}
+
+.Shops {
+  .kommentare {
+    overflow-x: scroll;
+    li:first-child {
+      border-right: 1px solid $green;
+      padding-right: 10px;
+      margin-right: 5px;
+    }
+    a {
+      color: $green;
+    }
+    .box {
+      width: 300px;
+      background-color: rgba($color: $grey, $alpha: 0.1);
+    }
+  }
+
+  .products {
+    overflow-x: scroll;
+
+    .card {
+      min-width: 280px;
+      min-height: 280px;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 30px;
+    }
+  }
+
+  .gallery {
+    .column:first-child {
+      justify-content: start;
+      align-items: center;
+    }
+    .column:last-child {
+      justify-content: end;
+      align-items: center;
+    }
+  }
+}
+
+.rating {
+  display: block;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .on {
+    color: $green;
+  }
+  .off {
+    color: #ccc;
+  }
+}
+
+.gallery {
+  max-height: 600px;
+  overflow: hidden;
+  .masonry {
+    column-count: 4;
+    column-gap: 1em;
+
+    .item {
+      display: inline-block;
+      margin: 0 0 1em;
+      width: 100%;
+    }
+  }
+}
+
+.artikel {
+  .column:first-child {
+    justify-content: start;
+    align-items: center;
+  }
+  .column:last-child {
+    justify-content: end;
+    align-items: center;
+  }
+}
+
+.Blogbeitrag {
+  @include until(768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: scroll;
+
+    .article {
+      width: 300px !important;
+      height: 500px !important;
+      margin: 20px;
+    }
+  }
+
+  justify-content: space-between;
+  height: 520px;
+  overflow: hidden;
+
+  .article {
+    width: 400px;
+    height: 450px;
+    filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
+    background-color: white;
+    border-radius: 8px;
+
+    @include from(768px) {
+      margin: 10px;
+    }
+
+    .artikel_header {
+      height: 250px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 8px 8px 0 0;
+      padding: 20px;
+      background-position: 50% 50%;
+    }
+    .main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      .autor {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        h2 {
+          color: rgba($color: $green, $alpha: 1);
+        }
+        p {
+          color: rgba($color: $grey, $alpha: 0.3);
+        }
+      }
+    }
+  }
+}
+
+.voucher {
+  .box {
+    width: 280px;
+    height: 420px;
+    padding: 0;
+    border-radius: 8px;
+
+    .box_header {
+      width: 280px;
+      height: 210px;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+
+      h1 {
+        position: absolute;
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        top: 70px;
+        left: 0;
+        right: 0;
+        text-align: center;
+      }
+      h3 {
+        background-color: $green;
+        color: white;
+        width: 200px;
+      }
+    }
+
+    .box_content {
+      height: 210px;
+    }
+  }
+}
+
+.payment{ 
+ .benefits{
+  justify-content: center;
+  .tag{
+    color: white;
+    min-width: 70px;
+    max-width: 90px;
+  }
+
+  .line{
+    width: 25px;
+    height: 0px;
+    border: 1px solid #257708;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 4.6%;
+    bottom: -15%;
+  }
+ }
+ .buy_voucher{
+  button{
+    min-width: 180px !important;
+  }
+ }
 }

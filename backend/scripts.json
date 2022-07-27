@@ -3,7 +3,7 @@
   "scripts": {
     "start": {
       "cmd": "src/app.ts",
-      "allow": ["net", "env", "read"],
+      "allow": ["net", "env", "read", "write"],
       "desc": "run my src/app.ts file"
     }
   },
