@@ -1,17 +1,41 @@
 import React from "react";
+import { collection, query } from "../../api-utils/query-utils";
+import { parseResponse } from "../../api-utils/response-utils";
+import useApi from "../../hooks/useApi";
+import Shop from "../../models/shop";
+import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
+import {
+  selectShopsFilter,
+  setShopsFilter,
+} from "../../state/slices/shops-filter.state";
+import { selectShops, setShops } from "../../state/slices/shops.state";
 import "../../styles/style.css";
-//import Shop from './shop'
-import shopData from "../../testdata/shop.json";
+// import shopData from "../../testdata/shop.json";
 import ShopCard from "./shopCard";
 
 function Shops() {
-  /* Ergebniss speichert die Shops zum Input */
-  let ergebniss = [];
-  const [input, setCriteria] = React.useState("");
+  const dispatch = useAppDispatch();
 
-  ergebniss = shopData.filter((e) => e.plz === input);
+  const shops = useAppSelector(selectShops);
+  const filter = useAppSelector(selectShopsFilter);
+  useApi(
+    query(
+      collection("shops", ["name"], {
+        postal_code: { eq: parseInt(filter, 10) },
+      })
+    ),
+    (response) => {
+      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
+    },
+    [filter]
+  );
+  const [input, setCriteria] = React.useState("");
+  /*let ergebniss = [];
+  ergebniss = shopData.filter((e) => e.plz === input);*/
+  console.log(shops);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
+    dispatch(setShopsFilter(e.currentTarget.value));
   };
 
   return (
@@ -104,19 +128,18 @@ function Shops() {
           </div>
         </form>
       </section>
-
       <section className="section is-medium is-flex">
-        {ergebniss.map((e, shops) => (
+        {shops.map((shop: Shop) => (
           <ShopCard
-            key={shops}
-            name={e.shopname}
-            tag={e.tag}
-            oeffnungszeiten={e.oeffnungszeiten}
-            text={e.text}
-            adresse={e.adresse}
-            plz={e.plz}
-            img={e.image}
-            id={e.id}
+            key={shop.id}
+            name={shop.name ?? "SHOP"}
+            tag={shop.labels ?? []}
+            oeffnungszeiten={"--"}
+            text={shop.short_description ?? ""}
+            adresse={""}
+            plz={shop.postal_code?.toString() ?? input}
+            img={""}
+            id={shop.id}
           />
         ))}
       </section>

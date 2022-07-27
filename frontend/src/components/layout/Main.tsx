@@ -6,6 +6,18 @@ import Shops from "../app/shops";
 import User from "../app/user";
 import Shop from "../app/shop";
 
+//
+// async function loginUser(credentials) {
+//   return fetch('https://www.mecallapi.com/api/login', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(credentials)
+//   })
+//     .then(data => data.json())
+//  }
+
 const Main = () => {
   return (
     //Routing for Elements

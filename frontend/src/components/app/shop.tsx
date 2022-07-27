@@ -13,7 +13,7 @@ function ShopAnsicht() {
       <section className="section  mx-3 pr-4 pl-4">
         <div className="container shop">
           <div className="columns">
-            <div className="column ml-2">
+            <div className="column">
               <h1 className="has-text-left is-size-4">{shop?.shopname}</h1>
               <p>{shop?.text}</p>
               <div className="columns mt-1">

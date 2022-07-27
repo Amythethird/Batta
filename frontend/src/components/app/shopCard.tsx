@@ -8,11 +8,11 @@ interface Shop {
   id: number;
   name: string;
   tag: string[];
-  adresse: string;
+  adresse?: string;
   oeffnungszeiten: string;
   text: string;
   plz: string;
-  img: string;
+  img?: string;
 }
 
 function ShopCard(props: Shop) {
