@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "social_medias",
+  "collectionName": "achievements",
   "info": {
-    "singularName": "social-media",
-    "pluralName": "social-medias",
-    "displayName": "SocialMedia",
+    "singularName": "achievement",
+    "pluralName": "achievements",
+    "displayName": "Achievement",
     "description": ""
   },
   "options": {
@@ -12,11 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "url": {
-      "type": "string",
-      "required": true
-    },
-    "platform": {
+    "title": {
       "type": "string",
       "required": true
     },
@@ -27,6 +23,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true
     }
   }
 }

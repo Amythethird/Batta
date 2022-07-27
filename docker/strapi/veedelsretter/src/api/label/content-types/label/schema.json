@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "social_medias",
+  "collectionName": "labels",
   "info": {
-    "singularName": "social-media",
-    "pluralName": "social-medias",
-    "displayName": "SocialMedia",
+    "singularName": "label",
+    "pluralName": "labels",
+    "displayName": "Label",
     "description": ""
   },
   "options": {
@@ -12,11 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "url": {
-      "type": "string",
-      "required": true
-    },
-    "platform": {
+    "name": {
       "type": "string",
       "required": true
     },
