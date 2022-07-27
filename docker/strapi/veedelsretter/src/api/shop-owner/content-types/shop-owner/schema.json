@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shop_owners",
+  "info": {
+    "singularName": "shop-owner",
+    "pluralName": "shop-owners",
+    "displayName": "ShopOwner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "shops": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::shop.shop",
+      "mappedBy": "shopOwner"
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "shopOwner"
+    }
+  }
+}
