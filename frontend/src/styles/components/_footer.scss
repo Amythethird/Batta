@@ -1,0 +1,20 @@
+footer {
+    &.footer {
+      background-color: $green;
+    }
+    .links {
+      line-height: 5px;
+    }
+  
+    .has-border {
+      border-bottom: $white 2px solid;
+    }
+  
+    p,
+    li {
+      color: $white;
+      a {
+        color: $white;
+      }
+    }
+  }

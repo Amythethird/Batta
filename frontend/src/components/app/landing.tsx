@@ -17,7 +17,7 @@ function LandingPage() {
     <main>
       <section className="hero-body section is-medium">
         <div className="container has-text-centered">
-          <div className="columns">
+          <div className="columns content">
             <div className="column is-half is-offset-one-quarter">
               <h1 className="title">
                 Unterstütze nachhaltige AnbieterInnen in deiner Nähe
@@ -35,7 +35,7 @@ function LandingPage() {
         </div>
       </section>
       <section className="Blog_Beitrag container mb-space-large">
-        <div className="columns">
+        <div className="columns content">
           <div className="column is-flex is-flex-direction-column is-justify-content-end">
             <a className="text">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit
@@ -61,9 +61,9 @@ function LandingPage() {
       </section>
       <section className="section mb-space-large">
         <div className=" container ">
-          <div className="columns is-centered is-vcentered">
+          <div className="columns content is-centered is-vcentered">
             <div className="column ">
-              <h2 className="is-size-4 has-text-weight-medium">
+              <h2>
                 Wie funktioniert das Konzept?
               </h2>
               <p className="has-text-left mt-5 pb-6">
@@ -123,7 +123,7 @@ function LandingPage() {
       </section>
       <section className="section mb-space-large has-text-centered pt-0">
         <div className="container">
-          <div className="columns pb-6">
+          <div className="columns content pb-6">
             <div className="column is-half is-offset-one-quarter">
               <h1 className="title">Wie wir unsere PartnerInnen auswählen?</h1>
               <p>
@@ -133,7 +133,7 @@ function LandingPage() {
               </p>
             </div>
           </div>
-          <div className="columns is-centered is-vcentered ">
+          <div className="columns content is-centered is-vcentered ">
             <div className="column has-text-left">
               <h2 className="has-text-left mb-2 is-size-4 has-text-weight-medium">
                 Unsere Lokalen LadenbetreiberInnen
@@ -161,7 +161,7 @@ function LandingPage() {
               </figure>
             </div>
           </div>
-          <div className="columns is-centered is-vcentered ">
+          <div className="columns content is-centered is-vcentered ">
             <div className="column">
               <figure className="image is-16by9">
                 <iframe

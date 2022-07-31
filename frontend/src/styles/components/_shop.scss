@@ -1,0 +1,77 @@
+.shopCard {
+    max-width: 300px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+  
+    .cardHeader {
+      height: auto;
+      border-radius: 8px 8px 0 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+  
+      .hasBackground {
+        color: $white;
+        background-color: $green;
+        line-height: 30px;
+      }
+  
+      .column {
+        min-height: 210px;
+        .iconFon {
+          color: #e2e2e2;
+        }
+      }
+    }
+  
+    .tag {
+      background-color: $green;
+      color: $white;
+  
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+  
+  
+  .Shops {
+    .kommentare {
+      overflow-x: scroll;
+      li:first-child {
+        border-right: 1px solid $green;
+        padding-right: 10px;
+        margin-right: 5px;
+      }
+      a {
+        color: $green;
+      }
+      .box {
+        width: 300px;
+        background-color: rgba($color: $grey, $alpha: 0.1);
+      }
+    }
+  
+    .products {
+      overflow-x: scroll;
+  
+      .card {
+        min-width: 280px;
+        min-height: 280px;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 30px;
+      }
+    }
+  
+    .gallery {
+      .column:first-child {
+        justify-content: start;
+        align-items: center;
+      }
+      .column:last-child {
+        justify-content: end;
+        align-items: center;
+      }
+    }
+  }
