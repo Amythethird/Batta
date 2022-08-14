@@ -10,15 +10,12 @@ http:
 
     frontend:
       entryPoints: ["web", "websecure"]
-      middlewares: ["redirectHTTPS"]
+      middlewares: []
       service: frontend-service
       rule: Host(`{{ env "DOMAIN" }}`)
-      tls:
-        certResolver: letsencrypt
+
     backend:
-      entryPoints: ["web", "websecure"]
+      entryPoints: ["web"]
       middlewares: []
       service: backend-service
       rule: Host(`backend.{{ env "DOMAIN" }}`)
-      tls:
-        certResolver: letsencrypt
