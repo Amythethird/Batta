@@ -48,20 +48,6 @@ services:
       - internal
       - traefik
 
-  strapi:
-    hostname: strapi
-    build: strapi
-    env_file: .env
-    restart: always
-    depends_on:
-      - traefik
-    volumes:
-      - ./strapi/veedelsretter:/opt/app
-      - /opt/app/node_modules
-    networks:
-      - internal
-      - traefik
-
 networks:
   traefik:
     driver: bridge

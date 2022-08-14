@@ -43,23 +43,6 @@ services:
       - internal
       - traefik
 
-  strapi:
-    hostname: strapi
-    build: strapi
-    env_file: .env
-    restart: always
-    depends_on:
-      - traefik
-    volumes:
-      - strapi/veedelsretter/config:/opt/app/config
-      - strapi/veedelsretter/src:/opt/app/src
-      - strapi/veedelsretter/package.json:/opt/package.json
-      - strapi/veedelsretter/yarn.lock:/opt/yarn.lock
-      - strapi/veedelsretter/.env:/opt/app/.env
-    networks:
-      - internal
-      - traefik
-
 networks:
   traefik:
     driver: bridge
