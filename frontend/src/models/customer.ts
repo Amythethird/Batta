@@ -19,5 +19,5 @@ export interface CustomerProps {
   coupons?: Coupon[];
   achievements?: Achievement[];
   reviews?: Review[];
-  favouriteShops: Shop[];
+  favouriteShops?: Shop[];
 }

@@ -1,11 +1,16 @@
 import { CustomerProps } from "../../models/customer";
-import { PersonProps } from "../../models/person";
+import { ShopOwnerProps } from "../../models/shop-owner";
 import User from "../../models/user";
 
-export interface PersonResponse extends PersonProps {
-  customer?: CustomerProps;
+export interface UserResponse extends User {
+  customer?: CustomerResponse;
 }
 
-export interface UserResponse extends User {
-  person?: PersonResponse;
+export interface CustomerResponse extends CustomerProps {
+  user?: UserResponse;
+  shopOwner?: ShopOwnerResponse;
+}
+
+export interface ShopOwnerResponse extends ShopOwnerProps {
+  customer?: CustomerResponse;
 }
