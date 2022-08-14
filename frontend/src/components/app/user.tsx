@@ -26,14 +26,14 @@ function User() {
         [
           "username",
           "email",
-          entry("person", [
+          entry("customer", [
             "firstname",
             "lastname",
-            entry("profile_picture", ["url"]),
-            entry("customer", [
-              "street_name",
-              "house_number",
-              "postal_code",
+            entry("profilePicture", ["url"]),
+            entry("address", [
+              "streetName",
+              "houseNumber",
+              "postalCode",
               "city",
             ]),
           ]),
@@ -46,7 +46,6 @@ function User() {
         "usersPermissionsUser",
         response
       ).data;
-      console.log(userResponse);
       dispatch(setCustomer(parseUserResponseToCustomer(userResponse)));
     },
     []
@@ -79,12 +78,12 @@ function User() {
   return (
     <main className="mt-space-medium user">
       <HeaderUser
-        text={customer.short_description!}
+        text={customer.shortDescription!}
         username={customer.firstname!}
         name={customer.lastname!}
         vorname={customer.firstname!}
         email={customer.email!}
-        image={customer.profile_picture?.url!}
+        image={customer.profilePicture?.url!}
         isPrivate={false}
       />
       <section className="section badges is-flex is-justify-content-space-between">

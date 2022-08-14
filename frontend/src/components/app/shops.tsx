@@ -18,6 +18,7 @@ import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
+import { parseShopOwnerResponseToShopOwner } from "../../api-utils/user-utils";
 
 function FilterShops() {
   const dispatch = useAppDispatch();
@@ -29,19 +30,24 @@ function FilterShops() {
       collection(
         "shops",
         [
-          "name",
-          "postal_code",
-          "short_description",
-          "opening_hours",
-          entry("person", [entry("profile_picture", ["url"])]),
+          "shopName",
+          entry("address", ["postalCode"]),
+          "description",
+          entry("shopOwner", [
+            entry("customer", [entry("profilePicture", ["url"])]),
+          ]),
         ],
         {
-          postal_code: { eq: parseInt(filter, 10) },
+          address: { postalCode: { eq: filter } },
         }
       )
     ),
     (response) => {
-      dispatch(setShops(parseResponse("shops", response).data as Shop[]));
+      let shops = parseResponse("shops", response).data as Shop[];
+      shops.forEach((shop) => {
+        shop.shopOwner = parseShopOwnerResponseToShopOwner(shop.shopOwner!);
+      });
+      dispatch(setShops(shops));
     },
     [filter]
   );
@@ -105,7 +111,6 @@ function FilterShops() {
       </div>
     );
   }
- 
 
   return (
     <div>
@@ -135,14 +140,14 @@ function FilterShops() {
         {shops.map((shop: Shop) => (
           <ShopCard
             key={shop.id}
-            name={shop.name ?? "SHOP"}
-            tag={shop.labels ?? []}
-            oeffnungszeiten={shop.opening_hours}
-            text={shop.short_description ?? ""}
+            name={shop.shopName ?? "SHOP"}
+            tag={[]}
+            oeffnungszeiten={{ Mo: "08:00h-17:00h" }}
+            text={shop.description ?? ""}
             //address={shop.address}
-            plz={shop.postal_code?.toString() ?? input}
-            img={shop.person?.profile_picture?.url}
-            id={shop.id}
+            plz={shop.address?.postalCode?.toString() ?? input}
+            img={shop.shopOwner?.profilePicture?.url}
+            id={shop.id as number}
           />
         ))}
       </section>
