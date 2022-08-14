@@ -71,19 +71,19 @@ Füge anschließend die benötigten Environment-Dateien (benannt mit ".env") in 
 
 ### Starten mit Docker
 
-Stelle sicher, dass Docker Desktop gestartet und deine Entwicklungsumgebung korrekt eingerichtet ist. Öffne anschließend das Terminal und navigiere in den docker-Ordner. Führe das start Skript aus. Als Parameter erwartet das Skript die Umgebung (dev/production), die gestartet werdens soll:
+Stelle sicher, dass Docker Desktop gestartet und deine Entwicklungsumgebung korrekt eingerichtet ist. Öffne anschließend das Terminal und navigiere in den docker-Ordner. Führe dort das start-Skript aus. Als Parameter erwartet das Skript die Umgebung (dev/production), die gestartet werden soll:
 
 ```bash
 ./start.sh (dev | production)
 ```
 
-Alternativ kann ein lokaler Strapi Container gestartet werden, um eine lokale Instanz zu starten. Das startStrapi Skript folgt hier derselben Logik wie das normal start Skript:
+Optional kann ein Strapi-Container gestartet werden, um eine lokale Instanz des Strapi-Backends zu nutzen. Das startStrapi-Skript folgt hierbei derselben Logik, wie das normale start-Skript:
 
 ```bash
 ./startStrapi.sh (dev | production)
 ```
 
-Um die lokale Strapi Instanz zu nutzen, muss die in der .env Datei (docker Ordner) die lokale BASE_URL Variable (strapi.localhost) einkommentier und die andere auskommentiert werden.
+Um die lokale Strapi Instanz zu nutzen, muss in der .env Datei (docker-Ordner) die lokale BASE_URL Variable (strapi.localhost) einkommentiert und die andere auskommentiert werden.
 
 Nach dem erfolgreichen Start der Docker-Container sind diese wie folgt erreichbar:
 
