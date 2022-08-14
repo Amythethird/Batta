@@ -9,7 +9,6 @@ import User from "./user";
 export default interface Customer extends User, CustomerProps {}
 
 export interface CustomerProps {
-  email?: string;
   firstname?: string;
   lastname?: string;
   shortDescription?: string;

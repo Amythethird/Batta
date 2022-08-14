@@ -17,7 +17,7 @@ export default interface Shop {
   coordinateLng?: number;
   sustainabilityVision?: string;
   sustainabilityVisionTitle?: string;
-  productHighlight?: Media[];
+  productHighlights?: Media[];
   productHighlightsDescription?: string;
   gallery?: Media[];
   storeVideo?: Media;
