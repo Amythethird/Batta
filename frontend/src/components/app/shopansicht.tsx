@@ -10,12 +10,13 @@ import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import useApi from "../../hooks/useApi";
-import { collection, query } from "../../api-utils/query-utils";
+import { collection, entry, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
-import ShopModel, { Highlights } from "../../models/shop";
+import ShopModel from "../../models/shop";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
 import { Link } from "react-router-dom";
+import Media from "../../models/media";
 
 /** ToDo
  * Produkt_Highlights overflow [X], auslagern
@@ -54,12 +55,10 @@ function Shopansicht() {
       collection(
         "shops",
         [
-          "name",
-          "postal_code",
-          "short_description",
+          "shopName",
+          entry("address", ["postalCode"]),
           "description",
-          "opening_hours",
-          collection("highlights", ["url"]),
+          collection("productHighlights", ["url"]),
         ],
         {
           id: { eq: id },
@@ -245,10 +244,14 @@ function Shopansicht() {
   return (
     <main className="mt-space-large Shops">
       {shops.map((shop: ShopModel) => (
-        <HeaderUser key={shop.id} UserId={shop.id} imag={shop.person?.profile_picture?.url!} />
+        <HeaderUser
+          key={shop.id}
+          UserId={shop.id}
+          imag={shop.shopOwner?.profilePicture?.url!}
+        />
       ))}
 
-        {/* Auslagern:
+      {/* Auslagern:
           Shopansicht rendert payment und Shop
         */}
       <section className="section is-medium p-2 mb-space-large">
@@ -293,7 +296,7 @@ function Shopansicht() {
         {shops.map((product: ShopModel) => (
           <div className="columns background_light" key={product.id}>
             <div className="column products is-flex ">
-              {product.highlights?.map((e: Highlights) => (
+              {product.productHighlights?.map((e: Media) => (
                 <div
                   className="card"
                   key={e.id}

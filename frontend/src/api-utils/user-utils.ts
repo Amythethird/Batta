@@ -1,50 +1,110 @@
 import Customer, { CustomerProps } from "../models/customer";
-import Person, { PersonProps } from "../models/person";
+import ShopOwner, { ShopOwnerProps } from "../models/shop-owner";
 import User from "../models/user";
-import { PersonResponse, UserResponse } from "./models/user-response-models";
+import {
+  CustomerResponse,
+  ShopOwnerResponse,
+  UserResponse,
+} from "./models/user-response-models";
+
+/* User */
 
 export function parseUserResponseToUser(userResponse: UserResponse): User {
   let user = { ...userResponse };
-  delete user.person;
+  delete user.customer;
   return user;
-}
-
-export function parseUserResponseToPerson(userResponse: UserResponse): Person {
-  if (userResponse.person) {
-    return {
-      ...parseUserResponseToUser(userResponse),
-      ...parsePersonResponseToPersonProps(userResponse.person),
-    };
-  } else {
-    return parseUserResponseToUser(userResponse);
-  }
 }
 
 export function parseUserResponseToCustomer(
   userResponse: UserResponse
 ): Customer {
-  if (userResponse.person) {
+  if (userResponse.customer) {
     return {
       ...parseUserResponseToUser(userResponse),
-      ...parsePersonResponseToPersonProps(userResponse.person),
-      ...parsePersonResponseToCustomerProps(userResponse.person),
+      ...parseCustomerResponseToCustomerProps(userResponse.customer),
     };
   } else {
     return parseUserResponseToUser(userResponse);
   }
 }
 
-function parsePersonResponseToPersonProps(
-  personResponse: PersonResponse
-): PersonProps {
-  let personProps = { ...personResponse };
-
-  delete personProps.customer;
-  return personProps;
+export function parseUserResponseToShopOwner(
+  userResponse: UserResponse
+): ShopOwner {
+  if (userResponse.customer?.shopOwner) {
+    return {
+      ...parseUserResponseToCustomer(userResponse),
+      ...parseShopOwnerResponseToShopOwnerProps(
+        userResponse.customer.shopOwner
+      ),
+    };
+  } else {
+    return parseUserResponseToCustomer(userResponse);
+  }
 }
 
-function parsePersonResponseToCustomerProps(
-  personResponse: PersonResponse
+/* Customer */
+
+export function parseCustomerResponseToCustomerProps(
+  customerResponse: CustomerResponse
 ): CustomerProps {
-  return personResponse.customer ?? {};
+  let customerProps = { ...customerResponse };
+  delete customerProps.user;
+  delete customerProps.shopOwner;
+  return customerProps;
+}
+
+export function parseCustomerResponseToCustomer(
+  customerResponse: CustomerResponse
+): Customer {
+  if (customerResponse.user) {
+    return {
+      ...parseUserResponseToUser(customerResponse.user),
+      ...parseCustomerResponseToCustomerProps(customerResponse),
+    };
+  } else {
+    return parseCustomerResponseToCustomerProps(customerResponse);
+  }
+}
+
+export function parseCustomerResponseToShopOwner(
+  customerResponse: CustomerResponse
+): ShopOwner {
+  if (customerResponse.shopOwner) {
+    return {
+      ...parseCustomerResponseToCustomer(customerResponse),
+      ...parseShopOwnerResponseToShopOwnerProps(customerResponse.shopOwner),
+    };
+  } else {
+    return parseCustomerResponseToCustomer(customerResponse);
+  }
+}
+
+/* ShopOwner */
+
+export function parseShopOwnerResponseToShopOwnerProps(
+  shopOwnerResponse: ShopOwnerResponse
+): ShopOwnerProps {
+  let shopOwnerProps = { ...shopOwnerResponse };
+  delete shopOwnerProps.customer;
+  return shopOwnerProps;
+}
+
+export function parseShopOwnerResponseToCustomer(
+  shopOwnerResponse: ShopOwnerResponse
+): Customer {
+  return parseCustomerResponseToCustomer(shopOwnerResponse.customer!);
+}
+
+export function parseShopOwnerResponseToShopOwner(
+  shopOwnerResponse: ShopOwnerResponse
+): ShopOwner {
+  if (shopOwnerResponse.customer) {
+    return {
+      ...parseCustomerResponseToCustomer(shopOwnerResponse.customer),
+      ...parseShopOwnerResponseToShopOwnerProps(shopOwnerResponse),
+    };
+  } else {
+    return parseShopOwnerResponseToShopOwnerProps(shopOwnerResponse);
+  }
 }
