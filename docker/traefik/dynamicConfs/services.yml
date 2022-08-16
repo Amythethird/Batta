@@ -9,3 +9,8 @@ http:
       loadBalancer:
         servers:
           - url: http://backend:5000
+
+    strapi-service:
+      loadBalancer:
+        servers:
+          - url: http://strapi:2500
