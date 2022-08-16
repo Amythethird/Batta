@@ -1,13 +1,10 @@
 http:
   services:
-    strapi-service:
-      loadBalancer:
-        servers:
-          - url: http://strapi:2500
     frontend-service:
       loadBalancer:
         servers:
           - url: http://webfrontend:3000
+
     backend-service:
       loadBalancer:
         servers:

@@ -7,13 +7,6 @@ http:
       rule: Host(`dashboard.{{env "DOMAIN"}}`)
       tls:
         certResolver: letsencrypt
-    strapi:
-      entryPoints: ["web", "websecure"]
-      middlewares: ["redirectHTTPS"]
-      service: strapi-service
-      rule: Host(`strapi.{{ env "DOMAIN" }}`)
-      tls:
-        certResolver: letsencrypt
 
     frontend:
       entryPoints: ["web", "websecure"]
