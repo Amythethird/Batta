@@ -8,17 +8,22 @@ http:
       tls:
         certResolver: letsencrypt
 
-    frontend:
-      entryPoints: ["web", "websecure"]
-      middlewares: ["redirectHTTPS"]
-      service: frontend-service
-      rule: Host(`{{ env "DOMAIN" }}`)
+    strapi:
+      entryPoints: ["web"]
+      middlewares: []
+      service: strapi-service
+      rule: Host(`strapi.{{ env "DOMAIN" }}`)
       tls:
         certResolver: letsencrypt
+
+    frontend:
+      entryPoints: ["web"]
+      middlewares: []
+      service: frontend-service
+      rule: Host(`{{ env "DOMAIN" }}`)
+
     backend:
-      entryPoints: ["web", "websecure"]
+      entryPoints: ["web"]
       middlewares: []
       service: backend-service
       rule: Host(`backend.{{ env "DOMAIN" }}`)
-      tls:
-        certResolver: letsencrypt
