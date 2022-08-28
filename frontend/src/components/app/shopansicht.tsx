@@ -3,7 +3,7 @@ import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/elements/rating";
 import RatingData from "../../testdata/Rating.json";
-import Kommentar from "../globals/elements/comment";
+import Comment from "../globals/elements/comment";
 import HeaderUser from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
@@ -242,7 +242,7 @@ function Shopansicht() {
 
   console.log(shops);
   return (
-    <main className="mt-space-large Shops">
+    <main className="mt-space-large shop">
       {shops.map((shop: ShopModel) => (
         <HeaderUser
           key={shop.id}
@@ -254,45 +254,42 @@ function Shopansicht() {
       {/* Auslagern:
           Shopansicht rendert payment und Shop
         */}
-      <section className="section is-medium p-2 mb-space-large">
-        <div className="columns is-align-items-center  ">
-          <div className="column  is-9">
-            <h2 className="is-size-4">Bewertungen & Kommentare</h2>
+      <section className="section content">
+        <div className="container">
+          <div className="columns">
+            <div className="column">
+              <h2 className="title is-2">Bewertungen & Kommentare</h2>
+            </div>
+            <div className="column has-text-right">
+                <a onClick={bewertung}>Bewertung verfassen</a> | <a>Alle anzeigen</a>
+            </div>
           </div>
-          <div className="column links is-flex kommentare ">
-            <li>
-              <a onClick={bewertung}>Bewertung schreiben</a>
-            </li>
-            <li>
-              <a>Alle anzeigen</a>
-            </li>
-          </div>
-        </div>
-        {modal}
-        <div className="columns">
-          <div className="column is-3">
-            <Rating
-              durchschnitt={Math.round(durchnitt)}
-              title={false}
-              full={true}
-              ratings={ratings.length}
-            ></Rating>
-          </div>
-          <div className="column kommentare is-flex">
-            {RatingData.map((e, key) => (
-              <Kommentar
-                key={key}
-                title={e.title}
-                autor={e.user}
-                text={e.text}
-                date={e.date}
-                bewertung={e.bewertung}
-              />
-            ))}
+          {modal}
+          <div className="columns">
+            <div className="column is-3">
+              <Rating
+                durchschnitt={Math.round(durchnitt* 10) / 10}
+                title={false}
+                full={true}
+                ratings={ratings.length}
+              ></Rating>
+            </div>
+            <div className="column is-9 columns comment-carousel">
+              {RatingData.map((e, key) => (
+                <Comment
+                  key={key}
+                  title={e.title}
+                  autor={e.user}
+                  text={e.text}
+                  date={e.date}
+                  bewertung={e.bewertung}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
-      <section>
+      <section className="section">
         {shops.map((product: ShopModel) => (
           <div className="columns background_light" key={product.id}>
             <div className="column products is-flex ">
@@ -318,8 +315,8 @@ function Shopansicht() {
           </div>
         ))}
       </section>
-      <section className="section mb-space-large mt-space-large">
-        <div className="  concept ">
+      <section className="section content">
+        <div className="container concept ">
           <div className="columns is-centered is-vcentered">
             <div className="column">
               <figure className="image is-16by9">
