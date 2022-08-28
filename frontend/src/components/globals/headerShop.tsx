@@ -10,7 +10,7 @@ import { selectShops } from "../../state/slices/shops.state";
 
 interface params {
   UserId: any;
-  imag: string
+  imag: string;
 }
 
 function HeaderShop(props: params) {
@@ -31,22 +31,21 @@ function HeaderShop(props: params) {
           <p className="has-text-weight-medium">Öffnungszeiten</p>
           {""}
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
-          <p className="is_green">
-            {data?.postal_code} <br />
-            {data?.area_code}
-          </p>
+          <p className="is_green">{data?.address?.postalCode}</p>
         </div>
       </div>
     );
   }
-  console.log(data.highlights?.map(e => e.url))
-  
+  console.log(data.productHighlights?.map((e) => e.url));
+
   return (
     <main>
       <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          backgroundImage: `url(https://strapi.localhost${data.highlights?.slice(0,1).map(e=> e.url)})`,
+          backgroundImage: `url(https://strapi.localhost${data.productHighlights
+            ?.slice(0, 1)
+            .map((e) => e.url)})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
@@ -56,18 +55,18 @@ function HeaderShop(props: params) {
             <div className="information p-3">
               <figure className="imageInhaber"></figure>
               <h2 className="is-size-4">
-                {data.name}
+                {data.shopName}
                 <span>
                   <FontAwesomeIcon icon={faHeart} size="1x" />
                 </span>
               </h2>
-              {data?.labels?.map((e, i) => (
+              {data?.label?.map((e, i) => (
                 <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
-                  {e}
+                  {e.name}
                 </span>
               ))}
               <p>{data?.description}</p>
-              <SocialMedia id={data?.id ?? 0} />
+              <SocialMedia id={(data?.id as number) ?? 0} />
             </div>
           </div>
           {oeffnungszeiten}

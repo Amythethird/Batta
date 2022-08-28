@@ -1,25 +1,32 @@
-import Person from "./person";
+import Address from "./address";
+import Coupon from "./coupon";
+import Media from "./media";
+import Label from "./label";
+import OpeningHours from "./opening-hours";
+import Review from "./review";
+import SocialMedia from "./social-media";
+import ShopOwner from "./shop-owner";
 
 export default interface Shop {
-  id: number;
-  name?: string;
+  id: number | string;
+  shopName?: string;
+  shopOwner?: ShopOwner;
+  shopHeaderImage?: Media;
   description?: string;
-  store_video?: string; //ToDo: check type
-  postal_code?: number;
-  city?: string;
+  coordinateLat?: number;
+  coordinateLng?: number;
+  sustainabilityVision?: string;
+  sustainabilityVisionTitle?: string;
+  productHighlights?: Media[];
+  productHighlightsDescription?: string;
+  gallery?: Media[];
+  storeVideo?: Media;
   email?: string;
-  area_code?: number;
-  phone?: number;
-  highlights?: Highlights[]; //ToDo: check type
-  short_description?: string;
-  website?: string;
-  labels?: string[]; //ToDo: check type
-  labels_icons?: string; //ToDo: check type
-  opening_hours?: Record<string, string>;
-  person: Person;
-}
-
-export interface Highlights {
-  id: string;
-  url: string;
+  phone?: string;
+  address?: Address;
+  label?: Label[];
+  socialMedia?: SocialMedia[];
+  openingHours?: OpeningHours[];
+  reviews?: Review[];
+  coupons?: Coupon[];
 }
