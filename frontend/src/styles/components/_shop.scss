@@ -34,20 +34,35 @@
   }
   
   
-  .Shops {
-    .kommentare {
+  .shop {
+    .comment-carousel {
       overflow-x: scroll;
-      li:first-child {
-        border-right: 1px solid $green;
-        padding-right: 10px;
-        margin-right: 5px;
+
+      .comment-preview {
+        background-color: rgba($grey, 0.05);
+        border-radius: $radius;
+        margin: 0 .5rem;
+        padding: .5rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
       }
-      a {
-        color: $green;
+    }
+
+    .rating {
+      position: relative;
+      background: $white;
+      
+      .rating-average {
+        font-size: 3rem;
+        line-height: 3rem;
       }
-      .box {
-        width: 300px;
-        background-color: rgba($color: $grey, $alpha: 0.1);
+      .rating-amount {
+        display: flex;
+        align-content: flex-end;
+        justify-content: flex-end;
+        flex-direction: column;
       }
     }
   
