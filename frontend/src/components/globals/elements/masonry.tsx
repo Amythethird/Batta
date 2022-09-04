@@ -14,15 +14,13 @@ interface Photos{
 function Masonry(props: Photos) {
     
     return (
-        <section className=" section masonry">
-         <div className="container">
-             {
-            props.images.map((e) => (
+        <div className="masonry">
+            {
+                props.images.map((e) => (
                     <img className="item" src={e.src} alt={e.alt} key={e.alt} />
-            ))
-          }
-         </div>
-        </section>
+                ))
+            }
+        </div>
     );
 }
 

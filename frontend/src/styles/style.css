@@ -3879,20 +3879,20 @@ a.tag:hover {
 
 .card {
   background-color: hsl(0deg, 0%, 100%);
-  border-radius: 0.25rem;
-  box-shadow: 0 0.5em 1em -0.125em rgba(51, 51, 51, 0.1), 0 0px 0 1px rgba(51, 51, 51, 0.02);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0 rgba(51, 51, 51, 0.25);
   color: #333333;
   max-width: 100%;
   position: relative;
 }
 
 .card-footer:first-child, .card-content:first-child, .card-header:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 .card-footer:last-child, .card-content:last-child, .card-header:last-child {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .card-header {
@@ -3937,17 +3937,17 @@ a.tag:hover {
   position: relative;
 }
 .card-image:first-child img {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
 }
 .card-image:last-child img {
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }
 
 .card-content {
   background-color: transparent;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
 .card-footer {
@@ -10840,6 +10840,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 }
 .voucher .box .box_content {
   height: 210px;
+}
+
+.card.article-preview .pseudo-link {
+  font-size: 0.75rem;
 }
 
 body {

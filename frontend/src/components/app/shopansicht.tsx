@@ -15,7 +15,7 @@ import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel from "../../models/shop";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Media from "../../models/media";
 
 /** ToDo
@@ -28,6 +28,13 @@ import Media from "../../models/media";
  *
  */
 function Shopansicht() {
+
+  /*Partner*/
+  const partner = ["Partner_1", "Partner_2","Partner_3","Partner_4","Partner_5"]
+  let image = (
+      <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+  )
+
   //Abfragen
   const { id } = useParams();
   const [filter, setFilter] = React.useState(false);
@@ -261,7 +268,7 @@ function Shopansicht() {
               <h2 className="title is-2">Bewertungen & Kommentare</h2>
             </div>
             <div className="column has-text-right">
-                <a onClick={bewertung}>Bewertung verfassen</a> | <a>Alle anzeigen</a>
+                <a onClick={bewertung}>Bewertung verfassen</a> | <a>alle anzeigen</a>
             </div>
           </div>
           {modal}
@@ -315,13 +322,13 @@ function Shopansicht() {
           </div>
         ))}
       </section>
-      <section className="section content">
-        <div className="container concept ">
-          <div className="columns is-centered is-vcentered">
-            <div className="column">
-              <figure className="image is-16by9">
+      <section className="section pdb-large">
+        <div className=" container">
+          <div className="columns content is-vcentered">
+            <div className="column is-half">
+              <figure className="image is-16by9 is-fullwidth mg-0">
                 <iframe
-                  className="has-ratio"
+                  className="has-ratio has-corners-round has-shadow"
                   width="640"
                   height="360"
                   src="https://www.youtube.com/embed/YE7VzlLtp-4"
@@ -330,10 +337,8 @@ function Shopansicht() {
                 ></iframe>
               </figure>
             </div>
-            <div className="column ">
-              <h2 className="is-size-4 has-text-weight-medium">
-                Wie funktioniert das Konzept?
-              </h2>
+            <div className="column is-5 is-offset-1 ">
+              <h2 className="title is-2">Wie funktioniert das Konzept?</h2>
               <p className="has-text-left mt-5 pb-6">
                 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
                 Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
@@ -342,70 +347,71 @@ function Shopansicht() {
                 sed diam eget risus varius blandit sit amet non magna. Etiam
                 porta sem malesuada magna ultricies vehicula ut mollis.
               </p>
-              <button className="button is-success">Gutschein</button>
+              <button className="button is-primary">Gutschein Kaufen</button>
             </div>
           </div>
         </div>
       </section>
-      <section className="section background_light mb-space-medium">
-        <div className="container has-text-centered mb-4">
-          <h1 className="title">Das sind unsere NachhaltigkeitspartnerInnen</h1>
-          <h2 className="subtitle has-text-centered p-6">
-            Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt, bieten
-            unsere Parther verschiedene Möglichkeiten wie z.B. die Unterstützung
-            nachhaltiger Projekte.
-          </h2>
+      
+      
+      <section className="section has-background-primary-transparent mgb-large">
+        <div className="container has-text-centered">
+          <h2 className="title is-2">Diese Parter:Innen unterstützt du mit einem Gutschein</h2>
+          <div className="columns">
+            <div className="column is-half is-offset-one-quarter">
+              <p>
+                Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt, bieten
+                unsere Parther verschiedene Möglichkeiten wie z.B. die Unterstützung
+                nachhaltiger Projekte.
+              </p>
+            </div>
+          </div>
+          
+          <div className="columns">
+            {
+              partner.map((e)=>
+              <div className="column" key={e}>{image}</div>
+              )
+            }
+          </div>
 
-          <div className="Partner">
-            <div className="partner mb-4">
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-              <figure className="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-              </figure>
-            </div>
-            <Link className="button" to="/payment">
-              Gutschein
-            </Link>
-          </div>
+          <button className="button is-primary">Gutschein Kaufen</button>
         </div>
       </section>
+
       <section
-        className="section gallery mb-space-large"
+        className="section gallery mgb-large"
         style={{
           overflow: isActive ? "auto" : "hidden",
         }}
       >
-        <div className="columns">
-          <div className="column is-7 is-flex">
-            <h1 className="is-size-4">Gallerie/ Eindrücke</h1>
+        <div className="container">
+          <div className="columns content">
+            <div className="column">
+              <h2 className="title is-2">Gallerie/ Eindrücke</h2>
+            </div>
+            <div className="column has-text-right">
+              <a onClick={handleClick}>Mehr Anzeigen</a>
+            </div>
           </div>
-          <div className="column is-flex">
-            <a onClick={handleClick}>Mehr Anzeigen</a>
-          </div>
+
+          <Masonry images={photos} />
         </div>
-        <Masonry images={photos} />
       </section>
-      <section className="section artikel">
-        <div className="columns">
-          <div className="column is-7 is-flex">
-            <h1 className="is-size-4">Artikel</h1>
+
+      <section className="section mgb-large">
+        <div className="container">
+          <div className="columns content">
+            <div className="column">
+              <h2 className="title is-2">Artikel</h2>
+            </div>
+            <div className="column has-text-right">
+              <a>alle anzeigen</a>
+            </div>
           </div>
-          <div className="column is-flex">
-            <a onClick={handleClick}>Mehr Anzeigen</a>
-          </div>
+
+          <Artikel article={article} />
         </div>
-        <Artikel article={article} />
       </section>
     </main>
   );

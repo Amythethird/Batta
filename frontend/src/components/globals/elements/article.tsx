@@ -15,23 +15,27 @@ interface Beitrag {
 
 function Artikel(props: Beitrag) {
   return (
-    <div className="Blogbeitrag is-flex">
+    <div className="columns">
       {props.article.map((articles) => (
-        <div className="article mb-space-large mt-5" key={articles.text}>
-          <div
-            className="artikel_header"
-            style={{ backgroundImage: `url(${articles.image})` }}
-          ></div>
-          <div className="main">
-            <div className="autor">
-              <h2>{articles.title}</h2>
-              <p>{articles.autor}</p>
+        <div className="column" key={articles.text}>
+          <a href="#">
+            <div className="card article-preview">
+              <div className="card-image">
+                <figure className="image is-4by3">
+                  <img src={articles.image} alt="Placeholder image" />
+                </figure>
+              </div>
+
+              <div className="card-content">
+                <div className="content">
+                  <h3 className="title is-3 has-text-primary mgb-05">{articles.title}</h3>
+                  <p className="mgb-05">{articles.text}</p>
+                  
+                  <a className="pseudo-link">Weiterlesen</a>
+                </div>
+              </div>
             </div>
-            <div className="text">
-              <p className="is-size-7-mobile">{articles.text}</p>
-            </div>
-            <a>Weiterlesen</a>
-          </div>
+          </a>
         </div>
       ))}
     </div>
