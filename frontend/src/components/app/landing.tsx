@@ -75,7 +75,7 @@ function LandingPage() {
       <section className="section pdb-large">
         <div className=" container">
           <div className="columns content is-vcentered">
-            <div className="column is5">
+            <div className="column is-5">
               <h2 className="title is-2">Wie funktioniert das Konzept?</h2>
               <p className="has-text-left mt-5 pb-6">
                 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
