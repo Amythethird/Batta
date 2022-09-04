@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/style.css";
-import HeaderUser from "../globals/HeaderUser";
+import HeaderUser from "../globals/headerUser";
 import useApi from "../../hooks/useApi";
 import { entry, query } from "../../api-utils/query-utils";
 import { getAccessTokenPayload } from "../../api-utils/login-utils";
