@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  frontend:
+    image: mweiershaeuser/batta-frontend
+    restart: always
+    ports:
+      - "8070:3000"
+
+  strapi:
+    image: mweiershaeuser/batta-strapi
+    restart: always
+    ports:
+      - "8071:2500"
+    volumes:
+      - type: bind
+        source: ./db
+        target: /batta-strapi/.tmp

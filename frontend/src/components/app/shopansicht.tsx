@@ -301,7 +301,8 @@ function Shopansicht() {
                   className="card"
                   key={e.id}
                   style={{
-                    backgroundImage: `url(https://strapi.localhost${e.url})`,
+                    // eslint-disable-next-line no-undef
+                    backgroundImage: `url(${process.env.REACT_APP_STRAPI}${e.url})`,
                   }}
                 ></div>
               ))}

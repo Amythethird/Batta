@@ -43,9 +43,10 @@ function HeaderShop(props: params) {
       <section
         className="section is-flex is-large pb-0 is-align-content-end mb-space-large"
         style={{
-          backgroundImage: `url(https://strapi.localhost${data.productHighlights
-            ?.slice(0, 1)
-            .map((e) => e.url)})`,
+          backgroundImage: `url(${
+            // eslint-disable-next-line no-undef
+            process.env.REACT_APP_STRAPI
+          }${data.productHighlights?.slice(0, 1).map((e) => e.url)})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
