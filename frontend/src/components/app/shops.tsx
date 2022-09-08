@@ -44,6 +44,7 @@ function FilterShops() {
     ),
     (response) => {
       let shops = parseResponse("shops", response).data as Shop[];
+
       shops.forEach((shop) => {
         shop.shopOwner = parseShopOwnerResponseToShopOwner(shop.shopOwner!);
       });

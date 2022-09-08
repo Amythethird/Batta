@@ -53,26 +53,21 @@ function Rating(props: rating) {
   let rating;
   if (props.full) {
     rating = (
-      <div>
-        <div className="is-flex">
-          <p className="has-text-weight-medium mb-2 is-size-3 mr-1">
-            {props.durchschnitt}
-          </p>
-          <p className="mr-5">von 5</p>
-          <p>({props.ratings}) Bewertungen</p>
-        </div>
-        <div className="rating">{rate}</div>
+      <div className="columns is-multiline rating">
+          <div className="column is-half pdb-0 has-text-weight-bold">
+            <span className="rating-average">{props.durchschnitt} </span> von 5
+          </div>
+          <div className="column is-half has-text-right rating-amount pdb-0">{props.ratings} Bewertungen</div>
+        <div className="column is-full rating-overview">{rate}</div>
       </div>
     );
   } else {
     rating = (
-      <div>
-        <div className="rating">{rateCheck}</div>
-      </div>
+      <div className="rating">{rateCheck}</div>
     );
   }
 
-  return <div className="container">{rating}</div>;
+  return rating;
 }
 
 export default Rating;
