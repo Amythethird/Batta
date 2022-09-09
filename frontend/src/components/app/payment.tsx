@@ -1,11 +1,14 @@
 import React from "react";
 import "../../styles/style.css";
 
+
+
 function Payment() {
   return (
     <section className="section mt-space-large payment">
+       
       <div className="columns">
-        <div className=" column is-3 box background_light">
+        <div className=" column is-3 box has-background-primary-transparent">
           <h2 className="is-size-4">Gutschein Höhe: 50€</h2>
           <h2 className="is-size-4">Green Benefits</h2>
             <div className="benefits is-flex is-flex-direction-column mt-5">

@@ -15,7 +15,7 @@ import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel from "../../models/shop";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
-// import { Link } from "react-router-dom";
+ import { Link } from "react-router-dom";
 import Media from "../../models/media";
 
 /** ToDo
@@ -255,6 +255,7 @@ function Shopansicht() {
           key={shop.id}
           UserId={shop.id}
           imag={shop.shopOwner?.profilePicture?.url!}
+          bgImage = {shop.shopHeaderImage?.url!}
         />
       ))}
 
@@ -318,7 +319,9 @@ function Shopansicht() {
                 nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
                 augue.
               </p>
-              <button className="is-success mt-2">Gutschein</button>
+                <Link className="button is-primary" to="/payment">
+                  Gutschein
+                </Link>
             </div>
           </div>
         ))}

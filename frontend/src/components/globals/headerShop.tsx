@@ -11,6 +11,7 @@ import { selectShops } from "../../state/slices/shops.state";
 interface params {
   UserId: any;
   imag: string;
+  bgImage: string;
 }
 
 function HeaderShop(props: params) {
@@ -21,7 +22,7 @@ function HeaderShop(props: params) {
   else */
 
   let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
-  console.log(props.imag);
+  console.log(process.env.REACT_APP_STRAPI);
 
   let oeffnungszeiten;
   if (!isUser) {
@@ -36,7 +37,7 @@ function HeaderShop(props: params) {
       </div>
     );
   }
-  console.log(data.productHighlights?.map((e) => e.url));
+
 
   return (
     <main>
@@ -49,6 +50,7 @@ function HeaderShop(props: params) {
           }${data.productHighlights?.slice(0, 1).map((e) => e.url)})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
+          backgroundPosition: "50%, 50%",
         }}
       >
         <div className="columns userHeader mb-0">

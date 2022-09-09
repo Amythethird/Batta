@@ -137,7 +137,7 @@ function FilterShops() {
         {allStatements}
       </div>
 
-      <section className="section is-medium is-flex">
+      <section className="section is-medium is-flex is-justify-content-space-between">
         {shops.map((shop: Shop) => (
           <ShopCard
             key={shop.id}
