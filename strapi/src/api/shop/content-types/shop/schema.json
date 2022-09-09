@@ -22,11 +22,7 @@
       "required": true,
       "allowedTypes": ["images"]
     },
-    "shortDescription": {
-      "type": "text",
-      "required": true
-    },
-    "longDescription": {
+    "description": {
       "type": "text",
       "required": true
     },
