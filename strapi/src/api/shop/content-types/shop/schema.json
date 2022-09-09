@@ -1,0 +1,109 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shops",
+  "info": {
+    "singularName": "shop",
+    "pluralName": "shops",
+    "displayName": "Shop",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "shopName": {
+      "type": "string",
+      "required": true
+    },
+    "shopHeaderImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "shopOwner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shop-owner.shop-owner",
+      "inversedBy": "shops"
+    },
+    "sustainabilityVision": {
+      "type": "text"
+    },
+    "sustainabilityVisionTitle": {
+      "type": "string"
+    },
+    "productHighlights": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "productHighlightsDescription": {
+      "type": "text"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": ["images"]
+    },
+    "storeVideo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["videos"]
+    },
+    "email": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::address.address"
+    },
+    "label": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::label.label"
+    },
+    "socialMedia": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
+    },
+    "coupons": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coupon.coupon",
+      "mappedBy": "shop"
+    },
+    "openingHours": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::opening-hour.opening-hour"
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "shop"
+    },
+    "coordinateLat": {
+      "type": "string",
+      "required": true
+    },
+    "coordinateLng": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
