@@ -13,10 +13,10 @@ import HeaderUser from "../globals/headerShop";
 function Payment() {
 
   const {id} = useParams();
+  
+  const [isButton, setFirstButton] = React.useState(0);
+  const [isStep, setStep] = React.useState(0);
 
-  const [isFirst, setFirst] = React.useState(false);
-  const [isSecond, setSecond] = React.useState(false);
-  const [isThird, setThird] = React.useState(false);
   const machtNix = "nix";
   const shops = useAppSelector(selectShops);
   const dispatch = useAppDispatch();
@@ -43,35 +43,11 @@ function Payment() {
   );
 
 
-  const handleFirst = () => {
-    setFirst(!isFirst)
-    if(isSecond){
-      setSecond(!isSecond)
-      setFirst(isFirst)
-      setThird(isThird)
-    }
-  };
-
-   const handleSecond = () => {
-    setSecond(!isSecond)
-    if(!isFirst){
-      setFirst(!isFirst)
-    }
-    if(isThird){
-      setThird(!isThird)
-      setSecond(isSecond)
-    }
-  };
-
-  const handleThird = () => {
-    if(!isFirst && !isSecond){
-      setFirst(!isFirst)
-      setSecond(!isSecond)
-    }
-    setThird(!isThird)
-  }; 
-
+ function handleButton(e: number){
+    setFirstButton(e)
+    setStep(e)
   
+ }
   
   return (
     <section className="mt-space-large payment">
@@ -90,19 +66,19 @@ function Payment() {
           <h2 className=" title is-2">Green benefits</h2>
           <ul>
           <li >
-            <div className={isFirst ? " stepProgress one active" : "stepProgress one"} >
+            <div className={isStep === 1 || isStep === 2 || isStep === 3? " stepProgress one active" : "stepProgress one"} >
               <p>10-20€</p>
             </div>
             <p className="benefit">Wir pflanzen einen Baum in deinem Namen</p>
           </li>
           <li >
-            <div className={isSecond ? "stepProgress two active" : "stepProgress two"} id="two">
+            <div className={isStep === 2 || isStep === 3  ? "stepProgress two active" : "stepProgress two"} id="two">
               <p>50€ +</p>
             </div>
             <p className="benefit">Wir spenden 5€ an das Tierheim-Dellbrück</p>
           </li> 
           <li>
-            <div className={isThird ? "stepProgress three active" : "stepProgress three"}>
+            <div className={isStep === 3 ?  "stepProgress three active" : "stepProgress three"}>
               <p>100€ +</p>
             </div>
             <p className="benefit">10€ des Gutscheinwertes gehen an die  Gutes Wasser für den Rhein Striftung</p>
@@ -114,14 +90,14 @@ function Payment() {
         <div className="column  is-two-thirds">
           <h2 className="is-size-4">Gutschein Höhe festlegen</h2>
           <div className="is-flex button_group is-justify-content-space-between">
-            <button className={isFirst ? " button  _activeButton" : "button"} onClick={handleFirst}>20€</button>
-            <button className={isSecond ? " button  _activeButton" : "button"} onClick={handleSecond}>50€</button>
-            <button className={isThird ? " button  _activeButton" : "button"} onClick={handleThird}>100€</button>
+            <button className={isButton == 1 ? " button  _activeButton" : "button"} onClick={() => handleButton(1)}>20€</button>
+            <button className={isButton == 2 ? " button  _activeButton" : "button"} onClick={() => handleButton(2)}>50€</button>
+            <button className={isButton == 3 ? " button  _activeButton" : "button"} onClick={() => handleButton(3)}>100€</button>
             <button className="button mr-2 disabled">0</button>
           </div>
           <h2>Für wen?</h2>
-          <div className="control mg-05">
-            <label className="radio">
+          <div className="control mgb-2 mgt-2">
+            <label className="radio mgr-05">
               <input type="radio" name="answer" />
               Als Gast bestellen
             </label>
@@ -158,10 +134,8 @@ function Payment() {
           <div className="field-body">
             <div className="field">
               <p className="control is-expanded has-icons-left">
-                <input className="input" type="text" placeholder="PLZ" />
-                <span className="icon is-small is-left">
-               
-                </span>
+                <input className="input " type="text" placeholder="PLZ" />
+                
               </p>
             </div>
             <div className="field">
@@ -204,7 +178,7 @@ function Payment() {
           
         
         </div>
-        <div className="field">
+        <div className="field mgb-2">
           <p className="control is-expanded has-icons-left has-icons-right">
             <input className="input is-success" type="email" placeholder="Email" value="alex@smith.com" />
             <span className="icon is-small is-left">
@@ -218,7 +192,7 @@ function Payment() {
             <input type="checkbox" />
               Ja ich möchte den <a href="#">Newsletter</a> abonnieren
         </label>
-        <div className="field">
+        <div className="field mgb-2">
           <p className="control is-expanded has-icons-left has-icons-right">
             <input className="input is-success" type="email" placeholder="Email" value="alex@smith.com" />
             <span className="icon is-small is-left">
@@ -229,20 +203,22 @@ function Payment() {
           </p>
          </div>
          <h2>Zahlungsmethode</h2>
-         <div className="is-flex button_group is-justify-content-space-between">
-            <button className="button mr-2 ">20€</button>
-            <button className="button mr-2 " >50€</button>
-            <button className="button mr-2 " >100€</button>
-            <button className="button mr-2 disabled">0</button>
+         <div className="is-flex button_group is-justify-content-space-between mgb-2">
+            <button className="button mr-2 ">Paypal</button>
+            <button className="button mr-2 " >Sofort Überweisung</button>
+            <button className="button mr-2 " >Master Card</button>
+            <button className="button mr-2 disabled">Klarna</button>
           </div>
-          <label className="checkbox">
+          <div className="is-flex is-flex-direction-column" >
+          <label className="checkbox mgb-1">
             <input type="checkbox" />
-              Ja ich möchte den <a href="#">Newsletter</a> abonnieren
-        </label>
+              Ich stimme den <a href="#">AGBs</a> zu
+          </label>
         <label className="checkbox">
             <input type="checkbox" />
-              Ja ich möchte den <a href="#">Newsletter</a> abonnieren
+              Ich stimme den <a href="#">Datenschutzrichtlinien</a> zu
         </label>
+          </div>
         </div>
       </div>
      </section>

@@ -22,7 +22,6 @@ function HeaderShop(props: params) {
   else */
 
   let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
-  console.log(process.env.REACT_APP_STRAPI);
 
   let oeffnungszeiten;
   if (!isUser) {
@@ -32,7 +31,7 @@ function HeaderShop(props: params) {
           <p className="has-text-weight-medium">Öffnungszeiten</p>
           {""}
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
-          <p className="is_green">{data?.address?.postalCode}</p>
+          <p className="is_green">{data.address?.streetName}{data.address?.houseNumber}{data?.address?.postalCode}</p>
         </div>
       </div>
     );
