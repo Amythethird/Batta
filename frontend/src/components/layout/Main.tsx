@@ -26,7 +26,7 @@ const Main = () => {
         }
       ></Route>
       <Route path="/shop/:id" element={<Shop />}></Route>
-      <Route path="/payment" element={<Payment />}></Route>
+      <Route path="/shop/:id/payment" element={<Payment />}></Route>
     </Routes>
   );
 };

@@ -1,32 +1,88 @@
 .payment{ 
-    .benefits{
-     justify-content: center;
-     .tag{
-       color: white;
-       min-width: 70px;
-       max-width: 90px;
-     }
-   
-     .line{
-       width: 25px;
-       height: 0px;
-       border: 1px solid #257708;
-       transform: rotate(-90deg);
-       position: absolute;
-       left: 4.6%;
-       bottom: -15%;
-     }
-    }
-    .buy_voucher{
-     button{
-       min-width: 180px !important;
-     }
-    }
 
- 
-   
-   }
-
-   .box{
-    background-color: $box-background-color;
+  .box{
+    height: auto;
+    width: auto;
   }
+
+  ul{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    
+
+    li{
+      list-style: none;
+      margin: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .benefit{
+        width: 250px;
+      }
+
+       .stepProgress{
+        width: 100px;
+        height: 30px;
+        border-radius: 20px;
+        background-color: $white;
+        display: grid;
+        place-items: center;
+        margin: 14px;
+        position: relative;
+        cursor: pointer;
+        
+      }
+      .stepProgress::after{
+        content: " ";
+        position: absolute;
+        width: 5px;
+        height: 70px;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: $grey-lighter;
+        z-index: -1;
+       
+      } 
+      .active{
+        background-color: $primary;
+        color: white;
+      }
+      .active::after{
+        background-color: $primary;
+      }
+      
+    
+   
+      .one::after{
+          width: 0;
+          height: 0;
+      }
+      
+    }
+   
+   
+    
+  }
+
+  .button_group{
+    button{
+      min-width: 100px;
+      max-width: 150px;
+      background-color: $white;
+      color: $primary;
+      border-radius: $radius;
+      border: 1px solid $grey-lighter;
+    } 
+    ._activeButton{
+      border-bottom: 6px solid $primary;
+     
+    }
+   
+  }
+
+}
+
+

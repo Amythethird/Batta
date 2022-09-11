@@ -42,6 +42,7 @@ function Shopansicht() {
   const shops = useAppSelector(selectShops);
   const dispatch = useAppDispatch();
 
+
   // Kommentare
   const [title, setTitle] = React.useState("");
   const [user, setUser] = React.useState("");
@@ -64,7 +65,7 @@ function Shopansicht() {
         [
           "shopName",
           entry("address", ["postalCode"]),
-          "description",
+          "description", collection("shopHeaderImage", ["url"]),
           collection("productHighlights", ["url"]),
         ],
         {
@@ -319,7 +320,7 @@ function Shopansicht() {
                 nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
                 augue.
               </p>
-                <Link className="button is-primary" to="/payment">
+                <Link className="button is-primary" to={`payment`}>
                   Gutschein
                 </Link>
             </div>

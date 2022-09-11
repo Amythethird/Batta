@@ -31,8 +31,9 @@ function FilterShops() {
         "shops",
         [
           "shopName",
-          entry("address", ["postalCode"]),
+          entry("address", ["streetName, postalCode, houseNumber, city, country"]),
           "description",
+          entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [
             entry("customer", [entry("profilePicture", ["url"])]),
           ]),
@@ -56,6 +57,7 @@ function FilterShops() {
   //Input Form
   const [input, setCriteria] = React.useState("");
   const categorie: string[] = [];
+  
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
@@ -141,14 +143,7 @@ function FilterShops() {
         {shops.map((shop: Shop) => (
           <ShopCard
             key={shop.id}
-            name={shop.shopName ?? "SHOP"}
-            tag={[]}
-            oeffnungszeiten={{ Mo: "08:00h-17:00h" }}
-            text={shop.description ?? ""}
-            //address={shop.address}
-            plz={shop.address?.postalCode?.toString() ?? input}
-            img={shop.shopOwner?.profilePicture?.url}
-            id={shop.id as number}
+            shop = {shop }
           />
         ))}
       </section>

@@ -47,7 +47,7 @@ function HeaderShop(props: params) {
           backgroundImage: `url(${
             // eslint-disable-next-line no-undef
             process.env.REACT_APP_STRAPI
-          }${data.productHighlights?.slice(0, 1).map((e) => e.url)})`,
+          }${data.shopHeaderImage?.url})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           backgroundPosition: "50%, 50%",
