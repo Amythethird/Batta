@@ -1,1 +1,0 @@
-docker-compose -f ./docker/dev.yml stop
