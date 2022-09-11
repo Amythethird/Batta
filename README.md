@@ -13,11 +13,14 @@ Das Projekt baut auf dem [Veedelsretter](https://www.veedelsretter.koeln) auf un
 - [Setup-Guide](#setup-guide)
   - [Voraussetzungen](#voraussetzungen)
   - [Entwicklungsumgebung](#entwicklungsumgebung)
+  - [Abhängigkeiten installieren](#abhängigkeiten-installieren)
   - [Projekt starten](#projekt-starten)
-    - [Starten mit Docker](#starten-mit-docker)
-    - [Starten lokal](#starten-lokal)
   - [Zugänge](#zugänge)
-  - [Partner:innen](#partnerinnen)
+- [Deployment](#deployment)
+  - [Images bauen](#images-bauen)
+  - [Images in das Repository pushen](#images-in-das-repository-pushen)
+  - [Anwendungen auf Server starten](#anwendungen-auf-server-starten)
+- [Partner:innen](#partnerinnen)
 
 # Team
 
@@ -52,77 +55,126 @@ Folge den hier angegebenen Schritten, um das Projekt aufzusetzen.
 Bitte installiere die folgenden Technologien und Tools, um die Entwicklung zu ermöglichen.
 
 - [Node.js (Version 14 oder 16) und npm](https://nodejs.org/en/download/)
-- [Deno](https://deno.land/#installation)
 - [Docker Desktop](https://www.docker.com/get-started/)
-- IDE/Editor (Empfehlung: [Visual Studio Code]())
+- IDE/Editor (Empfehlung: [Visual Studio Code](https://code.visualstudio.com/))
 - [Git](https://git-scm.com/) (und bei Bedarf ein Git Client der Wahl)
 - Webbrowser
 
 ## Entwicklungsumgebung
 
-Um deine Entwicklungsumgebung aufzusetzen, clone zunächst dieses GitHub-Repository und öffne den Projektordner in deinem Editor. Wenn du Visual Studio Code nutzt, empfiehlt es sich die Extensions zu installieren, die dir über den Workspace vorgeschlagen werden.
+Um deine Entwicklungsumgebung aufzusetzen, clone zunächst dieses GitHub-Repository und öffne den Projektordner in deinem Editor. Wenn du Visual Studio Code nutzt, empfiehlt es sich, die Extensions zu installieren, die dir über den Workspace vorgeschlagen werden.
 
 Füge anschließend die benötigten Environment-Dateien (benannt mit ".env") in den entsprechenden Ordnern ein. Du findest den Inhalt der Dateien im Discord-Channel des Teams als angepinnte Nachricht. Frage bei Bedarf ein Team-Mitglied um Hilfe. Die folgenden Ordner benötigen eine passende .env Datei:
 
-- /docker
-- /docker/strapi/veedelsretter
+- /strapi
 
-## Projekt starten
+## Abhängigkeiten installieren
 
-### Starten mit Docker
+Installiere die Abhängigkeiten der Anwendungen, indem du folgende Befehle ausführst:
 
-Stelle sicher, dass Docker Desktop gestartet und deine Entwicklungsumgebung korrekt eingerichtet ist. Öffne anschließend das Terminal und navigiere in den docker-Ordner. Führe dort das start-Skript aus. Als Parameter erwartet das Skript die Umgebung (dev/production), die gestartet werden soll:
-
-```bash
-./start.sh (dev | production)
-```
-
-Optional kann ein Strapi-Container gestartet werden, um eine lokale Instanz des Strapi-Backends zu nutzen. Das startStrapi-Skript folgt hierbei derselben Logik, wie das normale start-Skript:
+**Projektordner**
 
 ```bash
-./startStrapi.sh (dev | production)
+npm install
 ```
-
-Um die lokale Strapi Instanz zu nutzen, muss in der .env Datei (docker-Ordner) die lokale BASE_URL Variable (strapi.localhost) einkommentiert und die andere auskommentiert werden.
-
-Nach dem erfolgreichen Start der Docker-Container sind diese wie folgt erreichbar:
-
-- Frontend: [http://localhost](http://localhost)
-- Strapi: [http://strapi.localhost](http://strapi.localhost) oder [http://h2964058.stratoserver.net:5001](http://h2964058.stratoserver.net:5001)
-
-### Starten lokal
-
-Führe zum lokalen Starten der Anwendungen jeweils die folgenden Befehle aus:
 
 **Frontend**
 
 ```bash
 cd frontend
 npm install
-npm start
 ```
-
-Anschließend ist das Frontend unter [https://localhost:3000](https://localhost:3000) erreichbar.
 
 **Strapi**
 
 ```bash
-cd docker/strapi/veedelsretter
+cd strapi
 npm install
-npm run develop
 ```
 
-Anschließend ist Strapi unter [https://localhost:1337](https://localhost:1337) erreichbar.
+## Projekt starten
+
+Führe zum lokalen Starten der Anwendungen den folgenden Befehl im Projektverzeichnis aus:
+
+```bash
+npm start
+```
+
+Anschließend ist das Frontend unter [http://localhost:3000](http://localhost:3000) und Strapi unter [http://localhost:2500](http://localhost:2500) erreichbar.
 
 ## Zugänge
 
-Um einen einheitlichen Stand zu haben, wurden für die Entwicklung Dummy-Zugänge angelegt. Mit diesen Zugangsdaten kannst du dich anmelden, wenn du das Projekt bei dir gestartet hast.
+Um einen einheitlichen Stand zu haben, wurden für die Entwicklung Dummy-Zugänge angelegt. Die Zugangsdaten für die gehostete Instanz des Projekts findest du im Discord-Channel des Teams als angepinnte Nachricht. Frage bei Bedarf ein Team-Mitglied um Hilfe. Um dich anzumelden, wenn du das Projekt bei dir gestartet hast, kannst du folgende Zugangsdaten nutzen:
 
-### Strapi Admin-Panel
+**Strapi Admin-Panel**
 
-E-Mail: chef@strapi.io
+- E-Mail: chef@strapi.io
+- Passwort: Gourmet1234
 
-Passwort: Gourmet1234
+# Deployment
+
+Das Deployment erfolgt mit Docker über den Docker Hub, indem die Images der Anwendungen in folgende Repositories hochgeladen werden:
+
+- Frontend: [https://hub.docker.com/repository/docker/mweiershaeuser/batta-frontend](https://hub.docker.com/repository/docker/mweiershaeuser/batta-frontend)
+- Strapi: [https://hub.docker.com/repository/docker/mweiershaeuser/batta-strapi](https://hub.docker.com/repository/docker/mweiershaeuser/batta-strapi)
+
+Die Images werden anschließend mit Docker Compose aus dem Docker Hub geladen und gestartet, sodass sie unter den folgenden Adressen erreichbar sind:
+
+- Frontend: [https://batta.melvinweiershaeuser.de](https://batta.melvinweiershaeuser.de)
+- Strapi: [https://batta-strapi.melvinweiershaeuser.de/admin](https://batta-strapi.melvinweiershaeuser.de/admin)
+
+Für den Deployment-Prozess sind folgende Schritte durchzuführen:
+
+## Images bauen
+
+Führe jeweils die folgenden Befehle aus:
+
+**Frontend**
+
+```bash
+cd frontend
+docker build -t mweiershaeuser/batta-frontend .
+```
+
+**Strapi**
+
+```bash
+cd strapi
+docker build -t mweiershaeuser/batta-strapi .
+```
+
+## Images in das Repository pushen
+
+Für diesen Schritt benötigst du Berechtigungen für das Repository. Lege einen Account im Docker Hub an und wende dich an ein Team-Mitglied, damit dir die entsprechenden Berechtigungen erteilt werden. Anschließend meldest du dich mit deinem Docker Hub Account bei deiner lokalen Docker-Instanz (in der Regel über die Docker Desktop GUI) an und führst folgende Befehle aus:
+
+**Frontend**
+
+```bash
+cd frontend
+docker push mweiershaeuser/batta-frontend
+```
+
+**Strapi**
+
+```bash
+cd strapi
+docker push mweiershaeuser/batta-strapi
+```
+
+## Anwendungen auf Server starten
+
+Wurden die Images im Repository hochgeladen, kannst du die Anwendungen auf einem Server starten. Kopiere dazu die Datei [docker-compose.yaml](docker-compose.yaml) in das Arbeitsverzeichnis auf deinem Server (via FTP) und führe dort folgenden Befehl (via SSH) aus:
+
+```bash
+sudo docker-compose up -d
+```
+
+Anschließend sollten die Docker-Container starten und auf folgenden Ports erreichbar sein:
+
+- Frontend: 8070
+- Strapi: 8071
+
+Der Server kann nun entsprechend der individuellen Gegebenheiten konfiguriert werden, um die auf den Ports laufenden Anwendungen in der Regel mit einem Web-Server über Domain und TLS-Verschlüsselung erreichbar zu machen.
 
 # Partner:innen
 

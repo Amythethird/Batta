@@ -5,6 +5,3 @@ npm run hooks:pre-commit
 
 cd frontend
 npm run lint:write
-
-cd ../backend
-deno lint

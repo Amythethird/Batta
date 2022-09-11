@@ -1,5 +1,5 @@
 {
-  "name": "wtw_veedelsretter",
+  "name": "batta",
   "version": "1.0.0",
   "contributors": [
     {
@@ -19,12 +19,16 @@
     }
   ],
   "scripts": {
+    "start": "concurrently -n frontend,strapi \"npm run start:frontend\" \"npm run start:strapi\"",
+    "start:frontend": "cd frontend && npm start",
+    "start:strapi": "cd strapi && npm run develop",
     "prepare": "husky install",
     "format:check": "prettier --check --ignore-unknown .",
     "format:write": "prettier --write --ignore-unknown .",
     "hooks:pre-commit": "lint-staged --verbose"
   },
   "devDependencies": {
+    "concurrently": "^7.4.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
     "prettier": "2.6.2"
