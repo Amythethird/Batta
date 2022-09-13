@@ -120,8 +120,8 @@ Das Deployment erfolgt mit Docker über den Docker Hub, indem die Images der Anw
 
 Die Images werden anschließend mit Docker Compose aus dem Docker Hub geladen und gestartet, sodass sie unter den folgenden Adressen erreichbar sind:
 
-- Frontend: [https://batta.melvinweiershaeuser.de](https://batta.melvinweiershaeuser.de)
-- Strapi: [https://batta-strapi.melvinweiershaeuser.de/admin](https://batta-strapi.melvinweiershaeuser.de/admin)
+- Frontend: [https://batta.app](https://batta.app)
+- Strapi: [https://strapi.batta.app/admin](https://strapi.batta.app/admin)
 
 Für den Deployment-Prozess sind folgende Schritte durchzuführen:
 
