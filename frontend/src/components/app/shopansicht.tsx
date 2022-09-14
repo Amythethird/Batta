@@ -15,7 +15,7 @@ import ShopModel from "../../models/shop";
 import Review from "../../models/review";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Media from "../../models/media";
 
 /** ToDo
@@ -28,12 +28,17 @@ import Media from "../../models/media";
  *
  */
 function Shopansicht() {
-
   /*Partner*/
-  const partner = ["Partner_1", "Partner_2","Partner_3","Partner_4","Partner_5"]
+  const partner = [
+    "Partner_1",
+    "Partner_2",
+    "Partner_3",
+    "Partner_4",
+    "Partner_5",
+  ];
   let image = (
-      <img src="https://bulma.io/images/placeholders/128x128.png"></img>
-  )
+    <img src="https://bulma.io/images/placeholders/128x128.png"></img>
+  );
 
   //Abfragen
   const { id } = useParams();
@@ -41,7 +46,6 @@ function Shopansicht() {
   const machtNix = "nix";
   const shops = useAppSelector(selectShops);
   const dispatch = useAppDispatch();
-
 
   // Kommentare
   const [title, setTitle] = React.useState("");
@@ -65,10 +69,10 @@ function Shopansicht() {
         [
           "shopName",
           entry("address", ["postalCode"]),
-          "description", 
-          collection("shopHeaderImage", ["url"]), 
-          entry("label", ["name"]), 
-          entry("socialMedia", ["platform", "url"]), 
+          "description",
+          collection("shopHeaderImage", ["url"]),
+          entry("label", ["name"]),
+          entry("socialMedia", ["platform", "url"]),
           entry("reviews", ["title", "rating", "description"]),
           collection("productHighlights", ["url"]),
         ],
@@ -80,14 +84,14 @@ function Shopansicht() {
     (response) => {
       dispatch(setShops(parseResponse("shops", response).data as ShopModel[]));
     },
-    [machtNix]
+    [machtNix],
+    false
   );
 
   const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
     // Preventing the page from reloading
     event.preventDefault();
   };
-
 
   if (filter) {
     modal = (
@@ -245,9 +249,8 @@ function Shopansicht() {
   };
 
   //Ratings
- /*  const reviews = shops.map((e) => e.reviews)
+  /*  const reviews = shops.map((e) => e.reviews)
   let sum = 0; */
-
 
   return (
     <main className="mt-space-large shop">
@@ -256,8 +259,7 @@ function Shopansicht() {
           key={shop.id}
           UserId={shop.id}
           imag={shop.shopOwner?.profilePicture?.url!}
-          bgImage = {shop.shopHeaderImage?.url!}
-         
+          bgImage={shop.shopHeaderImage?.url!}
         />
       ))}
 
@@ -271,38 +273,36 @@ function Shopansicht() {
               <h2 className="title is-2">Bewertungen & Kommentare</h2>
             </div>
             <div className="column has-text-right">
-                <a onClick={bewertung}>Bewertung verfassen</a> | <a>alle anzeigen</a>
+              <a onClick={bewertung}>Bewertung verfassen</a> |{" "}
+              <a>alle anzeigen</a>
             </div>
           </div>
           {modal}
           <div className="columns">
             <div className="column is-3">
-            {shops.map((e, i) => (
-                   <Rating
-                   key={i}
-                   durchschnitt={Math.round( 10) / 10}
-                   title={false}
-                   full={true}
-                   ratings={e.reviews?.length!}
-                 />
-               
+              {shops.map((e, i) => (
+                <Rating
+                  key={i}
+                  durchschnitt={Math.round(10) / 10}
+                  title={false}
+                  full={true}
+                  ratings={e.reviews?.length!}
+                />
               ))}
-           
             </div>
             <div className="column is-9 columns comment-carousel">
-              {shops.map((e) => (
-                  e.reviews?.map((review: Review) =>(
-                    <Comment
+              {shops.map((e) =>
+                e.reviews?.map((review: Review) => (
+                  <Comment
                     key={review.id}
                     title={review.title!}
                     text={review.description!}
                     date={""}
                     bewertung={review.rating!}
-                    lenght = {e.reviews?.length!}
+                    lenght={e.reviews?.length!}
                   />
-                  ))
-               
-              ))}
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -329,9 +329,9 @@ function Shopansicht() {
                 nascetur ridiculus mus. Nulla vitae elit libero, a pharetra
                 augue.
               </p>
-                <Link className="button is-primary" to={`payment`}>
-                  Gutschein
-                </Link>
+              <Link className="button is-primary" to={`payment`}>
+                Gutschein
+              </Link>
             </div>
           </div>
         ))}
@@ -366,27 +366,28 @@ function Shopansicht() {
           </div>
         </div>
       </section>
-      
-      
+
       <section className="section has-background-primary-transparent mgb-large">
         <div className="container has-text-centered">
-          <h2 className="title is-2">Diese Parter:Innen unterstützt du mit einem Gutschein</h2>
+          <h2 className="title is-2">
+            Diese Parter:Innen unterstützt du mit einem Gutschein
+          </h2>
           <div className="columns">
             <div className="column is-half is-offset-one-quarter">
               <p>
-                Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt, bieten
-                unsere Parther verschiedene Möglichkeiten wie z.B. die Unterstützung
-                nachhaltiger Projekte.
+                Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt,
+                bieten unsere Parther verschiedene Möglichkeiten wie z.B. die
+                Unterstützung nachhaltiger Projekte.
               </p>
             </div>
           </div>
-          
+
           <div className="columns">
-            {
-              partner.map((e)=>
-              <div className="column" key={e}>{image}</div>
-              )
-            }
+            {partner.map((e) => (
+              <div className="column" key={e}>
+                {image}
+              </div>
+            ))}
           </div>
 
           <button className="button is-primary">Gutschein Kaufen</button>

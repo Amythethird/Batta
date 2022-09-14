@@ -5,13 +5,21 @@ export default function UseApi(
   query: string,
   // eslint-disable-next-line no-unused-vars
   responseHandler: (response: any) => any,
-  useApiWhenChanged: any[]
+  useApiWhenChanged: any[],
+  authRequired = true
 ) {
   useEffect(() => {
     async function fetchApi() {
       const accessToken = getAccessToken();
-      if (!accessToken) {
+      if (authRequired && !accessToken) {
         throw new Error("Login required!");
+      }
+
+      let headers: any = {
+        "Content-Type": "application/json",
+      };
+      if (authRequired) {
+        headers["Authorization"] = `Bearer ${accessToken}`;
       }
 
       const response = await fetch(
@@ -20,10 +28,7 @@ export default function UseApi(
         {
           method: "POST",
           body: JSON.stringify({ query }),
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${accessToken}`,
-          },
+          headers,
         }
       );
 
