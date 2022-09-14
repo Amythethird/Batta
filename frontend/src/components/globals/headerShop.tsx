@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/style.css";
-import SocialMedia from "./elements/socialMedia";
+//import SocialMedia from "./elements/socialMedia";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import Shop from "../../models/shop";
@@ -12,24 +12,23 @@ interface params {
   UserId: any;
   imag: string;
   bgImage: string;
+
 }
 
 function HeaderShop(props: params) {
   const url = useLocation();
   const isUser: boolean = url.pathname.includes("user");
   const Shops = useAppSelector(selectShops);
-  /* if (isUser) data = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"));
-  else */
+
 
   let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
+ 
 
   let oeffnungszeiten;
   if (!isUser) {
     oeffnungszeiten = (
       <div className="column is-align-self-flex-start">
         <div className="test p-4">
-          <p className="has-text-weight-medium">Öffnungszeiten</p>
-          {""}
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
           <p className="is_green">{data.address?.streetName}{data.address?.houseNumber}{data?.address?.postalCode}</p>
         </div>
@@ -56,19 +55,25 @@ function HeaderShop(props: params) {
           <div className="column is-align-self-flex-end  pb-0">
             <div className="information p-3">
               <figure className="imageInhaber"></figure>
-              <h2 className="is-size-4">
+              <h2 className="is-size-4 mgb-1">
                 {data.shopName}
                 <span>
                   <FontAwesomeIcon icon={faHeart} size="1x" />
                 </span>
               </h2>
               {data?.label?.map((e, i) => (
-                <span className="tag mr-2 mt-5 mb-2 is-primary" key={i}>
+                <span className="tag mgb-1 is-primary" key={i}>
                   {e.name}
                 </span>
               ))}
               <p>{data?.description}</p>
-              <SocialMedia id={(data?.id as number) ?? 0} />
+              {
+                data.socialMedia?.map((e,i) =>(
+                  <span className="socialMedia mgr-1 mgt-2" key={i}>
+                     <a href={e.url}>{e.platform}</a>
+                  </span>
+                ))
+              }
             </div>
           </div>
           {oeffnungszeiten}

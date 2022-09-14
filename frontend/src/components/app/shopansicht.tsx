@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/elements/rating";
-import RatingData from "../../testdata/Rating.json";
 import Comment from "../globals/elements/comment";
 import HeaderUser from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +12,7 @@ import useApi from "../../hooks/useApi";
 import { collection, entry, query } from "../../api-utils/query-utils";
 import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel from "../../models/shop";
+import Review from "../../models/review";
 import Masonry from "../globals/elements/masonry";
 import Artikel from "../globals/elements/article";
  import { Link } from "react-router-dom";
@@ -65,7 +65,11 @@ function Shopansicht() {
         [
           "shopName",
           entry("address", ["postalCode"]),
-          "description", collection("shopHeaderImage", ["url"]),
+          "description", 
+          collection("shopHeaderImage", ["url"]), 
+          entry("label", ["name"]), 
+          entry("socialMedia", ["platform", "url"]), 
+          entry("reviews", ["title", "rating", "description"]),
           collection("productHighlights", ["url"]),
         ],
         {
@@ -84,14 +88,6 @@ function Shopansicht() {
     event.preventDefault();
   };
 
-  /*Berechnung Rating für Durchnitt*/
-  const ratings = RatingData.map((e) => e.bewertung);
-  let sum = 0;
-  for (let i = 0; i < ratings.length; i++) {
-    sum += ratings[i];
-  }
-  let durchnitt: number = 0.0;
-  durchnitt = sum / ratings.length;
 
   if (filter) {
     modal = (
@@ -248,7 +244,11 @@ function Shopansicht() {
     // setIsActive(true);
   };
 
-  console.log(shops);
+  //Ratings
+ /*  const reviews = shops.map((e) => e.reviews)
+  let sum = 0; */
+
+
   return (
     <main className="mt-space-large shop">
       {shops.map((shop: ShopModel) => (
@@ -257,13 +257,14 @@ function Shopansicht() {
           UserId={shop.id}
           imag={shop.shopOwner?.profilePicture?.url!}
           bgImage = {shop.shopHeaderImage?.url!}
+         
         />
       ))}
 
       {/* Auslagern:
           Shopansicht rendert payment und Shop
         */}
-      <section className="section content">
+      <section className="section content ">
         <div className="container">
           <div className="columns">
             <div className="column">
@@ -276,29 +277,37 @@ function Shopansicht() {
           {modal}
           <div className="columns">
             <div className="column is-3">
-              <Rating
-                durchschnitt={Math.round(durchnitt* 10) / 10}
-                title={false}
-                full={true}
-                ratings={ratings.length}
-              ></Rating>
+            {shops.map((e, i) => (
+                   <Rating
+                   key={i}
+                   durchschnitt={Math.round( 10) / 10}
+                   title={false}
+                   full={true}
+                   ratings={e.reviews?.length!}
+                 />
+               
+              ))}
+           
             </div>
             <div className="column is-9 columns comment-carousel">
-              {RatingData.map((e, key) => (
-                <Comment
-                  key={key}
-                  title={e.title}
-                  autor={e.user}
-                  text={e.text}
-                  date={e.date}
-                  bewertung={e.bewertung}
-                />
+              {shops.map((e) => (
+                  e.reviews?.map((review: Review) =>(
+                    <Comment
+                    key={review.id}
+                    title={review.title!}
+                    text={review.description!}
+                    date={""}
+                    bewertung={review.rating!}
+                    lenght = {e.reviews?.length!}
+                  />
+                  ))
+               
               ))}
             </div>
           </div>
         </div>
       </section>
-      <section className="section">
+      <section className="section has-background-primary-transparent">
         {shops.map((product: ShopModel) => (
           <div className="columns background_light" key={product.id}>
             <div className="column products is-flex ">
