@@ -13,7 +13,18 @@ const Main = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/login" element={<Login />}></Route>
+      <Route
+        path="/login"
+        element={
+          <ProtectedElement
+            isAuthenticated={() => {
+              return !isLoggedIn();
+            }}
+            protectedElement={<Login />}
+            redirectPath={"/user"}
+          />
+        }
+      ></Route>
       <Route path="/shops" element={<Shops />}></Route>
       <Route
         path="/user"
