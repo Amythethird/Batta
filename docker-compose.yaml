@@ -15,3 +15,6 @@ services:
       - type: bind
         source: ./db
         target: /batta-strapi/.tmp
+      - type: bind
+        source: ./assets
+        target: /batta-strapi/public
