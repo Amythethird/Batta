@@ -1,0 +1,32 @@
+.searchbar {
+  position: relative;
+
+  .search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1.75rem;
+    color: $primary;
+  }
+
+  .search-filter {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 1.75rem;
+    color: $primary;
+  }
+
+  .search-bar {
+    border: 1px solid $primary;
+    padding: 1rem 1rem 1rem 2.5rem;
+    height: 3rem;
+  }
+}
+
+.search-filter-wrapper {
+  position: relative;
+  border: 1px solid $primary;
+  padding: 1rem;
+  border-radius: $radius-large;
+}

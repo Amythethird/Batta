@@ -1,0 +1,48 @@
+.checkbox-label,
+.radio-label {
+  margin-right: 1rem;
+  margin-bottom: 0.125rem;
+  display: block;
+}
+
+.checkbox-input,
+.radio-input {
+  margin-right: 0.25rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 0.25rem;
+  &:checked {
+    accent-color: $primary;
+  }
+}
+
+.range-slider {
+  .horizontal-slider {
+    width: 100%;
+  }
+  .slider-thumb {
+    cursor: pointer;
+    background: $primary;
+    color: $white;
+    padding: 0.0125rem 0.25rem;
+    border-radius: 0.25rem;
+  }
+  .slider-track {
+    position: relative;
+    background: $green;
+  }
+  .slider-track.slider-track-0 {
+    background: $green;
+  }
+  .horizontal-slider .slider-track {
+    top: 50%;
+    transform: translateY(-50%);
+    height: 3px;
+  }
+  .slider-value {
+    text-align: center;
+  }
+  .slider-unit {
+    margin-left: 1rem;
+  }
+}

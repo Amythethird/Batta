@@ -14,7 +14,7 @@ import { parseResponse } from "../../api-utils/response-utils";
 import ShopModel from "../../models/shop";
 import Review from "../../models/review";
 import Masonry from "../globals/elements/masonry";
-import Artikel from "../globals/elements/article";
+import ArtikelCard from "../globals/elements/articleCard";
 import { Link } from "react-router-dom";
 import Media from "../../models/media";
 
@@ -425,7 +425,7 @@ function Shopansicht() {
             </div>
           </div>
 
-          <Artikel article={article} />
+          <ArtikelCard article={article} />
         </div>
       </section>
     </main>

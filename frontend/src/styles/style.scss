@@ -15,15 +15,16 @@
 @import "./components/blog";
 @import "./components/payment";
 @import "./components/shop";
-@import "./components/slider";
 @import "./components/user";
 @import "./components/voucher";
 @import "./components/cards";
+@import "./components/shop-search";
+@import "./components/forms";
 
 // Bulma Elements
 
 body {
-  margin-top: 4rem;
+  margin-top: 6rem;
 }
 
 // links

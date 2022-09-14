@@ -34,26 +34,22 @@ function Categories(props: categories) {
 
   useEffect(() => props.handler(checkboxValue.checkbox), [checkboxValue]);
   return (
-    <div className="container">
-      <div className="categories">
-        <p className="has-text-weight-medium mb-2">Kategorien</p>
-        <div className="is-flex is-flex-wrap-wrap">
-          {props.categorie.map((e) => (
-            <div className="control" key={e}>
-              <label className="checkbox mr-2">
-                <input
-                  className="form-check-input mr-2"
-                  type="checkbox"
-                  name="categories"
-                  value={e}
-                  id="flexCheckDefault"
-                  onChange={handleChange}
-                />
-                {e}
-              </label>
-            </div>
-          ))}
-        </div>
+    <div className="search-categories">
+      <h3 className="title is-3 mgb-05">Kategorien</h3>
+      <div className="is-flex is-flex-wrap-wrap">
+        {props.categorie.map((e) => (
+          <label className="checkbox-label" key={e}>
+            <input
+              className="checkbox-input"
+              type="checkbox"
+              name="categories"
+              value={e}
+              id="flexCheckDefault"
+              onChange={handleChange}
+            />
+            {e}
+          </label>
+        ))}
       </div>
     </div>
   );

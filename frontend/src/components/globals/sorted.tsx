@@ -33,25 +33,20 @@ function Sorted(props: sortierung) {
   };
 
   return (
-    <div className="container radio-list">
-      <p className="has-text-weight-medium mb-2">Sortierung</p>
-      <div className="control">
-        {props.sortierung.map((e) => (
-          <div className="control" key={e}>
-            <label className="radio">
-              <input
-                className="form-check-input mr-2"
-                type="Radio"
-                name="categories"
-                value={e}
-                id="flexCheckDefault"
-                onChange={handleChange}
-              />
-              {e}
-            </label>
-          </div>
-        ))}
-      </div>
+    <div className="radio-list">
+      {props.sortierung.map((e) => (
+        <label className="radio-label" key={e}>
+          <input
+            className="radio-input"
+            type="Radio"
+            name="categories"
+            value={e}
+            id="flexCheckDefault"
+            onChange={handleChange}
+          />
+          {e}
+        </label>
+      ))}
     </div>
   );
 }

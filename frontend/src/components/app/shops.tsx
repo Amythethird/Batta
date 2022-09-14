@@ -75,9 +75,9 @@ function FilterShops() {
   let allStatements;
   if (filter) {
     allStatements = (
-      <div className="container mb-space-medium">
-        <div className="columns is-align-items-flex-start">
-          <div className="column is-two-fifths">
+      <div className="search-filter-wrapper">
+        <div className="columns">
+          <div className="column is-half">
             <Categories
               handler={get}
               categorie={[
@@ -89,25 +89,32 @@ function FilterShops() {
                 "Spielzeug",
               ]}
             />
-            <div className="slider mt-5">
+
+            <h3 className="title is-3 mgb-05 mgt-1">Entfernung</h3>
+            <div className="range-slider is-flex">
               <ReactSlider
                 className="horizontal-slider"
-                thumbClassName="example-thumb"
-                trackClassName="example-track"
+                thumbClassName="slider-thumb"
+                trackClassName="slider-track"
                 marks
-                markClassName="example-mark"
+                markClassName="slider-mark"
                 min={0}
                 max={100}
                 renderThumb={(props, state) => (
-                  <div {...props}>{state.valueNow}</div>
+                  <div className="slider-value" {...props}>
+                    {state.valueNow}
+                  </div>
                 )}
               />
+              <span className="slider-unit">km</span>
             </div>
           </div>
           <div className="column">
+            <h3 className="title is-3 mgb-05">Bewertung</h3>
             <Rating durchschnitt={1} title={true} full={false} ratings={0} />
           </div>
           <div className="column">
+            <h3 className="title is-3 mgb-05">Sortierung</h3>
             <Sorted
               sortierung={["Beste Treffer", "Entfernung", "A-Z", "Z-A"]}
             />
@@ -118,35 +125,39 @@ function FilterShops() {
   }
 
   return (
-    <div>
-      <div className=" container mb-space-large mt-space-large">
-        <div className="field Shops">
-          <p className="control has-icons-left is-flex has-button-right">
+    <main>
+      <div className="container content">
+        <div className="columns searchbar">
+          <div className="column">
             <input
-              className="input"
+              className="search-bar input"
               type="text"
               placeholder="PLZ oder Adresse"
               name="email"
               value={input}
               onChange={handleChange}
             />
-            <span className="icon is-small is-left">
+            <span className="search-icon">
               <FontAwesomeIcon icon={faSearch} color="#257708" />
             </span>
-            <a className="button">
+            <span className="search-filter">
               <FontAwesomeIcon icon={faFilter} color="#257708" />
-            </a>
-          </p>
+            </span>
+          </div>
         </div>
         {allStatements}
       </div>
 
-      <section className="section is-medium is-flex is-justify-content-space-between">
-        {shops.map((shop: Shop) => (
-          <ShopCard key={shop.id} shop={shop} />
-        ))}
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            {shops.map((shop: Shop) => (
+              <ShopCard key={shop.id} shop={shop} />
+            ))}
+          </div>
+        </div>
       </section>
-    </div>
+    </main>
   );
 }
 export default FilterShops;

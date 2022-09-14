@@ -13,7 +13,7 @@ interface Beitrag {
   article: BlogBeitrag[];
 }
 
-function Artikel(props: Beitrag) {
+function ArtikelCard(props: Beitrag) {
   return (
     <div className="columns">
       {props.article.map((articles) => (
@@ -28,9 +28,11 @@ function Artikel(props: Beitrag) {
 
               <div className="card-content">
                 <div className="content">
-                  <h3 className="title is-3 has-text-primary mgb-05">{articles.title}</h3>
+                  <h3 className="title is-3 has-text-primary mgb-05">
+                    {articles.title}
+                  </h3>
                   <p className="mgb-05">{articles.text}</p>
-                  
+
                   <a className="pseudo-link">Weiterlesen</a>
                 </div>
               </div>
@@ -42,4 +44,4 @@ function Artikel(props: Beitrag) {
   );
 }
 
-export default Artikel;
+export default ArtikelCard;
