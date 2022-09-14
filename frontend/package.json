@@ -8,8 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "postcss src/styles/tailwind.scss -o src/styles/style.scss",
-    "watch-css": "sass --watch src/styles/style.scss src/styles/style.css",
+    "watch-css": "sass --watch src/styles/style.scss:src/styles/style.css",
     "lint:check": "eslint --ext .js,.ts,.jsx,.tsx .",
     "lint:write": "eslint --ext .js,.ts,.jsx,.tsx --fix ."
   },
