@@ -31,12 +31,15 @@ function HeaderShop(props: params) {
           <p className="has-text-weight-medium">Öffnungszeiten</p>
           {""}
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
-          <p className="is_green">{data.address?.streetName}{data.address?.houseNumber}{data?.address?.postalCode}</p>
+          <p className="is_green">
+            {data.address?.streetName}
+            {data.address?.houseNumber}
+            {data?.address?.postalCode}
+          </p>
         </div>
       </div>
     );
   }
-
 
   return (
     <main>

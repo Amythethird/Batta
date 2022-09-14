@@ -13,7 +13,7 @@ interface UserData {
   text: string;
   isPrivate: boolean;
 }
-function headerUser(props: UserData) {
+function HeaderUser(props: UserData) {
   let fullHeart = false;
 
   const like = (event: any) => {
@@ -61,4 +61,4 @@ function headerUser(props: UserData) {
   );
 }
 
-export default headerUser;
+export default HeaderUser;
