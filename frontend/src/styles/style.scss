@@ -9,7 +9,6 @@
 @import "./components/nav";
 @import "./components/footer";
 
-
 @import "../../node_modules/bulma/bulma.sass";
 
 @import "./components/login";
@@ -37,15 +36,9 @@ body {
     font-size: $size-2;
     position: absolute;
     line-height: 1.5rem;
-    padding-left: .25rem;
+    padding-left: 0.25rem;
   }
 }
-
-
-
-
-
-
 
 .field.is-grouped {
   min-width: 370px;
@@ -74,8 +67,8 @@ body {
 //   color: $green;
 // }
 
-.bg_light{
-  background-color: rgba($primary, .0) !important;
+.bg_light {
+  background-color: rgba($primary, 0) !important;
   color: darkgray !important;
 }
 // Coustom classes
@@ -91,7 +84,7 @@ body {
 // }
 
 .background_light {
-  background-color: rgba($primary, .0);
+  background-color: rgba($primary, 0);
 }
 
 .mb-space-large {
