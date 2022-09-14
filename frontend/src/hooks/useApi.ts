@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { getAccessToken } from "../api-utils/login-utils";
 
-export default function useApi(
+export default function UseApi(
   query: string,
   // eslint-disable-next-line no-unused-vars
   responseHandler: (response: any) => any,

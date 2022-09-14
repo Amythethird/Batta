@@ -30,12 +30,15 @@ function HeaderShop(props: params) {
       <div className="column is-align-self-flex-start">
         <div className="test p-4">
           <p className="has-text-weight-medium mt-1 ">Adresse</p>
-          <p className="is_green">{data.address?.streetName}{data.address?.houseNumber}{data?.address?.postalCode}</p>
+          <p className="is_green">
+            {data.address?.streetName}
+            {data.address?.houseNumber}
+            {data?.address?.postalCode}
+          </p>
         </div>
       </div>
     );
   }
-
 
   return (
     <main>
