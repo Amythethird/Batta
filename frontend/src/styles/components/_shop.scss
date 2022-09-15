@@ -1,3 +1,19 @@
+.shop-header {
+  background-position: 50% 50%;
+  background-size: cover;
+  .opening-hours {
+    background: $white;
+    border-radius: $radius;
+    margin-top: 1rem;
+  }
+  .shop-short-info {
+    background: $white;
+    border-radius: $radius $radius 0 0;
+    margin-top: 5rem;
+    border-bottom: 0.25rem solid $white;
+  }
+}
+
 .shopCard {
   min-width: 300px;
   border-radius: 8px;
@@ -27,14 +43,6 @@
     height: 400px;
     max-width: 300px;
   }
-  .tag {
-    background-color: $green;
-    color: $white;
-
-    p {
-      font-size: 12px;
-    }
-  }
 }
 
 .shop {
@@ -51,6 +59,9 @@
         margin-left: 0;
       }
     }
+  }
+  .highligt-carousel {
+    overflow-x: scroll;
   }
 
   .rating {

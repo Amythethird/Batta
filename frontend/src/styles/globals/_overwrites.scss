@@ -1,33 +1,33 @@
 // Colors
 
-$black:        #333333;
-$black-bis:    hsl(0, 0%, 7%);
-$black-ter:    hsl(0, 0%, 14%);
+$black: #333333;
+$black-bis: hsl(0, 0%, 7%);
+$black-ter: hsl(0, 0%, 14%);
 
-$grey-darker:  hsl(0, 0%, 21%);
-$grey-dark:    hsl(0, 0%, 29%);
-$grey:         hsl(0, 0%, 48%);
-$grey-light:   hsl(0, 0%, 71%);
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
 $grey-lighter: hsl(0, 0%, 86%);
 $grey-lightest: hsl(0, 0%, 93%);
 
-$white-ter:    hsl(0, 0%, 96%);
-$white-bis:    hsl(0, 0%, 98%);
-$white:        hsl(0, 0%, 100%);
+$white-ter: hsl(0, 0%, 96%);
+$white-bis: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
 
-$orange:       hsl(14,  100%, 53%);
-$yellow:       hsl(44,  100%, 77%);
-$green:        #257708;
-$light-green:  #95C11F;
-$turquoise:    hsl(171, 100%, 41%);
-$cyan:         hsl(207, 61%,  53%);
-$blue:         hsl(229, 53%,  53%);
-$purple:       hsl(271, 100%, 71%);
-$red:          hsl(348, 86%, 61%);
+$orange: hsl(14, 100%, 53%);
+$yellow: hsl(44, 100%, 77%);
+$green: #257708;
+$light-green: #95c11f;
+$turquoise: hsl(171, 100%, 41%);
+$cyan: hsl(207, 61%, 53%);
+$blue: hsl(229, 53%, 53%);
+$purple: hsl(271, 100%, 71%);
+$red: hsl(348, 86%, 61%);
 
-$primary:       $green;
-$secondary:     $light-green;
-$text:          $black;
+$primary: $green;
+$secondary: $light-green;
+$text: $black;
 
 $link: $primary;
 
@@ -46,7 +46,7 @@ $size-2: 1.5rem;
 $size-3: 1rem;
 // $size-4: 1.5rem;
 // $size-5: 1.25rem;
-$size-6: .75rem;
+$size-6: 0.75rem;
 // $size-7: 0.75rem;
 
 $weight-light: 300;
@@ -78,8 +78,8 @@ $fullhd: 1200px + (2 * $gap);
 
 // $easing: ease-out;
 $radius-small: 2px;
-$radius: .5rem;
-$radius-large: .5rem;
+$radius: 0.5rem;
+$radius-large: 0.5rem;
 $radius-rounded: 9999px;
 $speed: 86ms;
 
@@ -88,7 +88,6 @@ $speed: 86ms;
 // $variable-columns: true;
 // $rtl: false;
 
-
 // Hero Body
 
 $hero-body-padding: 3.5rem 1.5rem;
@@ -96,7 +95,6 @@ $hero-body-padding-tablet: 3.5rem 1.5rem;
 $hero-body-padding-small: 2rem 1.5rem;
 $hero-body-padding-medium: 3rem 1.5rem;
 $hero-body-padding-large: 4rem 1.5rem;
-
 
 // Secionts
 
@@ -108,7 +106,7 @@ $section-padding-large: 4rem 1.5rem;
 
 // Shadow
 
-$default-shadow: 0 0 .5rem 0 rgba($black, .25);
+$default-shadow: 0 0 0.5rem 0 rgba($black, 0.25);
 
 // Transition
 
@@ -121,7 +119,7 @@ $button-background-color: $secondary;
 // // $button-family: false;
 
 $button-border-color: none;
-// $button-border-width: unset; 
+// $button-border-width: unset;
 
 $button-padding-vertical: 1.5rem;
 $button-padding-horizontal: 2em;
@@ -198,7 +196,6 @@ $footer-color: $white;
 
 $input-radius: $radius;
 
-
 // Cards
 
 // $card-color: $text;
@@ -221,4 +218,12 @@ $card-content-padding: 1rem;
 
 // $card-media-margin: $block-spacing;
 
-$box-background-color: rgba($primary, .1);
+$box-background-color: rgba($primary, 0.1);
+
+// Tags
+
+$tag-background-color: $primary;
+$tag-color: $white;
+$tag-radius: $radius * 2;
+// $tag-delete-margin: ;
+// $tag-colors: ;

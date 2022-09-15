@@ -13,8 +13,6 @@ function Sorted(props: sortierung) {
     const { value, checked } = e.target;
     const { checkbox } = checkboxValue;
 
-    console.log(`${value} is ${checked}`);
-
     // Case 1 : The user checks the box
     if (checked) {
       setCheckbox({
