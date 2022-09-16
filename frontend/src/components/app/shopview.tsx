@@ -68,7 +68,11 @@ function ShopView() {
         "shops",
         [
           "shopName",
-          entry("address", ["postalCode"]),
+          entry("address", [
+            "streetName, postalCode, houseNumber, city, country",
+          ]),
+          "description",
+          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
           "description",
           collection("shopHeaderImage", ["url"]),
           entry("label", ["name"]),
@@ -240,17 +244,11 @@ function ShopView() {
   const [isActive, setIsActive] = React.useState(false);
 
   const handleClick = () => {
-    // 👇️ toggle
     setIsActive((current) => !current);
     console.log(isActive);
-
-    // 👇️ or set to true
-    // setIsActive(true);
   };
 
-  //Ratings
-  /*  const reviews = shops.map((e) => e.reviews)
-  let sum = 0; */
+
 
   return (
     <main className="mt-space-large shop">

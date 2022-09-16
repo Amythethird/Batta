@@ -34,6 +34,7 @@ function FilterShops() {
           entry("address", [
             "streetName, postalCode, houseNumber, city, country",
           ]),
+          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
           "description",
           entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [

@@ -6,11 +6,9 @@ import Shop from "../../../testdata/shop.json";
 interface Social {
   id: number;
 }
-const SocialMedia = (props: Social) => {
-  /*Filter Social Media*/
-  const id = props.id;
-  const shop = Shop.find((e) => e.id === id);
-
-  return <div className="social">{shop?.adresse}</div>;
+function SocialMedia(props: Social) {
+  return(
+    <p></p>
+  );
 };
 export default SocialMedia;

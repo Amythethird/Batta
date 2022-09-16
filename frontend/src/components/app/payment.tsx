@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from 'react';
 import { Link, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
@@ -14,6 +14,8 @@ function Payment() {
 
   const [isButton, setFirstButton] = React.useState(0);
   const [isStep, setStep] = React.useState(0);
+  const [isGift, setGift] = React.useState(false)
+
 
   const machtNix = "nix";
   const shops = useAppSelector(selectShops);
@@ -25,7 +27,10 @@ function Payment() {
         "shops",
         [
           "shopName",
-          entry("address", ["postalCode"]),
+          entry("address", [
+            "streetName, postalCode, houseNumber, city, country",
+          ]),
+          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
           "description",
           collection("shopHeaderImage", ["url"]),
           collection("productHighlights", ["url"]),
@@ -45,7 +50,23 @@ function Payment() {
     setFirstButton(e);
     setStep(e);
   }
-
+  
+  let mailInput;
+   if(isGift){
+    mailInput = (
+      <div className="field">
+        <p className="control has-icons-left has-icons-right">
+          <input className="input" type="email" placeholder="Email" />
+          <span className="icon is-small is-left">
+            <i className="fas fa-envelope"></i>
+          </span>
+          <span className="icon is-small is-right">
+            <i className="fas fa-check"></i>
+          </span>
+        </p>
+      </div>
+    )
+  } 
   return (
     <main className="mt-space-large payment">
       {shops.map((shop: ShopModel) => (
@@ -228,6 +249,8 @@ function Payment() {
                         className="radio-input"
                         type="radio"
                         name="is-present"
+                        defaultChecked={isGift}
+                        onClick={() => setGift(e => !e) }
                       />
                       Ja
                     </label>
@@ -236,11 +259,13 @@ function Payment() {
                         className="radio-input"
                         type="radio"
                         name="is-present"
-                        checked
+                        defaultChecked={!isGift}
+                        onClick={() => setGift(e => !e) }
                       />
                       Nein
                     </label>
                   </div>
+                  {mailInput}
 
                   <h2 className="title is-2">Zahlungsmethode</h2>
                   <div className="columns btn-group">
