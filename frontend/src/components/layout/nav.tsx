@@ -1,11 +1,61 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect }  from "react";
+import { Link, useLocation } from "react-router-dom";
 import "../../styles/style.css";
-
+import { isLoggedIn, logout } from "../../api-utils/login-utils";
 function Nav() {
   // Toggle Bulma nav
   const [isActive, setisActive] = React.useState(false);
+  const [dropdown, setDropdown] = React.useState(false)
+  const [loggedIn, setLoggedIn] = React.useState(
+    (
+      <Link className="navbar-item" to="/login">
+        Login
+      </Link>
+    )
+  )
+  useEffect(()=> {
+    if(isLoggedIn()){
+      setLoggedIn(
+        (
+          <div className={!dropdown ? "dropdown is-align-items-center" : "dropdown is-active is-align-items-center"}>
+            <div className="dropdown-trigger">
+              <a className="navbar-item" aria-haspopup="true" aria-controls="dropdown-menu" onMouseEnter={() => setDropdown(e => !e) }>
+                <span>Menü</span>
+                <span className="icon is-small">
+                  <i className="fas fa-angle-down" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          <div className="dropdown-menu" id="dropdown-menu" role="menu">
+            <div className="dropdown-content">
+              <Link className="navbar-item" to="/user">
+                Dein Profil
+              </Link>
+              <a className="navbar-item disabled" >
+                Einstellungen
+              </a>
+              <hr className="dropdown-divider"/>
+              <Link className="navbar-item" to="/login" onClick={doLogout}>
+                Logout
+              </Link>
+            </div>
+          </div>
+        </div>
+        )
+      )
+    }
+  }, [useLocation(), dropdown])
 
+  function doLogout(){
+      setLoggedIn((
+        <Link className="navbar-item" to="/login">
+          Login
+        </Link>
+      ))
+      logout()
+  }
+
+  
   return (
     <nav
       className="navbar is-fixed-top"
@@ -65,9 +115,7 @@ function Nav() {
             </Link>
           </div>
           <div className="navbar-end">
-            <Link className="navbar-item" to="/login">
-              Login
-            </Link>
+            {loggedIn}
           </div>
         </div>
       </div>

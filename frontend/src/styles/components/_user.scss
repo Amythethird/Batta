@@ -10,9 +10,9 @@
   
       .imageInhaber {
         position: absolute;
-        left: 420px;
-        top: 200px;
-        width: 110px;
+        left: 370px;
+        top: 150px;
+        width: 50px;
         max-height: 110px;
   
         img {
@@ -132,8 +132,8 @@
   
         .imageInhaber {
           position: absolute;
-          left: 400px;
-          top: 230px;
+          left: 350px;
+          top: 150px;
           width: 110px;
           max-height: 110px;
   
@@ -145,83 +145,7 @@
           }
         }
       }
+   
     }
   }
   
-  .user {
-    .badges {
-      @include until(768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      @include from(768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-  
-      .badge {
-        position: relative;
-        width: 350px;
-        max-height: 110px;
-        background-color: rgba($primary, .0);
-        border-radius: 8px;
-  
-        img {
-          width: 74px;
-          height: 74px;
-        }
-  
-        h3 {
-          color: $green;
-        }
-  
-        .anzahl {
-          position: absolute;
-          right: 10px;
-          top: 5px;
-        }
-  
-        @include until(768px) {
-          max-width: 310px;
-        }
-      }
-    }
-    .favorites {
-      flex-direction: row;
-      align-items: center;
-      justify-items: center;
-  
-      @include until(768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-      }
-      @include from(768px) {
-        flex-wrap: wrap;
-      }
-  
-      .favorite {
-        width: 280px;
-        height: 210px;
-        border-radius: 8px;
-        position: relative;
-  
-        h3 {
-          background-color: $green;
-          color: white;
-          width: 200px;
-          padding: 5px;
-        }
-  
-        .icon {
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          font-size: 30px;
-          color: #e2e2e2;
-          stroke: $green;
-          stroke-width: 20px;
-          stroke-linecap: butt;
-        }
-      }
-    }
-  }

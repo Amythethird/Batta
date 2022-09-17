@@ -12,6 +12,17 @@
     margin-top: 5rem;
     border-bottom: 0.25rem solid $white;
   }
+  .social_media_icon{
+    border: 1px solid $primary;
+    border-radius: 100%; 
+    width: 35px;
+    height: 35px;
+    img{
+      width: 20px;
+      height: 20px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .shopCard {

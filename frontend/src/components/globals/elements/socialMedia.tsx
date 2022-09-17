@@ -1,14 +1,18 @@
 import React from "react";
 import "../../../styles/style.css";
-import Shop from "../../../testdata/shop.json";
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 interface Social {
-  id: number;
+  url: string;
+  platform: string;
+  icon: string;
 }
+
 function SocialMedia(props: Social) {
   return(
-    <p></p>
+    <a href={props.url} className="social_media_icon is-flex is-justify-content-center is-align-items-center mgr-1" >
+      <img src={`${process.env.REACT_APP_STRAPI}${props.icon}`}/>
+    </a>
   );
 };
 export default SocialMedia;

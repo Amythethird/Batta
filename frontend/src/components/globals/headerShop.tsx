@@ -5,16 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as HeartRegular } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as HeartSolid } from "@fortawesome/free-solid-svg-icons";
 //Brands
-/* import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons"; */
-
 
 import Shop from "../../models/shop";
 import { useAppSelector } from "../../state/hooks.state";
 import { selectShops } from "../../state/slices/shops.state";
+import SocialMedia from "./elements/socialMedia";
 
 interface params {
   UserId: any;
@@ -30,7 +25,7 @@ function HeaderShop(props: params) {
   const [favorite, setFavorite] = React.useState(false);
   const select =() =>{
     setFavorite(!favorite)
-  }
+  }  
   return (
     <header
       className="shop-header"
@@ -73,11 +68,17 @@ function HeaderShop(props: params) {
               </span>
             ))}
             <p className="mgt-05">{data?.description}</p>
-            {data.socialMedia?.map((e, i) => (
-              <span className="socialMedia mgr-1 mgt-2" key={i}>
-                <a href={e.url}>{e.platform}</a>
-              </span>
-            ))}
+            <div className="is-flex is-justify-content-center">
+              {data.socialMedia?.map((e, i) => (
+                <SocialMedia 
+                  key={i}
+                  url={e.url!}
+                  platform={e.platform!}
+                  icon = {e.icon?.url!}
+                />
+
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -48,6 +48,13 @@ h4 {
   color: #257708;
 }
 
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #b5b5b5;
+}
+
 footer a {
   color: white;
 }
@@ -13349,6 +13356,19 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-bottom: 0.25rem solid white;
 }
 
+.shop-header .social_media_icon {
+  border: 1px solid #257708;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+}
+
+.shop-header .social_media_icon img {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+}
+
 .shopCard {
   min-width: 300px;
   border-radius: 8px;
@@ -13497,9 +13517,9 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .userHeader .information .imageInhaber {
   position: absolute;
-  left: 420px;
-  top: 200px;
-  width: 110px;
+  left: 370px;
+  top: 150px;
+  width: 50px;
   max-height: 110px;
 }
 
@@ -13613,8 +13633,8 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   }
   .userHeader .information .imageInhaber {
     position: absolute;
-    left: 400px;
-    top: 230px;
+    left: 350px;
+    top: 150px;
     width: 110px;
     max-height: 110px;
   }
@@ -13625,111 +13645,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     -o-object-fit: cover;
        object-fit: cover;
   }
-}
-
-@media screen and (max-width: 767px) {
-  .user .badges {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .user .badges {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-.user .badges .badge {
-  position: relative;
-  width: 350px;
-  max-height: 110px;
-  background-color: rgba(37, 119, 8, 0);
-  border-radius: 8px;
-}
-
-.user .badges .badge img {
-  width: 74px;
-  height: 74px;
-}
-
-.user .badges .badge h3 {
-  color: #257708;
-}
-
-.user .badges .badge .anzahl {
-  position: absolute;
-  right: 10px;
-  top: 5px;
-}
-
-@media screen and (max-width: 767px) {
-  .user .badges .badge {
-    max-width: 310px;
-  }
-}
-
-.user .favorites {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
-}
-
-@media screen and (max-width: 767px) {
-  .user .favorites {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .user .favorites {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-  }
-}
-
-.user .favorites .favorite {
-  width: 280px;
-  height: 210px;
-  border-radius: 8px;
-  position: relative;
-}
-
-.user .favorites .favorite h3 {
-  background-color: #257708;
-  color: white;
-  width: 200px;
-  padding: 5px;
-}
-
-.user .favorites .favorite .icon {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 30px;
-  color: #e2e2e2;
-  stroke: #257708;
-  stroke-width: 20px;
-  stroke-linecap: butt;
 }
 
 .voucher .box {
@@ -13874,6 +13789,77 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .payment-form .column {
   padding-bottom: 0.25rem;
   padding-top: 0.25rem;
+}
+
+.badges .badge {
+  position: relative;
+  width: 350px;
+  max-height: 130px;
+  background-color: rgba(37, 119, 8, 0);
+  border-radius: 8px;
+}
+
+.badges .badge img {
+  width: 54px;
+  height: 54px;
+}
+
+.badges .badge h3 {
+  color: #257708;
+}
+
+.favorites {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+@media screen and (max-width: 767px) {
+  .favorites {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .favorites {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+.favorites .favorite {
+  width: 280px;
+  height: 210px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.favorites .favorite h3 {
+  background-color: #257708;
+  color: white;
+  width: 200px;
+  padding: 5px;
+}
+
+.favorites .favorite .icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 30px;
+  color: #e2e2e2;
+  stroke: #257708;
+  stroke-width: 20px;
+  stroke-linecap: butt;
 }
 
 body {

@@ -14,10 +14,12 @@ import {
 
 library.add(fab, faCheckSquare, faCoffee, faFontAwesome);
 
+
+
 function App() {
   return (
     <>
-      <Nav />
+      <Nav/>
       <Main />
       <Footer />
     </>

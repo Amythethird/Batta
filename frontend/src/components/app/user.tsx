@@ -10,10 +10,10 @@ import { parseUserResponseToCustomer } from "../../api-utils/user-utils";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectCustomer, setCustomer } from "../../state/slices/customer.state";
 import Badges from "../globals/elements/badges";
-import badge from "../../assets/badge.png";
 import Favorites from "../globals/elements/favorites";
 import ArtikelCard from "../globals/elements/articleCard";
 import Voucher from "../globals/elements/voucher";
+
 
 function User() {
   const dispatch = useAppDispatch();
@@ -29,12 +29,27 @@ function User() {
           entry("customer", [
             "firstname",
             "lastname",
+            "shortDescription",
             entry("profilePicture", ["url"]),
+            entry("profileHeaderImage", ["url"]),
             entry("address", [
               "streetName",
               "houseNumber",
               "postalCode",
               "city",
+            ]),
+            entry("achievements ", [
+              "title",
+              entry("icon", ["url"]),
+              "shortDescription",
+              
+            ]),
+            entry("favouriteShops", [
+              "shopName",
+              entry("shopHeaderImage", ["url"]),
+            ]),
+            entry("coupons", [
+              "currentValue", "value", "boughtAt", "expiringDate", "couponID", entry("shop", ["shopName", entry("shopHeaderImage", ["url"])])
             ]),
           ]),
         ],
@@ -77,82 +92,47 @@ function User() {
 
   return (
     <main className="mt-space-medium user">
-      <HeaderUser
-        text={customer.shortDescription!}
-        username={customer.firstname!}
-        name={customer.lastname!}
-        vorname={customer.firstname!}
-        email={customer.email!}
-        image={customer.profilePicture?.url!}
-        isPrivate={false}
-      />
-      <section className="section badges is-flex is-justify-content-space-between">
-        <Badges
-          src={badge}
-          award_name="Green Hero"
-          award_text="Beim einkaufen 20Kg Kunststoff gespart."
-          number={3}
-        />
-        <Badges
-          src={badge}
-          award_name="Local Hero"
-          award_text="Shop in deiner Nähe geholfen."
-          number={1}
-        />
-        <Badges
-          src={badge}
-          award_name="Smart Vegan"
-          award_text="Keine tierischen Produkte beim einkauf."
-          number={2}
-        />
-        <Badges
-          src={badge}
-          award_name="Made in Germany"
-          award_text="Local hergestellte Kleidung gekauft."
-          number={4}
-        />
+      <HeaderUser/>
+      <section className="section badges is-flex ">
+       {
+        customer.achievements?.map((e, i) =>(
+        <Badges key={i} title={e.title!} icon={e.icon?.url!} shortDescription={e.shortDescription!}/>
+        ))
+       }
       </section>
-      <section className="section">
-        <Voucher />
+      <section className="section is-flex">
+        {
+          customer.coupons?.map((e,i) => (
+            <Voucher
+            key={i}
+            boughtAt = {e.boughtAt!}
+            expiringDate = {e.expiringDate!}
+            couponID = {e.couponID!}
+            currentValue = {e.currentValue!}
+            value = {e.value!}
+            shopName = {e.shop?.shopName!}
+            shopImage = {e.shop?.shopHeaderImage?.url!}
+
+        />
+          ))
+        }
       </section>
       {/**Statisch */}
       <section className="section ">
         <h2 className="is-size-4 is-size-5-mobile mb-5">
           {customer.firstname + "s"} Lieblingsstores
         </h2>
-        <div className="is-flex favorites is-justify-content-space-between">
-          <Favorites
-            isShop={true}
-            name="Lisas Klamotten"
-            isFavorite={true}
-            url={
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            }
+        <div className="is-flex favorites">
+          {
+            customer.favouriteShops?.map((e,i) => (
+              <Favorites key={i}
+              shopName={e.shopName!}
+              shopImage={e.shopHeaderImage?.url!}
+              shopId ={e.id!}
+              isFavorite={true}
           />
-          <Favorites
-            isShop={true}
-            name="Verpacknix"
-            isFavorite={true}
-            url={
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            }
-          />
-          <Favorites
-            isShop={true}
-            name="Klammer Affe Köln"
-            isFavorite={true}
-            url={
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            }
-          />
-          <Favorites
-            isShop={true}
-            name="La Cusiné"
-            isFavorite={true}
-            url={
-              "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-            }
-          />
+            ))
+          }
         </div>
       </section>
 

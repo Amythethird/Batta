@@ -3,7 +3,7 @@ import "../../styles/style.css";
 import { useParams } from "react-router-dom";
 import Rating from "../globals/elements/rating";
 import Comment from "../globals/elements/comment";
-import HeaderUser from "../globals/headerShop";
+import HeaderShop from "../globals/headerShop";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
@@ -76,7 +76,7 @@ function ShopView() {
           "description",
           collection("shopHeaderImage", ["url"]),
           entry("label", ["name"]),
-          entry("socialMedia", ["platform", "url"]),
+          entry("socialMedia", ["platform", "url", entry("icon", ["url"])]),
           entry("reviews", ["title", "rating", "description"]),
           collection("productHighlights", ["url"]),
         ],
@@ -253,7 +253,7 @@ function ShopView() {
   return (
     <main className="mt-space-large shop">
       {shops.map((shop: ShopModel) => (
-        <HeaderUser
+        <HeaderShop
           key={shop.id}
           UserId={shop.id}
           imag={shop.shopOwner?.profilePicture?.url!}
