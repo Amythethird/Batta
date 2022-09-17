@@ -100,7 +100,7 @@ function User() {
         ))
        }
       </section>
-      <section className="section is-flex">
+      <section className="section is-flex mgb-2">
         {
           customer.coupons?.map((e,i) => (
             <Voucher
@@ -112,6 +112,7 @@ function User() {
             value = {e.value!}
             shopName = {e.shop?.shopName!}
             shopImage = {e.shop?.shopHeaderImage?.url!}
+            qrCode = {"/qr-code.png"}
 
         />
           ))

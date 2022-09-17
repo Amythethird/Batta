@@ -9,6 +9,7 @@ interface voucher{
   value: number
   shopName: string
   shopImage: string
+  qrCode: string
 }
 
 function Voucher(props : voucher) {
@@ -29,9 +30,12 @@ function Voucher(props : voucher) {
                 <h1 className="is-size-3">{props.currentValue + "€"}</h1>
                   <h3 className="is-size-4 mb-2">{props.shopName}</h3>
                 </div>
-                <div className="box_content is-flex pd-1">
+                <div className="box_content pd-1">
                 <p>{boughtDate}</p>
-                <p className="is-align-self-center">{props.couponID}</p>
+                <div className="code">
+                  <img src={props.qrCode} alt="qrCode"/>
+                  <p >{props.couponID}</p>
+                </div>
                 </div>   
             </div>
         </div>

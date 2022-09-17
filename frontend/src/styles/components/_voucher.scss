@@ -30,6 +30,13 @@
   
       .box_content {
         height: 210px;
+
+        .code{
+          text-align: center;
+          img{
+            width: 100px;
+          }
+        }
       }
     }
   }

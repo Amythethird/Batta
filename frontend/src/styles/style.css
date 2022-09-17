@@ -13531,122 +13531,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
      object-fit: cover;
 }
 
-.userHeader .test {
-  position: absolute;
-  right: 50px;
-  width: 280px;
-  height: 170px;
-  background-color: white;
-  border-radius: 8px;
-  top: 150px;
-}
-
-.userHeader .test p.is_green {
-  color: #257708;
-}
-
-@media screen and (max-width: 767px) {
-  .userHeader .information {
-    width: 285px;
-    height: 230px;
-    background-color: white;
-    border-radius: 8px 8px 0 0;
-  }
-  .userHeader .information h2 {
-    color: #257708;
-  }
-  .userHeader .information .imageInhaber {
-    position: absolute;
-    left: 285px;
-    top: 100px;
-    width: 50px;
-    max-height: 50px;
-  }
-  .userHeader .information .imageInhaber img {
-    border-radius: 8px;
-    width: 50px;
-    height: 50px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .userHeader .test {
-    position: absolute;
-    right: 50px;
-    width: 280px;
-    height: 170px;
-    background-color: white;
-    border-radius: 8px;
-    top: 150px;
-  }
-  .userHeader .test p.is_green {
-    color: #257708;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .userHeader .information {
-    width: 380px;
-    height: 250px;
-    background-color: white;
-    border-radius: 8px 8px 0 0;
-  }
-  .userHeader .information h2 {
-    color: #257708;
-  }
-  .userHeader .information .imageInhaber {
-    position: absolute;
-    left: 350px;
-    top: 130px;
-    width: 110px;
-    max-height: 110px;
-  }
-  .userHeader .information .imageInhaber img {
-    border-radius: 8px;
-    width: 80px;
-    height: 80px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  .userHeader .test {
-    position: absolute;
-    right: 50px;
-    width: 280px;
-    height: 170px;
-    background-color: white;
-    border-radius: 8px;
-    top: 150px;
-  }
-  .userHeader .test p.is_green {
-    color: #257708;
-  }
-}
-
-@media screen and (min-width: 1023px) {
-  .userHeader .information {
-    width: 380px;
-    height: 250px;
-    background-color: white;
-    border-radius: 8px 8px 0 0;
-  }
-  .userHeader .information h2 {
-    color: #257708;
-  }
-  .userHeader .information .imageInhaber {
-    position: absolute;
-    left: 350px;
-    top: 150px;
-    width: 110px;
-    max-height: 110px;
-  }
-  .userHeader .information .imageInhaber img {
-    border-radius: 8px;
-    width: 80px;
-    height: 80px;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-}
-
 .voucher .box {
   width: 280px;
   height: 420px;
@@ -13680,6 +13564,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .voucher .box .box_content {
   height: 210px;
+}
+
+.voucher .box .box_content .code {
+  text-align: center;
+}
+
+.voucher .box .box_content .code img {
+  width: 100px;
 }
 
 .card.article-preview .pseudo-link {
