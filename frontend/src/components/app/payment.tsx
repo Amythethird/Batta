@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
@@ -14,8 +14,7 @@ function Payment() {
 
   const [isButton, setFirstButton] = React.useState(0);
   const [isStep, setStep] = React.useState(0);
-  const [isGift, setGift] = React.useState(false)
-
+  const [isGift, setGift] = React.useState(false);
 
   const machtNix = "nix";
   const shops = useAppSelector(selectShops);
@@ -30,7 +29,12 @@ function Payment() {
           entry("address", [
             "streetName, postalCode, houseNumber, city, country",
           ]),
-          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
+          entry("openingHours", [
+            "openTime",
+            "closeTime",
+            "breakTimeStart",
+            "breakTimeEnd",
+          ]),
           "description",
           collection("shopHeaderImage", ["url"]),
           collection("productHighlights", ["url"]),
@@ -50,9 +54,9 @@ function Payment() {
     setFirstButton(e);
     setStep(e);
   }
-  
+
   let mailInput;
-   if(isGift){
+  if (isGift) {
     mailInput = (
       <div className="field">
         <p className="control has-icons-left has-icons-right">
@@ -65,8 +69,8 @@ function Payment() {
           </span>
         </p>
       </div>
-    )
-  } 
+    );
+  }
   return (
     <main className="mt-space-large payment">
       {shops.map((shop: ShopModel) => (
@@ -192,7 +196,7 @@ function Payment() {
                     </label>
                   </div>
 
-                  <div className="columns is-variable is-1 is-multiline payment-form">
+                  <div className="columns is-variable is-1 is-multiline basic-form">
                     <div className="column is-6">
                       <input
                         className="input"
@@ -250,7 +254,7 @@ function Payment() {
                         type="radio"
                         name="is-present"
                         defaultChecked={isGift}
-                        onClick={() => setGift(e => !e) }
+                        onClick={() => setGift((e) => !e)}
                       />
                       Ja
                     </label>
@@ -260,7 +264,7 @@ function Payment() {
                         type="radio"
                         name="is-present"
                         defaultChecked={!isGift}
-                        onClick={() => setGift(e => !e) }
+                        onClick={() => setGift((e) => !e)}
                       />
                       Nein
                     </label>

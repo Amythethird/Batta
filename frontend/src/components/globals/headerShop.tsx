@@ -18,14 +18,13 @@ interface params {
 }
 
 function HeaderShop(props: params) {
-
   const Shops = useAppSelector(selectShops);
   let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
 
   const [favorite, setFavorite] = React.useState(false);
-  const select =() =>{
-    setFavorite(!favorite)
-  }  
+  const select = () => {
+    setFavorite(!favorite);
+  };
   return (
     <header
       className="shop-header"
@@ -37,17 +36,24 @@ function HeaderShop(props: params) {
         <div className="columns is-right">
           <div className="column is-3 is-offset-9 opening-hours content">
             <p>
-                <b>Adresse:</b>
-                <br />
+              <b>Adresse:</b>
+              <br />
+              <a href="#">
                 {data.address?.streetName + " " + data.address?.houseNumber}
-                <br/>
+                <br />
                 {data.address?.city + " " + data.address?.postalCode}
-              </p>
-              <p>
-                <b>Öffnungszeiten:</b>
-                <br/>
-                {data.openingHours?.map(e => e.openTime?.substring(0,5) + " bis " + e.closeTime?.substring(0,5))}
-              </p> 
+              </a>
+            </p>
+            <p>
+              <b>Öffnungszeiten:</b>
+              <br />
+              {data.openingHours?.map(
+                (e) =>
+                  e.openTime?.substring(0, 5) +
+                  " bis " +
+                  e.closeTime?.substring(0, 5)
+              )}
+            </p>
           </div>
         </div>
         <div className="columns">
@@ -57,9 +63,10 @@ function HeaderShop(props: params) {
               {data.shopName} &nbsp;
               <span>
                 <FontAwesomeIcon
-                onClick={select}  
-                icon={ favorite ? HeartSolid : HeartRegular}
-                color={ favorite ? "#257708" : " "} />
+                  onClick={select}
+                  icon={favorite ? HeartSolid : HeartRegular}
+                  color={favorite ? "#257708" : " "}
+                />
               </span>
             </h2>
             {data?.label?.map((e, i) => (
@@ -70,13 +77,12 @@ function HeaderShop(props: params) {
             <p className="mgt-05">{data?.description}</p>
             <div className="is-flex is-justify-content-center">
               {data.socialMedia?.map((e, i) => (
-                <SocialMedia 
+                <SocialMedia
                   key={i}
                   url={e.url!}
                   platform={e.platform!}
-                  icon = {e.icon?.url!}
+                  icon={e.icon?.url!}
                 />
-
               ))}
             </div>
           </div>
