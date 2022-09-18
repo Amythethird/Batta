@@ -20,6 +20,7 @@ function Voucher(props: voucher) {
           <div className="card-image">
             <figure className="image is-4by3">
               <img
+                /* eslint-disable-next-line no-undef */
                 src={`${process.env.REACT_APP_STRAPI}${props.shopImage}`}
                 alt="Placeholder image"
               />

@@ -18,6 +18,7 @@ function Badges(props: Achievements) {
     <div className="column is-4 badge">
       <div className="is-flex is-align-items-center badge-inner">
         <img
+          /* eslint-disable-next-line no-undef */
           src={`${process.env.REACT_APP_STRAPI}${props.icon}`}
           className="pdr-1"
         />

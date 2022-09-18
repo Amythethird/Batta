@@ -72,7 +72,12 @@ function ShopView() {
             "streetName, postalCode, houseNumber, city, country",
           ]),
           "description",
-          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
+          entry("openingHours", [
+            "openTime",
+            "closeTime",
+            "breakTimeStart",
+            "breakTimeEnd",
+          ]),
           "description",
           collection("shopHeaderImage", ["url"]),
           entry("label", ["name"]),
@@ -248,7 +253,12 @@ function ShopView() {
     console.log(isActive);
   };
 
+  //durchschnitt
 
+  const reviews = shops
+    .map((e) => e.reviews)
+    .map((e) => e?.reduce((partialSum, a) => partialSum + a?.rating!, 0));
+  console.log(reviews);
 
   return (
     <main className="mt-space-large shop">
@@ -260,10 +270,6 @@ function ShopView() {
           bgImage={shop.shopHeaderImage?.url!}
         />
       ))}
-
-      {/* Auslagern:
-          ShopView rendert payment und Shop
-        */}
       <section className="section content ">
         <div className="container">
           <div className="columns is-vcentered">
@@ -281,7 +287,7 @@ function ShopView() {
               {shops.map((e, i) => (
                 <Rating
                   key={i}
-                  durchschnitt={Math.round(10) / 10}
+                  durchschnitt={reviews[0]!}
                   title={false}
                   full={true}
                   ratings={e.reviews?.length!}
@@ -314,6 +320,7 @@ function ShopView() {
                   {product.productHighlights?.map((e: Media) => (
                     <div className="column is-4" key={e.id}>
                       <figure className="image is-square">
+                        {/* eslint-disable-next-line no-undef */}
                         <img src={`${process.env.REACT_APP_STRAPI}${e.url}`} />
                       </figure>
                     </div>

@@ -29,6 +29,7 @@ function HeaderShop(props: params) {
     <header
       className="image-header"
       style={{
+        /* eslint-disable-next-line no-undef */
         backgroundImage: `url(${process.env.REACT_APP_STRAPI}${data.shopHeaderImage?.url})`,
       }}
     >

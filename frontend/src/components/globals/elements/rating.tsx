@@ -54,7 +54,10 @@ function Rating(props: rating) {
     rating = (
       <div className="columns is-multiline rating">
         <div className="column is-half pdb-0 has-text-weight-bold">
-          <span className="rating-average">{props.durchschnitt} </span> von 5
+          <span className="rating-average">
+            {props.durchschnitt / props.ratings}{" "}
+          </span>{" "}
+          von 5
         </div>
         <div className="column is-half has-text-right rating-amount pdb-0">
           {props.ratings} Bewertungen
@@ -70,14 +73,3 @@ function Rating(props: rating) {
 }
 
 export default Rating;
-
-/*
- {[...new Array(total)].map((arr, index) => (
-              <FontAwesomeIcon
-                key={arr}
-                icon={index < aktive ? StarSolid : StarRegular}
-                color={index < aktive ? "#257708" : " "}
-              />
-            ))}
-            <p>{"(42)"}</p>
-*/

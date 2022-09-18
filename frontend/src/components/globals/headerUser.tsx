@@ -18,6 +18,7 @@ function HeaderUser() {
     <header
       className="mt-space-large image-header"
       style={{
+        /* eslint-disable-next-line no-undef */
         backgroundImage: `url(${process.env.REACT_APP_STRAPI}${costumer.profileHeaderImage?.url})`,
       }}
     >
@@ -27,6 +28,7 @@ function HeaderUser() {
             <figure className="user-image">
               <img
                 className="image"
+                /* eslint-disable-next-line no-undef */
                 src={`${process.env.REACT_APP_STRAPI}${costumer.profilePicture?.url}`}
                 alt="user"
               />

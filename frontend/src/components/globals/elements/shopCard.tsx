@@ -11,10 +11,9 @@ interface ShopCardProps {
 }
 
 function ShopCard(props: ShopCardProps) {
-  
-  function truncate(str : any, n: any){
-    return (str.length > n) ? str.slice(0, n-1) + "... " : str;
-  };
+  function truncate(str: any, n: any) {
+    return str.length > n ? str.slice(0, n - 1) + "... " : str;
+  }
 
   return (
     <div className="column is-3">
@@ -23,6 +22,7 @@ function ShopCard(props: ShopCardProps) {
           <div className="card-image">
             <figure className="image is-4by3">
               <img
+                /* eslint-disable-next-line no-undef */
                 src={`${process.env.REACT_APP_STRAPI}${props.shop.shopHeaderImage?.url}`}
                 alt="Placeholder image"
               />
@@ -38,19 +38,28 @@ function ShopCard(props: ShopCardProps) {
           </div>
           <div className="card-content">
             <div className="content">
-              <p>{truncate(props.shop.description , 100)}</p>      
+              <p>{truncate(props.shop.description, 100)}</p>
               <p>
                 <b>Adresse:</b>
                 <br />
-                {props.shop?.address?.streetName + " " + props.shop?.address?.houseNumber}
-                <br/>
-                {props.shop?.address?.city + " " + props.shop.address?.postalCode}
+                {props.shop?.address?.streetName +
+                  " " +
+                  props.shop?.address?.houseNumber}
+                <br />
+                {props.shop?.address?.city +
+                  " " +
+                  props.shop.address?.postalCode}
               </p>
               <p>
                 <b>Öffnungszeiten:</b>
-                <br/>
-                {props.shop?.openingHours?.map(e => e.openTime?.substring(0,5) + " bis " + e.closeTime?.substring(0,5))}
-              </p> 
+                <br />
+                {props.shop?.openingHours?.map(
+                  (e) =>
+                    e.openTime?.substring(0, 5) +
+                    " bis " +
+                    e.closeTime?.substring(0, 5)
+                )}
+              </p>
             </div>
           </div>
         </div>

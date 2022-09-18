@@ -13,6 +13,8 @@ function SocialMedia(props: Social) {
       href={props.url}
       className="social-media-icon is-flex is-justify-content-center is-align-items-center mgr-1"
     >
+      {" "}
+      {/* eslint-disable-next-line no-undef */}
       <img src={`${process.env.REACT_APP_STRAPI}${props.icon}`} />
     </a>
   );
