@@ -96,7 +96,7 @@ function Footer() {
         <div className="content">
           <div className="columns">
             <div className="column has-text-left">
-              <p>Copyright © GlobalRitter. All Rights Reserved.</p>
+              <p>Copyright © Batta. All Rights Reserved.</p>
             </div>
           </div>
         </div>
