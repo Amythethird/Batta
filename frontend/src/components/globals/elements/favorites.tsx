@@ -6,22 +6,23 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 interface Favorite {
-  shopId: any,
-  shopName : string,
-  shopImage : string  
-  isFavorite : boolean
-
+  shopId: any;
+  shopName: string;
+  shopImage: string;
+  isFavorite: boolean;
 }
 
 function Favorites(props: Favorite) {
-
   return (
-    <section>
-         <Link to={`/shop/${props.shopId}`}>
-            <div className="favorite mgr-1" style={{
-              backgroundImage: `url(${process.env.REACT_APP_STRAPI}${props.shopImage})`
-            }}>
-              <h3 className="title is-3">{props.shopName}</h3>
+    <div className="column is-3">
+      <Link to={`/shop/${props.shopId}`}>
+        <div className="card favorites-card">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img
+                src={`${process.env.REACT_APP_STRAPI}${props.shopImage}`}
+                alt="Placeholder image"
+              />
               <a className="favorite-icon">
                 <FontAwesomeIcon
                   className="iconFon  m-2"
@@ -29,11 +30,14 @@ function Favorites(props: Favorite) {
                   size="2x"
                 />
               </a>
-            </div>
-        </Link>
-  </section>
+
+              <h2>{props.shopName}</h2>
+            </figure>
+          </div>
+        </div>
+      </Link>
+    </div>
   );
-  
 }
 
 export default Favorites;

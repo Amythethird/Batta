@@ -1,31 +1,16 @@
-.userHeader {
-    .information {
-      h2 {
-        color: $green;
-      }
-      width: 380px;
-      height: 250px;
-      background-color: $white;
-      border-radius: 8px 8px 0 0;
-  
-      .imageInhaber {
-        position: absolute;
-        left: 370px;
-        top: 150px;
-        width: 50px;
-        max-height: 110px;
-  
-        img {
-          border-radius: 8px;
-          width: 110px;
-          height: 110px;
-          object-fit: cover;
-        }
-      }
-    }
-
-  
-
-    
+.user-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  width: 7rem;
+  border-radius: $radius;
+  overflow: hidden;
+  margin: 0 !important;
+  transform: translate(50%, -50%);
+  img {
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
   }
-  
+}

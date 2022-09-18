@@ -27,7 +27,7 @@ function HeaderShop(props: params) {
   };
   return (
     <header
-      className="shop-header"
+      className="image-header"
       style={{
         backgroundImage: `url(${process.env.REACT_APP_STRAPI}${data.shopHeaderImage?.url})`,
       }}
@@ -57,9 +57,9 @@ function HeaderShop(props: params) {
           </div>
         </div>
         <div className="columns">
-          <div className="column is-4 shop-short-info content">
+          <div className="column is-4 image-header-short-info content">
             {/* <figure className="imageInhaber"></figure> */}
-            <h2 className="title is-4 has-text-primary mgt-1 mgb-05">
+            <h2 className="title is-2 has-text-primary mgt-1 mgb-05">
               {data.shopName} &nbsp;
               <span>
                 <FontAwesomeIcon

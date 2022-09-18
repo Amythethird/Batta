@@ -14,7 +14,6 @@ import Favorites from "../globals/elements/favorites";
 import ArtikelCard from "../globals/elements/articleCard";
 import Voucher from "../globals/elements/voucher";
 
-
 function User() {
   const dispatch = useAppDispatch();
   const customer = useAppSelector(selectCustomer);
@@ -42,14 +41,18 @@ function User() {
               "title",
               entry("icon", ["url"]),
               "shortDescription",
-              
             ]),
             entry("favouriteShops", [
               "shopName",
               entry("shopHeaderImage", ["url"]),
             ]),
             entry("coupons", [
-              "currentValue", "value", "boughtAt", "expiringDate", "couponID", entry("shop", ["shopName", entry("shopHeaderImage", ["url"])])
+              "currentValue",
+              "value",
+              "boughtAt",
+              "expiringDate",
+              "couponID",
+              entry("shop", ["shopName", entry("shopHeaderImage", ["url"])]),
             ]),
           ]),
         ],
@@ -92,56 +95,93 @@ function User() {
 
   return (
     <main className="mt-space-medium user">
-      <HeaderUser/>
-      <section className="section badges is-flex ">
-       {
-        customer.achievements?.map((e, i) =>(
-        <Badges key={i} title={e.title!} icon={e.icon?.url!} shortDescription={e.shortDescription!}/>
-        ))
-       }
+      <HeaderUser />
+      <section className="section badges">
+        <div className="container">
+          <div className="columns is-multiline">
+            {customer.achievements?.map((e, i) => (
+              <Badges
+                key={i}
+                title={e.title!}
+                icon={e.icon?.url!}
+                shortDescription={e.shortDescription!}
+              />
+            ))}
+          </div>
+        </div>
       </section>
-      <section className="section is-flex mgb-2">
-        {
-          customer.coupons?.map((e,i) => (
-            <Voucher
-            key={i}
-            boughtAt = {e.boughtAt!}
-            expiringDate = {e.expiringDate!}
-            couponID = {e.couponID!}
-            currentValue = {e.currentValue!}
-            value = {e.value!}
-            shopName = {e.shop?.shopName!}
-            shopImage = {e.shop?.shopHeaderImage?.url!}
-            qrCode = {"/qr-code.png"}
-
-        />
-          ))
-        }
+      <section className="section">
+        <div className="container">
+          <div className="columns is-vcentered">
+            <div className="column">
+              <h2 className="title is-2">Deine Gutscheine</h2>
+            </div>
+            <div className="column has-text-right">
+              <a>alle anzeigen</a>
+            </div>
+          </div>
+          <div className="columns is-multiline">
+            {customer.coupons?.map((e, i) => (
+              <Voucher
+                key={i}
+                boughtAt={e.boughtAt!}
+                expiringDate={e.expiringDate!}
+                couponID={e.couponID!}
+                currentValue={e.currentValue!}
+                value={e.value!}
+                shopName={e.shop?.shopName!}
+                shopImage={e.shop?.shopHeaderImage?.url!}
+                qrCode={"/qr-code.png"}
+              />
+            ))}
+          </div>
+        </div>
       </section>
       {/**Statisch */}
-      <section className="section ">
-        <h2 className="is-size-4 is-size-5-mobile mb-5">
-          {customer.firstname + "s"} Lieblingsstores
-        </h2>
-        <div className="is-flex favorites">
-          {
-            customer.favouriteShops?.map((e,i) => (
-              <Favorites key={i}
-              shopName={e.shopName!}
-              shopImage={e.shopHeaderImage?.url!}
-              shopId ={e.id!}
-              isFavorite={true}
-          />
-            ))
-          }
+      <section className="section">
+        <div className="container">
+          <div className="columns is-vcentered">
+            <div className="column">
+              <h2 className="title is-2">
+                {/* {customer.firstname + "s"} Lieblingsstores */}
+                Deine Lieblingsstores
+              </h2>
+            </div>
+            <div className="column has-text-right">
+              <a>alle anzeigen</a>
+            </div>
+          </div>
+
+          <div className="columns is-multiline">
+            {customer.favouriteShops?.map((e, i) => (
+              <Favorites
+                key={i}
+                shopName={e.shopName!}
+                shopImage={e.shopHeaderImage?.url!}
+                shopId={e.id!}
+                isFavorite={true}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="section">
-        <h2 className="is-size-4 mb-5">
-          {customer.firstname + "s"} Lieblingsstories
-        </h2>
-        <ArtikelCard article={article} />
+        <div className="container">
+          <div className="columns is-vcentered">
+            <div className="column">
+              <h2 className="title is-2">
+                {/* {customer.firstname + "s"} Lieblingsartikel */}
+                Deine Lieblingsartikel
+              </h2>
+            </div>
+            <div className="column has-text-right">
+              <a>alle anzeigen</a>
+            </div>
+          </div>
+
+          <ArtikelCard article={article} />
+        </div>
       </section>
     </main>
   );

@@ -10498,33 +10498,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   border-bottom: 6px solid #257708;
 }
 
-.shop-header {
-  background-position: 50% 50%;
-  background-size: cover;
-}
-.shop-header .opening-hours {
-  background: hsl(0deg, 0%, 100%);
-  border-radius: 0.5rem;
-  margin-top: 1rem;
-}
-.shop-header .shop-short-info {
-  background: hsl(0deg, 0%, 100%);
-  border-radius: 0.5rem 0.5rem 0 0;
-  margin-top: 5rem;
-  border-bottom: 0.25rem solid hsl(0deg, 0%, 100%);
-}
-.shop-header .social_media_icon {
-  border: 1px solid #257708;
-  border-radius: 100%;
-  width: 35px;
-  height: 35px;
-}
-.shop-header .social_media_icon img {
-  width: 20px;
-  height: 20px;
-  margin: 0 auto;
-}
-
 .shopCard {
   min-width: 300px;
   border-radius: 8px;
@@ -10625,26 +10598,20 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   right: 0.5rem;
 }
 
-.userHeader .information {
-  width: 380px;
-  height: 250px;
-  background-color: hsl(0deg, 0%, 100%);
-  border-radius: 8px 8px 0 0;
-}
-.userHeader .information h2 {
-  color: #257708;
-}
-.userHeader .information .imageInhaber {
+.user-image {
   position: absolute;
-  left: 370px;
-  top: 150px;
-  width: 50px;
-  max-height: 110px;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  width: 7rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin: 0 !important;
+  transform: translate(50%, -50%);
 }
-.userHeader .information .imageInhaber img {
-  border-radius: 8px;
-  width: 110px;
-  height: 110px;
+.user-image img {
+  height: 7rem;
+  width: 7rem;
   object-fit: cover;
 }
 
@@ -10687,6 +10654,51 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 
 .card.article-preview .pseudo-link {
   font-size: 0.75rem;
+}
+.card.voucher-card, .card.favorites-card {
+  background: #e8f0e8;
+}
+.card.voucher-card .voucher-value, .card.favorites-card .voucher-value {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 6rem;
+  font-weight: 700;
+  color: hsl(0deg, 0%, 100%);
+  text-shadow: 0.25rem 0.25rem 1rem rgba(51, 51, 51, 0.2);
+}
+.card.voucher-card h2, .card.favorites-card h2 {
+  display: inline;
+  background-color: #257708;
+  color: hsl(0deg, 0%, 100%);
+  padding: 0.125rem 0.5rem;
+  line-height: 2rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  position: absolute;
+  bottom: 0;
+  margin: 0.5rem;
+}
+.card.voucher-card h2:after, .card.favorites-card h2:after {
+  content: " ❯";
+}
+.card.voucher-card .code, .card.favorites-card .code {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  background: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.card.voucher-card .code .code-id, .card.favorites-card .code .code-id {
+  display: block;
+  font-size: 0.75rem;
+  transform: translateY(-50%);
+}
+.card.voucher-card .favorite-icon, .card.favorites-card .favorite-icon {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
 .searchbar {
@@ -10779,19 +10791,18 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   padding-top: 0.25rem;
 }
 
-.badges .badge {
-  position: relative;
-  width: 350px;
-  max-height: 130px;
-  background-color: rgba(37, 119, 8, 0);
-  border-radius: 8px;
+.badges .badge .badge-inner {
+  box-shadow: 0 0 0.5rem 0 rgba(51, 51, 51, 0.25);
+  background: #e8f0e8;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+.badges .badge .badge-inner p {
+  font-size: 0.75rem;
 }
 .badges .badge img {
-  width: 54px;
-  height: 54px;
-}
-.badges .badge h3 {
-  color: #257708;
+  width: 3.375rem;
+  height: 3.375rem;
 }
 
 .favorites {
@@ -10831,6 +10842,37 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   stroke: #257708;
   stroke-width: 20px;
   stroke-linecap: butt;
+}
+
+.image-header {
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.image-header .opening-hours {
+  background: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+.image-header .image-header-short-info {
+  position: relative;
+  background: hsl(0deg, 0%, 100%);
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-top: 5rem;
+  margin-bottom: -1px;
+}
+.image-header .image-header-short-info .tag {
+  margin-right: 0.125rem;
+}
+.image-header .social-media-icon {
+  border: 1px solid #257708;
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+}
+.image-header .social-media-icon img {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
 }
 
 body {
