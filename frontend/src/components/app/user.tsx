@@ -11,7 +11,7 @@ import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectCustomer, setCustomer } from "../../state/slices/customer.state";
 import Badges from "../globals/elements/badges";
 import Favorites from "../globals/elements/favorites";
-import ArtikelCard from "../globals/elements/articleCard";
+import ArtikelCard from "../globals/elements/blogPost";
 import Voucher from "../globals/elements/voucher";
 
 function User() {

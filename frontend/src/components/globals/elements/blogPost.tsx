@@ -1,7 +1,7 @@
 import React from "react";
 import "../../../styles/style.css";
 
-interface BlogBeitrag {
+interface Post {
   autor: string;
   title: string;
   image: string;
@@ -9,11 +9,11 @@ interface BlogBeitrag {
   //date: Date;
 }
 
-interface Beitrag {
-  article: BlogBeitrag[];
+interface Posting {
+  article: Post[];
 }
 
-function ArtikelCard(props: Beitrag) {
+function BlogPost(props: Posting) {
   return (
     <div className="columns">
       {props.article.map((articles) => (
@@ -44,4 +44,4 @@ function ArtikelCard(props: Beitrag) {
   );
 }
 
-export default ArtikelCard;
+export default BlogPost;

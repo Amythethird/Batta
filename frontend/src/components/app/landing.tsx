@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/style.css";
+import BlogTeaser from "../globals/elements/blogTeaser";
 
 //120px abstand zwischen den components
 
@@ -35,39 +36,22 @@ function LandingPage() {
       <section className="section blog-teaser-compact">
         <div className="container">
           <div className="columns is-gapless content">
-            <div className="column">
-              <a className="blog-teaser-wrapper" href="#">
-                <img className="cover-backgroud" src="https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900" alt="Blog Vorschaubild" />
-                <div className="title-wrapper">
-                  <h2 className="title is-2">Nulla vitae elit libero, a pharetra augue</h2>
-                </div>
-                <div className="text-wrapper">
-                  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                </div>
-              </a>
-            </div>
-            <div className="column">
-              <a className="blog-teaser-wrapper" href="#">
-                <img className="cover-backgroud" src="https://images.unsplash.com/photo-1652054447785-eaa74ea9dcbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=854&q=80/600x900" alt="Blog Vorschaubild" />
-                <div className="title-wrapper">
-                  <h2 className="title is-2">Nulla vitae elit libero, a pharetra augue</h2>
-                </div>
-                <div className="text-wrapper">
-                  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                </div>
-              </a>
-            </div>
-            <div className="column">
-              <a className="blog-teaser-wrapper" href="#">
-                <img className="cover-backgroud" src="https://images.unsplash.com/photo-1652011609738-74e036599c03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80/600x900" alt="Blog Vorschaubild" />
-                <div className="title-wrapper">
-                  <h2 className="title is-2">Nulla vitae elit libero, a pharetra augue</h2>
-                </div>
-                <div className="text-wrapper">
-                  <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                </div>
-              </a>
-            </div>
+            <BlogTeaser 
+                backgroundImage={ "https://images.unsplash.com/photo-1652439390548-1d71216f9ba6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=663&q=80/600x900"} 
+                title={"Wie Nachhaltigkeit unseren Alltag beeinflusst"} 
+                shortDescription={"Lernen deinen Ökologischen Fußabdruck mit unserem Quiz kennen."}
+              />
+            <BlogTeaser 
+                backgroundImage={"https://images.unsplash.com/photo-1652054447785-eaa74ea9dcbd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=854&q=80/600x900"} 
+                title={"Die bedrohten Tierarten aus aller Welt"} 
+                shortDescription={"Wie aus Rohstoff knappheit das wildern wurde erklärt dir der WWF Deutschland."}
+            />
+            <BlogTeaser 
+                backgroundImage={"https://images.unsplash.com/photo-1652011609738-74e036599c03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80/600x900"} 
+                title={"Stoßzähne von Dickhäutern als Medizin "} 
+                shortDescription={"In vielen Bräuchen gelten die Stoßzähne als Wundermittel für die Gesundheit."}
+            />
+            
           </div>
         </div>
       </section>
@@ -78,12 +62,8 @@ function LandingPage() {
             <div className="column is-5">
               <h2 className="title is-2">Wie funktioniert das Konzept?</h2>
               <p className="has-text-left mt-5 pb-6">
-                Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
-                vitae elit libero, a pharetra augue. Maecenas faucibus mollis
-                interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
-                sed diam eget risus varius blandit sit amet non magna. Etiam
-                porta sem malesuada magna ultricies vehicula ut mollis.
+               Als Regionaler Händler können Sie sich hier unverbindlich Registrieren. Lernen Sie unsere Nachhaltigkeitspartner kennen und vernetzen Sie sich mit diesen.
+               Es erwarten Sie tolle Projekte die, die Nachhaltigkeit fördern. Wir unterstützen Sie, bei Ihren Nachhaltigkeitsprojekten und fördern Ihre Kundenakquise.
               </p>
               <a className="is-link">Mehr erfahren</a>
             </div>
@@ -144,9 +124,7 @@ function LandingPage() {
             <div className="column is-half is-offset-one-quarter has-text-centered">
               <h2 className="title is-2">Wie wir unsere PartnerInnen auswählen</h2>
               <p>
-                Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-                cursus magna, vel scelerisque nisl consectetur et. Etiam sem
-                malesuada magna mollis euismod.
+               Wir wollen uns Persöhnlich bei Ihnen vorstellen und Ihr Nachhaltigkeitsbewusstsein kennenlernen.
               </p>
             </div>
           </div>
@@ -158,12 +136,7 @@ function LandingPage() {
                   Unsere Lokalen LadenbetreiberInnen
                 </h2>
                 <p>
-                  Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
-                  vitae elit libero, a pharetra augue. Maecenas faucibus mollis
-                  interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
-                  sed diam eget risus varius blandit sit amet non magna. Etiam
-                  porta sem malesuada magna ultricies vehicula ut mollis.
+                Nach dem Regestrierungsprozess besuchen wir Sie in Ihrem Shop. Wir prüfen mit Ihnen wie Nachhaltig Ihr Shop ist, und schlagen Ihnen Nachhaltigkeitspartner vor.
                 </p>
                 <a className="is-link">Mehr erfahren</a>
               </div>
@@ -177,15 +150,11 @@ function LandingPage() {
             <div className="column is-half">
               <div className="text-wrapper">
                 <h2 className="title is-2">
-                  Unsere Lokalen LadenbetreiberInnen
+                  Unsere Kunden
                 </h2>
                 <p>
-                  Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-                  Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla
-                  vitae elit libero, a pharetra augue. Maecenas faucibus mollis
-                  interdum. Nulla vitae elit libero, a pharetra augue. Maecenas
-                  sed diam eget risus varius blandit sit amet non magna. Etiam
-                  porta sem malesuada magna ultricies vehicula ut mollis.
+                  Wir stellen Ihnen die Regionalen Nachhaltigkeitshelden vor. Stöbern, verschenken oder selbstbehalten. Hier finden Sie
+                  für jeden Anlass ein Geschenk. Sie Unterstützen den Stationären Handel und Nachhaltigkeitsprojekte aus Ihrer Region.
                 </p>
                 <a className="is-link">Mehr erfahren</a>
               </div>
