@@ -226,21 +226,21 @@ function ShopView() {
     {
       autor: "T. Danke",
       title: "Frischer geht immer",
-      text: "Lernen Sie mit dem neuen Buch von Alexa Mustermann frisch und Nachhaltig zu kochen. Da ist alles drin! Ob Vegan, Keto oder Vegetarisch.",
+      text: "Lernen Sie mit dem neuen Buch von Alexa Mustermann, frisch und nachhaltig zu kochen. Da ist alles drin! Ob vegan, keto oder vegetarisch.",
       image:
         "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
       autor: "Julia Teebeutel",
       title: "Bowls, Bowls, Bowls",
-      text: "Der Trend aus Hawaii jezt auch in deutschen Küchen genießen. Julia erklärt was alles in eine gesunde Bowl gehört und packt auch gleich ein paar Rezepte für deine Bowl dazu. ",
+      text: "Der Trend aus Hawaii jezt auch in deutschen Küchen genießen. Julia erklärt, was alles in eine gesunde Bowl gehört und packt auch gleich ein paar Rezepte für deine Bowl dazu.",
       image:
         "https://images.unsplash.com/photo-1567575990843-105a1c70d76e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHZlZ2FufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
     },
     {
       autor: "Hannes Gutenbach",
-      title: "Vegan Forever?",
-      text: "Hannes illustriert was Ihn zum Veganen essen antreibt und was du dafür tun musst um dieser Lebensweise zu folgen. In seinem neuen Buch Vegan forever steht er dir mit Tips und Tricks zur Seite.",
+      title: "Vegan forever?",
+      text: "Hannes illustriert, was ihn zum veganen Essen antreibt und was du dafür tun musst, um dieser Lebensweise zu folgen. In seinem neuen Buch 'Vegan forever?' steht er dir mit Tipps und Tricks zur Seite.",
       image:
         "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
@@ -330,10 +330,11 @@ function ShopView() {
               <div className="column is-3 content">
                 <h2>Beliebteste Produkte</h2>
                 <p>
-                 Hier finden Sie die am best Bewertesten Produkte von Lisas Klamotten.
+                  Hier finden Sie die am besten bewerteten Produkte von Lisas
+                  Klamotten.
                 </p>
                 <Link className="button is-primary" to={`payment`}>
-                  Gutschein Kaufen
+                  Gutschein kaufen
                 </Link>
               </div>
             </div>
@@ -358,7 +359,12 @@ function ShopView() {
             <div className="column is-5 is-offset-1 ">
               <h2 className="title is-2">Wie funktioniert das Konzept?</h2>
               <p className="has-text-left mt-5 pb-6">
-                Sie können in diesem Shop einen Gutschein erwerben und dabei etwas für Nachhaltigkeitsprojekte tun. Verschenken Sie den Gutschein oder behalten Sie ihn selbst. Mit jedem Kauf erhalten Sie eine Auszeichnung jenach höhe des Wertes und können mit anderen in Ihrer Region vergleichen wie Nachhaltig Ihr Einkauf war.
+                Sie können in diesem Shop einen Gutschein erwerben und dabei
+                etwas für Nachhaltigkeitsprojekte tun. Verschenken Sie den
+                Gutschein oder behalten Sie ihn selbst. Mit jedem Kauf erhalten
+                Sie eine Auszeichnung - je nach Höhe des Wertes - und können mit
+                anderen in Ihrer Region vergleichen, wie nachhaltig Ihr Einkauf
+                war.
               </p>
 
               <Link className="button is-primary" to={`payment`}>
@@ -372,14 +378,14 @@ function ShopView() {
       <section className="section has-background-primary-transparent">
         <div className="container has-text-centered">
           <h2 className="title is-2">
-            Diese Parter:Innen unterstützt du mit einem Gutschein
+            Diese Partner:innen unterstützt du mit einem Gutschein:
           </h2>
           <div className="columns">
             <div className="column is-half is-offset-one-quarter">
               <p>
-                Damit Ihr mit euren Käufen zusätzlich etwas Guten tun könnt,
-                bieten unsere Parther verschiedene Möglichkeiten wie z.B. die
-                Unterstützung nachhaltiger Projekte.
+                Damit ihr mit euren Käufen zusätzlich etwas Gutes tun könnt,
+                bieten unsere Partner:innen verschiedene Möglichkeiten, wie z.B.
+                die Unterstützung nachhaltiger Projekte.
               </p>
             </div>
           </div>
@@ -405,7 +411,7 @@ function ShopView() {
         <div className="container">
           <div className="columns content is-vcentered">
             <div className="column">
-              <h2 className="title is-2">Gallerie/ Eindrücke</h2>
+              <h2 className="title is-2">Gallerie/Eindrücke</h2>
             </div>
             <div className="column has-text-right">
               <a onClick={handleClick}>Mehr Anzeigen</a>
