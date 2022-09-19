@@ -22,97 +22,6 @@ function Login() {
 
   return (
     <section className="section login">
-      {/* <div className="container login">
-        <div className="columns">
-          <div className="column">
-            <div className="control has-icons-left has-icons-right">
-              <input
-                className="input"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="control has-icons-left">
-              <input
-                className="input"
-                type="password"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <span className="icon is-small is-left">
-                <i className="fas fa-lock"></i>
-              </span>
-            </div>
-            <button
-              className="button is-half is-primary is-medium"
-              onClick={handleSubmit}
-            >
-              Login
-            </button>
-          </div>
-
-          <div className="columns">
-            <div className="column">
-              <div className="control">
-                <input className="input" type="text" placeholder="Name"></input>
-              </div>
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Vorname"
-                ></input>
-              </div>
-              <div className="field">
-                <div className="control has-icons-left has-icons-right">
-                  <input
-                    className="input"
-                    type="email"
-                    placeholder="Email"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-envelope"></i>
-                  </span>
-                  <span className="icon is-small is-right">
-                    <i className="fas fa-check"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control has-icons-left">
-                  <input
-                    className="input"
-                    type="password"
-                    placeholder="Password"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control has-icons-left">
-                  <input
-                    className="input"
-                    type="password"
-                    placeholder="Password wiederholen"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <button className="button is-half is-primary is-medium">
-                Registrieren
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="container">
         <div className="columns">
           <div className="column is-half">
@@ -159,45 +68,45 @@ function Login() {
                       className="input"
                       type="text"
                       placeholder="Vorname"
-                    ></input>
+                    disabled></input>
                   </div>
                   <div className="column is-half">
                     <input
                       className="input"
                       type="text"
                       placeholder="Name"
-                    ></input>
+                      disabled></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="text"
                       placeholder="E-Mail"
-                    ></input>
+                      disabled></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="password"
                       placeholder="Password"
-                    ></input>
+                      disabled></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="password"
                       placeholder="Password wiederholen"
-                    ></input>
+                      disabled></input>
                   </div>
                   <div className="column is-full mgt-1 mgb-1">
                     <label className="checkbox-label">
-                      <input className="checkbox-input" type="checkbox" />
+                      <input className="checkbox-input" type="checkbox" disabled />
                       Ich stimme den <a href="#">AGBs</a> zu.
                     </label>
                   </div>
 
                   <div className="column is-full">
-                    <button className="button is-primary">Registrieren</button>
+                    <button className="button is-primary" disabled>Registrieren</button>
                   </div>
                 </div>
               </div>

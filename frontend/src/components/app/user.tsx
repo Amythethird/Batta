@@ -73,21 +73,21 @@ function User() {
     {
       autor: "T. Danke",
       title: "Frischer geht immer",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      text: "Lernen Sie mit dem neuen Buch von Alexa Mustermann, frisch und nachhaltig zu kochen. Da ist alles drin! Ob vegan, keto oder vegetarisch.",
       image:
         "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
     {
       autor: "Julia Teebeutel",
       title: "Bowls, Bowls, Bowls",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      text: "Der Trend aus Hawaii jezt auch in deutschen Küchen genießen. Julia erklärt, was alles in eine gesunde Bowl gehört und packt auch gleich ein paar Rezepte für deine Bowl dazu.",
       image:
         "https://images.unsplash.com/photo-1567575990843-105a1c70d76e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHZlZ2FufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=600&q=60",
     },
     {
       autor: "Hannes Gutenbach",
-      title: "Vegan Forever?",
-      text: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque tempora asperiores minima voluptatibus optio rerum eveniet voluptate obcaecati perspiciatis, voluptates reiciendis eos quis, porro sit? Facilis fuga voluptatum necessitatibus numquam!",
+      title: "Vegan forever?",
+      text: "Hannes illustriert, was ihn zum veganen Essen antreibt und was du dafür tun musst, um dieser Lebensweise zu folgen. In seinem neuen Buch 'Vegan forever?' steht er dir mit Tipps und Tricks zur Seite.",
       image:
         "https://images.unsplash.com/photo-1583495838052-7da01ba1b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
     },
