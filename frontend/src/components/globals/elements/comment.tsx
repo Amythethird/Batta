@@ -22,7 +22,7 @@ function Comment(props: comment) {
   const aktive = props.bewertung;
 
   return (
-    <div className="column is-4 comment-preview">
+    <div className="column is-6-tablet is-4-widscreen comment-preview mgb-05">
       <div className="columns is-gapless mgb-05">
         <div className="column is-8">
           <h4 className="title is-3 mgb-05">{props.title}</h4>

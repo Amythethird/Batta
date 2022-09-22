@@ -34,7 +34,12 @@ function FilterShops() {
           entry("address", [
             "streetName, postalCode, houseNumber, city, country",
           ]),
-          entry("openingHours", ["openTime", "closeTime", "breakTimeStart", "breakTimeEnd" ]),
+          entry("openingHours", [
+            "openTime",
+            "closeTime",
+            "breakTimeStart",
+            "breakTimeEnd",
+          ]),
           "description",
           entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [
@@ -127,31 +132,33 @@ function FilterShops() {
 
   return (
     <main>
-      <div className="container content">
-        <div className="columns searchbar">
-          <div className="column">
-            <input
-              className="search-bar input"
-              type="text"
-              placeholder="PLZ oder Adresse"
-              name="email"
-              value={input}
-              onChange={handleChange}
-            />
-            <span className="search-icon">
-              <FontAwesomeIcon icon={faSearch} color="#257708" />
-            </span>
-            <span className="search-filter">
-              <FontAwesomeIcon icon={faFilter} color="#257708" />
-            </span>
-          </div>
-        </div>
-        {allStatements}
-      </div>
-
       <section className="section">
+        <div className="container content">
+          <div className="columns searchbar">
+            <div className="column">
+              <input
+                className="search-bar input"
+                type="text"
+                placeholder="PLZ oder Adresse"
+                name="email"
+                value={input}
+                onChange={handleChange}
+              />
+              <span className="search-icon">
+                <FontAwesomeIcon icon={faSearch} color="#257708" />
+              </span>
+              <span className="search-filter">
+                <FontAwesomeIcon icon={faFilter} color="#257708" />
+              </span>
+            </div>
+          </div>
+          {allStatements}
+        </div>
+      </section>
+
+      <section className="section pdt-0">
         <div className="container">
-          <div className="columns">
+          <div className="columns is-multiline">
             {shops.map((shop: Shop) => (
               <ShopCard key={shop.id} shop={shop} />
             ))}

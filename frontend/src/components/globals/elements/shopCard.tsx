@@ -16,7 +16,7 @@ function ShopCard(props: ShopCardProps) {
   }
 
   return (
-    <div className="column is-3">
+    <div className="column is-4-tablet is-3-widescreen">
       <Link to={`/shop/${props.shop.id}`}>
         <div className="card shop-preview">
           <div className="card-image">

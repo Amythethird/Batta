@@ -22,31 +22,33 @@ function HeaderUser() {
         backgroundImage: `url(${process.env.REACT_APP_STRAPI}${costumer.profileHeaderImage?.url})`,
       }}
     >
-      <div className="container">
-        <div className="columns">
-          <div className="column is-4 image-header-short-info content mgt-large">
-            <figure className="user-image">
-              <img
-                className="image"
-                /* eslint-disable-next-line no-undef */
-                src={`${process.env.REACT_APP_STRAPI}${costumer.profilePicture?.url}`}
-                alt="user"
-              />
-            </figure>
-            <h2 className="title is-2 has-text-primary mgt-1 mgb-05">
-              {costumer.firstname + " " + costumer.lastname} &nbsp;
-              <a onClick={like}>
-                <span>
-                  <FontAwesomeIcon icon={fullHeart ? faHeart : reg} />
-                </span>
-              </a>
-            </h2>
-            {/*   <a>Als Freund hinzufügen</a> */}
+      <section className="section">
+        <div className="container">
+          <div className="columns">
+            <div className="column is-4 image-header-short-info content mgt-large">
+              <figure className="user-image">
+                <img
+                  className="image"
+                  /* eslint-disable-next-line no-undef */
+                  src={`${process.env.REACT_APP_STRAPI}${costumer.profilePicture?.url}`}
+                  alt="user"
+                />
+              </figure>
+              <h2 className="title is-2 has-text-primary mgt-1 mgb-05">
+                {costumer.firstname + " " + costumer.lastname} &nbsp;
+                <a onClick={like}>
+                  <span>
+                    <FontAwesomeIcon icon={fullHeart ? faHeart : reg} />
+                  </span>
+                </a>
+              </h2>
+              {/*   <a>Als Freund hinzufügen</a> */}
 
-            <p>{costumer.shortDescription}</p>
+              <p>{costumer.shortDescription}</p>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </header>
   );
 }

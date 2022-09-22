@@ -10,6 +10,7 @@
       position: relative;
       padding: $gap;
       overflow: hidden;
+      height: 100%;
 
       .cover-backgroud {
         object-fit: cover;
@@ -131,6 +132,9 @@
     right: 0;
     bottom: 0;
     left: 0;
+    @include until($tablet) {
+      display: none;
+    }
   }
   @include from($tablet) {
     .text-wrapper {

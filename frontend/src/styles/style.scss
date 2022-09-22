@@ -1,10 +1,7 @@
 @import "./globals/overwrites";
-// @import "./globals/boilerplate";
-// @import "./globals/colors";
 @import "./globals/typograpy";
 @import "./globals/spacing";
 @import "./globals/helpers";
-// @import "./globals/mixins";
 
 @import "./components/nav";
 @import "./components/footer";
@@ -174,12 +171,6 @@ main {
       a {
         color: $white;
         font-weight: 700;
-      }
-    }
-
-    @include mobile {
-      .title {
-        font-size: 24px;
       }
     }
   }

@@ -30,17 +30,22 @@
 }
 
 .shop {
-  .comment-carousel {
-    overflow-x: scroll;
+  .section {
+    @include from($tablet) {
+      padding-bottom: 0;
+    }
+  }
 
-    .comment-preview {
-      background-color: rgba($grey, 0.05);
-      border-radius: $radius;
-      margin: 0 0.5rem;
-      padding: 0.5rem;
+  .comment-carousel-container {
+    overflow: hidden;
+    .comment-carousel {
+      overflow-x: scroll;
 
-      &:first-child {
-        margin-left: 0;
+      .comment-preview {
+        background-color: rgba($grey, 0.05);
+        border-radius: $radius;
+        margin: 0 0.5rem;
+        padding: 0.5rem;
       }
     }
   }
@@ -50,7 +55,6 @@
 
   .rating {
     position: relative;
-    background: $white;
 
     .rating-average {
       font-size: 3rem;

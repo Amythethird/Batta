@@ -8,6 +8,10 @@
   overflow: hidden;
   margin: 0 !important;
   transform: translate(50%, -50%);
+
+  @include until($tablet) {
+    transform: translate(0%, -90%);
+  }
   img {
     height: 7rem;
     width: 7rem;

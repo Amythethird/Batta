@@ -294,19 +294,21 @@ function ShopView() {
                 />
               ))}
             </div>
-            <div className="column is-9 columns comment-carousel">
-              {shops.map((e) =>
-                e.reviews?.map((review: Review) => (
-                  <Comment
-                    key={review.id}
-                    title={review.title!}
-                    text={review.description!}
-                    date={""}
-                    bewertung={review.rating!}
-                    lenght={e.reviews?.length!}
-                  />
-                ))
-              )}
+            <div className="column is-9 comment-carousel-container">
+              <div className="columns comment-carousel">
+                {shops.map((e) =>
+                  e.reviews?.map((review: Review) => (
+                    <Comment
+                      key={review.id}
+                      title={review.title!}
+                      text={review.description!}
+                      date={""}
+                      bewertung={review.rating!}
+                      lenght={e.reviews?.length!}
+                    />
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -422,7 +424,7 @@ function ShopView() {
         </div>
       </section>
 
-      <section className="section mgb-large">
+      <section className="section pdb-large">
         <div className="container">
           <div className="columns content is-vcentered">
             <div className="column">

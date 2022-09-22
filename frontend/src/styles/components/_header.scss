@@ -1,6 +1,11 @@
 .image-header {
   background-position: 50% 50%;
   background-size: cover;
+  .section {
+    @include from($tablet) {
+      padding-bottom: 0;
+    }
+  }
   .opening-hours {
     background: $white;
     border-radius: $radius;
@@ -14,6 +19,10 @@
     margin-bottom: -1px;
     .tag {
       margin-right: 0.125rem;
+    }
+    @include until($tablet) {
+      margin-bottom: 2rem;
+      border-radius: $radius;
     }
   }
   .social-media-icon {

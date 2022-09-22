@@ -128,7 +128,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="section has-background-primary is-medium mgb-large">
+      <section className="section has-background-primary is-medium">
         <div className="has-text-centered has-text-white">
           <h2 className="title is-2 has-text-white">
             Du bist Ladenbetreiber:in oder Mitglied einer nachhaltigen
@@ -142,7 +142,7 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className="section mgb-large">
+      <section className="section pdt-large pdb-large">
         <div className="container">
           <div className="columns content mgb-3">
             <div className="column is-half is-offset-one-quarter has-text-centered">
@@ -156,7 +156,7 @@ function LandingPage() {
             </div>
           </div>
 
-          <div className="columns content is-centered is-vcentered is-multiline blog-big-grid is-gapless is-align-items-stretch">
+          <div className="columns content is-centered is-vcentered is-multiline blog-big-grid is-variable is-3-mobile is-align-items-stretch">
             <div className="column is-half">
               <div className="text-wrapper">
                 <h2 className="title is-2">
