@@ -1,6 +1,6 @@
 import React from "react";
 
-interface voucher {
+interface VoucherModel {
   boughtAt: Date;
   expiringDate: Date;
   couponID: string;
@@ -11,7 +11,7 @@ interface voucher {
   qrCode: string;
 }
 
-function Voucher(props: voucher) {
+function Voucher(props: VoucherModel) {
   const boughtDate = new Date(props.boughtAt).toLocaleDateString();
   return (
     <div className="column is-3">

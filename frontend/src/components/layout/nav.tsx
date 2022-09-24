@@ -63,7 +63,8 @@ function Nav() {
   }
 
   return (
-    <nav
+   <header>
+     <nav
       className="navbar is-fixed-top"
       aria-label="main-menu"
       role="navigation"
@@ -124,6 +125,7 @@ function Nav() {
         </div>
       </div>
     </nav>
+   </header>
   );
 }
 

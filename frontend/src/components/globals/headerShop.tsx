@@ -11,13 +11,13 @@ import { useAppSelector } from "../../state/hooks.state";
 import { selectShops } from "../../state/slices/shops.state";
 import SocialMedia from "./elements/socialMedia";
 
-interface params {
+interface Params {
   UserId: any;
   imag: string;
   bgImage: string;
 }
 
-function HeaderShop(props: params) {
+function HeaderShop(props: Params) {
   const Shops = useAppSelector(selectShops);
   let data: Shop = Shops.find((e) => e.id === parseInt(props.UserId ?? "0"))!;
 

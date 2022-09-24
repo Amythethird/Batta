@@ -1,9 +1,9 @@
 import React from "react";
 
-interface sortierung {
+interface Sorting {
   sortierung: string[];
 }
-function Sorted(props: sortierung) {
+function Sorted(props: Sorting) {
   const [checkboxValue, setCheckbox] = React.useState({
     checkbox: [""],
     response: [""],

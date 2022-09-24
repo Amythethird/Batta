@@ -1,5 +1,5 @@
 import Customer, { CustomerProps } from "../models/customer";
-import ShopOwner, { ShopOwnerProps } from "../models/shop-owner";
+import ShopOwner, { ShopOwnerProps } from "../models/shopOwner";
 import User from "../models/user";
 import {
   CustomerResponse,

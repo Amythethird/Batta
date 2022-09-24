@@ -3,11 +3,11 @@ import "../../../styles/style.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 
-interface Modal{
+interface ModalModel{
     showModal: boolean
 }
 
-function modal(props: Modal){
+function Modal(props: ModalModel){
     const [show, setShow] = React.useState(props.showModal);
     const [rating, setRating] = React.useState(0);
     const [hover, setHover] = React.useState(0);
@@ -101,4 +101,4 @@ function modal(props: Modal){
         null
     );
 }
-export default modal;
+export default Modal;

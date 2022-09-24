@@ -1,16 +1,16 @@
 import React, { useEffect } from "react";
 
-interface categories {
+interface Categorie {
   categorie: string[];
   handler: Function;
 }
 
-interface checked {
+interface Checked {
   checkbox: string[];
 }
 
-function Categories(props: categories) {
-  const [checkboxValue, setCheckbox] = React.useState<checked>({
+function Categories(props: Categorie) {
+  const [checkboxValue, setCheckbox] = React.useState<Checked>({
     checkbox: [],
   });
 

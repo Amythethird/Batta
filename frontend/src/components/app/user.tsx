@@ -179,7 +179,6 @@ function User() {
               <a>alle anzeigen</a>
             </div>
           </div>
-
           <ArtikelCard article={article} />
         </div>
       </section>

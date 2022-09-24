@@ -3,13 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 
-interface rating {
+interface Rating {
   title: boolean;
   durchschnitt: number;
   full: boolean;
   ratings: number;
 }
-function Rating(props: rating) {
+function Ratings(props: Rating) {
   const total = 5;
 
   var rate = [];
@@ -72,4 +72,4 @@ function Rating(props: rating) {
   return rating;
 }
 
-export default Rating;
+export default Ratings;

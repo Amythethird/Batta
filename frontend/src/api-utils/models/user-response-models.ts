@@ -1,5 +1,5 @@
 import { CustomerProps } from "../../models/customer";
-import { ShopOwnerProps } from "../../models/shop-owner";
+import { ShopOwnerProps } from "../../models/shopOwner";
 import User from "../../models/user";
 
 export interface UserResponse extends User {

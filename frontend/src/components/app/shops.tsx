@@ -13,17 +13,20 @@ import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-import ShopCard from "../globals/elements/shopCard";
+//import ShopCard from "../globals/elements/shopCard";
 import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
 import { parseShopOwnerResponseToShopOwner } from "../../api-utils/user-utils";
+import MapBox from "../globals/elements/mapBox";
+
 
 function FilterShops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
+  const [input, setCriteria] = React.useState("");
 
   useApi(
     query(
@@ -40,6 +43,7 @@ function FilterShops() {
             "breakTimeStart",
             "breakTimeEnd",
           ]),
+          "coordinateLat", "coordinateLng",
           "description",
           entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [
@@ -64,9 +68,8 @@ function FilterShops() {
   );
 
   //Input Form
-  const [input, setCriteria] = React.useState("");
-  const categorie: string[] = [];
 
+  const categorie: string[] = [];
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
     dispatch(setShopsFilter(e.currentTarget.value));
@@ -130,6 +133,21 @@ function FilterShops() {
     );
   }
 
+  type Coordinates = {
+    lat: number,
+    lng: number
+  }
+
+  let coordinates : Coordinates = {
+    lat: 0,
+    lng: 0
+  }
+  shops.map(coord => {
+    coordinates.lat = coord.coordinateLat!,
+    coordinates.lng = coord.coordinateLng!
+  })
+
+
   return (
     <main>
       <section className="section">
@@ -155,8 +173,13 @@ function FilterShops() {
           {allStatements}
         </div>
       </section>
+      <section className="mapBox  pdt-0">
+        <div className="" >
+        <MapBox coords={[{lat: coordinates.lat, lng: coordinates.lng}]}/>
+        </div>
+      </section>
 
-      <section className="section pdt-0">
+    {/*   <section className="section pdt-0">
         <div className="container">
           <div className="columns is-multiline">
             {shops.map((shop: Shop) => (
@@ -164,7 +187,7 @@ function FilterShops() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

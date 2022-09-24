@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar as StarRegular } from "@fortawesome/free-regular-svg-icons";
 import { faStar as StarSolid } from "@fortawesome/free-solid-svg-icons";
 
-interface comment {
+interface Comment {
   title: string;
   text: string;
   date: string;
@@ -11,7 +11,7 @@ interface comment {
   lenght: number;
 }
 
-function Comment(props: comment) {
+function Comments(props: Comment) {
   let text = props.text;
   let readMore = false;
   if (text.length > 160) {
@@ -44,4 +44,4 @@ function Comment(props: comment) {
   );
 }
 
-export default Comment;
+export default Comments;
