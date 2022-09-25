@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { login } from "../../api-utils/login-utils";
+import { login } from "../../apiUtils/login-utils";
 import "../../styles/style.css";
 
 function Login() {
@@ -68,45 +68,56 @@ function Login() {
                       className="input"
                       type="text"
                       placeholder="Vorname"
-                    disabled></input>
+                      disabled
+                    ></input>
                   </div>
                   <div className="column is-half">
                     <input
                       className="input"
                       type="text"
                       placeholder="Name"
-                      disabled></input>
+                      disabled
+                    ></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="text"
                       placeholder="E-Mail"
-                      disabled></input>
+                      disabled
+                    ></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="password"
                       placeholder="Password"
-                      disabled></input>
+                      disabled
+                    ></input>
                   </div>
                   <div className="column is-full">
                     <input
                       className="input"
                       type="password"
                       placeholder="Password wiederholen"
-                      disabled></input>
+                      disabled
+                    ></input>
                   </div>
                   <div className="column is-full mgt-1 mgb-1">
                     <label className="checkbox-label">
-                      <input className="checkbox-input" type="checkbox" disabled />
+                      <input
+                        className="checkbox-input"
+                        type="checkbox"
+                        disabled
+                      />
                       Ich stimme den <a href="#">AGBs</a> zu.
                     </label>
                   </div>
 
                   <div className="column is-full">
-                    <button className="button is-primary" disabled>Registrieren</button>
+                    <button className="button is-primary" disabled>
+                      Registrieren
+                    </button>
                   </div>
                 </div>
               </div>

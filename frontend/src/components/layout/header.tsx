@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../../styles/style.css";
-import { isLoggedIn, logout } from "../../api-utils/login-utils";
+import { isLoggedIn, logout } from "../../apiUtils/login-utils";
 function Nav() {
   // Toggle Bulma nav
   const [isActive, setisActive] = React.useState(false);

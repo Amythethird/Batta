@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getAccessToken } from "../api-utils/login-utils";
+import { getAccessToken } from "../apiUtils/login-utils";
 
 export default function UseApi(
   query: string,

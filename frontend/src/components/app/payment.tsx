@@ -4,8 +4,8 @@ import { useAppDispatch, useAppSelector } from "../../state/hooks.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import "../../styles/style.css";
 import useApi from "../../hooks/useApi";
-import { collection, entry, query } from "../../api-utils/query-utils";
-import { parseResponse } from "../../api-utils/response-utils";
+import { collection, entry, query } from "../../apiUtils/query-utils";
+import { parseResponse } from "../../apiUtils/response-utils";
 import ShopModel from "../../models/shop";
 import HeaderUser from "../globals/headerShop";
 

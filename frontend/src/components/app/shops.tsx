@@ -7,8 +7,8 @@ import {
 } from "../../state/slices/shops-filter.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import useApi from "../../hooks/useApi";
-import { collection, entry, query } from "../../api-utils/query-utils";
-import { parseResponse } from "../../api-utils/response-utils";
+import { collection, entry, query } from "../../apiUtils/query-utils";
+import { parseResponse } from "../../apiUtils/response-utils";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
@@ -18,9 +18,8 @@ import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
-import { parseShopOwnerResponseToShopOwner } from "../../api-utils/user-utils";
+import { parseShopOwnerResponseToShopOwner } from "../../apiUtils/user-utils";
 import MapBox from "../globals/elements/mapBox";
-
 
 function FilterShops() {
   const dispatch = useAppDispatch();
@@ -43,7 +42,8 @@ function FilterShops() {
             "breakTimeStart",
             "breakTimeEnd",
           ]),
-          "coordinateLat", "coordinateLng",
+          "coordinateLat",
+          "coordinateLng",
           "description",
           entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [
@@ -134,19 +134,18 @@ function FilterShops() {
   }
 
   type Coordinates = {
-    lat: number,
-    lng: number
-  }
+    lat: number;
+    lng: number;
+  };
 
-  let coordinates : Coordinates = {
+  let coordinates: Coordinates = {
     lat: 0,
-    lng: 0
-  }
-  shops.map(coord => {
-    coordinates.lat = coord.coordinateLat!,
-    coordinates.lng = coord.coordinateLng!
-  })
-
+    lng: 0,
+  };
+  shops.map((coord) => {
+    (coordinates.lat = coord.coordinateLat!),
+      (coordinates.lng = coord.coordinateLng!);
+  });
 
   return (
     <main>
@@ -174,12 +173,12 @@ function FilterShops() {
         </div>
       </section>
       <section className="mapBox  pdt-0">
-        <div className="" >
-        <MapBox coords={[{lat: coordinates.lat, lng: coordinates.lng}]}/>
+        <div className="">
+          <MapBox coords={[{ lat: coordinates.lat, lng: coordinates.lng }]} />
         </div>
       </section>
 
-    {/*   <section className="section pdt-0">
+      {/*   <section className="section pdt-0">
         <div className="container">
           <div className="columns is-multiline">
             {shops.map((shop: Shop) => (
