@@ -232,3 +232,14 @@ main {
     align-items: center;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .navbar.is-fixed-top .navbar-menu,
+  .navbar.is-fixed-top-touch .navbar-menu {
+    overflow: unset;
+
+    .dropdown.is-active .dropdown-menu .dropdown-content {
+      min-width: 26rem;
+    }
+  }
+}

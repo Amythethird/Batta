@@ -88,12 +88,8 @@ function ShopView() {
     false
   );
 
-
-
   if (filter) {
-    modal = (
-      <Modal showModal={filter}/>
-    );
+    modal = <Modal showModal={filter} />;
   }
 
   const photos = [

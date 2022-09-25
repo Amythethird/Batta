@@ -3,7 +3,7 @@ import "./styles/style.css";
 import Footer from "./components/layout/footer";
 import Main from "./components/layout/main";
 // import Header from "./components/layout/header";
-import Nav from "./components/layout/nav";
+import Nav from "./components/layout/header";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -14,12 +14,10 @@ import {
 
 library.add(fab, faCheckSquare, faCoffee, faFontAwesome);
 
-
-
 function App() {
   return (
     <>
-      <Nav/>
+      <Nav />
       <Main />
       <Footer />
     </>
