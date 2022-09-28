@@ -163,7 +163,6 @@ function ShopView() {
 
   const handleClick = () => {
     setIsActive((current) => !current);
-    console.log(isActive);
   };
 
   //durchschnitt
@@ -171,7 +170,6 @@ function ShopView() {
   const reviews = shops
     .map((e) => e.reviews)
     .map((e) => e?.reduce((partialSum, a) => partialSum + a?.rating!, 0));
-  console.log(reviews);
 
   return (
     <main className="mt-space-large shop">

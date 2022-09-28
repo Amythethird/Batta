@@ -30,11 +30,11 @@
 }
 
 .shop {
-  .section {
-    @include from($tablet) {
-      padding-bottom: 0;
-    }
-  }
+  // .section {
+  //   @include until($tablet) {
+  //     padding-bottom: 0;
+  //   }
+  // }
 
   .comment-carousel-container {
     overflow: hidden;

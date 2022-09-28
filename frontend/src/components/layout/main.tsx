@@ -4,7 +4,7 @@ import Home from "../app/landing";
 import Login from "../app/login";
 import Shops from "../app/shops";
 import User from "../app/user";
-import Shop from "../app/shopView";
+import Shop from "../app/shopview";
 import { isLoggedIn } from "../../apiUtils/login-utils";
 import ProtectedElement from "./protected-route";
 import Payment from "../app/payment";

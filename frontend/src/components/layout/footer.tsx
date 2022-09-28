@@ -84,9 +84,9 @@ function Footer() {
               <button className="button is-secondary">Abonieren</button>
             </div>
             <p className="">
-              *Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-              Donec sed odio dui. Morbi leo risus, porta ac consectetur ac,
-              vestibulum at eros.
+              *Ich willige ein, dass ich in regelmäßigen Abständen Informationen
+              über Produkte, interessante Angebote und aktuelle Aktionen von
+              Batta per E-Mail erhalte.
             </p>
           </div>
         </div>

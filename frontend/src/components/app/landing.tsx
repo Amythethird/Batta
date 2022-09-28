@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/style.css";
 import BlogTeaser from "../globals/elements/blogTeaser";
+import { Link } from "react-router-dom";
 
 //120px abstand zwischen den components
 
@@ -30,7 +31,9 @@ function LandingPage() {
                 deiner Nähe, die zu 100% nachhaltige Produkte anbieten und
                 unterstütze diese und den Planeten!
               </p>
-              <button className="button is-primary">Go green!</button>
+              <Link className="button is-primary" to="/shops">
+                Go green!
+              </Link>
             </div>
           </div>
         </div>

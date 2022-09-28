@@ -13,13 +13,13 @@ import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
 // import shopData from "../../testdata/shop.json";
-//import ShopCard from "../globals/elements/shopCard";
+import ShopCard from "../globals/elements/shopCard";
 import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
 import { parseShopOwnerResponseToShopOwner } from "../../apiUtils/user-utils";
-import MapBox from "../globals/elements/mapBox";
+// import MapBox from "../globals/elements/mapBox";
 
 function FilterShops() {
   const dispatch = useAppDispatch();
@@ -172,13 +172,13 @@ function FilterShops() {
           {allStatements}
         </div>
       </section>
-      <section className="mapBox  pdt-0">
+      {/* <section className="mapBox  pdt-0">
         <div className="">
           <MapBox coords={[{ lat: coordinates.lat, lng: coordinates.lng }]} />
         </div>
-      </section>
+      </section> */}
 
-      {/*   <section className="section pdt-0">
+      <section className="section pdt-0">
         <div className="container">
           <div className="columns is-multiline">
             {shops.map((shop: Shop) => (
@@ -186,7 +186,7 @@ function FilterShops() {
             ))}
           </div>
         </div>
-      </section> */}
+      </section>
     </main>
   );
 }
