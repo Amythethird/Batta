@@ -3,95 +3,102 @@ import "../../styles/style.css";
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="content has-border pb-5">
+    <footer className="footer pdt-medium">
+      <div className="container">
         <div className="columns">
-          <div className="column has-text-left">
-            <div className="links mb-5">
-              <p>Allgemeines</p>
-              <ul>
-                <li>
-                  <a>Über uns</a>
-                </li>
-                <li>
-                  <a>Nachhaltigkeitskonzept</a>
-                </li>
-                <li>
-                  <a>Blog</a>
-                </li>
-              </ul>
-            </div>
+          <div className="column is-half">
+            <div className="columns is-multiline">
+              <div className="column is-half">
+                <h3 className="title is-3 has-text-white mgb-1">Allgemeines</h3>
+                <ul>
+                  <li>
+                    <a>Über uns</a>
+                  </li>
+                  <li>
+                    <a>Nachhaltigkeitskonzept</a>
+                  </li>
+                  <li>
+                    <a>Blog</a>
+                  </li>
+                </ul>
+              </div>
 
-            <div className="links">
-              <p>Shops</p>
-              <ul>
-                <li>
-                  <a>Gutscheine</a>
-                </li>
-                <li>
-                  <a>In der Nähe</a>
-                </li>
-                <li>
-                  <a>Partner werden</a>
-                </li>
-              </ul>
+              <div className="column is-half">
+                <h3 className="title is-3 has-text-white mgb-1">Shops</h3>
+                <ul>
+                  <li>
+                    <a>Gutscheine</a>
+                  </li>
+                  <li>
+                    <a>In der Nähe</a>
+                  </li>
+                  <li>
+                    <a>Partner werden</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="column is-half">
+                <h3 className="title is-3 has-text-white mgb-1">Rechtliches</h3>
+                <ul>
+                  <li>
+                    <a>Impressum</a>
+                  </li>
+                  <li>
+                    <a>Datenschutz</a>
+                  </li>
+                  <li>
+                    <a>AGB</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="column is-half">
+                <h3 className="title is-3 has-text-white mgb-1">
+                  In eigener Sache
+                </h3>
+                <ul>
+                  <li>
+                    <a>Kontakt</a>
+                  </li>
+                  <li>
+                    <a>Presse</a>
+                  </li>
+                  <li>
+                    <a>Karriere</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div className="column has-text-left">
-            <div className="links mb-5">
-              <p>Rechtliches</p>
-              <ul>
-                <li>
-                  <a>Impressum</a>
-                </li>
-                <li>
-                  <a>Datenschutz</a>
-                </li>
-                <li>
-                  <a>AGB</a>
-                </li>
-              </ul>
-            </div>
 
-            <div className="links">
-              <p>In eigener Sache</p>
-              <ul>
-                <li>
-                  <a>Kontakt</a>
-                </li>
-                <li>
-                  <a>Presse</a>
-                </li>
-                <li>
-                  <a>Karriere</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="column">
-            <p>Newsletter erhalten</p>
-            <div className="is-flex">
+          <div className="column is-5 is-offset-1 content">
+            <h3 className="title is-3 has-text-white">Newsletter erhalten</h3>
+            <div className="is-flex pdb-05">
               <input
-                className="input is-normal mr-2"
+                className="input mgr-05"
+                id="newsletter"
                 type="text"
-                placeholder="Large input"
+                placeholder="E-Mail Adresse*"
               ></input>
-              <button className="button is-half">Go green!</button>
+              <button className="button is-secondary">Abonieren</button>
             </div>
-            <p className="pt-2">
-              *Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-              Donec sed odio dui. Morbi leo risus, porta ac consectetur ac,
-              vestibulum at eros.
+            <p className="">
+              *Ich willige ein, dass ich in regelmäßigen Abständen Informationen
+              über Produkte, interessante Angebote und aktuelle Aktionen von
+              Batta per E-Mail erhalte.
             </p>
           </div>
         </div>
-      </div>
-      <div className="content">
-        <div className="columns">
-          <div className="column has-text-left">
-            <p>Copyright © GlobalRitter. All Rights Reserved.</p>
+
+        <hr />
+
+        <div className="content">
+          <div className="columns">
+            <div className="column has-text-left">
+              <p>Copyright © Batta. All Rights Reserved.</p>
+            </div>
           </div>
-          <div className="column has-text-left"></div>
         </div>
       </div>
     </footer>

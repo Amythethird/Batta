@@ -1,40 +1,44 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
 import { faHeart as reg } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as solid } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface Favorite {
-  isShop: boolean;
-  name: string;
+  shopId: any;
+  shopName: string;
+  shopImage: string;
   isFavorite: boolean;
-  url: string;
 }
 
 function Favorites(props: Favorite) {
-  let favorites;
-  if (props.isShop) {
-    favorites = (
-      <div
-        className="box favorite is-flex  is-align-items-end"
-        style={{
-          backgroundImage: `url(${props.url})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
-      >
-        <div className="icon">
-          <FontAwesomeIcon icon={props.isFavorite ? faHeart : reg} />
+  return (
+    <div className="column is-3">
+      <Link to={`/shop/${props.shopId}`}>
+        <div className="card favorites-card">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img
+                /* eslint-disable-next-line no-undef */
+                src={`${process.env.REACT_APP_STRAPI}${props.shopImage}`}
+                alt="Placeholder image"
+              />
+              <a className="favorite-icon">
+                <FontAwesomeIcon
+                  className="iconFon  m-2"
+                  icon={props.isFavorite ? solid : reg}
+                  size="2x"
+                />
+              </a>
+
+              <h2>{props.shopName}</h2>
+            </figure>
+          </div>
         </div>
-        <h3>
-          {props.name}
-          <FontAwesomeIcon className="ml-5" icon={faAngleRight} />
-        </h3>
-      </div>
-    );
-  } else {
-    favorites = <div>User</div>;
-  }
-  return <main>{favorites}</main>;
+      </Link>
+    </div>
+  );
 }
 
 export default Favorites;

@@ -1,0 +1,38 @@
+.favorites {
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+
+  @include until(768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  @include from(768px) {
+    flex-wrap: wrap;
+  }
+
+  .favorite {
+    width: 280px;
+    height: 210px;
+    border-radius: 8px;
+    position: relative;
+
+    h3 {
+      background-color: $green;
+      color: white;
+      width: 200px;
+      padding: 5px;
+    }
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 30px;
+      color: #e2e2e2;
+      stroke: $green;
+      stroke-width: 20px;
+      stroke-linecap: butt;
+    }
+  }
+}

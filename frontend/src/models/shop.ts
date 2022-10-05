@@ -2,10 +2,10 @@ import Address from "./address";
 import Coupon from "./coupon";
 import Media from "./media";
 import Label from "./label";
-import OpeningHours from "./opening-hours";
+import OpeningHours from "./openingHours";
 import Review from "./review";
-import SocialMedia from "./social-media";
-import ShopOwner from "./shop-owner";
+import SocialMedia from "./socialMedia";
+import ShopOwner from "./shopOwner";
 
 export default interface Shop {
   id: number | string;

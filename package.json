@@ -20,7 +20,7 @@
   ],
   "scripts": {
     "start": "concurrently -n frontend,strapi \"npm run start:frontend\" \"npm run start:strapi\"",
-    "start:frontend": "cd frontend && npm start",
+    "start:frontend": "cd frontend && npm run serve",
     "start:strapi": "cd strapi && npm run develop",
     "prepare": "husky install",
     "format:check": "prettier --check --ignore-unknown .",

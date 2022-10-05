@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { login } from "../../api-utils/login-utils";
+import { login } from "../../apiUtils/login-utils";
 import "../../styles/style.css";
 
 function Login() {
@@ -21,110 +21,106 @@ function Login() {
   }
 
   return (
-    <section className="section is-medium">
-      <div className="container login">
+    <section className="section login">
+      <div className="container">
         <div className="columns">
-          <div className="column">
-            <div className="field">
-              <div className="control has-icons-left has-icons-right">
-                <input
-                  className="input"
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <span className="icon is-small is-left">
-                  <i className="fas fa-envelope"></i>
-                </span>
-                <span className="icon is-small is-right">
-                  <i className="fas fa-check"></i>
-                </span>
+          <div className="column is-half">
+            <div className="columns">
+              <div className="column is-5 is-offset-1">
+                <div className="columns is-variable is-1 is-multiline basic-form">
+                  <div className="column is-full">
+                    <input
+                      className="input"
+                      type="email"
+                      placeholder="Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                  <div className="column is-full">
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                    />
+                  </div>
+                  <div className="column is-full">
+                    <button
+                      className="button is-primary"
+                      onClick={handleSubmit}
+                    >
+                      Login
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="field">
-              <div className="control has-icons-left">
-                <input
-                  className="input"
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <span className="icon is-small is-left">
-                  <i className="fas fa-lock"></i>
-                </span>
-              </div>
-            </div>
-            <button
-              className="button is-half is-primary is-medium"
-              onClick={handleSubmit}
-            >
-              Login
-            </button>
           </div>
 
-          <div className="columns">
-            <div className="column">
-              <div className="field is-grouped mobile">
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    placeholder="Name"
-                  ></input>
-                </div>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="text"
-                    placeholder="Vorname"
-                  ></input>
+          <div className="column is-half">
+            <div className="columns">
+              <div className="column is-8 is-offset-2">
+                <div className="columns is-variable is-1 is-multiline basic-form">
+                  <div className="column is-half">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Vorname"
+                      disabled
+                    ></input>
+                  </div>
+                  <div className="column is-half">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="Name"
+                      disabled
+                    ></input>
+                  </div>
+                  <div className="column is-full">
+                    <input
+                      className="input"
+                      type="text"
+                      placeholder="E-Mail"
+                      disabled
+                    ></input>
+                  </div>
+                  <div className="column is-full">
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Password"
+                      disabled
+                    ></input>
+                  </div>
+                  <div className="column is-full">
+                    <input
+                      className="input"
+                      type="password"
+                      placeholder="Password wiederholen"
+                      disabled
+                    ></input>
+                  </div>
+                  <div className="column is-full mgt-1 mgb-1">
+                    <label className="checkbox-label">
+                      <input
+                        className="checkbox-input"
+                        type="checkbox"
+                        disabled
+                      />
+                      Ich stimme den <a href="#">AGBs</a> zu.
+                    </label>
+                  </div>
+
+                  <div className="column is-full">
+                    <button className="button is-primary" disabled>
+                      Registrieren
+                    </button>
+                  </div>
                 </div>
               </div>
-              <div className="field">
-                <div className="control has-icons-left has-icons-right">
-                  <input
-                    className="input"
-                    type="email"
-                    placeholder="Email"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-envelope"></i>
-                  </span>
-                  <span className="icon is-small is-right">
-                    <i className="fas fa-check"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control has-icons-left">
-                  <input
-                    className="input"
-                    type="password"
-                    placeholder="Password"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="field">
-                <div className="control has-icons-left">
-                  <input
-                    className="input"
-                    type="password"
-                    placeholder="Password wiederholen"
-                  ></input>
-                  <span className="icon is-small is-left">
-                    <i className="fas fa-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <button className="button is-half is-primary is-medium">
-                Registrieren
-              </button>
             </div>
           </div>
         </div>

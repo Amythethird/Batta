@@ -1,0 +1,20 @@
+.user-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 7rem;
+  width: 7rem;
+  border-radius: $radius;
+  overflow: hidden;
+  margin: 0 !important;
+  transform: translate(50%, -50%);
+
+  @include until($tablet) {
+    transform: translate(0%, -90%);
+  }
+  img {
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
+  }
+}

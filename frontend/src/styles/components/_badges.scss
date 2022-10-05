@@ -1,0 +1,18 @@
+.badges {
+  .badge {
+    .badge-inner {
+      box-shadow: $default-shadow;
+      background: $primary-pseudo-trans;
+      border-radius: $radius;
+      padding: 1rem;
+      p {
+        font-size: 0.75rem;
+      }
+    }
+
+    img {
+      width: 3.375rem;
+      height: 3.375rem;
+    }
+  }
+}

@@ -1,68 +1,70 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+// import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import "../../../styles/style.css";
 import { Link } from "react-router-dom";
+import Shop from "../../../models/shop";
 
-interface Shop {
-  id: number;
-  name: string;
-  tag: string[];
-  address?: string;
-  oeffnungszeiten?: Record<string, string>;
-  text: string;
-  plz: string;
-  img?: string;
+interface ShopCardProps {
+  shop: Shop;
 }
 
-function ShopCard(props: Shop) {
+function ShopCard(props: ShopCardProps) {
+  function truncate(str: any, n: any) {
+    return str.length > n ? str.slice(0, n - 1) + "... " : str;
+  }
+
   return (
-    <main className="mr-6">
-      <div className="shopCard background_light">
-        <div
-          className="cardHeader"
-          style={{
-            // eslint-disable-next-line no-undef
-            backgroundImage: `url(${process.env.REACT_APP_STRAPI}${props.img})`,
-          }}
-        >
-          <div className="columns m-1">
-            <div className="column is-9 is-flex is-align-items-flex-end">
-              <Link
-                className="is-size-4 hasBackground pr-1"
-                to={`/shop/${props.id}`}
-              >
-                {props.name}
-                <FontAwesomeIcon icon={faAngleRight} />
-              </Link>
-            </div>
-            <div className="column is-flex is-justify-content-flex-end">
-              <a>
+    <div className="column is-4-tablet is-3-widescreen">
+      <Link to={`/shop/${props.shop.id}`}>
+        <div className="card shop-preview">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img
+                /* eslint-disable-next-line no-undef */
+                src={`${process.env.REACT_APP_STRAPI}${props.shop.shopHeaderImage?.url}`}
+                alt="Placeholder image"
+              />
+              <h3 className="title is-3">{props.shop.shopName}</h3>
+              <a className="favorite-icon">
                 <FontAwesomeIcon
                   className="iconFon  m-2"
                   icon={faHeart}
                   size="2x"
                 />
               </a>
+            </figure>
+          </div>
+          <div className="card-content">
+            <div className="content">
+              <p>{truncate(props.shop.description, 100)}</p>
+              <p>
+                <b>Adresse:</b>
+                <br />
+                {props.shop?.address?.streetName +
+                  " " +
+                  props.shop?.address?.houseNumber}
+                <br />
+                {props.shop?.address?.city +
+                  " " +
+                  props.shop.address?.postalCode}
+              </p>
+              <p>
+                <b>Öffnungszeiten:</b>
+                <br />
+                {props.shop?.openingHours?.map(
+                  (e) =>
+                    e.openTime?.substring(0, 5) +
+                    " bis " +
+                    e.closeTime?.substring(0, 5)
+                )}
+              </p>
             </div>
           </div>
         </div>
-        <div className="card-body p-3 mt-1">
-          {props.tag.map((i, socialMediaTag) => (
-            <div className="tag mr-2 mb-2" key={socialMediaTag}>
-              <p>{i}</p>
-            </div>
-          ))}
-
-          <p className="mb-2">{props.text}</p>
-          <p className="has-text-weight-medium">Adresse</p>
-          <p className="mb-2">{props.address}</p>
-          <p className="has-text-weight-medium">Öffnungszeiten</p>
-          <p className="mb-2">{JSON.stringify(props.oeffnungszeiten)}</p>
-        </div>
-      </div>
-    </main>
+      </Link>
+    </div>
   );
 }
 

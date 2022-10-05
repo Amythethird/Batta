@@ -1,9 +1,9 @@
 import React from "react";
 
-interface sortierung {
+interface Sorting {
   sortierung: string[];
 }
-function Sorted(props: sortierung) {
+function Sorted(props: Sorting) {
   const [checkboxValue, setCheckbox] = React.useState({
     checkbox: [""],
     response: [""],
@@ -12,8 +12,6 @@ function Sorted(props: sortierung) {
     // Destructuring
     const { value, checked } = e.target;
     const { checkbox } = checkboxValue;
-
-    console.log(`${value} is ${checked}`);
 
     // Case 1 : The user checks the box
     if (checked) {
@@ -33,25 +31,20 @@ function Sorted(props: sortierung) {
   };
 
   return (
-    <div className="container radio-list">
-      <p className="has-text-weight-medium mb-2">Sortierung</p>
-      <div className="control">
-        {props.sortierung.map((e) => (
-          <div className="control" key={e}>
-            <label className="radio">
-              <input
-                className="form-check-input mr-2"
-                type="Radio"
-                name="categories"
-                value={e}
-                id="flexCheckDefault"
-                onChange={handleChange}
-              />
-              {e}
-            </label>
-          </div>
-        ))}
-      </div>
+    <div className="radio-list">
+      {props.sortierung.map((e) => (
+        <label className="radio-label" key={e}>
+          <input
+            className="radio-input"
+            type="Radio"
+            name="categories"
+            value={e}
+            id="flexCheckDefault"
+            onChange={handleChange}
+          />
+          {e}
+        </label>
+      ))}
     </div>
   );
 }

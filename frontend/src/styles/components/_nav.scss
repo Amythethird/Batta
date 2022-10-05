@@ -1,0 +1,87 @@
+// $navbar-background-color: $scheme-main;
+// $navbar-box-shadow-size: 0 2px 0 0;
+// $navbar-box-shadow-color: $background;
+$navbar-height: 4rem;
+// $navbar-padding-vertical: 1rem;
+// $navbar-padding-horizontal: 2rem;
+// $navbar-z: 30;
+// $navbar-fixed-z: 30;
+
+$navbar-item-color: $text;
+$navbar-item-hover-color: $primary;
+$navbar-item-hover-background-color: unset;
+// $navbar-item-active-color: $scheme-invert;
+// $navbar-item-active-background-color: transparent;
+// $navbar-item-img-max-height: 1.75rem;
+
+$navbar-burger-color: $primary;
+
+// $navbar-tab-hover-background-color: transparent;
+// $navbar-tab-hover-border-bottom-color: $link;
+// $navbar-tab-active-color: $link;
+// $navbar-tab-active-background-color: transparent;
+// $navbar-tab-active-border-bottom-color: $link;
+// $navbar-tab-active-border-bottom-style: solid;
+// $navbar-tab-active-border-bottom-width: 3px;
+
+// $navbar-dropdown-background-color: $scheme-main;
+// $navbar-dropdown-border-top: 2px solid $border;
+// $navbar-dropdown-offset: -4px;
+// $navbar-dropdown-arrow: $link;
+// $navbar-dropdown-radius: $radius-large;
+// $navbar-dropdown-z: 20;
+
+// $navbar-dropdown-boxed-radius: $radius-large;
+// $navbar-dropdown-boxed-shadow: 0 8px 8px bulmaRgba($scheme-invert, 0.1), 0 0 0 1px bulmaRgba($scheme-invert, 0.1);
+
+// $navbar-dropdown-item-hover-color: $scheme-invert;
+// $navbar-dropdown-item-hover-background-color: $background;
+// $navbar-dropdown-item-active-color: $link;
+// $navbar-dropdown-item-active-background-color: $background;
+
+// $navbar-divider-background-color: $background;
+// $navbar-divider-height: 2px;
+
+// $navbar-bottom-box-shadow-size: 0 -2px 0 0;
+
+// $navbar-breakpoint: $desktop;
+
+// $navbar-colors: $colors;
+
+#batta-logo-wrap {
+  height: 1.25rem;
+  .logo-fill {
+    fill: $primary;
+  }
+}
+
+.navbar-end .navbar-item {
+  color: $primary;
+}
+
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: $grey-light;
+}
+
+// a.navbar-item,
+// .navbar-link {
+//   color: $green;
+// }
+
+// .navbar-brand .a {
+//   font-weight: 700;
+// }
+
+// .navbar-end > a.navbar-item {
+//   &:nth-child(2) {
+//     content: "";
+//     border: 1px solid #e2e2e2;
+//     border-width: 1px 1px 0 0;
+//     right: -3px;
+//     top: 0;
+//     height: 100%;
+//   }
+// }

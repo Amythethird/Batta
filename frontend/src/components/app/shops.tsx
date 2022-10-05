@@ -7,8 +7,8 @@ import {
 } from "../../state/slices/shops-filter.state";
 import { selectShops, setShops } from "../../state/slices/shops.state";
 import useApi from "../../hooks/useApi";
-import { collection, entry, query } from "../../api-utils/query-utils";
-import { parseResponse } from "../../api-utils/response-utils";
+import { collection, entry, query } from "../../apiUtils/query-utils";
+import { parseResponse } from "../../apiUtils/response-utils";
 import React from "react";
 import ReactSlider from "react-slider";
 import "../../styles/style.css";
@@ -18,12 +18,14 @@ import Rating from "../globals/elements/rating";
 import Sorted from "../globals/sorted";
 import Categories from "../globals/categories";
 import Shop from "../../models/shop";
-import { parseShopOwnerResponseToShopOwner } from "../../api-utils/user-utils";
+import { parseShopOwnerResponseToShopOwner } from "../../apiUtils/user-utils";
+// import MapBox from "../globals/elements/mapBox";
 
 function FilterShops() {
   const dispatch = useAppDispatch();
   const shops = useAppSelector(selectShops);
   const filter = useAppSelector(selectShopsFilter);
+  const [input, setCriteria] = React.useState("");
 
   useApi(
     query(
@@ -31,8 +33,19 @@ function FilterShops() {
         "shops",
         [
           "shopName",
-          entry("address", ["postalCode"]),
+          entry("address", [
+            "streetName, postalCode, houseNumber, city, country",
+          ]),
+          entry("openingHours", [
+            "openTime",
+            "closeTime",
+            "breakTimeStart",
+            "breakTimeEnd",
+          ]),
+          "coordinateLat",
+          "coordinateLng",
           "description",
+          entry("shopHeaderImage", ["url"]),
           entry("shopOwner", [
             entry("customer", [entry("profilePicture", ["url"])]),
           ]),
@@ -44,18 +57,19 @@ function FilterShops() {
     ),
     (response) => {
       let shops = parseResponse("shops", response).data as Shop[];
+
       shops.forEach((shop) => {
         shop.shopOwner = parseShopOwnerResponseToShopOwner(shop.shopOwner!);
       });
       dispatch(setShops(shops));
     },
-    [filter]
+    [filter],
+    false
   );
 
   //Input Form
-  const [input, setCriteria] = React.useState("");
-  const categorie: string[] = [];
 
+  const categorie: string[] = [];
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCriteria(e.currentTarget.value);
     dispatch(setShopsFilter(e.currentTarget.value));
@@ -70,9 +84,9 @@ function FilterShops() {
   let allStatements;
   if (filter) {
     allStatements = (
-      <div className="container mb-space-medium">
-        <div className="columns is-align-items-flex-start">
-          <div className="column is-two-fifths">
+      <div className="search-filter-wrapper">
+        <div className="columns">
+          <div className="column is-half">
             <Categories
               handler={get}
               categorie={[
@@ -84,25 +98,32 @@ function FilterShops() {
                 "Spielzeug",
               ]}
             />
-            <div className="slider mt-5">
+
+            <h3 className="title is-3 mgb-05 mgt-1">Entfernung</h3>
+            <div className="range-slider is-flex">
               <ReactSlider
                 className="horizontal-slider"
-                thumbClassName="example-thumb"
-                trackClassName="example-track"
+                thumbClassName="slider-thumb"
+                trackClassName="slider-track"
                 marks
-                markClassName="example-mark"
+                markClassName="slider-mark"
                 min={0}
                 max={100}
                 renderThumb={(props, state) => (
-                  <div {...props}>{state.valueNow}</div>
+                  <div className="slider-value" {...props}>
+                    {state.valueNow}
+                  </div>
                 )}
               />
+              <span className="slider-unit">km</span>
             </div>
           </div>
           <div className="column">
+            <h3 className="title is-3 mgb-05">Bewertung</h3>
             <Rating durchschnitt={1} title={true} full={false} ratings={0} />
           </div>
           <div className="column">
+            <h3 className="title is-3 mgb-05">Sortierung</h3>
             <Sorted
               sortierung={["Beste Treffer", "Entfernung", "A-Z", "Z-A"]}
             />
@@ -112,46 +133,61 @@ function FilterShops() {
     );
   }
 
-  return (
-    <div>
-      <div className=" container mb-space-large mt-space-large">
-        <div className="field Shops">
-          <p className="control has-icons-left is-flex has-button-right">
-            <input
-              className="input"
-              type="text"
-              placeholder="PLZ oder Adresse"
-              name="email"
-              value={input}
-              onChange={handleChange}
-            />
-            <span className="icon is-small is-left">
-              <FontAwesomeIcon icon={faSearch} color="#257708" />
-            </span>
-            <a className="button">
-              <FontAwesomeIcon icon={faFilter} color="#257708" />
-            </a>
-          </p>
-        </div>
-        {allStatements}
-      </div>
+  type Coordinates = {
+    lat: number;
+    lng: number;
+  };
 
-      <section className="section is-medium is-flex">
-        {shops.map((shop: Shop) => (
-          <ShopCard
-            key={shop.id}
-            name={shop.shopName ?? "SHOP"}
-            tag={[]}
-            oeffnungszeiten={{ Mo: "08:00h-17:00h" }}
-            text={shop.description ?? ""}
-            //address={shop.address}
-            plz={shop.address?.postalCode?.toString() ?? input}
-            img={shop.shopOwner?.profilePicture?.url}
-            id={shop.id as number}
-          />
-        ))}
+  let coordinates: Coordinates = {
+    lat: 0,
+    lng: 0,
+  };
+  shops.map((coord) => {
+    (coordinates.lat = coord.coordinateLat!),
+      (coordinates.lng = coord.coordinateLng!);
+  });
+
+  return (
+    <main>
+      <section className="section">
+        <div className="container content">
+          <div className="columns searchbar">
+            <div className="column">
+              <input
+                className="search-bar input"
+                type="text"
+                placeholder="PLZ oder Adresse"
+                name="email"
+                value={input}
+                onChange={handleChange}
+              />
+              <span className="search-icon">
+                <FontAwesomeIcon icon={faSearch} color="#257708" />
+              </span>
+              <span className="search-filter">
+                <FontAwesomeIcon icon={faFilter} color="#257708" />
+              </span>
+            </div>
+          </div>
+          {allStatements}
+        </div>
       </section>
-    </div>
+      {/* <section className="mapBox  pdt-0">
+        <div className="">
+          <MapBox coords={[{ lat: coordinates.lat, lng: coordinates.lng }]} />
+        </div>
+      </section> */}
+
+      <section className="section pdt-0">
+        <div className="container">
+          <div className="columns is-multiline">
+            {shops.map((shop: Shop) => (
+              <ShopCard key={shop.id} shop={shop} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
 export default FilterShops;

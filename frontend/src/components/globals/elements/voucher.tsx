@@ -1,29 +1,47 @@
-
 import React from "react";
 
+interface VoucherModel {
+  boughtAt: Date;
+  expiringDate: Date;
+  couponID: string;
+  currentValue: number;
+  value: number;
+  shopName: string;
+  shopImage: string;
+  qrCode: string;
+}
 
-function Voucher() {
+function Voucher(props: VoucherModel) {
+  const boughtDate = new Date(props.boughtAt).toLocaleDateString();
   return (
-    <main>
-        <div className="voucher">
-            <div className=" box">
-                 <div className="box_header is-flex is-align-items-end"
-                 style={
-                    {  
-                        backgroundImage: `url(${"https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"})`,
-                        backgroundRepeat: "no-repeat",
-                        backgroundSize: "cover",                       
-                    }}
-                 >
-                  <h1 className="is-size-1 ">50€</h1>
-                  <h3 className="is-size-4 mb-2">Lisas Klamotten</h3>
-                </div>
-                <div className="box_content is-flex is-align-items-center is-justify-content-center">
-                  <p>test</p>
-                </div>   
+    <div className="column is-3">
+      <a href="#">
+        <div className="card voucher-card">
+          <div className="card-image">
+            <figure className="image is-4by3">
+              <img
+                /* eslint-disable-next-line no-undef */
+                src={`${process.env.REACT_APP_STRAPI}${props.shopImage}`}
+                alt="Placeholder image"
+              />
+
+              <span className="voucher-value">{props.currentValue + "€"}</span>
+              <h2>{props.shopName}</h2>
+            </figure>
+          </div>
+
+          <div className="card-content">
+            <div className="content">
+              <p>Erhalten: {boughtDate}</p>
+              <div className="code has-text-centered">
+                <img src={props.qrCode} alt="qrCode" />
+                <span className="code-id">ID {props.couponID}</span>
+              </div>
             </div>
+          </div>
         </div>
-    </main>
+      </a>
+    </div>
   );
 }
 

@@ -1,0 +1,236 @@
+// Colors
+
+$black: #333333;
+$black-bis: hsl(0, 0%, 7%);
+$black-ter: hsl(0, 0%, 14%);
+
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+$grey-lightest: hsl(0, 0%, 93%);
+
+$white-ter: hsl(0, 0%, 96%);
+$white-bis: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+$orange: hsl(14, 100%, 53%);
+$yellow: hsl(44, 100%, 77%);
+$green: #257708;
+$light-green: #95c11f;
+$turquoise: hsl(171, 100%, 41%);
+$cyan: hsl(207, 61%, 53%);
+$blue: hsl(229, 53%, 53%);
+$purple: hsl(271, 100%, 71%);
+$red: hsl(348, 86%, 61%);
+
+$primary: $green;
+$secondary: $light-green;
+$text: $black;
+$primary-pseudo-trans: #e8f0e8;
+
+$link: $primary;
+
+// Spacing
+
+// $block-spacing: 1.5rem;
+
+// Responsiveness
+
+// The container horizontal gap, which acts as the offset for breakpoints
+$gap: 16px;
+// 960, 1152, and 1344 have been chosen because they are divisible by both 12 and 16
+$tablet: 769px;
+// 960px container + 4rem
+$desktop: 960px + (2 * $gap);
+// 1152px container + 4rem
+$widescreen: 1200px + (2 * $gap);
+$widescreen-enabled: true;
+// 1344px container + 4rem
+$fullhd: 1200px + (2 * $gap);
+// $fullhd-enabled: true;
+
+// Typography
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Scada:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+$family-sans-serif: "Roboto", sans-serif;
+$family-serif: "Roboto Slab", sans-serif;
+// $family-monospace: monospace;
+// $render-mode: optimizeLegibility;
+
+$size-1: 2rem;
+$size-2: 1.5rem;
+$size-3: 1rem;
+// $size-4: 1.5rem;
+// $size-5: 1.25rem;
+$size-6: 0.75rem;
+// $size-7: 0.75rem;
+
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semibold: 600;
+$weight-bold: 700;
+
+@media screen and (max-width: $widescreen) {
+  h1.title.is-1 {
+    font-size: 1.75rem;
+  }
+}
+
+// Miscellaneous
+
+// $easing: ease-out;
+$radius-small: 2px;
+$radius: 0.5rem;
+$radius-large: 0.5rem;
+$radius-rounded: 9999px;
+$speed: 86ms;
+
+// Flags
+
+// $variable-columns: true;
+// $rtl: false;
+
+// Hero Body
+
+$hero-body-padding: 3.5rem 1.5rem;
+$hero-body-padding-tablet: 3.5rem 1.5rem;
+$hero-body-padding-small: 2rem 1.5rem;
+$hero-body-padding-medium: 3rem 1.5rem;
+$hero-body-padding-large: 4rem 1.5rem;
+
+// Secionts
+
+$section-padding: 3.5rem 1.5rem;
+$section-padding-tablet: 3.5rem 1.5rem;
+$section-padding-desktop: 3.5rem 1.5rem;
+$section-padding-medium: 3rem 1.5rem;
+$section-padding-large: 4rem 1.5rem;
+
+// Shadow
+
+$default-shadow: 0 0 0.5rem 0 rgba($black, 0.25);
+
+// Transition
+
+$default-transition: all 100ms ease;
+
+// Buttons
+
+$button-color: $white;
+$button-background-color: $secondary;
+// // $button-family: false;
+
+$button-border-color: none;
+// $button-border-width: unset;
+
+$button-padding-vertical: 1.5rem;
+$button-padding-horizontal: 2em;
+
+$button-hover-color: $white;
+$button-hover-border-color: none;
+
+// $button-focus-color: $link-focus;
+// $button-focus-border-color: $link-focus-border;
+// $button-focus-box-shadow-size: 0 0 0 0.125em;
+// $button-focus-box-shadow-color: bulmaRgba($link, 0.25);
+
+// $button-active-color: $link-active;
+// $button-active-border-color: $link-active-border;
+
+// $button-text-color: $text;
+// $button-text-decoration: underline;
+// $button-text-hover-background-color: $background;
+// $button-text-hover-color: $text-strong;
+
+// $button-ghost-background: none;
+// $button-ghost-border-color: transparent;
+// $button-ghost-color: $link;
+// $button-ghost-decoration: none;
+// $button-ghost-hover-color: $link;
+// $button-ghost-hover-decoration: underline;
+
+// $button-disabled-background-color: $scheme-main;
+// $button-disabled-border-color: $border;
+// $button-disabled-shadow: none;
+// $button-disabled-opacity: 0.5;
+
+// $button-static-color: $text-light;
+// $button-static-background-color: $scheme-main-ter;
+// $button-static-border-color: $border;
+
+// $button-colors: $colors;
+// $button-responsive-sizes: ("mobile": ("small": ($size-small * 0.75), "normal": ($size-small * 0.875), "medium": $size-small, "large": $size-normal), "tablet-only": ("small": ($size-small * 0.875), "normal": ($size-small), "medium": $size-normal, "large": $size-medium));
+
+// Footer
+
+$footer-background-color: $primary;
+$footer-color: $white;
+// $footer-padding: 3rem 1.5rem 6rem;
+
+// Inputs
+
+// $form-colors: $colors;
+
+// $input-color: $black;
+// $input-background-color: $scheme-main;
+// $input-border-color: $border;
+// $input-height: $control-height;
+// $input-shadow: inset 0 0.0625em 0.125em rgba($scheme-invert, 0.05);
+// $input-placeholder-color: bulmaRgba($input-color, 0.3);
+
+// $input-hover-color: $text-strong;
+// $input-hover-border-color: $border-hover;
+
+// $input-focus-color: $text-strong;
+// $input-focus-border-color: $link;
+// $input-focus-box-shadow-size: 0 0 0 0.125em;
+// $input-focus-box-shadow-color: bulmaRgba($link, 0.25);
+
+// $input-disabled-color: $text-light;
+// $input-disabled-background-color: $background;
+// $input-disabled-border-color: $background;
+// $input-disabled-placeholder-color: bulmaRgba($input-disabled-color, 0.3);
+
+// $input-arrow: $link;
+
+// $input-icon-color: $border;
+// $input-icon-active-color: $text;
+
+$input-radius: $radius;
+
+// Cards
+
+// $card-color: $text;
+// $card-background-color: $scheme-main;
+$card-shadow: $default-shadow;
+$card-radius: $radius;
+
+// $card-header-background-color: $white;
+// $card-header-color: $text-strong;
+// $card-header-padding: 0.75rem 1rem;
+// $card-header-shadow: 0 0.125em 0.25em rgba($scheme-invert, 0.1);
+// $card-header-weight: $weight-bold;
+
+// $card-content-background-color: $white;
+$card-content-padding: 1rem;
+
+// $card-footer-background-color: transparent;
+// $card-footer-border-top: 1px solid $border-light;
+// $card-footer-padding: 0.75rem;
+
+// $card-media-margin: $block-spacing;
+
+$box-background-color: rgba($primary, 0.1);
+
+// Tags
+
+$tag-background-color: $primary;
+$tag-color: $white;
+$tag-radius: $radius * 2;
+// $tag-delete-margin: ;
+// $tag-colors: ;
