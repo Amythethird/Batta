@@ -40,11 +40,11 @@ Steinmüllerallee 1<br />
 
 ## Projekt I: Vision und Konzept
 
-Im Rahmen des Moduls ["Projekt I: Vision und Konzept"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_visionkonzept) im Wintersemester 2021/2022 wurde ein Design Sprint durchgeführt und auf dessen Grundlage ein Konzept entwickelt. Sowohl Design Sprint als auch Konzept wurden im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-I:-Vision-und-Konzept) dokumentiert und sind dort abrufbar. Das Modul ["Projekt I: Vision und Konzept"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_visionkonzept) wurde im März 2022 mit einer Abschlusspräsentation abgeschlossen.
+Im Rahmen des Moduls ["Projekt I: Vision und Konzept"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_visionkonzept) im Wintersemester 2021/2022 wurde ein Design Sprint durchgeführt und auf dessen Grundlage ein Konzept entwickelt. Sowohl Design Sprint als auch Konzept wurden im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-I-Vision-und-Konzept) dokumentiert und sind dort abrufbar. Das Modul ["Projekt I: Vision und Konzept"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_visionkonzept) wurde im März 2022 mit einer Abschlusspräsentation abgeschlossen.
 
 ## Projekt II: Entwicklung
 
-Im Rahmen des Moduls ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) im Sommersemester 2022 wurde ein MVP entwickelt. Die Dokumentation des MVPs sowie der Projektarbeit ist im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-II:-Entwicklung) abrufbar. Das Modul ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) wird im September 2022 mit einer Abschlusspräsentation abgeschlossen.
+Im Rahmen des Moduls ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) im Sommersemester 2022 wurde ein MVP entwickelt. Die Dokumentation des MVPs sowie der Projektarbeit ist im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-II-Entwicklung) abrufbar. Das Modul ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) wird im September 2022 mit einer Abschlusspräsentation abgeschlossen.
 
 # Setup-Guide
 
