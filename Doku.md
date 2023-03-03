@@ -97,6 +97,9 @@ Der Launch der Plattform erfolgt am Jahresbeginn 2024. Die weiteren Großstädte
  
 Nach sechs Monaten erfolgt der Launch des Batta Blogs für einen Austausch rund um das Thema Nachhaltigkeit. Nach zwei Jahren wird nach den Wünschen und Empfehlungen von Kund:innen damit begonnen, Einzelhändler:innen in Kleinstädten zu akquirieren.
 
+## Chancen und Riskiken
+
+## Finanzplanung
 
 
 
