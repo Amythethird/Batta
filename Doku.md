@@ -1,7 +1,9 @@
 # Business Plan
 Der Business Plan wurde für den in Projekt III angebotenen Vertiefungsworkshop von Frau Engelen, Idea to Market, angefertigt. Dieser kurze Ausriss des Business Plan, den Sie unter folgendem Link Herunterladen können, enthält die Wichtigsten Informationen aus den Bereichen Produkt und Dienstleistung, Geschäftsmodell und Organisation, Markt und Wettbewerb, Marketing und Vertrieb, Chancen und Riskiken sowie der Finanzplanung.
 
-# Hier Original-Paper [Business Plan](#)
+# Downloadlink 
+Hier kann das angefertigte Paper für den Vertiefungsworkshop Idea to Market heruntergeladen werden.<br>
+[Businessplan](https://github.com/Amythethird/Batta/blob/develop/Images/BusinessPlan_Engelen.pdf)
 
 ## Executive Summary
 
