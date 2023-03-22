@@ -10,6 +10,7 @@ Das Projekt baut auf dem [Veedelsretter](https://www.veedelsretter.koeln) auf un
 - [Projektmodule](#projektmodule)
   - [Projekt I: Vision und Konzept](#projekt-i-vision-und-konzept)
   - [Projekt II: Entwicklung](#projekt-ii-entwicklung)
+  - [Projekt III: Evaluation und Verwertung](#projekt-iii-evaluation-und-verwertung)
 - [Setup-Guide](#setup-guide)
   - [Voraussetzungen](#voraussetzungen)
   - [Entwicklungsumgebung](#entwicklungsumgebung)
@@ -45,6 +46,10 @@ Im Rahmen des Moduls ["Projekt I: Vision und Konzept"](https://www.medieninforma
 ## Projekt II: Entwicklung
 
 Im Rahmen des Moduls ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) im Sommersemester 2022 wurde ein MVP entwickelt. Die Dokumentation des MVPs sowie der Projektarbeit ist im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-II-Entwicklung) abrufbar. Das Modul ["Projekt II: Entwicklung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_entwicklung/) wird im September 2022 mit einer Abschlusspräsentation abgeschlossen.
+
+## Projekt III: Evaluation und Verwertung
+
+Im Rahmen des Moduls ["Projekt III: Evaluation und Verwertung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_verwertung/) im Sommersemester 2023 wurden ein Business Plan erstellt und verschiedene Bereiche der Thematik Zahlung behandelt. Die Zusammenfassung des Business Plans sowie die Dokumentation der Erkenntnisse zum Thema Zahlung sind im [Wiki](https://github.com/Amythethird/Batta/wiki/Projekt-III-Verwertung) abrufbar. Das Modul ["Projekt III: Evaluation und Verwertung"](https://www.medieninformatik.th-koeln.de/study/master/moduls/ma_modul_projekt_verwertung/) wurde im März 2023 mit einer Abschlusspräsentation abgeschlossen.
 
 # Setup-Guide
 
